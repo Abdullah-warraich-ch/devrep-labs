@@ -6,7 +6,7 @@ import CursorGrid from "@/components/ui/CursorGrid";
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full p-2 sm:p-4 bg-background space-y-6 relative">
+    <main className="min-h-screen w-full p-2 sm:p-4 bg-background space-y-6 relative overflow-x-hidden">
       {/* Interactive Cursor Grid Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <CursorGrid
@@ -26,7 +26,7 @@ export default function Home() {
       </div>
 
       {/* Section 1: Header and Hero */}
-      <div className="text-white relative m-0 h-[calc(100vh-2rem)] min-h-[600px] w-full overflow-hidden rounded-3xl bg-black flex flex-col border border-white/10 z-10">
+      <div className="text-white relative m-0 min-h-[600px] lg:h-[calc(100vh-2rem)] w-full overflow-hidden rounded-2xl sm:rounded-3xl bg-black flex flex-col border border-white/10 z-10">
 
         {/* Full Container Background Art */}
         <div className="absolute inset-0 h-full w-full pointer-events-none z-0">
@@ -58,6 +58,7 @@ export default function Home() {
                       height="70"
                       fill={isHighlight ? "url(#goldGradient)" : "transparent"}
                       stroke="rgba(255,255,255,0.08)"
+                      strokeWidth="1"
                     />
                   );
                 })
@@ -65,18 +66,18 @@ export default function Home() {
             </svg>
           </div>
 
-          {/* Layer 2: Moving gradient spot */}
-          <div className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-3xl" />
+          {/* Layer 2: Subtle Radial Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
         </div>
 
-        {/* Navigation Bar */}
+        {/* Header Navigation */}
         <Header />
 
-        {/* Main Hero Content */}
+        {/* Main Hero Component */}
         <Hero />
       </div>
 
-      {/* Section 2: About Us */}
+      {/* Section 2: About Us / Process */}
       <AboutUs />
 
       {/* Section 3: FAQ */}
