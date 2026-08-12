@@ -62,3 +62,18 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   overflow-x: hidden;
 }
+
+/* REMOVE OUTLINE AND FOCUS RING ON ALL BUTTONS & INTERACTIVE ELEMENTS */
+button,
+a,
+input,
+select,
+textarea,
+[role="button"],
+*:focus,
+*:focus-visible,
+*:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
+}

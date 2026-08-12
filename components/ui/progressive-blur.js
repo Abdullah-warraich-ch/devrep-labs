@@ -8,6 +8,7 @@ export function ProgressiveBlur({
   height = "30%",
   position = "bottom",
   blurLevels = [0.5, 1, 2, 4, 8, 16, 32, 64],
+  borderRadius = "inherit",
   children,
 }) {
   // Create array with length equal to blurLevels.length - 2 (for before/after pseudo elements)
@@ -16,7 +17,7 @@ export function ProgressiveBlur({
   return (
     <div
       className={cn(
-        "gradient-blur pointer-events-none absolute inset-x-0 z-20",
+        "gradient-blur pointer-events-none absolute inset-x-0 z-20 overflow-hidden",
         className,
         position === "top"
           ? "top-0"
@@ -26,6 +27,9 @@ export function ProgressiveBlur({
       )}
       style={{
         height: position === "both" ? "100%" : height,
+        borderRadius: borderRadius,
+        WebkitClipPath: "inset(0 round " + (typeof borderRadius === "number" ? `${borderRadius}px` : borderRadius) + ")",
+        clipPath: "inset(0 round " + (typeof borderRadius === "number" ? `${borderRadius}px` : borderRadius) + ")",
       }}
     >
       {/* First blur layer */}
@@ -33,6 +37,7 @@ export function ProgressiveBlur({
         className="absolute inset-0"
         style={{
           zIndex: 1,
+          borderRadius: borderRadius,
           backdropFilter: `blur(${blurLevels[0]}px)`,
           WebkitBackdropFilter: `blur(${blurLevels[0]}px)`,
           maskImage:
@@ -70,6 +75,7 @@ export function ProgressiveBlur({
             className="absolute inset-0"
             style={{
               zIndex: index + 2,
+              borderRadius: borderRadius,
               backdropFilter: `blur(${blurLevels[blurIndex]}px)`,
               WebkitBackdropFilter: `blur(${blurLevels[blurIndex]}px)`,
               maskImage: maskGradient,
@@ -84,6 +90,7 @@ export function ProgressiveBlur({
         className="absolute inset-0"
         style={{
           zIndex: blurLevels.length,
+          borderRadius: borderRadius,
           backdropFilter: `blur(${blurLevels[blurLevels.length - 1]}px)`,
           WebkitBackdropFilter: `blur(${blurLevels[blurLevels.length - 1]}px)`,
           maskImage:

@@ -54,11 +54,10 @@ function FaqCard({ item, realIndex, isOpen, onToggle }) {
           {item.question}
         </span>
         <div
-          className={`flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center border transition-all duration-200 ${
-            isOpen
+          className={`flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center border transition-all duration-200 ${isOpen
               ? "bg-primary text-primary-content border-primary shadow-sm shadow-primary/30"
               : "bg-primary/10 text-copy border-primary/20"
-          }`}
+            }`}
         >
           {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
         </div>
@@ -201,11 +200,11 @@ export default function Faq() {
                 </Highlighter>
               </span>
             </h2>
-            <p className="text-copy-light text-base sm:text-lg max-w-lg leading-relaxed font-normal">
+            <div className="text-copy-light text-base sm:text-lg max-w-lg leading-relaxed font-normal">
               <TextReveal>
                 Our support team will get assistance from AI-powered suggestions, making it quicker than ever to handle support requests.
               </TextReveal>
-            </p>
+            </div>
           </div>
         </div>
 
