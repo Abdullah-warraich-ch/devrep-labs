@@ -81,3 +81,29 @@ textarea,
   box-shadow: none !important;
   -webkit-tap-highlight-color: transparent;
 }
+
+/* ---- Services Marquee ---- */
+@keyframes marquee-ltr {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-rtl {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-track-ltr {
+  animation: marquee-ltr 28s linear infinite;
+  will-change: transform;
+}
+.marquee-track-rtl {
+  animation: marquee-rtl 22s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track-ltr,
+  .marquee-track-rtl {
+    animation-play-state: paused !important;
+  }
+}

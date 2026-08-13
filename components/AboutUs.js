@@ -38,7 +38,7 @@ const steps = [
 
 export default function AboutUs() {
   return (
-    <section className="w-full py-10 sm:py-14 my-4 sm:my-6 px-4 sm:px-6 lg:px-8 bg-transparent text-copy relative z-10">
+    <section id="about" className="w-full pt-20 sm:pt-24 pb-10 sm:pb-14 my-4 sm:my-6 px-4 sm:px-6 lg:px-8 bg-transparent text-copy relative z-10 scroll-mt-20">
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10 pt-0">
         {/* Top 2-Column Section: Left Beautified Heading + Right Text Reveal */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
@@ -80,41 +80,51 @@ export default function AboutUs() {
           </div>
 
           {/* Grid Container for Process Steps using ScrollRevealCardGroup */}
-          <ScrollRevealCardGroup
-            stagger={0.16}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 relative min-h-[480px]"
-          >
-            {steps.map((step, idx) => (
-              <div
-                key={idx}
-                className={`flex flex-col sm:flex-row lg:flex-row gap-5 items-start ${step.offset}`}
-              >
-                {/* Vertical Capsule Pill Image */}
-                <div className="relative flex-shrink-0 w-24 h-56 rounded-[50px] overflow-hidden shadow-xl border border-black/10 group">
-                  <img
-                    src={step.image}
-                    alt={step.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                  />
+          <div className="relative min-h-[480px]">
+            {/* Background Vertical Grid Lines */}
+            <div className="hidden lg:grid grid-cols-4 absolute inset-0 pointer-events-none -z-10">
+              <div className="border-r border-border/40 h-full" />
+              <div className="border-r border-border/40 h-full" />
+              <div className="border-r border-border/40 h-full" />
+              <div className="h-full" />
+            </div>
 
-                  {/* White Step Number Circle Badge */}
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white text-copy font-semibold text-sm flex items-center justify-center shadow-lg z-10 border border-border/30">
-                    {step.number}
+            <ScrollRevealCardGroup
+              stagger={0.16}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4"
+            >
+              {steps.map((step, idx) => (
+                <div
+                  key={idx}
+                  className={`flex flex-col sm:flex-row lg:flex-row gap-5 items-start ${step.offset}`}
+                >
+                  {/* Vertical Capsule Pill Image */}
+                  <div className="relative flex-shrink-0 w-24 h-56 rounded-[50px] overflow-hidden shadow-xl border border-black/10 group">
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    />
+
+                    {/* White Step Number Circle Badge */}
+                    <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white text-copy font-semibold text-sm flex items-center justify-center shadow-lg z-10 border border-border/30">
+                      {step.number}
+                    </div>
+                  </div>
+
+                  {/* Step Content (Standard Static Text) */}
+                  <div className="space-y-2 pt-2 max-w-xs">
+                    <h3 className="text-xl sm:text-2xl font-bold text-copy tracking-tight leading-snug">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-copy-light leading-relaxed font-normal">
+                      {step.desc}
+                    </p>
                   </div>
                 </div>
-
-                {/* Step Content (Standard Static Text) */}
-                <div className="space-y-2 pt-2 max-w-xs">
-                  <h3 className="text-xl sm:text-2xl font-bold text-copy tracking-tight leading-snug">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-copy-light leading-relaxed font-normal">
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </ScrollRevealCardGroup>
+              ))}
+            </ScrollRevealCardGroup>
+          </div>
         </div>
       </div>
     </section>

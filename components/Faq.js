@@ -94,7 +94,7 @@ export default function Faq() {
   const col2Faqs = faqList.filter((_, i) => i % 2 === 1);
 
   return (
-    <section className="w-full py-16 my-16 px-4 sm:px-6 lg:px-8 bg-transparent bg-white/50 rounded-3xl text-copy relative z-10">
+    <section id="faq" className="w-full py-16 my-16 px-4 sm:px-6 lg:px-8 bg-transparent bg-white/50 rounded-3xl text-copy relative z-10">
       <div className="max-w-7xl mx-auto space-y-16 relative z-10 pt-24">
         <WatermarkHeading text="FAQ'S" opacity="opacity-[0.09]" />
 
@@ -206,10 +206,10 @@ export default function Faq() {
 
             <ScrollRevealText
               preset="Soft Words"
+              trigger="On Load"
+              onLoadDuration={1.8}
               colorHidden="rgba(0, 0, 0, 0.35)"
               colorRevealed="rgba(38, 38, 38, 0.9)"
-              offsetStart={65}
-              offsetEnd={15}
               className="text-copy-light text-base sm:text-lg max-w-lg leading-relaxed font-normal"
             >
               Our engineering support team leverages AI-assisted workflows to ensure fast, sub-hour responses to all technical and project inquiries.

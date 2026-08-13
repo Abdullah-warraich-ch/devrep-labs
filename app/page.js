@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import AboutUs from "@/components/AboutUs";
 import Showcase from "@/components/Showcase";
 import Faq from "@/components/Faq";
+import ServicesMarquee from "@/components/ServicesMarquee";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CurvedLoop from "@/components/ui/CurvedLoop";
@@ -41,6 +42,9 @@ export default function Home() {
 
       {/* Section 5: FAQ */}
       <Faq />
+
+      {/* Section 5.5: Services Marquee Ticker */}
+      <ServicesMarquee />
 
       {/* Section 6: Contact Us (Web3Forms) */}
       <Contact />

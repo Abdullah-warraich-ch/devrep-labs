@@ -190,7 +190,7 @@ export default function Showcase() {
       className="relative w-full h-screen text-zinc-900 flex flex-col justify-center overflow-hidden"
     >
       {/* BACKGROUND WATERMARK ALIGNED PARALLEL TO ABOUT US & FAQ */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 absolute top-8 left-1/2 -translate-x-1/2 pointer-events-none z-0">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 absolute top-20 left-1/2 -translate-x-1/2 pointer-events-none z-0">
         <WatermarkHeading text="WORK" opacity="opacity-[0.09]" />
       </div>
 

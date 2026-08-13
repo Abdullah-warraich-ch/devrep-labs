@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export default function ModernButton({
   title = "Request a Free Demo",
-  href = "#contact",
+  href,
   textColor = "#ffffff",
   hoverTextColor = "#000000",
   backgroundFill = "#000000",
@@ -18,6 +18,9 @@ export default function ModernButton({
   hoverIconColor = "#ffffff",
   className = "",
   onClick,
+  type,
+  disabled = false,
+  as,
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -28,15 +31,19 @@ export default function ModernButton({
     mass: 1.2,
   };
 
+  const Component = as || (type || disabled ? motion.button : motion.a);
+
   return (
     <LayoutGroup>
-      <motion.a
-        href={href}
+      <Component
+        href={Component === motion.a ? href || "#contact" : undefined}
+        type={Component === motion.button ? type || "button" : undefined}
+        disabled={disabled}
         onClick={onClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className={cn(
-          "relative inline-flex items-center justify-center gap-3.5 cursor-pointer text-decoration-none select-none overflow-hidden rounded-full border border-primary/20 hover:border-white/20 shadow-xl h-[58px] sm:h-[60px] box-border",
+          "relative inline-flex items-center justify-center gap-3.5 cursor-pointer text-decoration-none select-none overflow-hidden rounded-full border border-primary/20 hover:border-white/20 shadow-xl h-[58px] sm:h-[60px] box-border disabled:opacity-50 disabled:cursor-not-allowed",
           className
         )}
         style={{
@@ -75,7 +82,7 @@ export default function ModernButton({
         >
           <ChevronRight className="size-5 stroke-[2.5]" />
         </motion.span>
-      </motion.a>
+      </Component>
     </LayoutGroup>
   );
 }

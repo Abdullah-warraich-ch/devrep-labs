@@ -9,6 +9,7 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
+import WavyNavLink from "@/components/ui/WavyNavLink";
 
 export const Navbar = ({ children, className }) => {
   const ref = useRef(null);
@@ -73,36 +74,29 @@ export const NavBody = ({ children, className, visible }) => {
   );
 };
 
-export const NavItems = ({ items, className, onItemClick }) => {
-  const [hovered, setHovered] = useState(null);
-
+export const NavItems = ({ items, className, onItemClick, activeSection }) => {
   return (
-    <motion.div
-      onMouseLeave={() => setHovered(null)}
+    <div
       className={cn(
-        "relative flex flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium transition duration-200 lg:flex",
+        "relative flex flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium transition duration-200 lg:flex",
         className
       )}
     >
-      {items.map((item, idx) => (
-        <a
-          onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
-          className="relative px-4 py-2 text-zinc-300 hover:text-white transition-colors font-medium text-sm rounded-full"
-          key={`link-${idx}`}
-          href={item.link}
-        >
-          {hovered === idx && (
-            <motion.div
-              layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-zinc-800/90"
-              transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            />
-          )}
-          <span className="relative z-20">{item.name}</span>
-        </a>
-      ))}
-    </motion.div>
+      {items.map((item, idx) => {
+        const itemSectionId = item.link?.replace("#", "");
+        const isActive = activeSection === itemSectionId;
+
+        return (
+          <WavyNavLink
+            key={`link-${idx}`}
+            label={item.name}
+            href={item.link}
+            onClick={onItemClick}
+            active={isActive}
+          />
+        );
+      })}
+    </div>
   );
 };
 

@@ -5,62 +5,47 @@ import { motion } from "framer-motion";
 
 /**
  * ScrollRevealCardGroup
- * Industry-standard Framer Motion parent-child stagger orchestration component.
- * GPU-accelerated (opacity, y, scale) with zero layout shift.
+ * Industry-standard Framer Motion scroll-reveal component for card grids/lists.
+ * Uses GPU-accelerated transforms (opacity, y, scale) with zero layout shift.
  */
-
-export const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: (custom = {}) => ({
-    opacity: 1,
-    transition: {
-      staggerChildren: custom.stagger ?? 0.12,
-      delayChildren: custom.delayChildren ?? 0.05,
-    },
-  }),
-};
-
-export const cardItemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 35,
-    scale: 0.96,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.65,
-      ease: [0.215, 0.61, 0.355, 1], // Smooth cubic-bezier spring-like curve
-    },
-  },
-};
 
 export default function ScrollRevealCardGroup({
   children,
   className = "",
-  stagger = 0.12,
-  delayChildren = 0.05,
+  stagger = 0.14,
+  delayChildren = 0,
+  yOffset = 45,
+  scaleFrom = 0.94,
+  duration = 0.65,
+  once = false,
+  margin = "0px 0px -160px 0px",
   amount = 0.15,
 }) {
+  const flattenedChildren = React.Children.toArray(children);
+
   return (
-    <motion.div
-      variants={containerVariants}
-      custom={{ stagger, delayChildren }}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount }}
-      className={className}
-    >
-      {React.Children.map(children, (child, idx) => {
+    <div className={className}>
+      {flattenedChildren.map((child, idx) => {
         if (!React.isValidElement(child)) return child;
+
         return (
-          <motion.div key={child.key || idx} variants={cardItemVariants} className="h-full">
+          <motion.div
+            key={child.key || idx}
+            initial={{ opacity: 0, y: yOffset, scale: scaleFrom }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once, margin, amount }}
+            transition={{
+              duration: duration,
+              delay: delayChildren + idx * stagger,
+              ease: [0.215, 0.61, 0.355, 1], // Fluid cubic-bezier curve
+            }}
+            className="w-full"
+          >
             {child}
           </motion.div>
         );
       })}
-    </motion.div>
+    </div>
   );
 }
+
