@@ -419,12 +419,12 @@ export default function ScrollRevealText(props) {
     colorRevealed,
   ]);
 
-  const containerStyle = { display: "inline-block", ...style };
+  const containerStyle = { display: style.display || "block", ...style };
 
   const renderWordGroup = (group, gi) => {
     if (group.type === "word") {
       return (
-        <span key={`w-${gi}`} data-wg={gi} style={{ whiteSpace: "nowrap", display: "inline" }}>
+        <span key={`w-${gi}`} data-wg={gi} style={{ whiteSpace: "nowrap", display: "inline-block" }}>
           {group.spans.map(({ char, idx }) => (
             <span
               key={idx}
@@ -443,8 +443,8 @@ export default function ScrollRevealText(props) {
       );
     }
     return group.spans.map(({ char, idx }) => (
-      <span key={idx} style={{ display: "inline-block" }}>
-        {char === " " ? "\u00A0" : char}
+      <span key={idx} style={{ display: "inline" }}>
+        {" "}
       </span>
     ));
   };
