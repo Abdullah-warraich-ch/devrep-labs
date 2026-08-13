@@ -44,9 +44,13 @@ export const Navbar = ({ children, className }) => {
 export const NavBody = ({ children, className, visible }) => {
   return (
     <motion.div
+      initial={{
+        borderColor: "rgba(255, 255, 255, 0)",
+        backgroundColor: "rgba(0, 0, 0, 0)",
+      }}
       animate={{
         backgroundColor: visible ? "#000000" : "rgba(0, 0, 0, 0)",
-        borderColor: visible ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0)",
+        borderColor: visible ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0)",
         boxShadow: visible
           ? "0 20px 50px -10px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.15) inset"
           : "none",
@@ -59,11 +63,8 @@ export const NavBody = ({ children, className, visible }) => {
         damping: 24,
         mass: 0.7,
       }}
-      style={{
-        backgroundColor: visible ? "#000000" : "transparent",
-      }}
       className={cn(
-        "relative z-[99999] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-6 py-3.5 lg:flex border text-white shadow-2xl transition-all duration-300 will-change-[width,transform]",
+        "relative z-[99999] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-6 py-3.5 lg:flex border border-transparent text-white shadow-2xl transition-all duration-300 will-change-[width,transform]",
         visible && "min-w-[560px] backdrop-blur-xl",
         className
       )}
@@ -109,9 +110,13 @@ export const NavItems = ({ items, className, onItemClick }) => {
 export const MobileNav = ({ children, className, visible }) => {
   return (
     <motion.div
+      initial={{
+        borderColor: "rgba(255, 255, 255, 0)",
+        backgroundColor: "rgba(0, 0, 0, 0)",
+      }}
       animate={{
         backgroundColor: visible ? "#000000" : "rgba(0, 0, 0, 0)",
-        borderColor: visible ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0)",
+        borderColor: visible ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0)",
         boxShadow: visible
           ? "0 20px 50px -10px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.15) inset"
           : "none",
@@ -127,11 +132,8 @@ export const MobileNav = ({ children, className, visible }) => {
         damping: 24,
         mass: 0.7,
       }}
-      style={{
-        backgroundColor: visible ? "#000000" : "transparent",
-      }}
       className={cn(
-        "relative z-[99999] mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-4 py-3 lg:hidden border text-white shadow-2xl transition-all duration-300 will-change-[width,transform]",
+        "relative z-[99999] mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-4 py-3 lg:hidden border border-transparent text-white shadow-2xl transition-all duration-300 will-change-[width,transform]",
         visible && "backdrop-blur-xl",
         className
       )}

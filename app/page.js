@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import AboutUs from "@/components/AboutUs";
-import TechStackBeam from "@/components/TechStackBeam";
 import Showcase from "@/components/Showcase";
 import Faq from "@/components/Faq";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CurvedLoop from "@/components/ui/CurvedLoop";
 
@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <main className="min-h-screen w-full p-2 sm:p-4 bg-background space-y-6 relative overflow-x-hidden">
       {/* Section 1: Header and Hero Container */}
-      <div className="text-white relative m-0 min-h-[600px] lg:h-[calc(100vh-2rem)] w-full rounded-2xl sm:rounded-3xl bg-black bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900/60 via-black to-black flex flex-col border border-white/10 z-30 overflow-visible">
+      <div className="text-white relative m-0 min-h-[600px] lg:h-[calc(100vh-2rem)] w-full rounded-2xl sm:rounded-3xl bg-black flex flex-col z-30 overflow-hidden">
         {/* Subtle Ambient Radial Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#d7ff00]/5 blur-[140px] rounded-full pointer-events-none z-0" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px]  rounded-full pointer-events-none z-0" />
 
         {/* Header Navigation inside Section 1 */}
         <Header />
@@ -24,9 +24,6 @@ export default function Home() {
 
       {/* Section 2: About Us / Process */}
       <AboutUs />
-
-      {/* Section 3: Ecosystem Integrations (Animated Beams) */}
-      <TechStackBeam />
 
       {/* Curved Text Marquee Section (Sitting directly on body background) */}
       <div className="w-full py-4 overflow-hidden">
@@ -45,7 +42,10 @@ export default function Home() {
       {/* Section 5: FAQ */}
       <Faq />
 
-      {/* Section 6: Footer */}
+      {/* Section 6: Contact Us (Web3Forms) */}
+      <Contact />
+
+      {/* Section 7: Footer */}
       <Footer />
     </main>
   );

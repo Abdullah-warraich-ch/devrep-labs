@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import ShowcaseCard from "@/components/ui/ShowcaseCard";
 import WatermarkHeading from "@/components/ui/WatermarkHeading";
+import TextArrowCTA from "@/components/ui/TextArrowCTA";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -232,9 +233,7 @@ export default function Showcase() {
                 and Projects
               </h1>
               <div className="pt-2">
-                <span className="text-base sm:text-lg font-medium text-zinc-900 underline underline-offset-8 decoration-zinc-900/80 tracking-wide cursor-pointer hover:opacity-75 transition-opacity">
-                  Explore Works
-                </span>
+                <TextArrowCTA text="Explore Works" fontSize="text-base sm:text-lg" />
               </div>
             </div>
           </div>
@@ -259,12 +258,7 @@ export default function Showcase() {
                 Explore all our work and discover high-performing websites and digital experiences.
               </p>
               <div className="pt-4">
-                <a
-                  href="#contact"
-                  className="text-base sm:text-lg font-medium text-zinc-900 underline underline-offset-8 decoration-zinc-900/80 tracking-wide cursor-pointer hover:opacity-75 transition-opacity"
-                >
-                  Click here
-                </a>
+                <TextArrowCTA text="Click here" href="#contact" fontSize="text-base sm:text-lg" />
               </div>
             </div>
           </div>
