@@ -62,7 +62,7 @@ export default function TechStackBeam() {
             className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-3xl bg-black p-3 border-2 border-black shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-transform duration-500 hover:scale-105"
           >
             <Image
-              src="/logo-white.png"
+              src="/logo-white.webp"
               alt="DevRep Labs"
               width={80}
               height={80}

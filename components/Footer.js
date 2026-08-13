@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="md:col-span-5 space-y-3">
           <div className="flex items-center gap-3">
             <Image
-              src="/logo-white.png"
+              src="/logo-white.webp"
               alt="DevRep Labs"
               width={150}
               height={38}

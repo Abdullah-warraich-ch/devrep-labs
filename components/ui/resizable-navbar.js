@@ -191,7 +191,7 @@ export const NavbarLogo = () => {
       className="relative z-20 mr-4 flex items-center space-x-3 px-2 py-1 shrink-0"
     >
       <Image
-        src="/logo-white.png"
+        src="/logo-white.webp"
         alt="DevRep Labs"
         width={160}
         height={40}

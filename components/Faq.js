@@ -133,17 +133,17 @@ export default function Faq() {
               {/* Overlapping Avatars */}
               <div className="flex items-center -space-x-3 pt-2 relative z-10">
                 <img
-                  src="/avatars/avatar1.png"
+                  src="/avatars/avatar1.webp"
                   alt="Team member 1"
                   className="w-13 h-13 rounded-full border-2 border-zinc-950 ring-2 ring-primary/30 object-cover shadow-md"
                 />
                 <img
-                  src="/avatars/avatar2.png"
+                  src="/avatars/avatar2.webp"
                   alt="Team member 2"
                   className="w-13 h-13 rounded-full border-2 border-zinc-950 ring-2 ring-primary/30 object-cover shadow-md"
                 />
                 <img
-                  src="/avatars/avatar3.png"
+                  src="/avatars/avatar3.webp"
                   alt="Team member 3"
                   className="w-13 h-13 rounded-full border-2 border-zinc-950 ring-2 ring-primary/30 object-cover shadow-md"
                 />
