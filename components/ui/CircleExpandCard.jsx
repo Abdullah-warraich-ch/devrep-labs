@@ -10,7 +10,10 @@ export default function CircleExpandCard({
   image = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
   circleColor = "#d7ff00",
   hoverTextColor = "#000000",
+  iconColor,
+  arrowColor,
   link = "#contact",
+  icon: Icon,
   className = "w-64 h-80",
 }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -30,7 +33,7 @@ export default function CircleExpandCard({
 
   // Framer's signature butter-smooth cubic-bezier transition
   const framerEase = [0.25, 1, 0.5, 1];
-  const duration = 0.5;
+  const duration = 1.0; // Doubled duration for smooth open/close
 
   return (
     <a
@@ -47,7 +50,7 @@ export default function CircleExpandCard({
       />
 
       {/* 2. Gradient Overlay for Perfect Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/85 z-[1] transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/85 z-[1] transition-opacity duration-700" />
 
       {/* 3. Framer Exact Expanding Circle Animation */}
       <motion.div
@@ -85,10 +88,10 @@ export default function CircleExpandCard({
         }}
       >
         <svg
-          className="w-5 h-5 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:rotate-45 group-hover:scale-110"
+          className="w-5 h-5 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:rotate-45 group-hover:scale-110"
           viewBox="0 0 24 24"
           fill="none"
-          stroke={isHovered ? hoverTextColor : "#000000"}
+          stroke={arrowColor || (isHovered ? hoverTextColor : "#000000")}
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -99,6 +102,30 @@ export default function CircleExpandCard({
           <path d="M7 17L17 7M17 7H7M17 7V17" />
         </svg>
       </div>
+
+      {/* 5. Centered Theme Icon (Framed sequence: Appears after circle opens, disappears before circle closes) */}
+      {Icon && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 pb-12">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{
+              opacity: isHovered ? 1 : 0,
+              scale: isHovered ? 1 : 0.6,
+            }}
+            transition={{
+              duration: isHovered ? 0.45 : 0.25,
+              delay: isHovered ? 0.45 : 0,
+              ease: framerEase,
+            }}
+          >
+            <Icon
+              className="w-10 h-10 sm:w-12 sm:h-12 drop-shadow-sm transition-colors duration-500"
+              style={{ color: iconColor || hoverTextColor }}
+              strokeWidth={2}
+            />
+          </motion.div>
+        </div>
+      )}
 
       {/* 5. Bottom Title & Subtitle Content */}
       <div
