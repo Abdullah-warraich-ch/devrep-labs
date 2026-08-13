@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
+import ScrollRevealCardGroup from "@/components/ui/ScrollRevealCardGroup";
 
 const steps = [
   {
@@ -54,8 +55,8 @@ export default function AboutUs() {
               preset="Soft Words"
               colorHidden="rgba(0, 0, 0, 0.50)"
               colorRevealed="#000000"
-              offsetStart={50}
-              offsetEnd={10}
+              offsetStart={70}
+              offsetEnd={20}
               className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-normal text-black tracking-tight leading-[1.25] text-justify"
             >
               At DevRep Labs, we believe software development isn't just about writing code—it's about building impact. We're a full-service software & digital product agency built to help brands grow with purpose and data-driven precision. From crafting compelling user experiences to executing scalable architectures, we blend strategy to turn vision into action.
@@ -78,23 +79,14 @@ export default function AboutUs() {
             </a>
           </div>
 
-          {/* Grid Container for Process Steps */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 relative min-h-[480px]">
-            {/* Background Vertical Grid Lines */}
-            <div className="hidden lg:grid grid-cols-4 absolute inset-0 pointer-events-none -z-10">
-              <div className="border-r border-border/40 h-full" />
-              <div className="border-r border-border/40 h-full" />
-              <div className="border-r border-border/40 h-full" />
-              <div className="h-full" />
-            </div>
-
+          {/* Grid Container for Process Steps using ScrollRevealCardGroup */}
+          <ScrollRevealCardGroup
+            stagger={0.16}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 relative min-h-[480px]"
+          >
             {steps.map((step, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
                 className={`flex flex-col sm:flex-row lg:flex-row gap-5 items-start ${step.offset}`}
               >
                 {/* Vertical Capsule Pill Image */}
@@ -120,9 +112,9 @@ export default function AboutUs() {
                     {step.desc}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </ScrollRevealCardGroup>
         </div>
       </div>
     </section>

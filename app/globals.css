@@ -63,6 +63,10 @@ body {
   overflow-x: hidden;
 }
 
+.font-poppins {
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+}
+
 /* REMOVE OUTLINE AND FOCUS RING ON ALL BUTTONS & INTERACTIVE ELEMENTS */
 button,
 a,

@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, ArrowRight } from "lucide-react";
-import { TextReveal } from "@/components/ui/text-reveal";
-import { Highlighter } from "@/components/ui/highlighter";
+import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import WatermarkHeading from "@/components/ui/WatermarkHeading";
+import ScrollRevealCardGroup from "@/components/ui/ScrollRevealCardGroup";
 
 const faqList = [
   {
@@ -50,7 +50,7 @@ function FaqCard({ item, realIndex, isOpen, onToggle }) {
         onClick={() => onToggle(realIndex)}
         className="w-full flex items-center justify-between p-6 sm:p-7 text-left focus:outline-none cursor-pointer relative z-10"
       >
-        <span className="text-base sm:text-lg font-normal text-copy pr-4">
+        <span className="text-base sm:text-lg font-medium text-copy pr-4 tracking-tight">
           {item.question}
         </span>
         <div
@@ -100,8 +100,11 @@ export default function Faq() {
 
         {/* Top Header & Bento Cards Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left: 2 Bento Cards */}
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {/* Left: 2 Bento Cards with Scroll Reveal */}
+          <ScrollRevealCardGroup
+            stagger={0.15}
+            className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5"
+          >
             {/* Card 1: Dark Contact Card */}
             <div className="rounded-3xl bg-zinc-950 text-white p-7 flex flex-col justify-between h-[320px] sm:h-[340px] shadow-xl relative overflow-hidden border border-zinc-800">
               {/* Vector Orbital Node Network Art */}
@@ -185,33 +188,39 @@ export default function Faq() {
                 </button>
               </div>
             </div>
-          </div>
+          </ScrollRevealCardGroup>
 
-          {/* Right: Headline Block */}
-          <div className="lg:col-span-6 lg:pl-8 flex flex-col justify-center">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-copy tracking-tight leading-[1.08] mb-6">
-              <TextReveal>Dedicated</TextReveal>
-              <br />
-              <TextReveal>fast customer</TextReveal>
-              <br />
-              <span className="font-normal text-copy inline-block">
-                <Highlighter action="underline" color="#d7ff00" strokeWidth={3.5} animationDuration={800}>
-                  <TextReveal>support</TextReveal>
-                </Highlighter>
-              </span>
-            </h2>
-            <div className="text-copy-light text-base sm:text-lg max-w-lg leading-relaxed font-normal">
-              <TextReveal>
-                Our support team will get assistance from AI-powered suggestions, making it quicker than ever to handle support requests.
-              </TextReveal>
-            </div>
+          {/* Right: Headline Block with Scroll Reveal */}
+          <div className="lg:col-span-6 lg:pl-8 flex flex-col justify-center space-y-4">
+
+            <ScrollRevealText
+              preset="Soft Words"
+              colorHidden="rgba(0, 0, 0, 0.25)"
+              colorRevealed="#000000"
+              offsetStart={70}
+              offsetEnd={20}
+              className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-poppins text-copy tracking-tight leading-[1.15]"
+            >
+              Dedicated & Fast Customer Support
+            </ScrollRevealText>
+
+            <ScrollRevealText
+              preset="Soft Words"
+              colorHidden="rgba(0, 0, 0, 0.35)"
+              colorRevealed="rgba(38, 38, 38, 0.9)"
+              offsetStart={65}
+              offsetEnd={15}
+              className="text-copy-light text-base sm:text-lg max-w-lg leading-relaxed font-normal"
+            >
+              Our engineering support team leverages AI-assisted workflows to ensure fast, sub-hour responses to all technical and project inquiries.
+            </ScrollRevealText>
           </div>
         </div>
 
-        {/* Bottom Block: 2 Independent Columns Grid */}
+        {/* Bottom Block: 2 Independent Columns Grid with ScrollRevealCardGroup */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start pt-2">
           {/* Column 1 */}
-          <div className="flex flex-col gap-5">
+          <ScrollRevealCardGroup stagger={0.12} className="flex flex-col gap-5">
             {col1Faqs.map((item, idx) => (
               <FaqCard
                 key={idx * 2}
@@ -221,10 +230,10 @@ export default function Faq() {
                 onToggle={toggleFaq}
               />
             ))}
-          </div>
+          </ScrollRevealCardGroup>
 
           {/* Column 2 */}
-          <div className="flex flex-col gap-5">
+          <ScrollRevealCardGroup stagger={0.12} delayChildren={0.12} className="flex flex-col gap-5">
             {col2Faqs.map((item, idx) => (
               <FaqCard
                 key={idx * 2 + 1}
@@ -234,7 +243,7 @@ export default function Faq() {
                 onToggle={toggleFaq}
               />
             ))}
-          </div>
+          </ScrollRevealCardGroup>
         </div>
       </div>
     </section>

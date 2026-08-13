@@ -27,8 +27,7 @@ export const Navbar = ({ children, className }) => {
     <motion.div
       ref={ref}
       className={cn(
-        "z-[99999] w-full transition-all duration-500 ease-out will-change-transform",
-        visible ? "fixed top-4 inset-x-0 px-4 sm:px-6" : "relative top-0 inset-x-0 px-0",
+        "fixed top-3 sm:top-4 inset-x-0 px-4 sm:px-6 z-[99999] w-full transition-all duration-500 ease-out will-change-transform",
         className
       )}
     >

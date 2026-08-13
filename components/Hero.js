@@ -23,7 +23,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_bottom,_rgba(255,255,255,0.12)_0%,_transparent_70%)] pointer-events-none z-0" />
 
       {/* Vertically & Horizontally Centered Content Container */}
-      <div className="w-full max-w-full px-2 sm:px-4 md:px-6 lg:px-8 mx-auto flex-1 flex flex-col justify-center items-center text-center relative z-10 pt-8 sm:pt-12 pb-2 space-y-6 sm:space-y-8">
+      <div className="w-full max-w-full px-2 sm:px-4 md:px-6 lg:px-8 mx-auto flex-1 flex flex-col justify-center items-center text-center relative z-10 pt-20 sm:pt-28 lg:pt-32 pb-0 space-y-4 sm:space-y-5">
         {/* 1. Main Headline */}
         <div className="space-y-2 max-w-4xl">
           <h1 className="text-white tracking-tight text-3xl sm:text-5xl md:text-6xl font-bold leading-[1.18]">
@@ -53,18 +53,18 @@ export default function Hero() {
             </span>
           </h1>
 
-          <div className="flex items-center justify-center gap-3 text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight">
-            <span className="text-white font-bold">for</span>
-            <span className="inline-flex justify-center items-center min-w-[200px] sm:min-w-[300px] text-[#d7ff00]">
+          <div className="inline-flex items-baseline justify-center gap-2 sm:gap-3 text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
+            <span className="text-white font-extrabold leading-none">for</span>
+            <span className="inline-flex items-baseline text-primary font-extrabold leading-none w-[150px] sm:w-[240px] md:w-[300px] text-left">
               <RotatingText
-                texts={["Brands", "Startups", "Scale-ups", "Visionaries"]}
-                mainClassName="text-primary font-extrabold inline-flex overflow-hidden justify-center"
+                texts={["Brands", "Startups", "Scaleups", "Visionaries"]}
+                mainClassName="text-primary font-extrabold inline-flex overflow-hidden justify-start text-left"
                 staggerFrom="last"
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 exit={{ y: "-120%" }}
                 staggerDuration={0.025}
-                splitLevelClassName="overflow-hidden pb-0.5"
+                splitLevelClassName="overflow-hidden pb-1"
                 transition={{ type: "spring", damping: 30, stiffness: 400 }}
                 rotationInterval={2400}
                 layout={false}
@@ -74,19 +74,19 @@ export default function Hero() {
         </div>
 
         {/* 2. Subheading */}
-        <h2 className="text-sm sm:text-base md:text-lg font-normal text-neutral-300 max-w-2xl leading-relaxed">
-          Custom web development, interactive digital platforms & high-performance UI/UX tailored for ambitious brands.
+        <h2 className="text-sm sm:text-base md:text-lg text-center font-normal text-neutral-300 max-w-2xl leading-relaxed">
+          Custom web development, interactive digital platforms <br /> & high-performance UI/UX tailored for ambitious brands.
         </h2>
 
         {/* 3. CTA Buttons Row */}
-        <div className="pt-2 flex flex-wrap items-center justify-center gap-4 sm:gap-5">
+        <div className="pt-1 flex flex-wrap items-center justify-center gap-4 sm:gap-5">
           <LiquidMorphButton label="Chat With Us" link="#contact" />
           <ModernButton title="Request a Free Demo" href="#contact" />
         </div>
       </div>
 
       {/* 4. Framer CircleExpandCards Grid */}
-      <div className="pb-8 pt-4 w-full z-10 flex items-center justify-center">
+      <div className="pb-6 pt-2 w-full z-10 flex items-center justify-center">
         <CircleExpandGrid />
       </div>
     </div>
