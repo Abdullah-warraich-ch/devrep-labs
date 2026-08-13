@@ -96,7 +96,7 @@ export default function Faq() {
   return (
     <section className="w-full py-16 my-16 px-4 sm:px-6 lg:px-8 bg-transparent bg-white/50 rounded-3xl text-copy relative z-10">
       <div className="max-w-7xl mx-auto space-y-16 relative z-10 pt-24">
-        <WatermarkHeading text="FAQ'S" opacity="opacity-[0.03]" />
+        <WatermarkHeading text="FAQ'S" opacity="opacity-[0.09]" />
 
         {/* Top Header & Bento Cards Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

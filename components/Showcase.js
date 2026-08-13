@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Sparkles, ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
 import ShowcaseCard from "@/components/ui/ShowcaseCard";
 import WatermarkHeading from "@/components/ui/WatermarkHeading";
 import TextArrowCTA from "@/components/ui/TextArrowCTA";
@@ -100,23 +99,6 @@ export default function Showcase() {
   useEffect(() => {
     if (!sectionRef.current || !trackRef.current) return;
 
-    // Initialize Lenis Smooth Scroll
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      wheelMultiplier: 1,
-    });
-
-    lenis.on("scroll", ScrollTrigger.update);
-
-    const updateTicker = (time) => {
-      lenis.raf(time * 1000);
-    };
-
-    gsap.ticker.add(updateTicker);
-    gsap.ticker.lagSmoothing(0);
-
     const timer = setTimeout(() => {
       const cards = trackRef.current ? trackRef.current.children : [];
       if (!cards || cards.length === 0) return;
@@ -198,8 +180,6 @@ export default function Showcase() {
 
     return () => {
       clearTimeout(timer);
-      gsap.ticker.remove(updateTicker);
-      lenis.destroy();
     };
   }, [filteredProjects]);
 
@@ -211,7 +191,7 @@ export default function Showcase() {
     >
       {/* BACKGROUND WATERMARK ALIGNED PARALLEL TO ABOUT US & FAQ */}
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 absolute top-8 left-1/2 -translate-x-1/2 pointer-events-none z-0">
-        <WatermarkHeading text="WORK" opacity="opacity-[0.03]" />
+        <WatermarkHeading text="WORK" opacity="opacity-[0.09]" />
       </div>
 
       {/* HORIZONTAL CARDS TRACK WITH HALF-PEEK GAP & LENIS + GSAP SCROLLTRIGGER */}
