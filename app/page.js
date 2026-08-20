@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main className="min-h-screen w-full p-2 sm:p-4 bg-background space-y-6 relative overflow-x-hidden">
       {/* Section 1: Header and Hero Container */}
-      <div className="text-white relative m-0 min-h-[600px] lg:h-[calc(100vh-2rem)] w-full rounded-2xl sm:rounded-3xl bg-black flex flex-col z-30 overflow-hidden">
+      <div className="text-white relative m-0 min-h-[calc(100vh-1rem)] sm:min-h-[calc(100vh-2rem)] w-full rounded-2xl sm:rounded-3xl bg-black flex flex-col justify-between z-30 overflow-hidden">
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px]  rounded-full pointer-events-none z-0" />
 

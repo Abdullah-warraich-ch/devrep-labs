@@ -43,25 +43,22 @@ export default function ModernButton({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className={cn(
-          "relative inline-flex items-center justify-center gap-3.5 cursor-pointer text-decoration-none select-none overflow-hidden rounded-full border border-primary/20 hover:border-white/20 shadow-xl h-[58px] sm:h-[60px] box-border disabled:opacity-50 disabled:cursor-not-allowed",
+          "relative inline-flex items-center justify-center gap-2 sm:gap-3.5 cursor-pointer text-decoration-none select-none overflow-hidden rounded-full border border-primary/20 hover:border-white/20 shadow-xl h-[42px] sm:h-[52px] md:h-[60px] box-border disabled:opacity-50 disabled:cursor-not-allowed",
           className
         )}
         style={{
-          padding: isHovered ? "6px 28px 6px 6px" : "6px 6px 6px 28px",
+          padding: isHovered ? "4px 16px 4px 4px" : "4px 4px 4px 16px",
           backgroundColor: isHovered ? hoverColor : backgroundFill,
         }}
         transition={transition}
       >
         <motion.span
           layout
+          className="text-xs sm:text-sm md:text-base font-bold whitespace-nowrap leading-none px-1"
           style={{
             order: isHovered ? 1 : 0,
             color: isHovered ? hoverTextColor : textColor,
             fontFamily: "var(--font-sans), sans-serif",
-            fontSize: "1.05rem",
-            fontWeight: 700,
-            lineHeight: "1em",
-            whiteSpace: "nowrap",
           }}
           transition={transition}
         >
@@ -70,17 +67,15 @@ export default function ModernButton({
 
         <motion.span
           layout
-          className="flex items-center justify-center rounded-full shrink-0"
+          className="flex items-center justify-center rounded-full shrink-0 size-7 sm:size-9 md:size-10"
           style={{
             order: isHovered ? 0 : 1,
             backgroundColor: isHovered ? hoverIconBackground : iconBackground,
             color: isHovered ? hoverIconColor : iconColor,
-            width: "42px",
-            height: "42px",
           }}
           transition={transition}
         >
-          <ChevronRight className="size-5 stroke-[2.5]" />
+          <ChevronRight className="size-3.5 sm:size-4 md:size-5 stroke-[2.5]" />
         </motion.span>
       </Component>
     </LayoutGroup>

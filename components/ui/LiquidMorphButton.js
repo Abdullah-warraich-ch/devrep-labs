@@ -32,11 +32,11 @@ export default function LiquidMorphButton({
   const filterId = useMemo(() => `goo_${instanceId}`, [instanceId]);
 
   const paddingCss = useMemo(() => {
-    if (!padding) return "0px";
+    if (padding === null || padding === undefined || padding === "none") return undefined;
     if (typeof padding === "string") return padding;
     const { top, right, bottom, left } = padding;
     if ([top, right, bottom, left].every(Boolean)) return `${top} ${right} ${bottom} ${left}`;
-    return "0px";
+    return undefined;
   }, [padding]);
 
   const cssText = useMemo(() => {
@@ -59,7 +59,7 @@ export default function LiquidMorphButton({
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: ${paddingCss};
+  ${paddingCss ? `padding: ${paddingCss};` : ""}
   border-radius: ${radius};
   overflow: hidden;
   isolation: isolate;
@@ -79,8 +79,6 @@ export default function LiquidMorphButton({
 .${rootClass} .lmb_label {
   position: relative;
   z-index: 2;
-  font-weight: 800;
-  font-size: 1.05rem;
   letter-spacing: -0.01em;
   transition: color ${duration}ms cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -165,7 +163,7 @@ export default function LiquidMorphButton({
         <span className="lmb_blob" />
         <span className="lmb_blob" />
       </span>
-      <span className="lmb_label">{label}</span>
+      <span className="lmb_label text-xs sm:text-sm md:text-base font-extrabold leading-none">{label}</span>
     </>
   );
 
@@ -175,7 +173,7 @@ export default function LiquidMorphButton({
     onClick: onTap,
     style: {
       position: "relative",
-      padding: paddingCss,
+      ...(paddingCss ? { padding: paddingCss } : {}),
       borderRadius: radius,
       ...(border ?? {}),
       width: "max-content",

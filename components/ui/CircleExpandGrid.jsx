@@ -15,7 +15,7 @@ export default function CircleExpandGrid() {
       hoverTextColor: "#000000",
       icon: Layout,
       link: "#contact",
-      className: "w-48 sm:w-56 md:w-60 h-64 sm:h-74 md:h-78",
+      className: "w-[150px] xs:w-[170px] sm:w-[220px] lg:w-[225px] xl:w-[245px] h-[210px] sm:h-[250px] lg:h-[270px]",
     },
     {
       title: "Mobile & Fast Speed",
@@ -25,7 +25,7 @@ export default function CircleExpandGrid() {
       hoverTextColor: "#000000",
       icon: Zap,
       link: "#contact",
-      className: "w-56 sm:w-64 md:w-70 h-54 sm:h-62 md:h-66",
+      className: "w-[160px] xs:w-[180px] sm:w-[230px] lg:w-[235px] xl:w-[255px] h-[190px] sm:h-[230px] lg:h-[250px]",
     },
     {
       title: "Search & SEO Ready",
@@ -37,7 +37,7 @@ export default function CircleExpandGrid() {
       arrowColor: "#ffffff",
       icon: Search,
       link: "#contact",
-      className: "w-38 sm:w-44 md:w-48 h-48 sm:h-56 md:h-60",
+      className: "w-[135px] xs:w-[155px] sm:w-[195px] lg:w-[200px] xl:w-[215px] h-[180px] sm:h-[210px] lg:h-[230px]",
     },
     {
       title: "Complete Care & Support",
@@ -47,12 +47,12 @@ export default function CircleExpandGrid() {
       hoverTextColor: "#000000",
       icon: ShieldCheck,
       link: "#contact",
-      className: "w-50 sm:w-58 md:w-62 h-68 sm:h-78 md:h-84",
+      className: "w-[155px] xs:w-[175px] sm:w-[225px] lg:w-[230px] xl:w-[250px] h-[220px] sm:h-[260px] lg:h-[280px]",
     },
   ];
 
   return (
-    <div className="w-full overflow-hidden max-w-7xl mx-auto flex flex-row items-center justify-around gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6 py-4 overflow-x-auto no-scrollbar">
+    <div className="w-full max-w-7xl mx-auto flex flex-row items-center justify-between gap-4 md:gap-6 px-4 py-4">
       {cards.map((card, idx) => (
         <motion.div
           key={idx}

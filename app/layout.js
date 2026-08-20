@@ -10,8 +10,17 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Devrep Labs | High-Performance Software & Engineering",
-  description: "Bespoke web applications, AI platforms & scalable cloud solutions.",
+  title: "DevRep Labs | High-Performance Web Development & AI Solutions",
+  description: "Bespoke web applications, modern responsive websites & scalable cloud solutions.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
