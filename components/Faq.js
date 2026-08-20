@@ -9,28 +9,28 @@ import ScrollRevealCardGroup from "@/components/ui/ScrollRevealCardGroup";
 
 const faqList = [
   {
-    question: "What is included with my purchase?",
-    answer: "You get full source code access, complete documentation, pre-configured component libraries, lifetime updates, and dedicated engineering support.",
+    question: "What is included in a website project?",
+    answer: "Every project includes custom website design, mobile optimization, fast page loading, domain & hosting setup, and step-by-step guidance.",
   },
   {
-    question: "Where can I buy a license of Devrep Labs?",
-    answer: "You can purchase directly through our platform or contact our sales team to arrange a custom enterprise license tailored to your team size.",
+    question: "How do I get started with my new website?",
+    answer: "Simply click 'Chat With Us' or fill out our contact form. We'll discuss your goals and provide a clear proposal and timeline.",
   },
   {
-    question: "Do I need additional plugins to create websites?",
-    answer: "No additional plugins are required. All UI components, animations, and icons are built natively using React, TailwindCSS, and Framer Motion.",
+    question: "Will my website work on all mobile phones and computers?",
+    answer: "Yes! All of our websites are custom-built to look great and function seamlessly on smartphones, tablets, laptops, and desktop screens.",
   },
   {
-    question: "How can I get the support from that Item?",
-    answer: "Our support team is available 24/7 via our dedicated support portal, Discord community, and direct email assistance for high-priority inquiries.",
+    question: "How do you handle website support and updates after launch?",
+    answer: "We offer ongoing maintenance and support to ensure your website stays secure, fast, and up to date as your business grows.",
   },
   {
-    question: "Can I request custom features and integrations?",
-    answer: "Absolutely! Our team offers tailored development sprints to build custom features, third-party API integrations, and specialized workflows.",
+    question: "Can you add custom features or online payment tools?",
+    answer: "Yes! We can add custom contact forms, booking systems, payment gateways, online stores, and any specialized feature your business needs.",
   },
   {
-    question: "What is your typical project delivery timeline?",
-    answer: "Standard projects are onboarded within 3-5 business days, with initial production deliverables ready within 2-4 weeks depending on scope.",
+    question: "How long does it take to build and launch a website?",
+    answer: "Most custom websites are completed and launched within 2 to 4 weeks, depending on the size and features of your project.",
   },
 ];
 
@@ -121,7 +121,7 @@ export default function Faq() {
               {/* Top Tag */}
               <div className="flex items-center justify-between relative z-10">
                 <span className="text-xs uppercase tracking-wider text-white font-normal bg-transparent px-3.5 py-1 rounded-full border border-white/20">
-                  Contact
+                  Contact Us
                 </span>
               </div>
 
@@ -129,7 +129,7 @@ export default function Faq() {
               <div className="my-auto relative z-10">
                 <h3 className="text-3xl sm:text-4xl font-normal text-white leading-tight tracking-tight">
                   Dedicated<br />
-                  <span className="font-normal text-primary">Team</span>
+                  <span className="font-normal text-primary">Web Team</span>
                 </h3>
               </div>
 
@@ -167,25 +167,28 @@ export default function Faq() {
 
               <div className="relative z-10">
                 <span className="text-xs uppercase tracking-wider text-copy-light font-normal bg-transparent px-3.5 py-1 rounded-full border border-border">
-                  Resources
+                  Process
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-normal text-copy leading-tight mt-4 mb-3 tracking-tight">
-                  Online<br />
-                  <span className="font-normal">Documentation</span>
+                  Transparent<br />
+                  <span className="font-normal">Communication</span>
                 </h3>
                 <p className="text-xs sm:text-sm text-copy-light leading-relaxed font-normal">
-                  Nope, you can have as many requests or project goals as you want! We'll keep updating.
+                  We guide you through every step of building your website with clear progress updates.
                 </p>
               </div>
 
               {/* Slower Smooth Left-Expanding Fill Button */}
               <div className="relative z-10">
-                <button className="relative inline-flex items-center justify-center px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider cursor-pointer overflow-hidden rounded-full border-2 border-primary text-primary-content bg-primary group transition-colors duration-700 ease-in-out hover:text-white hover:border-zinc-950">
+                <a
+                  href="#contact"
+                  className="relative inline-flex items-center justify-center px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider cursor-pointer overflow-hidden rounded-full border-2 border-primary text-primary-content bg-primary group transition-colors duration-700 ease-in-out hover:text-white hover:border-zinc-950"
+                >
                   <span className="relative z-10 flex items-center gap-2.5 transition-colors duration-700">
-                    Learn More <ArrowRight className="size-4" />
+                    Get in Touch <ArrowRight className="size-4" />
                   </span>
                   <span className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-950 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out group-hover:scale-[35] z-0 pointer-events-none" />
-                </button>
+                </a>
               </div>
             </div>
           </ScrollRevealCardGroup>
@@ -201,7 +204,7 @@ export default function Faq() {
               offsetEnd={20}
               className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-poppins text-copy tracking-tight leading-[1.15]"
             >
-              Dedicated & Fast Customer Support
+              Clear Answers to Your Questions
             </ScrollRevealText>
 
             <ScrollRevealText
@@ -212,7 +215,7 @@ export default function Faq() {
               colorRevealed="rgba(38, 38, 38, 0.9)"
               className="text-copy-light text-base sm:text-lg max-w-lg leading-relaxed font-normal"
             >
-              Our engineering support team leverages AI-assisted workflows to ensure fast, sub-hour responses to all technical and project inquiries.
+              We are here to guide you through building your ideal website. Have questions about timelines, pricing, or custom features? We are always ready to help.
             </ScrollRevealText>
           </div>
         </div>

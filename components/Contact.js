@@ -7,15 +7,30 @@ import WatermarkHeading from "@/components/ui/WatermarkHeading";
 import ModernButton from "@/components/ui/ModernButton";
 
 const SERVICE_OPTIONS = [
-  "Full-Stack Development",
-  "AI Platform & Telemetry",
-  "SaaS Cloud Orchestration",
-  "E-Commerce & Headless",
+  "Custom Website Design",
+  "Business / Corporate Website",
+  "E-Commerce & Online Store",
+  "Website Redesign & Optimization",
   "Other / General Inquiry",
 ];
 
+const BUDGET_OPTIONS = [
+  "Under 50,000 PKR",
+  "50,000 PKR – 150,000 PKR",
+  "150,000 PKR – 300,000 PKR",
+  "300,000+ PKR",
+  "Not sure yet",
+];
+
+const TIMELINE_OPTIONS = [
+  "As soon as possible",
+  "Within 1 month",
+  "1 – 3 months",
+  "Flexible / No rush",
+];
+
 /* ── Custom Animated Dropdown ── */
-function CustomSelect({ value, onChange, options }) {
+function CustomSelect({ value, onChange, options, label = "Select Option *" }) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
 
@@ -39,7 +54,7 @@ function CustomSelect({ value, onChange, options }) {
         } text-copy text-sm transition-all flex items-center justify-between cursor-pointer text-left`}
       >
         <span className={value ? "text-copy font-medium" : "text-copy-lighter"}>
-          {value || "Select Service *"}
+          {value || label}
         </span>
         <ChevronDown
           className={`size-4 text-copy-light transition-transform duration-200 shrink-0 ${
@@ -55,7 +70,7 @@ function CustomSelect({ value, onChange, options }) {
             animate={{ opacity: 1, y: 4, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute left-0 right-0 top-full z-50 rounded-xl bg-white border border-border shadow-2xl overflow-hidden py-1"
+            className="absolute left-0 right-0 top-full z-50 rounded-xl bg-white border border-border shadow-2xl overflow-hidden py-1 max-h-56 overflow-y-auto"
           >
             {options.map((opt) => {
               const isSelected = value === opt;
@@ -158,9 +173,13 @@ const fieldClass =
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
-    lastname: "",
     email: "",
-    service: "Full-Stack Development",
+    phone: "",
+    service: "Custom Website Design",
+    company: "",
+    website: "",
+    budget: "",
+    timeline: "",
     message: "",
   });
   const [status, setStatus] = useState("idle");
@@ -180,14 +199,24 @@ export default function Contact() {
         body: JSON.stringify({
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
           from_name: "DevRep Labs Website",
-          subject: `New Inquiry from ${formData.name} ${formData.lastname} (${formData.service})`,
+          subject: `New Website Inquiry from ${formData.name} (${formData.service})`,
           ...formData,
         }),
       });
       const result = await res.json();
       if (result.success) {
         setStatus("success");
-        setFormData({ name: "", lastname: "", email: "", service: "Full-Stack Development", message: "" });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "Custom Website Design",
+          company: "",
+          website: "",
+          budget: "",
+          timeline: "",
+          message: "",
+        });
       } else {
         setStatus("error");
         setErrorMessage(result.message || "Failed to send. Please try again.");
@@ -256,7 +285,7 @@ export default function Contact() {
                     className="space-y-3 flex-1 flex flex-col justify-between"
                   >
                     <div className="space-y-3 sm:space-y-4">
-                      {/* Row 1: Name + Last Name */}
+                      {/* Row 1: Full Name * + Email Address * (Mandatory) */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                         <input
                           type="text"
@@ -264,31 +293,33 @@ export default function Contact() {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          placeholder="First Name *"
+                          placeholder="Full Name *"
                           className={fieldClass}
                         />
-                        <input
-                          type="text"
-                          name="lastname"
-                          placeholder="Last Name *"
-                          value={formData.lastname}
-                          onChange={handleChange}
-                          className={fieldClass}
-                        />
-                      </div>
-
-                      {/* Row 2: Email + Custom Animated Dropdown */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                         <input
                           type="email"
                           name="email"
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="Email *"
+                          placeholder="Email Address *"
+                          className={fieldClass}
+                        />
+                      </div>
+
+                      {/* Row 2: Phone Number * + Service * (Mandatory) */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <input
+                          type="tel"
+                          name="phone"
+                          required
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="Phone Number *"
                           className={fieldClass}
                         />
                         <CustomSelect
+                          label="Select Service *"
                           value={formData.service}
                           onChange={(selectedService) =>
                             setFormData((prev) => ({ ...prev, service: selectedService }))
@@ -297,14 +328,54 @@ export default function Contact() {
                         />
                       </div>
 
-                      {/* Row 3: Message */}
+                      {/* Row 3: Company Name (Optional) + Existing Website (Optional) */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <input
+                          type="text"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          placeholder="Company / Brand Name (Optional)"
+                          className={fieldClass}
+                        />
+                        <input
+                          type="url"
+                          name="website"
+                          value={formData.website}
+                          onChange={handleChange}
+                          placeholder="Existing Website URL (Optional)"
+                          className={fieldClass}
+                        />
+                      </div>
+
+                      {/* Row 4: Estimated Budget (Optional) + Target Timeline (Optional) */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <CustomSelect
+                          label="Estimated Budget (Optional)"
+                          value={formData.budget}
+                          onChange={(selectedBudget) =>
+                            setFormData((prev) => ({ ...prev, budget: selectedBudget }))
+                          }
+                          options={BUDGET_OPTIONS}
+                        />
+                        <CustomSelect
+                          label="Target Timeline (Optional)"
+                          value={formData.timeline}
+                          onChange={(selectedTimeline) =>
+                            setFormData((prev) => ({ ...prev, timeline: selectedTimeline }))
+                          }
+                          options={TIMELINE_OPTIONS}
+                        />
+                      </div>
+
+                      {/* Row 6: Message (Mandatory) */}
                       <textarea
                         name="message"
                         required
                         rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Message *"
+                        placeholder="Tell us about your project & goals *"
                         className={fieldClass + " resize-none"}
                       />
                     </div>

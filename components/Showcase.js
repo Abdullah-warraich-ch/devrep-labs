@@ -17,6 +17,22 @@ const categories = ["All Projects", "AI & ML", "FinTech", "SaaS & Cloud", "E-Com
 
 const projects = [
   {
+    id: "cardealer",
+    projectName: "AutoDrive Car Dealership",
+    projectCategory: "E-Commerce",
+    projectOverview: "Luxury automotive showcase platform with inventory search & test drive booking.",
+    projectDescription: "AutoDrive is a modern automotive dealership portal featuring interactive vehicle exploration, smart filtering by make and budget, test drive scheduling, and seamless instant inquiries.",
+    projectThumbnail: "/projects/Car Dealer.png",
+    clientName: "AutoDrive Motors",
+    projectDuration: "3 Weeks",
+    toolsUsed: "Next.js 16, TailwindCSS, Framer Motion",
+    metric: "+210% Leads",
+    metricLabel: "Test Drives Booked",
+    tags: ["Next.js 16", "TailwindCSS", "Framer Motion", "Car Inventory"],
+    link: "https://car-sell-portfolio-demo.vercel.app/",
+    featured: true,
+  },
+  {
     id: "nexai",
     projectName: "Neuralytic AI Platform",
     projectCategory: "AI & ML",
@@ -29,7 +45,7 @@ const projects = [
     metric: "98.4% Accuracy",
     metricLabel: "Model Precision",
     tags: ["Next.js 16", "Python / PyTorch", "TailwindCSS", "WebGL"],
-    link: "#",
+    link: "#contact",
     featured: true,
   },
   {
@@ -45,7 +61,7 @@ const projects = [
     metric: "$68.4M Daily Vol",
     metricLabel: "Execution Volume",
     tags: ["React", "WebSockets", "Framer Motion", "Chart.js"],
-    link: "#",
+    link: "#contact",
     featured: true,
   },
   {
@@ -61,7 +77,7 @@ const projects = [
     metric: "+310% Conversion",
     metricLabel: "Sales Growth",
     tags: ["Three.js", "Next.js", "Shopify Headless", "GSAP"],
-    link: "#",
+    link: "#contact",
     featured: false,
   },
   {
@@ -77,7 +93,7 @@ const projects = [
     metric: "3.2x Velocity",
     metricLabel: "Deployment Speed",
     tags: ["TypeScript", "Node.js", "GraphQL", "Tailwind CSS"],
-    link: "#",
+    link: "#contact",
     featured: false,
   },
 ];

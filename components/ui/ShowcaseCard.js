@@ -277,6 +277,8 @@ export default function ShowcaseCard({
                   >
                     <a
                       href={link}
+                      target={link?.startsWith("http") ? "_blank" : undefined}
+                      rel={link?.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="w-full py-3.5 px-5 rounded-2xl bg-black text-white font-bold text-sm hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 group/btn shadow-sm"
                     >
                       <span>Preview Project</span>

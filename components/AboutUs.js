@@ -8,29 +8,29 @@ import ScrollRevealCardGroup from "@/components/ui/ScrollRevealCardGroup";
 const steps = [
   {
     number: "01",
-    title: "Discover & Diagnose",
-    desc: "We analyze your market, audience, data, and existing performance to uncover real growth opportunities.",
+    title: "Discovery & Planning",
+    desc: "We discuss your business goals, target audience, and needs to outline a clear website roadmap.",
     image: "/process/step1.png",
     offset: "lg:mt-16",
   },
   {
     number: "02",
-    title: "Design & Architect",
-    desc: "We design intelligent systems and scalable architectures that align technology with your long-term vision.",
+    title: "Custom Design",
+    desc: "We craft clean, modern, and engaging visual layouts tailored to represent your brand.",
     image: "/process/step2.png",
     offset: "lg:mt-32",
   },
   {
     number: "03",
-    title: "Build & Integrate",
-    desc: "Our team develops, integrates, and tests solutions across platforms, data pipelines, and infrastructures.",
+    title: "Development & Testing",
+    desc: "We turn the designs into a fast, secure website that works seamlessly on all phones and computers.",
     image: "/process/step3.png",
     offset: "lg:mt-48",
   },
   {
     number: "04",
-    title: "Launch & Optimize",
-    desc: "After launch, we monitor performance, iterate continuously, and optimize systems as your business evolves.",
+    title: "Launch & Support",
+    desc: "We publish your website live and provide ongoing care to keep it running smoothly 24/7.",
     image: "/process/step4.png",
     offset: "lg:mt-64",
   },
@@ -45,7 +45,7 @@ export default function AboutUs() {
           {/* Left Column: Small About Heading */}
           <div className="lg:col-span-4">
             <h2 className="text-base sm:text-lg font-medium text-black/80 tracking-tight">
-              About
+              About Us
             </h2>
           </div>
 
@@ -59,7 +59,7 @@ export default function AboutUs() {
               offsetEnd={20}
               className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-normal text-black tracking-tight leading-[1.25] text-justify"
             >
-              At DevRep Labs, we believe software development isn't just about writing code—it's about building impact. We're a full-service software & digital product agency built to help brands grow with purpose and data-driven precision. From crafting compelling user experiences to executing scalable architectures, we blend strategy to turn vision into action.
+              At DevRep Labs, we build modern websites that deliver real business growth. We're a full-service web design agency helping brands establish a strong online presence with clear strategy, beautiful designs, and reliable support. From concept to launch, we make website creation simple and stress-free.
             </ScrollRevealText>
           </div>
         </div>
@@ -72,7 +72,7 @@ export default function AboutUs() {
               href="#contact"
               className="inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-zinc-900 text-white font-medium text-xs sm:text-sm hover:bg-zinc-800 transition-colors shadow-md group cursor-pointer"
             >
-              <span>Get A Free Quote</span>
+              <span>Get A Free Demo</span>
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-zinc-800 flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors">
                 <ArrowUpRight className="size-3.5 sm:size-4" />
               </div>

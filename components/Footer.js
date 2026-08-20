@@ -37,7 +37,7 @@ export default function Footer() {
 
   return (
     <footer className="w-screen relative left-1/2 -translate-x-1/2 -mb-2 sm:-mb-4 bg-black text-white pt-16 sm:pt-24 pb-8 px-6 sm:px-12 lg:px-16 overflow-hidden border-t border-zinc-850 z-20">
-      
+
       {/* Background Ambient Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-secondary/5 blur-[140px] pointer-events-none" />
 
@@ -47,7 +47,7 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-12 border-b border-zinc-800/80">
           <div className="space-y-3 max-w-2xl">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-              Have a project in mind?<br />
+              Have a Website in mind?<br />
               <span className="text-zinc-400 font-normal">Let’s build something extraordinary.</span>
             </h3>
           </div>

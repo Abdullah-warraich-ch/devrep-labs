@@ -2,47 +2,51 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Rocket, Layers, Bot, TrendingUp } from "lucide-react";
+import { Layout, Zap, Search, ShieldCheck } from "lucide-react";
 import CircleExpandCard from "./CircleExpandCard";
 
 export default function CircleExpandGrid() {
   const cards = [
     {
-      title: "Lightning Fast Speed",
-      subtitle: "Instant page load times that keep visitors happy and engaged",
+      title: "Custom Website Design",
+      subtitle: "Beautiful, modern websites tailored to match your brand and impress your clients",
       image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=480&q=75",
       circleColor: "#d7ff00", // Primary Lime
       hoverTextColor: "#000000",
-      icon: Rocket,
+      icon: Layout,
+      link: "#contact",
       className: "w-48 sm:w-56 md:w-60 h-64 sm:h-74 md:h-78",
     },
     {
-      title: "Stunning Design",
-      subtitle: "Beautiful modern experiences crafted to turn visitors into customers",
+      title: "Mobile & Fast Speed",
+      subtitle: "Loads instantly and works perfectly across mobile phones, tablets, and desktops",
       image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=480&q=75",
       circleColor: "#ffffff", // Pure White
       hoverTextColor: "#000000",
-      icon: Layers,
+      icon: Zap,
+      link: "#contact",
       className: "w-56 sm:w-64 md:w-70 h-54 sm:h-62 md:h-66",
     },
     {
-      title: "Smart AI Automation",
-      subtitle: "Save time and effort by letting intelligent AI handle daily tasks",
+      title: "Search & SEO Ready",
+      subtitle: "Designed to help potential customers find your business easily on Google",
       image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=480&q=75",
       circleColor: "#ff00d7", // Secondary Pink/Magenta
       hoverTextColor: "#ffffff",
       iconColor: "#ffffff",
       arrowColor: "#ffffff",
-      icon: Bot,
+      icon: Search,
+      link: "#contact",
       className: "w-38 sm:w-44 md:w-48 h-48 sm:h-56 md:h-60",
     },
     {
-      title: "Built To Grow",
-      subtitle: "Reliable and secure digital products designed to scale with your business",
+      title: "Complete Care & Support",
+      subtitle: "We handle hosting, security, and updates so your site runs completely hassle-free",
       image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=480&q=75",
       circleColor: "#ffffff", // Pure White
       hoverTextColor: "#000000",
-      icon: TrendingUp,
+      icon: ShieldCheck,
+      link: "#contact",
       className: "w-50 sm:w-58 md:w-62 h-68 sm:h-78 md:h-84",
     },
   ];

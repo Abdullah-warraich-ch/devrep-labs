@@ -35,10 +35,31 @@ export default function CircleExpandCard({
   const framerEase = [0.25, 1, 0.5, 1];
   const duration = 1.0; // Doubled duration for smooth open/close
 
+  const handleClick = (e) => {
+    if (link && link.startsWith("#")) {
+      e.preventDefault();
+      const targetId = link.replace("#", "");
+      const elem = document.getElementById(targetId);
+      if (!elem) return;
+
+      const parent = elem.parentElement;
+      const scrollTarget =
+        parent && parent.getAttribute("data-pin-spacer") !== null
+          ? parent
+          : parent && parent.classList.contains("pin-spacer")
+          ? parent
+          : elem;
+
+      const targetTop = scrollTarget.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: targetTop, behavior: "smooth" });
+    }
+  };
+
   return (
     <a
       ref={cardRef}
       href={link}
+      onClick={handleClick}
       className={`relative block overflow-hidden rounded-3xl shrink-0 group cursor-pointer ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
