@@ -64,9 +64,9 @@ export default function CircleExpandCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* 1. Background Image with Subtle Blur */}
+      {/* 1. Background Image */}
       <div
-        className="absolute -inset-1 bg-cover bg-center blur-[2.5px]"
+        className="absolute -inset-1 bg-cover bg-center"
         style={{ backgroundImage: `url(${image})` }}
       />
 

@@ -7,7 +7,7 @@ export function ProgressiveBlur({
   className,
   height = "30%",
   position = "bottom",
-  blurLevels = [0.5, 1, 2, 4, 8, 16, 32, 64],
+  blurLevels = [2, 8, 16, 32],
   borderRadius = "inherit",
   children,
 }) {

@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronDown, ArrowUpRight, Clock, Wrench } from "lucide-react";
-import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 
 const chevronVariants = {
   initial: {
@@ -159,17 +158,8 @@ export default function ShowcaseCard({
             className="object-cover object-top rounded-[34px] transition-transform duration-700 ease-out"
           />
 
-          {/* PROGRESSIVE BLUR BOTTOM OVERLAY */}
-          <ProgressiveBlur
-            position="bottom"
-            height="65%"
-            borderRadius="34px"
-            blurLevels={[1, 2, 4, 8, 12, 16]}
-            className="z-10 rounded-[34px] overflow-hidden"
-          />
-
-          {/* Dark Gradient Overlay for Crisp Text Contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 rounded-[34px] overflow-hidden pointer-events-none" />
+          {/* Smooth Bottom Gradient Fade Overlay */}
+          <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-black via-black/50 to-transparent backdrop-blur-[2px] z-10 rounded-[34px] pointer-events-none" />
 
           {/* OVERLAY TEXT (Project Name & Category) */}
           <div className="absolute bottom-0 left-0 right-0 p-6 z-20 flex flex-col justify-end">

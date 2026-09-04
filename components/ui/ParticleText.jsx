@@ -139,15 +139,14 @@ const ParticleText = ({
       ctx.fill();
     };
 
+    let isVisible = true;
+
     const render = now => {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, width, height);
 
-      if (glow && !reducedMotion) {
-        ctx.shadowBlur = particleSize * 3;
-        ctx.shadowColor = highlightColor;
-      } else {
-        ctx.shadowBlur = 0;
-      }
+      // Disable shadowBlur as ctx.shadowBlur per particle severely degrades 2D Canvas FPS
+      ctx.shadowBlur = 0;
 
       pointer.smoothX += (pointer.x - pointer.smoothX) * 0.18;
       pointer.smoothY += (pointer.y - pointer.smoothY) * 0.18;
@@ -202,7 +201,7 @@ const ParticleText = ({
     };
 
     const ensureRenderLoop = () => {
-      if (animationFrame === null) {
+      if (animationFrame === null && isVisible) {
         animationFrame = window.requestAnimationFrame(render);
       }
     };
@@ -371,12 +370,27 @@ const ParticleText = ({
     canvas.addEventListener('pointerleave', handlePointerLeave);
     canvas.addEventListener('click', handleClick);
 
+    const intersectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          ensureRenderLoop();
+        } else if (animationFrame !== null) {
+          window.cancelAnimationFrame(animationFrame);
+          animationFrame = null;
+        }
+      },
+      { threshold: 0.01 }
+    );
+
+    intersectionObserver.observe(container);
     const resizeObserver = new ResizeObserver(queueSample);
     resizeObserver.observe(container);
     sampleText();
 
     return () => {
       buildId += 1;
+      intersectionObserver.disconnect();
       resizeObserver.disconnect();
       reduceMotionQuery?.removeEventListener('change', handleReduceMotionChange);
       canvas.removeEventListener('pointerenter', handlePointerEnter);

@@ -18,6 +18,7 @@ const CurvedLoop = ({
   const measureRef = useRef(null);
   const textPathRef = useRef(null);
   const pathRef = useRef(null);
+  const containerRef = useRef(null);
   const [spacing, setSpacing] = useState(0);
   const [offset, setOffset] = useState(0);
   const uid = useId();
@@ -53,8 +54,10 @@ const CurvedLoop = ({
   useEffect(() => {
     if (!spacing || !ready) return;
     let frame = 0;
+    let isVisible = true;
+
     const step = () => {
-      if (!dragRef.current && textPathRef.current) {
+      if (isVisible && !dragRef.current && textPathRef.current) {
         const delta = dirRef.current === 'right' ? speed : -speed;
         const currentOffset = parseFloat(textPathRef.current.getAttribute('startOffset') || '0');
         let newOffset = currentOffset + delta;
@@ -62,12 +65,29 @@ const CurvedLoop = ({
         if (newOffset <= -wrapPoint) newOffset += wrapPoint;
         if (newOffset > 0) newOffset -= wrapPoint;
         textPathRef.current.setAttribute('startOffset', newOffset + 'px');
-        setOffset(newOffset);
       }
-      frame = requestAnimationFrame(step);
+      if (isVisible) {
+        frame = requestAnimationFrame(step);
+      }
     };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(step);
+      }
+    });
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
     frame = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(frame);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
   }, [spacing, speed, ready]);
 
   const onPointerDown = e => {
@@ -89,7 +109,6 @@ const CurvedLoop = ({
     if (newOffset <= -wrapPoint) newOffset += wrapPoint;
     if (newOffset > 0) newOffset -= wrapPoint;
     textPathRef.current.setAttribute('startOffset', newOffset + 'px');
-    setOffset(newOffset);
   };
 
   const endDrag = () => {
@@ -102,6 +121,7 @@ const CurvedLoop = ({
 
   return (
     <div
+      ref={containerRef}
       className="flex items-center justify-center w-full py-4 overflow-hidden select-none"
       style={{ visibility: ready ? 'visible' : 'hidden', cursor: cursorStyle }}
       onPointerDown={onPointerDown}
