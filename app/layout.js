@@ -12,6 +12,11 @@ const poppins = Poppins({
 export const metadata = {
   title: "DevRep Labs | High-Performance Web Development & AI Solutions",
   description: "Bespoke web applications, modern responsive websites & scalable cloud solutions.",
+  verification: {
+    other: {
+      "p:domain_verify": "b73439efb290651502d067b8f3dd5819",
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
