@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
       <body className="flex flex-col font-sans relative">
         <SmoothScroll>{children}</SmoothScroll>
         {/* Whole Website Bottom Fade & Blur Overlay */}
-        <div className="fixed bottom-0 inset-x-0 h-[120px] pointer-events-none z-50 bg-gradient-to-t from-background/90 via-background/40 to-transparent backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black_40%,transparent_100%)]" />
+        {/* <div className="fixed bottom-0 inset-x-0 h-[120px] pointer-events-none z-50 bg-gradient-to-t from-background/90 via-background/40 to-transparent backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black_40%,transparent_100%)]" /> */}
       </body>
     </html>
   );
