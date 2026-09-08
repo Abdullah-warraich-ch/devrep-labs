@@ -4,12 +4,21 @@ import { useEffect, useState } from "react";
 
 /* ── Animated Analog Clock ─────────────────────────────────────── */
 function AnalogClock() {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState(null);
 
   useEffect(() => {
+    setTime(new Date());
     const id = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(id);
   }, []);
+
+  if (!time) {
+    return (
+      <div style={{ marginBottom: 36, display: "flex", justifyContent: "center" }}>
+        <div style={{ width: 160, height: 160 }} />
+      </div>
+    );
+  }
 
   const s = time.getSeconds();
   const m = time.getMinutes();
