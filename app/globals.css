@@ -1,23 +1,75 @@
+/* Local Poppins Fonts (matching pet-vet-shop) */
+@font-face {
+  font-family: 'poppins-r';
+  src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'poppins-m';
+  src: url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'poppins-sb';
+  src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 
 :root {
-  --primary: #d7ff00;
-  --primary-content: #000000;
-  --primary-dark: #accc00;
-  --primary-light: #dfff33;
+  /* Brand Purple Scheme */
+  --background: #FAF9FF;          /* Main background */
+  --surface: #FFFFFF;             /* White surface */
+  --surface-soft: #F3ECFF;        /* Soft purple background */
+  --foreground: #FFFFFF;
+  --border: #EAE5F0;              /* Border */
 
-  --secondary: #ff00d7;
-  --secondary-content: #ffffff;
-  --secondary-dark: #cc00ac;
-  --secondary-light: #ff33df;
+  --primary: #8364E8;             /* Solid purple */
+  --primary-deep: #6947D8;        /* Deep purple */
+  --primary-light: #D397FA;       /* Primary gradient start */
+  --primary-content: #ffffff;
+  --primary-dark: #6947D8;
 
-  --background: #f6f6f6;
-  --foreground: #fbfbfb;
-  --border: #dfdfdf;
+  --copy: #17131F;                /* Main text */
+  --copy-light: #6F6878;          /* Secondary text */
+  --copy-lighter: #6F6878;
 
-  --copy: #262626;
-  --copy-light: #666666;
-  --copy-lighter: #8c8c8c;
+  --accent-cyan: #00F5D4;
+  --accent-cyan-hover: #00E5FF;
+  --accent-cyan-content: #090814;
 
   --success: #00ff00;
   --warning: #ffff00;
@@ -28,25 +80,35 @@
 }
 
 @theme {
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "poppins-r", "Poppins", sans-serif;
+  --font-poppins: "poppins-r", "Poppins", sans-serif;
 
-  --color-primary: var(--primary);
-  --color-primary-content: var(--primary-content);
-  --color-primary-dark: var(--primary-dark);
-  --color-primary-light: var(--primary-light);
-
-  --color-secondary: var(--secondary);
-  --color-secondary-content: var(--secondary-content);
-  --color-secondary-dark: var(--secondary-dark);
-  --color-secondary-light: var(--secondary-light);
-
+  /* Theme color mappings */
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-deep: var(--primary-deep);
+  --color-primary-light: var(--primary-light);
+  --color-primary-content: var(--primary-content);
+  --color-primary-dark: var(--primary-dark);
 
   --color-copy: var(--copy);
   --color-copy-light: var(--copy-light);
   --color-copy-lighter: var(--copy-lighter);
+
+  /* Named color tokens */
+  --color-main-bg: #FAF9FF;
+  --color-white-surface: #FFFFFF;
+  --color-solid-purple: #8364E8;
+  --color-deep-purple: #6947D8;
+  --color-main-text: #17131F;
+  --color-secondary-text: #6F6878;
+  --color-border-subtle: #EAE5F0;
+  --color-soft-purple: #F3ECFF;
 
   --color-success: var(--success);
   --color-warning: var(--warning);
@@ -56,15 +118,77 @@
   --color-error-content: var(--error-content);
 }
 
+/* Primary Gradient Utility */
+.bg-primary-gradient,
+.primary-gradient {
+  background: linear-gradient(135deg, #D397FA 0%, #8364E8 100%);
+  background-attachment: fixed;
+}
+
+.text-primary-gradient {
+  background: linear-gradient(135deg, #D397FA 0%, #8364E8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 body {
   background: var(--background);
   color: var(--copy);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "poppins-r", "Poppins", sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Thin & Attractive Custom Scrollbar ---- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #8364E8 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #D397FA 0%, #8364E8 100%);
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #C782F5 0%, #6E4CD4 100%);
 }
 
 .font-poppins {
-  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-family: "poppins-r", "Poppins", sans-serif;
+}
+
+.semibold-text,
+.font-poppins-m {
+  font-family: "poppins-m", sans-serif;
+  font-weight: 500;
+}
+
+/* Exact Nav Link Styling using local Poppins Medium (13.5px) matching pet-vet-shop */
+.pago-nav-link {
+  font-family: "poppins-m", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 20px !important;
+  color: #ffffff !important;
+  letter-spacing: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* REMOVE OUTLINE AND FOCUS RING ON ALL BUTTONS & INTERACTIVE ELEMENTS */
@@ -80,30 +204,4 @@ textarea,
   outline: none !important;
   box-shadow: none !important;
   -webkit-tap-highlight-color: transparent;
-}
-
-/* ---- Services Marquee ---- */
-@keyframes marquee-ltr {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@keyframes marquee-rtl {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
-}
-
-.marquee-track-ltr {
-  animation: marquee-ltr 28s linear infinite;
-  will-change: transform;
-}
-.marquee-track-rtl {
-  animation: marquee-rtl 22s linear infinite;
-  will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track-ltr,
-  .marquee-track-rtl {
-    animation-play-state: paused !important;
-  }
 }
