@@ -12,7 +12,7 @@ export default function PreFooterCta() {
   return (
     <section
       id="contact"
-      className="relative w-full py-16 sm:py-20 bg-white overflow-hidden"
+      className="relative w-full py-16 sm:py-20 bg-white overflow-hidden scroll-mt-14"
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
         <div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left gap-8 lg:gap-12">

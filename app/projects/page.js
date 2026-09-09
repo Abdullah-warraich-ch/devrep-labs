@@ -22,7 +22,7 @@ export default function ProjectsPage() {
     if (activeCategory === "E-Commerce")
       return project.category.includes("E-Commerce");
     if (activeCategory === "Portals & Tools")
-      return project.category.includes("Portal") || project.category.includes("GPS") || project.category.includes("Dashboard");
+      return project.category.includes("Portal") || project.category.includes("GPS") || project.category.includes("Dashboard") || project.category.includes("Booking");
     return true;
   });
 
@@ -89,13 +89,13 @@ export default function ProjectsPage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[16/10] border border-[#EAE5F0] bg-gradient-to-br from-[#FAF8FF] via-[#F3ECFF] to-[#EAE1FB] shadow-sm hover:shadow-xl transition-all duration-300 flex items-center justify-center p-3 sm:p-4.5"
+                className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[16/10] border border-[#EAE5F0] bg-[#FAF8FF] shadow-sm hover:shadow-xl transition-all duration-300"
               >
-                {/* Project Screenshot (Uncropped) */}
+                {/* Project Screenshot (Edge-to-Edge) */}
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-contain rounded-xl drop-shadow-md"
+                  className="w-full h-full object-cover object-top"
                 />
 
                 {/* Gradient Overlay — visible on mobile/tablet, hover on desktop */}

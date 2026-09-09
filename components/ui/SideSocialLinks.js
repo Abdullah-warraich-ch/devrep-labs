@@ -21,46 +21,80 @@ export default function SideSocialLinks() {
     setOpen((prev) => !prev);
   }
 
+  const socialLinks = [
+    { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
+    { icon: FaFacebookF, href: "#", label: "Facebook" },
+    { icon: FaWhatsapp, href: "#", label: "WhatsApp" },
+    { icon: FaXTwitter, href: "#", label: "X / Twitter" },
+    { icon: FaPinterestP, href: "#", label: "Pinterest" },
+  ];
+
   return (
     <>
-      {/* Desktop (Always visible on lg+) */}
-      <div className="hidden lg:flex fixed top-1/2 -translate-y-1/2 right-0 py-5 px-3 rounded-l-3xl flex-col justify-center items-center gap-7 bg-[#1C0E30] z-10 shadow-xl border-l border-t border-b border-white/10">
-        <Link href="#" className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"><FaLinkedinIn/></Link>
-        <Link href="#" className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"><FaFacebookF/></Link>
-        <Link href="#" className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"><FaWhatsapp/></Link>
-        <Link href="#" className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"><FaXTwitter/></Link>
-        <Link href="#" className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"><FaPinterestP/></Link>
+      {/* Desktop (Always visible on lg+, vertically centered) */}
+      <div className="hidden lg:flex fixed top-1/2 -translate-y-1/2 right-0 py-5 px-3 rounded-l-3xl flex-col justify-center items-center gap-7 bg-[#1C0E30] z-30 shadow-xl border-l border-t border-b border-white/10 transform-gpu">
+        {socialLinks.map(({ icon: Icon, href, label }) => (
+          <Link
+            key={label}
+            href={href}
+            aria-label={label}
+            className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"
+          >
+            <Icon />
+          </Link>
+        ))}
       </div>
 
-      {/* Mobile Drawer (Slides in on open, slides out on close) */}
+      {/* Mobile Tap-outside Backdrop to dismiss */}
       <AnimatePresence>
         {open && (
           <motion.div
-            key="mobile-social-drawer"
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 100, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden fixed top-1/2 -translate-y-1/2 right-0 py-5 px-3 rounded-l-3xl flex flex-col justify-center items-center gap-7 bg-[#1C0E30] z-10 shadow-2xl border-l border-t border-b border-white/10"
-          >
-            <Link href="#" className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"><FaLinkedinIn/></Link>
-            <Link href="#" className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"><FaFacebookF/></Link>
-            <Link href="#" className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"><FaWhatsapp/></Link>
-            <Link href="#" className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"><FaXTwitter/></Link>
-            <Link href="#" className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"><FaPinterestP/></Link>
-          </motion.div>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setOpen(false)}
+            className="lg:hidden fixed inset-0 z-40 bg-black/35 backdrop-blur-[1px]"
+          />
         )}
       </AnimatePresence>
 
-      {/* Mobile Toggle Button */}
-      <div className="lg:hidden fixed top-[75%] -translate-y-[75%] right-0 py-5 px-3 rounded-l-3xl flex flex-col justify-center items-center gap-7 bg-[#1C0E30] z-10 shadow-xl border-l border-t border-b border-white/10">
+      {/* Mobile Drawer + Toggle (Anchored solidly to bottom-24 right-0 to prevent scroll shifting) */}
+      <div className="lg:hidden fixed bottom-24 right-0 z-40 flex flex-col items-end pointer-events-none">
+        {/* Social Icons Drawer (Opens directly above toggle button) */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              key="mobile-social-drawer"
+              initial={{ opacity: 0, x: 24 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 24 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
+              className="pointer-events-auto mb-2 py-4 px-3 rounded-l-2xl flex flex-col justify-center items-center gap-5 bg-[#1C0E30] shadow-2xl border-l border-t border-b border-white/10"
+            >
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-center text-xl text-white hover:text-[#00F5D4] active:scale-95 transition-all duration-150 w-full"
+                >
+                  <Icon />
+                </Link>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Mobile Toggle Button */}
         <button
           type="button"
-          aria-label="Toggle Social Links"
-          className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full cursor-pointer"
+          aria-label={open ? "Close Social Links" : "Open Social Links"}
+          className="pointer-events-auto py-3.5 px-3 rounded-l-2xl flex items-center justify-center text-xl text-white bg-[#1C0E30] hover:text-[#00F5D4] active:scale-95 shadow-xl border-l border-t border-b border-white/10 transition-all duration-200 cursor-pointer"
           onClick={toggleSocial}
         >
-          {open ? <FiX /> : <FiShare2 />}
+          {open ? <FiX className="text-xl" /> : <FiShare2 className="text-xl" />}
         </button>
       </div>
     </>

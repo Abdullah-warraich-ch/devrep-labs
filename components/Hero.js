@@ -59,15 +59,17 @@ export default function Hero() {
           </h1>
 
           <p className="text-xs sm:text-sm md:text-[15px] lg:text-base text-white/85 leading-relaxed mb-7 sm:mb-8 font-normal text-center lg:text-left max-w-xl mx-auto lg:mx-0">
-            <span className="block lg:whitespace-nowrap">From modern web design to custom digital products,</span>
-            <span className="block lg:whitespace-nowrap">we help ambitious brands launch faster and win more customers.</span>
+            <span className="lg:block lg:whitespace-nowrap hidden">From modern web design to custom digital products,</span>
+            <span className="lg:block lg:whitespace-nowrap hidden">we help ambitious brands launch faster and win more customers.</span>
+            <span className="block lg:whitespace-nowrap lg:hidden">From modern web design to custom digital products, we help ambitious brands launch faster and win more customers.</span>
+
           </p>
 
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 mb-8 w-full">
             <button
               type="button"
-              onClick={openContactModal}
-              className="inline-flex items-center gap-2.5 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold font-['poppins-sb'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] shadow-lg hover:shadow-[0_0_24px_rgba(0,245,212,0.55)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer group"
+              onClick={() => openContactModal({ mode: "demo" })}
+              className="inline-flex items-center gap-2.5 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold font-['poppins-sb'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] shadow-md hover:shadow-lg transition-colors duration-200 cursor-pointer group"
             >
               <span>Book a Free Demo</span>
               <IconArrowRight className="size-4 sm:size-4.5 transition-transform duration-200 group-hover:translate-x-1" />
