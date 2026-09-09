@@ -3,16 +3,18 @@
 import { useState } from "react";
 import Link from "next/link";
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import { useContactModal } from "@/context/ContactModalContext";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { openContactModal } = useContactModal();
 
   const navItems = [
     { name: "Services", link: "/#services" },
     { name: "Work", link: "/projects" },
     { name: "About", link: "/#about" },
     { name: "FAQ", link: "/#faq" },
-    { name: "Contact", link: "/#contact" },
+    { name: "Contact", isContactTrigger: true },
   ];
 
   return (
@@ -29,25 +31,37 @@ export default function Header() {
 
         {/* Center Nav Links */}
         <nav className="hidden md:flex items-center gap-7">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.link}
-              className="pago-nav-link"
-            >
-              {item.name}
-            </a>
-          ))}
+          {navItems.map((item) =>
+            item.isContactTrigger ? (
+              <button
+                key={item.name}
+                type="button"
+                onClick={openContactModal}
+                className="pago-nav-link cursor-pointer bg-transparent border-none"
+              >
+                {item.name}
+              </button>
+            ) : (
+              <a
+                key={item.name}
+                href={item.link}
+                className="pago-nav-link"
+              >
+                {item.name}
+              </a>
+            )
+          )}
         </nav>
 
         {/* Right CTA (Small Button) */}
         <div className="hidden md:flex items-center">
-          <a
-            href="#contact"
-            className="px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-medium font-['poppins-m'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] shadow-sm hover:shadow-[0_0_12px_rgba(0,245,212,0.45)] transition-all"
+          <button
+            type="button"
+            onClick={openContactModal}
+            className="px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-medium font-['poppins-m'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] shadow-sm hover:shadow-[0_0_12px_rgba(0,245,212,0.45)] transition-all cursor-pointer"
           >
             Get in Touch
-          </a>
+          </button>
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -66,23 +80,40 @@ export default function Header() {
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full inset-x-0 bg-primary-gradient border-b border-white/20 p-5 shadow-xl flex flex-col gap-3 font-poppins">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.link}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="pago-nav-link"
-            >
-              {item.name}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-2 w-full text-center py-2 rounded-full text-xs font-medium font-['poppins-m'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] shadow-sm transition-colors"
+          {navItems.map((item) =>
+            item.isContactTrigger ? (
+              <button
+                key={item.name}
+                type="button"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  openContactModal();
+                }}
+                className="pago-nav-link text-left cursor-pointer bg-transparent border-none"
+              >
+                {item.name}
+              </button>
+            ) : (
+              <a
+                key={item.name}
+                href={item.link}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="pago-nav-link"
+              >
+                {item.name}
+              </a>
+            )
+          )}
+          <button
+            type="button"
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              openContactModal();
+            }}
+            className="mt-2 w-full text-center py-2 rounded-full text-xs font-medium font-['poppins-m'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] shadow-sm transition-colors cursor-pointer"
           >
             Get in Touch
-          </a>
+          </button>
         </div>
       )}
     </header>

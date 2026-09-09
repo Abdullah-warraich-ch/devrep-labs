@@ -4,10 +4,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { IconArrowUp, IconArrowRight, IconCheck } from "@tabler/icons-react";
 import { Mail } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
+import { useContactModal } from "@/context/ContactModalContext";
 
 export default function Footer() {
   const [emailInput, setEmailInput] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const { openContactModal } = useContactModal();
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -27,7 +30,7 @@ export default function Footer() {
     { name: "Why Us", href: "/#about" },
     { name: "Projects", href: "/projects" },
     { name: "FAQ", href: "/#faq" },
-    { name: "Contact", href: "/#contact" },
+    { name: "Contact", isContactTrigger: true },
   ];
 
   return (
@@ -64,13 +67,13 @@ export default function Footer() {
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#00F5D4]/10 rounded-full blur-3xl pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 pt-14 sm:pt-16 pb-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-10 lg:px-14 pt-12 sm:pt-16 pb-8">
         
-        {/* 4-Column Balanced Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-white/20">
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-10 sm:pb-12 border-b border-white/20">
           
-          {/* Col 1: Brand & Availability (4 cols) */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* Col 1: Brand & Availability */}
+          <div className="sm:col-span-2 lg:col-span-4 space-y-3.5">
             <Link href="/" className="inline-block group">
               <span className="text-lg sm:text-xl font-bold tracking-tight text-white select-none flex items-center font-['poppins-sb'] group-hover:opacity-95 transition-opacity">
                 DevRep
@@ -79,55 +82,76 @@ export default function Footer() {
               </span>
             </Link>
             
-            <p className="text-xs sm:text-[13px] text-white/80 leading-relaxed font-normal max-w-xs">
+            <p className="text-xs sm:text-[13px] text-white/80 leading-relaxed font-normal max-w-sm">
               DevRep Labs is a premier digital studio engineering bespoke websites, web applications, and digital experiences.
             </p>
-
-
           </div>
 
-          {/* Col 2: Navigation (2 cols) */}
-          <div className="lg:col-span-2 space-y-3.5">
-            <h4 className="text-[11px] uppercase font-semibold tracking-widest text-white">
-              Navigation
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-[13px] text-white/85 font-normal">
-              {navLinks.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="inline-flex items-center gap-1.5 text-white/85 hover:text-[#FFE566] transition-colors group"
-                  >
-                    <span>{item.name}</span>
-                    <IconArrowRight className="size-3 text-[#FFE566] transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 3: Direct Contact (3 cols) */}
-          <div className="lg:col-span-3 space-y-3.5">
-            <h4 className="text-[11px] uppercase font-semibold tracking-widest text-white">
-              Get in Touch
-            </h4>
-            <div className="space-y-2 text-xs sm:text-[13px]">
-              <a
-                href="mailto:abdullahnasar333@gmail.com"
-                className="inline-flex items-center gap-2 text-white hover:text-[#FFE566] transition-colors group"
-              >
-                <Mail className="size-4 text-white group-hover:scale-105 transition-transform shrink-0" />
-                <span className="truncate">abdullahnasar333@gmail.com</span>
-              </a>
-              <p className="text-white/70 text-[11px]">
-                ⚡ Quick reply within 24 hours
-              </p>
+          {/* Links & Contact Wrapper (2 columns on mobile/tablet, separate on desktop) */}
+          <div className="grid grid-cols-2 gap-6 col-span-1 sm:col-span-2 lg:col-span-5">
+            
+            {/* Col 2: Navigation */}
+            <div className="space-y-3">
+              <h4 className="text-[11px] uppercase font-semibold tracking-widest text-[#FFE566]">
+                Navigation
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-[13px] text-white/85 font-normal">
+                {navLinks.map((item) => (
+                  <li key={item.name}>
+                    {item.isContactTrigger ? (
+                      <button
+                        type="button"
+                        onClick={openContactModal}
+                        className="inline-flex items-center gap-1.5 text-white/85 hover:text-[#FFE566] transition-colors group cursor-pointer bg-transparent border-none p-0 text-xs sm:text-[13px]"
+                      >
+                        <span>{item.name}</span>
+                        <IconArrowRight className="size-3 text-[#FFE566] transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
+                      </button>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="inline-flex items-center gap-1.5 text-white/85 hover:text-[#FFE566] transition-colors group"
+                      >
+                        <span>{item.name}</span>
+                        <IconArrowRight className="size-3 text-[#FFE566] transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            {/* Col 3: Direct Contact */}
+            <div className="space-y-3">
+              <h4 className="text-[11px] uppercase font-semibold tracking-widest text-[#FFE566]">
+                Get in Touch
+              </h4>
+              <div className="space-y-2.5 text-xs sm:text-[13px]">
+                <button
+                  type="button"
+                  onClick={openContactModal}
+                  className="inline-flex items-center gap-1.5 text-white hover:text-[#FFE566] transition-colors group cursor-pointer bg-transparent border-none p-0 text-left w-full"
+                >
+                  <Mail className="size-4 text-white group-hover:scale-105 transition-transform shrink-0" />
+                  <span className="truncate text-xs sm:text-[13px]">abdullahnasar333@gmail.com</span>
+                </button>
+                <a
+                  href="https://wa.me/923391719123"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white hover:text-[#FFE566] transition-colors group cursor-pointer"
+                >
+                  <FaWhatsapp className="size-4 text-white group-hover:scale-105 transition-transform shrink-0" />
+                  <span>03391719123</span>
+                </a>
+              </div>
+            </div>
+
           </div>
 
-          {/* Col 4: Newsletter (3 cols) */}
-          <div className="lg:col-span-3 space-y-3.5">
-            <h4 className="text-[11px] uppercase font-semibold tracking-widest text-white">
+          {/* Col 4: Newsletter */}
+          <div className="col-span-1 sm:col-span-2 lg:col-span-3 space-y-3">
+            <h4 className="text-[11px] uppercase font-semibold tracking-widest text-[#FFE566]">
               Newsletter
             </h4>
             <p className="text-xs text-white/80 font-normal leading-relaxed">
@@ -135,7 +159,7 @@ export default function Footer() {
             </p>
 
             {subscribed ? (
-              <div className="flex items-center gap-2 text-xs text-white font-medium p-2.5 rounded-lg bg-white/15 border border-white/20">
+              <div className="flex items-center gap-2 text-xs text-white font-medium p-2.5 rounded-xl bg-white/15 border border-white/20">
                 <IconCheck className="size-3.5 text-[#00F5D4] shrink-0" />
                 <span>Thanks for subscribing!</span>
               </div>
@@ -148,12 +172,12 @@ export default function Footer() {
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
                     placeholder="Enter your email"
-                    className="w-full h-9 pl-3 pr-10 rounded-full bg-white/10 border border-white/20 text-xs text-white placeholder-white/50 focus:bg-white/15 focus:border-[#00F5D4] transition-all outline-none"
+                    className="w-full h-10 pl-3.5 pr-11 rounded-full bg-white/10 border border-white/20 text-xs text-white placeholder-white/50 focus:bg-white/15 focus:border-[#00F5D4] transition-all outline-none"
                   />
                   <button
                     type="submit"
                     aria-label="Subscribe"
-                    className="absolute right-0 top-0 bottom-0 w-9 rounded-full bg-[#00F5D4] text-[#090814] flex items-center justify-center hover:bg-[#00E5FF] transition-all cursor-pointer"
+                    className="absolute right-1 top-1 bottom-1 w-8 rounded-full bg-[#00F5D4] text-[#090814] flex items-center justify-center hover:bg-[#00E5FF] transition-all cursor-pointer"
                   >
                     <IconArrowRight className="size-3.5" />
                   </button>
@@ -168,21 +192,25 @@ export default function Footer() {
         </div>
 
         {/* Bottom Legal & Back to Top Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/70">
-          <p>© {new Date().getFullYear()} DevRep Labs. All rights reserved.</p>
+        <div className="pt-6 sm:pt-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-xs text-white/70">
+          <p className="text-center sm:text-left text-[11px] sm:text-xs">
+            © {new Date().getFullYear()} DevRep Labs. All rights reserved.
+          </p>
 
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
+          <div className="flex items-center justify-between sm:justify-end gap-5 w-full sm:w-auto">
+            <div className="flex items-center gap-4 sm:gap-5 text-[11px] sm:text-xs">
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Terms of Service
+              </a>
+            </div>
             <button
               type="button"
               onClick={scrollToTop}
               aria-label="Back to top"
-              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white/90 hover:text-white transition-all cursor-pointer hover:scale-105"
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white/90 hover:text-white transition-all cursor-pointer hover:scale-105 shrink-0"
             >
               <IconArrowUp className="size-4" />
             </button>

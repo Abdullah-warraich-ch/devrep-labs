@@ -3,8 +3,11 @@
 import Image from "next/image";
 import { IconArrowRight } from "@tabler/icons-react";
 import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
+import { useContactModal } from "@/context/ContactModalContext";
 
 export default function WhatWeDo() {
+  const { openContactModal } = useContactModal();
+
   const capabilities = [
     "Bespoke Web Design & Engaging User Experiences",
     "Custom Web Application & Software Development",
@@ -15,12 +18,12 @@ export default function WhatWeDo() {
   return (
     <section
       id="services"
-      className="relative w-full py-16 sm:py-24 bg-[#FFFFFF] overflow-hidden"
+      className="relative w-full pt-0 sm:pt-0 pb-16 sm:pb-20 lg:py-24 bg-[#FFFFFF] overflow-hidden"
     >
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         
-        {/* Left Side: Mockup Image from public folder */}
-        <div className="relative w-full flex items-center justify-center order-2 lg:order-1">
+        {/* Left Side: Mockup Image from public folder (First on mobile/tablet & desktop) */}
+        <div className="relative w-full flex items-center justify-center order-1">
           <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-full">
             <Image
               src="/images/Mockup.webp"
@@ -34,7 +37,7 @@ export default function WhatWeDo() {
         </div>
 
         {/* Right Side: Heading, Subheading, List with list.png dots, and CTA Button */}
-        <div className="flex flex-col justify-center text-left order-1 lg:order-2">
+        <div className="flex flex-col justify-center text-left order-2">
           {/* Heading */}
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[28px] xl:text-[32px] font-semibold text-[#17131F] leading-snug tracking-tight mb-3">
             <span className="relative inline-block pb-1">
@@ -68,13 +71,14 @@ export default function WhatWeDo() {
 
           {/* Action Button */}
           <div>
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={openContactModal}
               className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium font-['poppins-m'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] shadow-sm hover:shadow-[0_0_16px_rgba(0,245,212,0.45)] transition-all duration-200 cursor-pointer group w-fit"
             >
               <span>Get in Touch</span>
               <IconArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-            </a>
+            </button>
           </div>
         </div>
 

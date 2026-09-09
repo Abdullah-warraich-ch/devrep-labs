@@ -1,5 +1,6 @@
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import { ContactModalProvider } from "@/context/ContactModalContext";
 
 export const metadata = {
   title: "DevRep Labs | High-Performance Web Development & AI Solutions",
@@ -24,7 +25,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="antialiased">
       <body className="flex flex-col font-sans relative">
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <ContactModalProvider>{children}</ContactModalProvider>
+        </SmoothScroll>
       </body>
     </html>
   );
