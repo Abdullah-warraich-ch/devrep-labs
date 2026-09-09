@@ -3,11 +3,13 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IconMenu2, IconX, IconArrowRight } from "@tabler/icons-react";
+import { useLenis } from "lenis/react";
 import { useContactModal } from "@/context/ContactModalContext";
 
 export default function Header() {
+  const lenis = useLenis();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const { openContactModal } = useContactModal();
@@ -84,6 +86,38 @@ export default function Header() {
       window.removeEventListener("resize", onScroll);
     };
   }, [pathname]);
+
+  // Complete Scroll Lock (Lenis, Body, HTML) + Escape key listener
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    if (lenis) {
+      lenis.stop();
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+
+      if (lenis) {
+        lenis.start();
+      }
+    };
+  }, [isMobileMenuOpen, lenis]);
 
   // Handle smooth scroll when navigating on the home page
   const handleNavClick = useCallback(
@@ -215,60 +249,120 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full inset-x-0 bg-primary-gradient border-b border-white/20 p-4 flex flex-col gap-1.5 font-poppins animate-in fade-in slide-in-from-top-2 duration-200">
-          {navItems.map((item) => {
-            const isActive = effectiveActiveSection === item.sectionId;
+      {/* Mobile Slide-Over Sidebar */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 z-50 md:hidden flex justify-end">
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-xs"
+              aria-hidden="true"
+            />
 
-            return item.isContactTrigger ? (
-              <button
-                key={item.name}
-                type="button"
-                onClick={(e) => handleNavClick(e, item)}
-                data-active={isActive ? "true" : undefined}
-                className={`pago-nav-link w-full text-left px-3.5 py-2.5 rounded-lg flex items-center justify-between cursor-pointer bg-transparent border-none transition-colors ${
-                  isActive
-                    ? "active bg-white/15 text-[#00F5D4] font-semibold"
-                    : "hover:bg-white/5"
-                }`}
-              >
-                <span>{item.name}</span>
-                {isActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00F5D4]" />
-                )}
-              </button>
-            ) : (
-              <Link
-                key={item.name}
-                href={item.link}
-                onClick={(e) => handleNavClick(e, item)}
-                data-active={isActive ? "true" : undefined}
-                className={`pago-nav-link w-full px-3.5 py-2.5 rounded-lg flex items-center justify-between transition-colors ${
-                  isActive
-                    ? "active bg-white/15 text-[#00F5D4] font-semibold"
-                    : "hover:bg-white/5"
-                }`}
-              >
-                <span>{item.name}</span>
-                {isActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00F5D4]" />
-                )}
-              </Link>
-            );
-          })}
-          <button
-            type="button"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              openContactModal({ mode: "demo" });
-            }}
-            className="mt-2 w-full text-center py-2 rounded-full text-xs font-medium font-['poppins-m'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] transition-colors cursor-pointer"
-          >
-            Get in Touch
-          </button>
-        </div>
-      )}
+            {/* Slide-over Sidebar Panel */}
+            <motion.aside
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 280 }}
+              className="relative w-[300px] max-w-[85vw] h-full bg-[#151226] border-l border-white/10 flex flex-col justify-between p-6 z-10 font-poppins"
+            >
+              {/* Top Header of Sidebar */}
+              <div className="flex items-center justify-between pb-5 border-b border-white/10">
+                <Link
+                  href="/"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    if (pathname === "/") {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                      setActiveSection("");
+                    }
+                  }}
+                  className="flex items-center gap-1.5"
+                >
+                  <span className="text-lg font-bold tracking-tight text-white font-['poppins-sb']">
+                    DevRep
+                    <span className="text-[#FFE566] ml-1 font-semibold">Labs</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00F5D4] ml-1 inline-block"></span>
+                  </span>
+                </Link>
+
+                <button
+                  type="button"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  aria-label="Close sidebar"
+                >
+                  <IconX className="size-5" />
+                </button>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="flex flex-col gap-2 py-6 flex-1 overflow-y-auto">
+                {navItems.map((item) => {
+                  const isActive = effectiveActiveSection === item.sectionId;
+
+                  return item.isContactTrigger ? (
+                    <button
+                      key={item.name}
+                      type="button"
+                      onClick={(e) => handleNavClick(e, item)}
+                      data-active={isActive ? "true" : undefined}
+                      className={`w-full text-left px-4 py-3 rounded-xl flex items-center justify-between text-sm font-medium font-['poppins-m'] transition-all cursor-pointer bg-transparent border-none ${
+                        isActive
+                          ? "bg-white/10 text-[#00F5D4] font-semibold"
+                          : "text-white/80 hover:text-white hover:bg-white/5"
+                      }`}
+                    >
+                      <span>{item.name}</span>
+                      {isActive && (
+                        <span className="w-2 h-2 rounded-full bg-[#00F5D4]" />
+                      )}
+                    </button>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      href={item.link}
+                      onClick={(e) => handleNavClick(e, item)}
+                      data-active={isActive ? "true" : undefined}
+                      className={`w-full px-4 py-3 rounded-xl flex items-center justify-between text-sm font-medium font-['poppins-m'] transition-all ${
+                        isActive
+                          ? "bg-white/10 text-[#00F5D4] font-semibold"
+                          : "text-white/80 hover:text-white hover:bg-white/5"
+                      }`}
+                    >
+                      <span>{item.name}</span>
+                      {isActive && (
+                        <span className="w-2 h-2 rounded-full bg-[#00F5D4]" />
+                      )}
+                    </Link>
+                  );
+                })}
+              </nav>
+
+              {/* Bottom CTA Section */}
+              <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    openContactModal({ mode: "demo" });
+                  }}
+                  className="w-full py-3 px-4 rounded-full text-sm font-semibold font-['poppins-sb'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Book a Free Demo</span>
+                  <IconArrowRight className="size-4" />
+                </button>
+              </div>
+            </motion.aside>
+          </div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
