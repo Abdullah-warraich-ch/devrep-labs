@@ -13,7 +13,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative w-full py-16 sm:py-24 bg-[#FFFFFF] overflow-hidden"
+      className="relative w-full py-16 sm:py-24 bg-[#FFFFFF] overflow-hidden scroll-mt-14"
     >
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
         {/* Section Header */}

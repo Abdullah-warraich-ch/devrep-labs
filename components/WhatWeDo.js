@@ -18,7 +18,7 @@ export default function WhatWeDo() {
   return (
     <section
       id="services"
-      className="relative w-full pt-0 sm:pt-0 pb-16 sm:pb-20 lg:py-24 bg-[#FFFFFF] overflow-hidden"
+      className="relative w-full pt-0 sm:pt-0 pb-16 sm:pb-20 lg:py-24 bg-[#FFFFFF] overflow-hidden scroll-mt-14"
     >
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         

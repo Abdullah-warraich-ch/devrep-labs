@@ -44,7 +44,7 @@ export default function FaqSection() {
   return (
     <section
       id="faq"
-      className="relative w-full py-16 sm:py-24 bg-[#F8F5FF] overflow-hidden"
+      className="relative w-full py-16 sm:py-24 bg-[#F8F5FF] overflow-hidden scroll-mt-14"
     >
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
         <FaqSections

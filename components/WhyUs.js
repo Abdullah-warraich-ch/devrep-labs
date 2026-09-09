@@ -38,9 +38,10 @@ export default function WhyUs() {
 
   return (
     <section
-      id="why-us"
-      className="relative w-full py-16 sm:py-24 bg-[#F8F5FF] overflow-hidden"
+      id="about"
+      className="relative w-full py-16 sm:py-24 bg-[#F8F5FF] overflow-hidden scroll-mt-14"
     >
+      <div id="why-us" className="absolute -top-16" />
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         {/* Left Side: Content */}
         <div className="flex flex-col justify-center text-left">
