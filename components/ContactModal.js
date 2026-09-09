@@ -11,8 +11,10 @@ import {
   IconLoader2,
 } from "@tabler/icons-react";
 
-export default function ContactModal({ isOpen, onClose }) {
+export default function ContactModal({ isOpen, onClose, config = {} }) {
   const lenis = useLenis();
+  const isDemo = config?.mode === "demo";
+  const isOfferClaimed = Boolean(config?.offerClaimed);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -88,15 +90,25 @@ export default function ContactModal({ isOpen, onClose }) {
         process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
         "8d23d4b1-cdb1-49b8-a7b9-2fc9a473e18d";
 
+      const emailSubject = isDemo
+        ? (isOfferClaimed
+            ? `[Free Demo Offer] Demo Request from ${formData.name} - DevRep Labs`
+            : `Free Demo Request from ${formData.name} - DevRep Labs`)
+        : `New Project Inquiry from ${formData.name} - DevRep Labs`;
+
       const payload = {
         access_key: accessKey,
         name: formData.name,
         email: formData.email,
         service: formData.service,
         budget: formData.budget,
-        message: formData.message,
-        from_name: "DevRep Labs Contact Form",
-        subject: `New Project Inquiry from ${formData.name} - DevRep Labs`,
+        message: isOfferClaimed
+          ? `[Special Free Demo Offer Claimed]\n${formData.message}`
+          : formData.message,
+        from_name: isDemo
+          ? "DevRep Labs Demo Booking"
+          : "DevRep Labs Contact Form",
+        subject: emailSubject,
       };
 
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -177,15 +189,30 @@ export default function ContactModal({ isOpen, onClose }) {
             {/* Modal Header */}
             <div className="relative p-6 sm:p-8 pb-4 flex items-start justify-between">
               <div>
+                {isOfferClaimed && (
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F3ECFF] border border-[#D8C7F9] text-[11px] font-semibold text-[#8364E8] mb-2 shadow-xs">
+                    <span>🏷️ Free Demo Offer Applied</span>
+                  </div>
+                )}
                 <h2
                   id="contact-modal-title"
                   className="text-xl sm:text-2xl font-bold tracking-tight text-[#17131F] leading-tight font-['poppins-sb']"
                 >
-                  Let&apos;s build something{" "}
-                  <span className="text-[#8364E8]">exceptional</span>.
+                  {isDemo ? (
+                    <>
+                      Book your <span className="text-[#8364E8]">free demo</span>.
+                    </>
+                  ) : (
+                    <>
+                      Let&apos;s build something{" "}
+                      <span className="text-[#8364E8]">exceptional</span>.
+                    </>
+                  )}
                 </h2>
                 <p className="text-xs sm:text-[13px] text-[#6F6878] mt-1 font-normal leading-relaxed">
-                  Tell us about your project or vision and we&apos;ll get back to you with a tailored plan within 24 hours.
+                  {isDemo
+                    ? "Schedule a 1-on-1 walkthrough to see our work and discover how we can help your business grow."
+                    : "Tell us about your project or vision and we'll get back to you with a tailored plan within 24 hours."}
                 </p>
               </div>
 
@@ -213,10 +240,14 @@ export default function ContactModal({ isOpen, onClose }) {
                     <IconCheck className="size-8 stroke-[2.5]" />
                   </div>
                   <h3 className="text-xl font-bold text-[#17131F] font-['poppins-sb']">
-                    Message Sent Successfully!
+                    {isDemo
+                      ? "Demo Request Received!"
+                      : "Message Sent Successfully!"}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#6F6878] max-w-sm leading-relaxed">
-                    Thank you for reaching out to DevRep Labs. Our team will review your inquiry and contact you shortly.
+                    {isDemo
+                      ? "Thank you for requesting a demo with DevRep Labs. Our team will contact you shortly to schedule your preferred time."
+                      : "Thank you for reaching out to DevRep Labs. Our team will review your inquiry and contact you shortly."}
                   </p>
                   <button
                     type="button"
@@ -325,7 +356,8 @@ export default function ContactModal({ isOpen, onClose }) {
                   {/* Message Field */}
                   <div>
                     <label className="block text-xs font-medium text-[#2E2838] mb-1.5">
-                      Project Details <span className="text-[#8364E8]">*</span>
+                      {isDemo ? "Demo goals or questions" : "Project details"}{" "}
+                      <span className="text-[#8364E8]">*</span>
                     </label>
                     <textarea
                       name="message"
@@ -333,7 +365,11 @@ export default function ContactModal({ isOpen, onClose }) {
                       rows={3}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us about what you want to build, timelines, or any specific goals..."
+                      placeholder={
+                        isDemo
+                          ? "Tell us about your brand, current website, or what you'd like to see in the demo walkthrough..."
+                          : "Tell us about what you want to build, timelines, or any specific goals..."
+                      }
                       className="w-full p-3.5 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] placeholder-[#9E97A6] focus:border-[#8364E8] focus:bg-white focus:ring-2 focus:ring-[#8364E8]/20 transition-all outline-none resize-none"
                     />
                   </div>
@@ -356,11 +392,15 @@ export default function ContactModal({ isOpen, onClose }) {
                       {status === "submitting" ? (
                         <>
                           <IconLoader2 className="size-4 animate-spin" />
-                          <span>Sending Inquiry...</span>
+                          <span>
+                            {isDemo ? "Booking Demo..." : "Sending Inquiry..."}
+                          </span>
                         </>
                       ) : (
                         <>
-                          <span>Submit Inquiry</span>
+                          <span>
+                            {isDemo ? "Book My Free Demo" : "Submit Inquiry"}
+                          </span>
                           <IconSend className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
                         </>
                       )}

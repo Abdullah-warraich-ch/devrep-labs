@@ -2,6 +2,8 @@
 
 import FaqSections from "@/components/ui/faq-sections";
 import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
+import { IconArrowRight } from "@tabler/icons-react";
+import { useContactModal } from "@/context/ContactModalContext";
 
 const faqs = [
   {
@@ -37,6 +39,8 @@ const faqs = [
 ];
 
 export default function FaqSection() {
+  const { openContactModal } = useContactModal();
+
   return (
     <section
       id="faq"
@@ -52,14 +56,16 @@ export default function FaqSection() {
           variant="center"
         />
 
-        <p className="text-center text-sm text-[#6F6878] mt-10">
-          Still have questions?{" "}
-          <a
-            href="#contact"
-            className="text-[#8364E8] font-medium hover:underline transition-colors"
+        <p className="text-center text-sm text-[#6F6878] mt-10 flex items-center justify-center gap-1.5">
+          <span>Still have questions?</span>
+          <button
+            type="button"
+            onClick={openContactModal}
+            className="inline-flex items-center gap-1 text-[#8364E8] hover:text-[#6E4CD4] font-medium transition-colors cursor-pointer group underline underline-offset-4"
           >
-            Talk to us
-          </a>
+            <span>Talk to us</span>
+            <IconArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+          </button>
         </p>
       </div>
     </section>
