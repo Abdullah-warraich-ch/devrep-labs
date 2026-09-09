@@ -1,12 +1,6 @@
 import "./globals.css";
-import { Poppins } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-poppins",
-});
+import { ContactModalProvider } from "@/context/ContactModalContext";
 
 export const metadata = {
   title: "DevRep Labs | High-Performance Web Development & AI Solutions",
@@ -29,14 +23,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`antialiased ${poppins.variable}`}
-    >
+    <html lang="en" className="antialiased">
       <body className="flex flex-col font-sans relative">
-        <SmoothScroll>{children}</SmoothScroll>
-        {/* Whole Website Bottom Fade & Blur Overlay */}
-        {/* <div className="fixed bottom-0 inset-x-0 h-[120px] pointer-events-none z-50 bg-gradient-to-t from-background/90 via-background/40 to-transparent backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black_40%,transparent_100%)]" /> */}
+        <SmoothScroll>
+          <ContactModalProvider>{children}</ContactModalProvider>
+        </SmoothScroll>
       </body>
     </html>
   );
