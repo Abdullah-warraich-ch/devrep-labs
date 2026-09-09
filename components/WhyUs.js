@@ -145,7 +145,7 @@ export default function WhyUs() {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             >
               <Image
-                src="/images/mockup2.png"
+                src="/images/mockup2.webp"
                 alt="DevRep Labs Project Mockup"
                 width={2400}
                 height={1800}

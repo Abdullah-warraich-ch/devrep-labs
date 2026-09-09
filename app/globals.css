@@ -131,19 +131,21 @@
   -webkit-text-fill-color: transparent;
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+  scrollbar-width: thin;
+  scrollbar-color: #8364E8 transparent;
+}
+
 body {
   background: var(--background);
   color: var(--copy);
   font-family: "poppins-r", "Poppins", sans-serif;
   overflow-x: hidden;
+  max-width: 100vw;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-/* ---- Thin & Attractive Custom Scrollbar ---- */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #8364E8 transparent;
 }
 
 ::-webkit-scrollbar {

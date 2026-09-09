@@ -43,13 +43,13 @@ export default function Projects() {
                 delay: index * 0.1,
                 ease: "easeOut",
               }}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[16/10] bg-gradient-to-br from-[#FAF8FF] via-[#F3ECFF] to-[#EAE1FB] border border-[#EAE5F0] shadow-sm flex items-center justify-center p-3 sm:p-4.5"
+              className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[16/10] bg-[#FAF8FF] border border-[#EAE5F0] shadow-sm"
             >
-              {/* Project Screenshot Image (Uncropped) */}
+              {/* Project Screenshot Image (Edge-to-Edge) */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-contain rounded-xl drop-shadow-md"
+                className="w-full h-full object-cover object-top"
               />
 
               {/* Gradient Overlay — visible on mobile/tablet, hover on desktop */}

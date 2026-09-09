@@ -22,7 +22,8 @@ export default function SmoothScroll({ children }) {
         duration: 1.2,
         smoothWheel: true,
         wheelMultiplier: 1.0,
-        touchMultiplier: 1.5,
+        touchMultiplier: 0,
+        syncTouch: false,
         infinite: false,
       }}
     >
