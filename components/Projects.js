@@ -57,13 +57,13 @@ export default function Projects() {
 
               {/* Content — visible on mobile/tablet, hover on desktop */}
               <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 flex flex-col justify-end translate-y-0 opacity-100 lg:translate-y-3 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-300 z-10">
-                <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase text-[#00F5D4] mb-1.5">
+                <span className="text-[10px] hidden lg:block sm:text-[11px] font-semibold tracking-wider uppercase text-[#00F5D4] mb-1.5">
                   {project.category}
                 </span>
                 <h3 className="text-base sm:text-lg font-semibold text-white leading-snug mb-1">
                   {project.title}
                 </h3>
-                <p className="text-xs sm:text-[13px] text-white/80 leading-relaxed font-normal mb-4 max-w-sm">
+                <p className="text-xs sm:text-[13px] hidden lg:block text-white/80 mb-8 leading-relaxed font-normal lg:mb-4 max-w-sm">
                   {project.description}
                 </p>
                 <a

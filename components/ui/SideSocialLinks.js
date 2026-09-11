@@ -54,7 +54,7 @@ export default function SideSocialLinks() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setOpen(false)}
-            className="lg:hidden fixed inset-0 z-40 bg-black/35 backdrop-blur-[1px]"
+            className="lg:hidden fixed"
           />
         )}
       </AnimatePresence>
