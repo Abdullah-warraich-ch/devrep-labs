@@ -8,6 +8,12 @@ import PreFooterCta from "@/components/PreFooterCta";
 import Footer from "@/components/Footer";
 import SideSocialLinks from "@/components/ui/SideSocialLinks";
 
+export const metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-background relative overflow-x-hidden">
