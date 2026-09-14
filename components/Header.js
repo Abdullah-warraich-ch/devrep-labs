@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -153,9 +154,9 @@ export default function Header() {
   );
 
   return (
-    <header className="fixed top-0 inset-x-0 w-full h-11 sm:h-13 z-50 bg-primary-gradient">
+    <header className="fixed top-0 inset-x-0 w-full h-12 sm:h-14 z-50 bg-primary-gradient">
       <div className="max-w-7xl mx-auto h-full px-4 sm:px-8 flex items-center justify-between">
-        {/* Text Logo */}
+        {/* Logo */}
         <Link
           href="/"
           onClick={(e) => {
@@ -165,13 +166,16 @@ export default function Header() {
               setActiveSection("");
             }
           }}
-          className="flex items-center gap-1.5 shrink-0 group"
+          className="flex items-center shrink-0"
         >
-          <span className="text-base sm:text-lg font-bold tracking-tight text-white select-none flex items-center font-['poppins-sb'] group-hover:opacity-95 transition-opacity">
-            DevRep
-            <span className="text-[#FFE566] ml-1 font-semibold">Labs</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00F5D4] ml-1 inline-block"></span>
-          </span>
+          <Image
+            src="/logo.png"
+            alt="DevRep Labs Logo"
+            width={170}
+            height={53}
+            priority
+            className="h-8 sm:h-9 md:h-10 w-auto object-contain"
+          />
         </Link>
 
         {/* Center Nav Links with Scroll Spy Highlight */}
@@ -283,13 +287,16 @@ export default function Header() {
                       setActiveSection("");
                     }
                   }}
-                  className="flex items-center gap-1.5"
+                  className="flex items-center"
                 >
-                  <span className="text-lg font-bold tracking-tight text-white font-['poppins-sb']">
-                    DevRep
-                    <span className="text-[#FFE566] ml-1 font-semibold">Labs</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00F5D4] ml-1 inline-block"></span>
-                  </span>
+                  <Image
+                    src="/logo.png"
+                    alt="DevRep Labs Logo"
+                    width={160}
+                    height={50}
+                    priority
+                    className="h-8 sm:h-9 w-auto object-contain"
+                  />
                 </Link>
 
                 <button
