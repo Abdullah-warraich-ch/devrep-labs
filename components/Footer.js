@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { IconArrowUp, IconArrowRight, IconCheck } from "@tabler/icons-react";
 import { Mail } from "lucide-react";
@@ -74,12 +75,14 @@ export default function Footer() {
           
           {/* Col 1: Brand & Availability */}
           <div className="sm:col-span-2 lg:col-span-4 space-y-3.5">
-            <Link href="/" className="inline-block group">
-              <span className="text-lg sm:text-xl font-bold tracking-tight text-white select-none flex items-center font-['poppins-sb'] group-hover:opacity-95 transition-opacity">
-                DevRep
-                <span className="text-[#FFE566] ml-1 font-semibold">Labs</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00F5D4] ml-1 inline-block"></span>
-              </span>
+            <Link href="/" className="inline-block">
+              <Image
+                src="/logo.png"
+                alt="DevRep Labs Logo"
+                width={200}
+                height={62}
+                className="h-10 sm:h-12 md:h-13 w-auto object-contain"
+              />
             </Link>
             
             <p className="text-xs sm:text-[13px] text-white/80 leading-relaxed font-normal max-w-sm">
