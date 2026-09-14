@@ -4,8 +4,11 @@ import Image from "next/image";
 import { IconArrowRight } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
+import { useContactModal } from "@/context/ContactModalContext";
 
 export default function WhyUs() {
+  const { openContactModal } = useContactModal();
+
   const reasons = [
     {
       title: "Pixel-Perfect Execution",
@@ -39,7 +42,7 @@ export default function WhyUs() {
   return (
     <section
       id="about"
-      className="relative w-full py-16 sm:py-24 bg-[#F8F5FF] overflow-hidden scroll-mt-14"
+      className="relative w-full py-16 sm:py-24 bg-[#FAF7FC] overflow-hidden scroll-mt-14"
     >
       <div id="why-us" className="absolute -top-16" />
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -49,7 +52,7 @@ export default function WhyUs() {
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[28px] xl:text-[32px] font-semibold text-[#17131F] leading-snug tracking-tight mb-3">
             <span className="relative inline-block pb-1">
               Why Us
-              <HandDrawnUnderline color="#8364E8" />
+              <HandDrawnUnderline color="#AA076B" />
             </span>
           </h2>
 
@@ -70,7 +73,7 @@ export default function WhyUs() {
                 className="flex items-start gap-3.5"
               >
                 {/* Numbered Badge */}
-                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-[#D397FA] to-[#8364E8] flex items-center justify-center text-white text-[11px] font-semibold shadow-sm">
+                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-r from-[#AA076B] to-[#61045F] flex items-center justify-center text-white text-[11px] font-semibold shadow-sm">
                   {index + 1}
                 </span>
                 <div>
@@ -87,13 +90,14 @@ export default function WhyUs() {
 
           {/* Action Button */}
           <div>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium font-['poppins-m'] text-white bg-gradient-to-r from-[#8364E8] to-[#D397FA] hover:from-[#7555D6] hover:to-[#C77FF5] shadow-sm hover:shadow-[0_0_20px_rgba(131,100,232,0.4)] transition-all duration-200 cursor-pointer group w-fit"
+            <button
+              type="button"
+              onClick={openContactModal}
+              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium font-['poppins-m'] text-white bg-gradient-to-r from-[#AA076B] to-[#61045F] hover:opacity-95 shadow-sm hover:shadow-[0_0_20px_rgba(170,7,107,0.35)] transition-all duration-200 cursor-pointer group w-fit"
             >
               <span>Start Your Project</span>
               <IconArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -112,7 +116,7 @@ export default function WhyUs() {
                   delay: ring.delay,
                   ease: "easeOut",
                 }}
-                className="absolute rounded-full border-[1.5px] border-[#8364E8]"
+                className="absolute rounded-full border-[1.5px] border-[#AA076B]"
                 style={{
                   width: `${ring.size}px`,
                   height: `${ring.size}px`,
@@ -122,7 +126,7 @@ export default function WhyUs() {
 
             {/* Pulsing glow ring */}
             <motion.div
-              className="absolute rounded-full border border-[#D397FA]/20"
+              className="absolute rounded-full border border-[#AA076B]/20"
               style={{ width: "340px", height: "340px" }}
               animate={{
                 scale: [1, 1.08, 1],

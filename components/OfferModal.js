@@ -73,10 +73,10 @@ export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
             aria-labelledby="offer-modal-title"
           >
             {/* Top Accent Gradient Line */}
-            <div className="h-1.5 bg-gradient-to-r from-[#D397FA] via-[#8364E8] to-[#00F5D4]" />
+            <div className="h-1.5 bg-gradient-to-r from-[#AA076B] to-[#61045F]" />
 
             {/* Ambient Background Aura */}
-            <div className="absolute -top-16 -right-16 w-56 h-56 bg-[#8364E8]/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-16 -right-16 w-56 h-56 bg-[#AA076B]/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-[#00F5D4]/15 rounded-full blur-3xl pointer-events-none" />
 
             {/* Close Button */}
@@ -84,7 +84,7 @@ export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
               type="button"
               onClick={onClose}
               aria-label="Close offer modal"
-              className="absolute top-4 right-4 p-2 rounded-full text-[#6F6878] hover:text-[#17131F] bg-[#FAF8FF] hover:bg-[#F0EAFA] border border-[#EAE5F0] transition-all duration-200 cursor-pointer group z-20"
+              className="absolute top-4 right-4 p-2 rounded-full text-[#6F6878] hover:text-[#17131F] bg-[#FAF8FF] hover:bg-[#FAF7FC] border border-[#EAE5F0] transition-all duration-200 cursor-pointer group z-20"
             >
               <IconX className="size-4.5 transition-transform duration-200 group-hover:rotate-90" />
             </button>
@@ -93,7 +93,7 @@ export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
             <div className="p-6 sm:p-8 pt-6 relative z-10 text-center flex flex-col items-center">
               
               {/* Standalone Filled Tag Icon (No Background) */}
-              <IconTagFilled className="size-11 sm:size-12 text-[#8364E8] mb-4 shrink-0 drop-shadow-sm" />
+              <IconTagFilled className="size-11 sm:size-12 text-[#AA076B] mb-4 shrink-0 drop-shadow-sm" />
 
               {/* Direct, Straightforward Title */}
               <h2
@@ -101,9 +101,9 @@ export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
                 className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-[#17131F] leading-snug font-['poppins-sb'] mb-7 max-w-sm"
               >
                 We Will Provide a{" "}
-                <span className="relative inline-block text-[#8364E8]">
+                <span className="relative inline-block text-[#AA076B]">
                   Free Demo
-                  <HandDrawnUnderline color="#8364E8" />
+                  <HandDrawnUnderline color="#AA076B" />
                 </span>{" "}
                 for Your Business Website
               </h2>

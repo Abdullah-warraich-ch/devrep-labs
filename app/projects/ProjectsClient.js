@@ -37,7 +37,7 @@ export default function ProjectsClient() {
           {/* Back to Home Link */}
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#6F6878] hover:text-[#8364E8] transition-colors mb-6 group"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#6F6878] hover:text-[#AA076B] transition-colors mb-6 group"
           >
             <IconArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-0.5" />
             <span>Back to Home</span>
@@ -46,9 +46,9 @@ export default function ProjectsClient() {
           <div className="max-w-2xl space-y-3">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#17131F] leading-tight">
               Our Complete{" "}
-              <span className="relative inline-block text-[#8364E8] pb-1">
+              <span className="relative inline-block text-[#AA076B] pb-1">
                 Portfolio
-                <HandDrawnUnderline color="#8364E8" />
+                <HandDrawnUnderline color="#AA076B" />
               </span>
             </h1>
 
@@ -66,8 +66,8 @@ export default function ProjectsClient() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                   activeCategory === cat
-                    ? "bg-[#8364E8] text-white shadow-sm"
-                    : "bg-[#F8F5FF] text-[#6F6878] hover:text-[#17131F] hover:bg-[#F3ECFF]"
+                    ? "bg-gradient-to-r from-[#AA076B] to-[#61045F] text-white shadow-sm"
+                    : "bg-[#FAF7FC] text-[#6F6878] hover:text-[#AA076B] hover:bg-[#F3ECFF]"
                 }`}
               >
                 {cat}

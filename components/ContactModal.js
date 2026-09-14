@@ -183,14 +183,14 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
             aria-labelledby="contact-modal-title"
           >
             {/* Top Glowing Ambient Accent Bar */}
-            <div className="sticky top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#D397FA] via-[#8364E8] to-[#00F5D4] z-20" />
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-36 bg-[#8364E8]/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="sticky top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#AA076B] to-[#61045F] z-20" />
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-36 bg-[#AA076B]/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* Modal Header */}
             <div className="relative p-6 sm:p-8 pb-4 flex items-start justify-between">
               <div>
                 {isOfferClaimed && (
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F3ECFF] border border-[#D8C7F9] text-[11px] font-semibold text-[#8364E8] mb-2 shadow-xs">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FAF7FC] border border-[#AA076B]/30 text-[11px] font-semibold text-[#AA076B] mb-2 shadow-xs">
                     <span>🏷️ Free Demo Offer Applied</span>
                   </div>
                 )}
@@ -200,12 +200,12 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                 >
                   {isDemo ? (
                     <>
-                      Book your <span className="text-[#8364E8]">free demo</span>.
+                      Book your <span className="text-[#AA076B]">free demo</span>.
                     </>
                   ) : (
                     <>
                       Let&apos;s build something{" "}
-                      <span className="text-[#8364E8]">exceptional</span>.
+                      <span className="text-[#AA076B]">exceptional</span>.
                     </>
                   )}
                 </h2>
@@ -221,7 +221,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                 type="button"
                 onClick={resetAndClose}
                 aria-label="Close dialog"
-                className="p-2 rounded-full text-[#6F6878] hover:text-[#17131F] bg-[#FAF8FF] hover:bg-[#F0EAFA] border border-[#EAE5F0] transition-all duration-200 cursor-pointer group shrink-0 ml-3"
+                className="p-2 rounded-full text-[#6F6878] hover:text-[#17131F] bg-[#FAF8FF] hover:bg-[#FAF7FC] border border-[#EAE5F0] transition-all duration-200 cursor-pointer group shrink-0 ml-3"
               >
                 <IconX className="size-4.5 transition-transform duration-200 group-hover:rotate-90" />
               </button>
@@ -252,7 +252,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                   <button
                     type="button"
                     onClick={resetAndClose}
-                    className="mt-4 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-primary-gradient hover:opacity-95 shadow-md shadow-[#8364E8]/25 transition-all cursor-pointer"
+                    className="mt-4 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-primary-gradient hover:opacity-95 shadow-md shadow-[#AA076B]/25 transition-all cursor-pointer"
                   >
                     Done
                   </button>
@@ -274,7 +274,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <div>
                       <label className="block text-xs font-medium text-[#2E2838] mb-1.5">
-                        Your Name <span className="text-[#8364E8]">*</span>
+                        Your Name <span className="text-[#AA076B]">*</span>
                       </label>
                       <input
                         type="text"
@@ -283,13 +283,13 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="John Doe"
-                        className="w-full h-10 px-3.5 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] placeholder-[#9E97A6] focus:border-[#8364E8] focus:bg-white focus:ring-2 focus:ring-[#8364E8]/20 transition-all outline-none"
+                        className="w-full h-10 px-3.5 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] placeholder-[#9E97A6] focus:border-[#AA076B] focus:bg-white focus:ring-2 focus:ring-[#AA076B]/20 transition-all outline-none"
                       />
                     </div>
 
                     <div>
                       <label className="block text-xs font-medium text-[#2E2838] mb-1.5">
-                        Email Address <span className="text-[#8364E8]">*</span>
+                        Email Address <span className="text-[#AA076B]">*</span>
                       </label>
                       <input
                         type="email"
@@ -298,7 +298,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="john@example.com"
-                        className="w-full h-10 px-3.5 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] placeholder-[#9E97A6] focus:border-[#8364E8] focus:bg-white focus:ring-2 focus:ring-[#8364E8]/20 transition-all outline-none"
+                        className="w-full h-10 px-3.5 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] placeholder-[#9E97A6] focus:border-[#AA076B] focus:bg-white focus:ring-2 focus:ring-[#AA076B]/20 transition-all outline-none"
                       />
                     </div>
                   </div>
@@ -318,7 +318,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                           }
                           className={`px-3 py-1.5 rounded-full text-xs transition-all duration-200 cursor-pointer ${
                             formData.service === item
-                              ? "bg-[#8364E8] text-white border border-[#8364E8] shadow-sm shadow-[#8364E8]/35 font-medium"
+                              ? "bg-gradient-to-r from-[#AA076B] to-[#61045F] text-white border border-transparent shadow-sm shadow-[#AA076B]/35 font-medium"
                               : "bg-[#FAF9FD] text-[#6F6878] border border-[#E4DFEB] hover:text-[#17131F] hover:bg-[#F3ECFF] hover:border-[#D8C7F9]"
                           }`}
                         >
@@ -343,7 +343,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                           }
                           className={`px-3 py-1.5 rounded-full text-xs transition-all duration-200 cursor-pointer ${
                             formData.budget === b
-                              ? "bg-[#8364E8] text-white border border-[#8364E8] shadow-sm shadow-[#8364E8]/35 font-semibold"
+                              ? "bg-gradient-to-r from-[#AA076B] to-[#61045F] text-white border border-transparent shadow-sm shadow-[#AA076B]/35 font-semibold"
                               : "bg-[#FAF9FD] text-[#6F6878] border border-[#E4DFEB] hover:text-[#17131F] hover:bg-[#F3ECFF] hover:border-[#D8C7F9]"
                           }`}
                         >
@@ -357,7 +357,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                   <div>
                     <label className="block text-xs font-medium text-[#2E2838] mb-1.5">
                       {isDemo ? "Demo goals or questions" : "Project details"}{" "}
-                      <span className="text-[#8364E8]">*</span>
+                      <span className="text-[#AA076B]">*</span>
                     </label>
                     <textarea
                       name="message"
@@ -370,7 +370,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                           ? "Tell us about your brand, current website, or what you'd like to see in the demo walkthrough..."
                           : "Tell us about what you want to build, timelines, or any specific goals..."
                       }
-                      className="w-full p-3.5 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] placeholder-[#9E97A6] focus:border-[#8364E8] focus:bg-white focus:ring-2 focus:ring-[#8364E8]/20 transition-all outline-none resize-none"
+                      className="w-full p-3.5 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] placeholder-[#9E97A6] focus:border-[#AA076B] focus:bg-white focus:ring-2 focus:ring-[#AA076B]/20 transition-all outline-none resize-none"
                     />
                   </div>
 

@@ -61,7 +61,7 @@ export default function FaqSection() {
           <button
             type="button"
             onClick={openContactModal}
-            className="inline-flex items-center gap-1 text-[#8364E8] hover:text-[#6E4CD4] font-medium transition-colors cursor-pointer group underline underline-offset-4"
+            className="inline-flex items-center gap-1 text-[#AA076B] hover:text-[#AA076B] font-medium transition-colors cursor-pointer group underline underline-offset-4"
           >
             <span>Talk to us</span>
             <IconArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-1" />
