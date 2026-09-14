@@ -16,15 +16,15 @@ export default function PreFooterCta() {
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
         <div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left gap-8 lg:gap-12">
-          
+
           {/* Left Content */}
           <div className="space-y-4 max-w-2xl flex flex-col items-center lg:items-start text-center lg:text-left">
             {/* Main Heading with Signature HandDrawnUnderline */}
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-[#17131F] leading-[1.2] text-center lg:text-left">
               Have a{" "}
-              <span className="relative inline-block text-[#8364E8] pb-1">
+              <span className="relative inline-block text-[#AA076B] pb-1">
                 website or app
-                <HandDrawnUnderline color="#8364E8" />
+                <HandDrawnUnderline color="#AA076B" />
               </span>{" "}
               in mind?
             </h2>

@@ -21,7 +21,7 @@ export default function WhatWeDo() {
       className="relative w-full pt-0 sm:pt-0 pb-16 sm:pb-20 lg:py-24 bg-[#FFFFFF] overflow-hidden scroll-mt-14"
     >
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        
+
         {/* Left Side: Mockup Image from public folder (First on mobile/tablet & desktop) */}
         <div className="relative w-full flex items-center justify-center order-1">
           <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-full">
@@ -42,7 +42,7 @@ export default function WhatWeDo() {
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[28px] xl:text-[32px] font-semibold text-[#17131F] leading-snug tracking-tight mb-3">
             <span className="relative inline-block pb-1">
               What We Do
-              <HandDrawnUnderline color="#8364E8" />
+              <HandDrawnUnderline color="#AA076B" />
             </span>
           </h2>
 

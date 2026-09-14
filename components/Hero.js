@@ -47,7 +47,7 @@ export default function Hero() {
       </div>
 
       <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center relative z-10">
-        
+
         {/* Left Side: Heading, Description, Book a Free Demo Button & Trust Highlights */}
         <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left z-10">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[46px] 2xl:text-[48px] font-bold tracking-tight text-white leading-[1.2] mb-4 sm:mb-5 font-['poppins-sb'] text-center lg:text-left">
@@ -114,9 +114,9 @@ export default function Hero() {
         {/* Right Side: Clean SVG Hero Illustration */}
         <div className="flex items-center justify-center relative w-full z-10 py-6 sm:py-8">
           <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[480px] flex items-center justify-center">
-            
+
             {/* Ambient Background Aura behind SVG */}
-            <div className="absolute inset-0 w-4/5 h-4/5 m-auto bg-gradient-to-tr from-[#00F5D4]/20 via-[#8364E8]/25 to-[#FFE566]/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute inset-0 w-4/5 h-4/5 m-auto bg-gradient-to-tr from-[#61045F]/20 via-[#AA076B]/25 to-[#61045F]/20 rounded-full blur-3xl pointer-events-none" />
 
             {/* Central SVG Hero Illustration */}
             <Image

@@ -51,20 +51,29 @@
 
 :root {
   /* Brand Purple Scheme */
-  --background: #FAF9FF;          /* Main background */
-  --surface: #FFFFFF;             /* White surface */
-  --surface-soft: #F3ECFF;        /* Soft purple background */
+  --background: #FAF9FF;
+  /* Main background */
+  --surface: #FFFFFF;
+  /* White surface */
+  --surface-soft: #F3ECFF;
+  /* Soft purple background */
   --foreground: #FFFFFF;
-  --border: #EAE5F0;              /* Border */
+  --border: #EAE5F0;
+  /* Border */
 
-  --primary: #8364E8;             /* Solid purple */
-  --primary-deep: #6947D8;        /* Deep purple */
-  --primary-light: #D397FA;       /* Primary gradient start */
+  --primary: #8364E8;
+  /* Solid purple */
+  --primary-deep: #6947D8;
+  /* Deep purple */
+  --primary-light: #D397FA;
+  /* Primary gradient start */
   --primary-content: #ffffff;
   --primary-dark: #6947D8;
 
-  --copy: #17131F;                /* Main text */
-  --copy-light: #6F6878;          /* Secondary text */
+  --copy: #17131F;
+  /* Main text */
+  --copy-light: #6F6878;
+  /* Secondary text */
   --copy-lighter: #6F6878;
 
   --accent-cyan: #00F5D4;
@@ -121,12 +130,12 @@
 /* Primary Gradient Utility */
 .bg-primary-gradient,
 .primary-gradient {
-  background: linear-gradient(135deg, #D397FA 0%, #8364E8 100%);
+  background: linear-gradient(135deg, #AA076B 0%, #61045F 100%);
   background-attachment: fixed;
 }
 
 .text-primary-gradient {
-  background: linear-gradient(135deg, #D397FA 0%, #8364E8 100%);
+  background: linear-gradient(135deg, #AA076B 0%, #61045F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

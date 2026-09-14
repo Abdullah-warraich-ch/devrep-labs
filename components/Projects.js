@@ -21,7 +21,7 @@ export default function Projects() {
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[28px] xl:text-[32px] font-semibold text-[#17131F] leading-snug tracking-tight mb-3">
             <span className="relative inline-block pb-1">
               Our Projects
-              <HandDrawnUnderline color="#8364E8" />
+              <HandDrawnUnderline color="#AA076B" />
             </span>
           </h2>
           <p className="text-[#6F6878] text-xs sm:text-[13px] md:text-sm leading-relaxed font-normal max-w-lg mx-auto">
@@ -84,7 +84,7 @@ export default function Projects() {
         <div className="flex justify-center mt-10 sm:mt-14">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium font-['poppins-m'] text-[#17131F] bg-transparent border border-[#17131F]/20 hover:border-[#8364E8] hover:text-[#8364E8] transition-all duration-200 cursor-pointer group"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium font-['poppins-m'] text-[#17131F] bg-transparent border border-[#17131F]/20 hover:border-[#AA076B] hover:text-[#AA076B] transition-all duration-200 cursor-pointer group"
           >
             <span>View All Projects</span>
             <IconArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
