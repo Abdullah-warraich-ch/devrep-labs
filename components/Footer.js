@@ -79,6 +79,7 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="DevRep Labs Logo"
+                title="DevRep Labs — Custom Web Development & Digital Solutions"
                 width={200}
                 height={62}
                 className="h-10 sm:h-12 md:h-13 w-auto object-contain"

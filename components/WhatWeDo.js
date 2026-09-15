@@ -28,6 +28,7 @@ export default function WhatWeDo() {
             <Image
               src="/images/Mockup.webp"
               alt="DevRep Labs bespoke web application and digital product showcase mockup"
+              title="DevRep Labs — Bespoke Web Applications & Digital Products"
               width={1600}
               height={1200}
               priority
@@ -58,6 +59,7 @@ export default function WhatWeDo() {
                 <Image
                   src="/images/list.png"
                   alt=""
+                  title={title}
                   aria-hidden="true"
                   width={20}
                   height={20}

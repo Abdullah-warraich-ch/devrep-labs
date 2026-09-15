@@ -40,6 +40,7 @@ export default function PreFooterCta() {
                 <Image
                   src="/images/list.png"
                   alt=""
+                  title="Fast 2–4 Week Turnaround"
                   aria-hidden="true"
                   width={18}
                   height={18}
@@ -51,6 +52,7 @@ export default function PreFooterCta() {
                 <Image
                   src="/images/list.png"
                   alt=""
+                  title="Modern UI/UX Design"
                   aria-hidden="true"
                   width={18}
                   height={18}
@@ -62,6 +64,7 @@ export default function PreFooterCta() {
                 <Image
                   src="/images/list.png"
                   alt=""
+                  title="Speed & SEO Optimized"
                   aria-hidden="true"
                   width={18}
                   height={18}

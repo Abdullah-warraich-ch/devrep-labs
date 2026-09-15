@@ -96,6 +96,7 @@ export default function ProjectsClient() {
                 <Image
                   src={project.image}
                   alt={`${project.title} — ${project.category}`}
+                  title={`${project.title} — ${project.category} | DevRep Labs`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
                   priority={index < 2}

@@ -50,6 +50,7 @@ export default function Projects() {
               <Image
                 src={project.image}
                 alt={`${project.title} — ${project.category}`}
+                title={`${project.title} — ${project.category} | DevRep Labs`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"

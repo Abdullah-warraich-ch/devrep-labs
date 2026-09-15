@@ -171,6 +171,7 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="DevRep Labs Logo"
+            title="DevRep Labs — Custom Web Development & Digital Solutions"
             width={170}
             height={53}
             priority
@@ -292,6 +293,7 @@ export default function Header() {
                   <Image
                     src="/logo.png"
                     alt="DevRep Labs Logo"
+                    title="DevRep Labs — Custom Web Development & Digital Solutions"
                     width={160}
                     height={50}
                     priority

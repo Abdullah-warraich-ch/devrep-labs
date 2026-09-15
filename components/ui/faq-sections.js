@@ -108,6 +108,7 @@ export default function FaqSections({
           className="max-w-sm w-full rounded-xl h-auto"
           src={imageSrc}
           alt={imageAlt || "FAQ Section Image"}
+          title={imageAlt || "FAQ Section Image"}
           width={400}
           height={300}
         />
