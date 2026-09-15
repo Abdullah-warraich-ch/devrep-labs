@@ -5,7 +5,7 @@ export const projects = [
     category: "Automotive • E-Commerce Platform",
     description: "Premium automotive dealership platform featuring interactive vehicle inventory, smart search filters, and showcase details.",
     image: "/projects/CarDealer.webp",
-    link: "#",
+    link: "https://car-sell-portfolio-demo.vercel.app/",
     tags: ["Next.js", "React", "Tailwind CSS"],
   },
   {
@@ -14,7 +14,7 @@ export const projects = [
     category: "Luxury Living • Booking Web App",
     description: "Modern serviced apartments discovery and reservation platform with city filters, date picker, and room availability.",
     image: "/projects/griffin.webp",
-    link: "#",
+    link: "https://griffin-apartments.vercel.app/",
     tags: ["Next.js", "React", "Tailwind CSS"],
   },
   {

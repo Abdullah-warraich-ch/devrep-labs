@@ -95,9 +95,9 @@ export default function Footer() {
             
             {/* Col 2: Navigation */}
             <div className="space-y-3">
-              <h4 className="text-[11px] uppercase font-semibold tracking-widest text-[#FFE566]">
+              <h3 className="text-[11px] uppercase font-semibold tracking-widest text-[#FFE566]">
                 Navigation
-              </h4>
+              </h3>
               <ul className="space-y-2 text-xs sm:text-[13px] text-white/85 font-normal">
                 {navLinks.map((item) => (
                   <li key={item.name}>
@@ -111,13 +111,13 @@ export default function Footer() {
                         <IconArrowRight className="size-3 text-[#FFE566] transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
                       </button>
                     ) : (
-                      <a
+                      <Link
                         href={item.href}
                         className="inline-flex items-center gap-1.5 text-white/85 hover:text-[#FFE566] transition-colors group"
                       >
                         <span>{item.name}</span>
                         <IconArrowRight className="size-3 text-[#FFE566] transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
-                      </a>
+                      </Link>
                     )}
                   </li>
                 ))}
@@ -126,16 +126,16 @@ export default function Footer() {
 
             {/* Col 3: Direct Contact */}
             <div className="space-y-3">
-              <h4 className="text-[11px] uppercase font-semibold tracking-widest text-[#FFE566]">
+              <h3 className="text-[11px] uppercase font-semibold tracking-widest text-[#FFE566]">
                 Get in Touch
-              </h4>
+              </h3>
               <div className="space-y-2.5 text-xs sm:text-[13px]">
                 <button
                   type="button"
                   onClick={openContactModal}
                   className="inline-flex items-center gap-1.5 text-white hover:text-[#FFE566] transition-colors group cursor-pointer bg-transparent border-none p-0 text-left w-full"
                 >
-                  <Mail className="size-4 text-white group-hover:scale-105 transition-transform shrink-0" />
+                  <Mail className="size-4 text-white shrink-0" />
                   <span className="truncate text-xs sm:text-[13px]">abdullahnasar333@gmail.com</span>
                 </button>
                 <a
@@ -144,7 +144,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-white hover:text-[#FFE566] transition-colors group cursor-pointer"
                 >
-                  <FaWhatsapp className="size-4 text-white group-hover:scale-105 transition-transform shrink-0" />
+                  <FaWhatsapp className="size-4 text-white shrink-0" />
                   <span>03391719123</span>
                 </a>
               </div>
@@ -154,9 +154,9 @@ export default function Footer() {
 
           {/* Col 4: Newsletter */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-3 space-y-3">
-            <h4 className="text-[11px] uppercase font-semibold tracking-widest text-[#FFE566]">
+            <h3 className="text-[11px] uppercase font-semibold tracking-widest text-[#FFE566]">
               Newsletter
-            </h4>
+            </h3>
             <p className="text-xs text-white/80 font-normal leading-relaxed">
               Subscribe for insights on modern web development and design.
             </p>

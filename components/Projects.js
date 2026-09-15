@@ -49,7 +49,7 @@ export default function Projects() {
               {/* Project Screenshot Image (Edge-to-Edge) */}
               <Image
                 src={project.image}
-                alt={project.title}
+                alt={`${project.title} — ${project.category}`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"

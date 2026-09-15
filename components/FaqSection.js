@@ -41,11 +41,29 @@ const faqs = [
 export default function FaqSection() {
   const { openContactModal } = useContactModal();
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <section
       id="faq"
       className="relative w-full py-16 sm:py-24 bg-[#F8F5FF] overflow-hidden scroll-mt-14"
     >
+      {/* Schema.org FAQ Structured Data for Google Rich Snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
         <FaqSections
           faqs={faqs}
