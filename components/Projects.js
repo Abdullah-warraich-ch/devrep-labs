@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { IconArrowUpRight } from "@tabler/icons-react";
@@ -46,10 +47,12 @@ export default function Projects() {
               className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[16/10] bg-[#FAF8FF] border border-[#EAE5F0] shadow-sm"
             >
               {/* Project Screenshot Image (Edge-to-Edge) */}
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover object-top"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
+                className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
               />
 
               {/* Gradient Overlay — visible on mobile/tablet, hover on desktop */}

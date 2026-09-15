@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 
@@ -103,10 +104,12 @@ export default function FaqSections({
       )}
     >
       {imageSrc && (
-        <img
+        <Image
           className="max-w-sm w-full rounded-xl h-auto"
           src={imageSrc}
-          alt={imageAlt}
+          alt={imageAlt || "FAQ Section Image"}
+          width={400}
+          height={300}
         />
       )}
       {faqContent}
