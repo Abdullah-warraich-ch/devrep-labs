@@ -1,0 +1,51 @@
+# DevRep Labs
+
+> DevRep Labs is a premier web development agency engineering high-performance websites, bespoke web applications, e-commerce platforms, and AI-powered digital solutions for ambitious brands and growing businesses.
+
+## Overview
+DevRep Labs specializes in full-cycle digital product development, bridging modern UI/UX design with scalable engineering. We help founders and businesses turn ideas into fast, conversion-optimized, and reliable software with rapid 2 to 4-week turnaround times.
+
+## Core Capabilities
+- **Bespoke Web Design & UI/UX**: User-centric interfaces, interactive experiences, responsive layouts across mobile and desktop.
+- **Custom Web Application Development**: Scalable frontend and backend architectures utilizing Next.js, React, Node.js, MongoDB, and Firebase.
+- **AI Solutions & Integration**: Intelligent agent systems, AI tutor platforms, smart search tools, and dynamic automation workflows.
+- **E-Commerce Platforms**: Conversion-focused online storefronts, catalog navigation, secure payment checkout flows, and inventory integration.
+- **Speed, Performance & SEO**: Lightning-fast Core Web Vitals, semantic structured data (Schema.org), and search-engine optimized code.
+
+## Key Pages
+- [Home](https://www.devrep.site): Core agency overview, service offerings, client workflow, FAQ, and project consultation bookings.
+- [Portfolio & Projects](https://www.devrep.site/projects): Curated collection of live client web applications, AI platforms, and bespoke digital products.
+
+## Featured Projects & Portfolio
+- **AutoVault — Car Dealer**: Premium automotive dealership platform featuring interactive vehicle inventory, smart search filters, and showcase details.
+  - URL: https://car-sell-portfolio-demo.vercel.app/
+  - Technologies: Next.js, React, Tailwind CSS
+- **Griffin Heights Apartments**: Luxury serviced apartments discovery and reservation platform with city filters, date pickers, and room availability.
+  - URL: https://griffin-apartments.vercel.app/
+  - Technologies: Next.js, React, Tailwind CSS
+- **Ustaad AI Tutor**: AI-driven education platform intelligently pairing students with qualified educators and interactive learning tools.
+  - URL: https://ustaad-ai-tutor-finder.vercel.app/
+  - Technologies: React, Tailwind CSS, Node.js
+- **Rehloo Hostel Finder**: Comprehensive hostel discovery, geolocation mapping, and booking management platform.
+  - URL: https://rehloo.vercel.app/
+  - Technologies: Next.js, MongoDB, Tailwind CSS
+- **Quiz App**: Real-time dynamic quiz platform featuring instant score calculations and engaging user experiences.
+  - URL: https://quiz-sooty-sigma-47.vercel.app/homepage
+  - Technologies: Firebase, React, Tailwind CSS
+- **Ramadan Time**: GPS-enabled companion web application delivering real-time prayer and fasting schedules.
+  - URL: https://ramadan-time-two.vercel.app/
+  - Technologies: React, Geolocation API, Tailwind CSS
+
+## Technology Stack
+- **Frontend**: Next.js, React, JavaScript (ES6+), Tailwind CSS, Framer Motion, HTML5/CSS3
+- **Backend & Database**: Node.js, Express, MongoDB, Firebase
+- **Tooling & Infrastructure**: Git, Vercel, RESTful APIs, Schema.org JSON-LD
+
+## Official Contact & Social Channels
+- **Website**: https://www.devrep.site
+- **Email**: abdullahnasar333@gmail.com
+- **WhatsApp**: +92 339 1719123 (https://wa.me/923391719123)
+- **LinkedIn**: https://www.linkedin.com/company/devrep-labs/
+- **X / Twitter**: https://x.com/devrep_labs
+- **Instagram**: https://www.instagram.com/devrep_labs
+- **Pinterest**: https://www.pinterest.com/devreplabs/
