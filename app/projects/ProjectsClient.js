@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { IconArrowUpRight, IconArrowLeft } from "@tabler/icons-react";
@@ -92,10 +93,13 @@ export default function ProjectsClient() {
                 className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[16/10] border border-[#EAE5F0] bg-[#FAF8FF] shadow-sm hover:shadow-xl transition-all duration-300"
               >
                 {/* Project Screenshot (Edge-to-Edge) */}
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-top"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
+                  priority={index < 2}
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
 
                 {/* Gradient Overlay — visible on mobile/tablet, hover on desktop */}

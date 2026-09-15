@@ -6,7 +6,7 @@ export const metadata = {
   metadataBase: new URL("https://www.devrep.site"),
 
   title: {
-    default: "Web Development Agency & AI Solutions | DevRep",
+    default: "Web Development Agency & AI Solutions | DevRep Labs",
     template: "%s | DevRep Labs",
   },
 
@@ -19,6 +19,14 @@ export const metadata = {
       "High-performance websites, web applications, and AI-powered digital solutions for ambitious businesses.",
     url: "https://www.devrep.site",
     siteName: "DevRep Labs",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DevRep Labs — Web Development Agency & AI Solutions",
+      },
+    ],
     type: "website",
     locale: "en_US",
   },
@@ -28,6 +36,7 @@ export const metadata = {
     title: "DevRep Labs | Web Development & AI Solutions",
     description:
       "High-performance websites, web applications, and AI-powered digital solutions for ambitious businesses.",
+    images: ["/og-image.png"],
   },
 
   verification: {
