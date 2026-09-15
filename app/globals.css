@@ -1,7 +1,7 @@
-/* Local Poppins Fonts (matching pet-vet-shop) */
+/* Local Poppins Fonts — WOFF2 only (supported by all modern browsers) */
 @font-face {
   font-family: 'poppins-r';
-  src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  src: url('/fonts/Poppins/Poppins-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'poppins-m';
-  src: url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  src: url('/fonts/Poppins/Poppins-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: 'poppins-sb';
-  src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  src: url('/fonts/Poppins/Poppins-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -25,7 +25,7 @@
 
 @font-face {
   font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  src: url('/fonts/Poppins/Poppins-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -33,7 +33,7 @@
 
 @font-face {
   font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  src: url('/fonts/Poppins/Poppins-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -41,7 +41,7 @@
 
 @font-face {
   font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  src: url('/fonts/Poppins/Poppins-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;

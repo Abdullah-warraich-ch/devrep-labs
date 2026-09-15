@@ -70,8 +70,6 @@ export default function FaqSection() {
           title="Frequently Asked Questions"
           subtitle="Clear answers to common questions about our process, timelines, and what it's like working with DevRep Labs."
           label=""
-          labelColor="text-[#8364E8]"
-          variant="center"
         />
 
         <p className="text-center text-sm text-[#6F6878] mt-10 flex items-center justify-center gap-1.5">

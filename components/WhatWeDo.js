@@ -32,6 +32,7 @@ export default function WhatWeDo() {
               width={1600}
               height={1200}
               priority
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 50vw"
               className="w-full h-auto object-contain drop-shadow-2xl"
             />
           </div>

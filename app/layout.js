@@ -106,6 +106,37 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="antialiased">
+      <head>
+        {/* Preload critical WOFF2 fonts — eliminates HTML→CSS→font waterfall on mobile */}
+        <link
+          rel="preload"
+          href="/fonts/Poppins/Poppins-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Poppins/Poppins-Medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Poppins/Poppins-SemiBold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        {/* Preload hero SVG — reduces LCP resource load delay */}
+        <link
+          rel="preload"
+          href="/svgs/hero.svg"
+          as="image"
+          type="image/svg+xml"
+        />
+      </head>
       <body className="flex flex-col font-sans relative">
         <script
           type="application/ld+json"
