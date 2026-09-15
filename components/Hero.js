@@ -81,7 +81,8 @@ export default function Hero() {
             <div className="flex items-center gap-2">
               <Image
                 src="/images/list2.png"
-                alt="check icon"
+                alt=""
+                aria-hidden="true"
                 width={20}
                 height={20}
                 className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 object-contain"
@@ -91,7 +92,8 @@ export default function Hero() {
             <div className="flex items-center gap-2">
               <Image
                 src="/images/list2.png"
-                alt="check icon"
+                alt=""
+                aria-hidden="true"
                 width={20}
                 height={20}
                 className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 object-contain"
@@ -101,7 +103,8 @@ export default function Hero() {
             <div className="flex items-center gap-2">
               <Image
                 src="/images/list2.png"
-                alt="check icon"
+                alt=""
+                aria-hidden="true"
                 width={20}
                 height={20}
                 className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 object-contain"
@@ -121,7 +124,7 @@ export default function Hero() {
             {/* Central SVG Hero Illustration */}
             <Image
               src="/svgs/hero.svg"
-              alt="DevRep Labs Hero Illustration"
+              alt="DevRep Labs custom web development and digital solutions illustration"
               width={640}
               height={560}
               priority

@@ -150,7 +150,7 @@ export default function WhyUs() {
             >
               <Image
                 src="/images/mockup2.webp"
-                alt="DevRep Labs Project Mockup"
+                alt="DevRep Labs high-performance custom website architecture and user interface design"
                 width={2400}
                 height={1800}
                 className="w-full h-auto object-contain drop-shadow-2xl"

@@ -27,7 +27,7 @@ export default function WhatWeDo() {
           <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-full">
             <Image
               src="/images/Mockup.webp"
-              alt="DevRep Labs Project Mockup"
+              alt="DevRep Labs bespoke web application and digital product showcase mockup"
               width={1600}
               height={1200}
               priority
@@ -57,7 +57,8 @@ export default function WhatWeDo() {
               <li key={index} className="flex items-center gap-3">
                 <Image
                   src="/images/list.png"
-                  alt="bullet point"
+                  alt=""
+                  aria-hidden="true"
                   width={20}
                   height={20}
                   className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 object-contain"

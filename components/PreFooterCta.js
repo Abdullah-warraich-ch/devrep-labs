@@ -39,7 +39,8 @@ export default function PreFooterCta() {
               <div className="flex items-center gap-2">
                 <Image
                   src="/images/list.png"
-                  alt="bullet"
+                  alt=""
+                  aria-hidden="true"
                   width={18}
                   height={18}
                   className="w-4 h-4 shrink-0 object-contain"
@@ -49,7 +50,8 @@ export default function PreFooterCta() {
               <div className="flex items-center gap-2">
                 <Image
                   src="/images/list.png"
-                  alt="bullet"
+                  alt=""
+                  aria-hidden="true"
                   width={18}
                   height={18}
                   className="w-4 h-4 shrink-0 object-contain"
@@ -59,7 +61,8 @@ export default function PreFooterCta() {
               <div className="flex items-center gap-2">
                 <Image
                   src="/images/list.png"
-                  alt="bullet"
+                  alt=""
+                  aria-hidden="true"
                   width={18}
                   height={18}
                   className="w-4 h-4 shrink-0 object-contain"

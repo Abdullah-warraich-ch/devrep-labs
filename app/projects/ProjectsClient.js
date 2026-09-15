@@ -82,7 +82,7 @@ export default function ProjectsClient() {
       {/* All Projects Grid Section */}
       <section className="relative w-full py-16 sm:py-20 bg-[#FAF9FF]">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
-          
+          <h2 className="sr-only">Our Featured Client Projects</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -95,7 +95,7 @@ export default function ProjectsClient() {
                 {/* Project Screenshot (Edge-to-Edge) */}
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} — ${project.category}`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
                   priority={index < 2}

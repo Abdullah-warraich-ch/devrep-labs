@@ -52,20 +52,23 @@ export default function NotFoundClient() {
         <div className="absolute bottom-1/4 right-1/4 w-[380px] h-[380px] bg-[#00F5D4]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-3xl mx-auto w-full text-center relative z-10">
-          {/* Large Stylized 404 Text */}
+          {/* Large Stylized 404 Text (Decorative Visual) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="relative my-2 select-none"
           >
-            <h1 className="text-8xl sm:text-9xl md:text-[11rem] font-extrabold tracking-tighter leading-none bg-gradient-to-r from-[#AA076B] via-[#850567] to-[#61045F] bg-clip-text text-transparent">
+            <div
+              aria-hidden="true"
+              className="text-8xl sm:text-9xl md:text-[11rem] font-extrabold tracking-tighter leading-none bg-gradient-to-r from-[#AA076B] via-[#850567] to-[#61045F] bg-clip-text text-transparent"
+            >
               404
-            </h1>
+            </div>
           </motion.div>
 
-          {/* Heading */}
-          <motion.h2
+          {/* Main H1 Title */}
+          <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
@@ -76,7 +79,7 @@ export default function NotFoundClient() {
               Digital Space?
               <HandDrawnUnderline color="#AA076B" />
             </span>
-          </motion.h2>
+          </motion.h1>
 
           {/* Description */}
           <motion.p
@@ -119,9 +122,9 @@ export default function NotFoundClient() {
             transition={{ duration: 0.4, delay: 0.35 }}
             className="w-full max-w-2xl mx-auto pt-8 border-t border-[#EAE5F0]"
           >
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#6F6878] mb-4">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-[#6F6878] mb-4">
               Or check out these popular sections
-            </p>
+            </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-left">
               {quickLinks.map((item, idx) => {

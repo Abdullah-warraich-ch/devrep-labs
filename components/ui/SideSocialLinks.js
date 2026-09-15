@@ -1,12 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { FiShare2, FiX } from "react-icons/fi";
 import { useState } from "react";
 // Filled / Solid Social Icons (FontAwesome 6)
 import {
   FaLinkedinIn,
-  FaFacebookF,
+  FaInstagram,
   FaWhatsapp,
   FaXTwitter,
   FaPinterestP,
@@ -22,11 +21,31 @@ export default function SideSocialLinks() {
   }
 
   const socialLinks = [
-    { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-    { icon: FaFacebookF, href: "#", label: "Facebook" },
-    { icon: FaWhatsapp, href: "#", label: "WhatsApp" },
-    { icon: FaXTwitter, href: "#", label: "X / Twitter" },
-    { icon: FaPinterestP, href: "#", label: "Pinterest" },
+    {
+      icon: FaLinkedinIn,
+      href: "https://www.linkedin.com/company/devrep-labs/",
+      label: "LinkedIn",
+    },
+    {
+      icon: FaInstagram,
+      href: "https://www.instagram.com/devrep_labs",
+      label: "Instagram",
+    },
+    {
+      icon: FaWhatsapp,
+      href: "https://wa.me/923391719123",
+      label: "WhatsApp",
+    },
+    {
+      icon: FaXTwitter,
+      href: "https://x.com/devrep_labs",
+      label: "X / Twitter",
+    },
+    {
+      icon: FaPinterestP,
+      href: "https://www.pinterest.com/devreplabs/",
+      label: "Pinterest",
+    },
   ];
 
   return (
@@ -34,14 +53,16 @@ export default function SideSocialLinks() {
       {/* Desktop (Always visible on lg+, vertically centered) */}
       <div className="hidden lg:flex fixed top-1/2 -translate-y-1/2 right-0 py-5 px-3 rounded-l-3xl flex-col justify-center items-center gap-7 bg-[#1C0E30] z-30 shadow-xl border-l border-t border-b border-white/10 transform-gpu">
         {socialLinks.map(({ icon: Icon, href, label }) => (
-          <Link
+          <a
             key={label}
             href={href}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label={label}
-            className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] hover:scale-110 transition-all duration-200 w-full"
+            className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] transition-colors duration-200 w-full"
           >
             <Icon />
-          </Link>
+          </a>
         ))}
       </div>
 
@@ -73,15 +94,17 @@ export default function SideSocialLinks() {
               className="pointer-events-auto mb-2 py-4 px-3 rounded-l-2xl flex flex-col justify-center items-center gap-5 bg-[#1C0E30] shadow-2xl border-l border-t border-b border-white/10"
             >
               {socialLinks.map(({ icon: Icon, href, label }) => (
-                <Link
+                <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   onClick={() => setOpen(false)}
                   className="flex items-center justify-center text-xl text-white hover:text-[#00F5D4] active:scale-95 transition-all duration-150 w-full"
                 >
                   <Icon />
-                </Link>
+                </a>
               ))}
             </motion.div>
           )}
