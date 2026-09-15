@@ -9,6 +9,7 @@ import {
   IconCheck,
   IconAlertCircle,
   IconLoader2,
+  IconChevronDown,
 } from "@tabler/icons-react";
 
 export default function ContactModal({ isOpen, onClose, config = {} }) {
@@ -187,10 +188,10 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-36 bg-[#AA076B]/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* Modal Header */}
-            <div className="relative p-6 sm:p-8 pb-4 flex items-start justify-between">
+            <div className="relative px-6 sm:px-8 pt-6 sm:pt-7 pb-3 flex items-center justify-between">
               <div>
                 {isOfferClaimed && (
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FAF7FC] border border-[#AA076B]/30 text-[11px] font-semibold text-[#AA076B] mb-2 shadow-xs">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FAF7FC] border border-[#AA076B]/30 text-[11px] font-semibold text-[#AA076B] mb-1.5 shadow-xs">
                     <span>🏷️ Free Demo Offer Applied</span>
                   </div>
                 )}
@@ -209,11 +210,6 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                     </>
                   )}
                 </h2>
-                <p className="text-xs sm:text-[13px] text-[#6F6878] mt-1 font-normal leading-relaxed">
-                  {isDemo
-                    ? "Schedule a 1-on-1 walkthrough to see our work and discover how we can help your business grow."
-                    : "Tell us about your project or vision and we'll get back to you with a tailored plan within 24 hours."}
-                </p>
               </div>
 
               {/* Close Button */}
@@ -228,7 +224,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
             </div>
 
             {/* Modal Body */}
-            <div className="relative p-6 sm:p-8 pt-2">
+            <div className="relative px-6 sm:px-8 pb-6 sm:pb-8 pt-2">
               {status === "success" ? (
                 /* Success State */
                 <motion.div
@@ -303,53 +299,48 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                     </div>
                   </div>
 
-                  {/* Service Selection Pills */}
-                  <div>
-                    <label className="block text-xs font-medium text-[#2E2838] mb-2">
-                      Project Type / Service
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {services.map((item) => (
-                        <button
-                          key={item}
-                          type="button"
-                          onClick={() =>
-                            setFormData((prev) => ({ ...prev, service: item }))
-                          }
-                          className={`px-3 py-1.5 rounded-full text-xs transition-all duration-200 cursor-pointer ${
-                            formData.service === item
-                              ? "bg-gradient-to-r from-[#AA076B] to-[#61045F] text-white border border-transparent shadow-sm shadow-[#AA076B]/35 font-medium"
-                              : "bg-[#FAF9FD] text-[#6F6878] border border-[#E4DFEB] hover:text-[#17131F] hover:bg-[#F3ECFF] hover:border-[#D8C7F9]"
-                          }`}
+                  {/* Project Type / Service & Estimated Budget (Side-by-Side Dropdowns) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block text-xs font-medium text-[#2E2838] mb-1.5">
+                        Project Type / Service
+                      </label>
+                      <div className="relative">
+                        <select
+                          name="service"
+                          value={formData.service}
+                          onChange={handleChange}
+                          className="w-full h-10 pl-3.5 pr-9 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] focus:border-[#AA076B] focus:bg-white focus:ring-2 focus:ring-[#AA076B]/20 transition-all outline-none appearance-none cursor-pointer"
                         >
-                          {item}
-                        </button>
-                      ))}
+                          {services.map((item) => (
+                            <option key={item} value={item}>
+                              {item}
+                            </option>
+                          ))}
+                        </select>
+                        <IconChevronDown className="size-4 text-[#6F6878] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none stroke-[1.8]" />
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Budget Selector Pills */}
-                  <div>
-                    <label className="block text-xs font-medium text-[#2E2838] mb-2">
-                      Estimated Budget
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {budgets.map((b) => (
-                        <button
-                          key={b}
-                          type="button"
-                          onClick={() =>
-                            setFormData((prev) => ({ ...prev, budget: b }))
-                          }
-                          className={`px-3 py-1.5 rounded-full text-xs transition-all duration-200 cursor-pointer ${
-                            formData.budget === b
-                              ? "bg-gradient-to-r from-[#AA076B] to-[#61045F] text-white border border-transparent shadow-sm shadow-[#AA076B]/35 font-semibold"
-                              : "bg-[#FAF9FD] text-[#6F6878] border border-[#E4DFEB] hover:text-[#17131F] hover:bg-[#F3ECFF] hover:border-[#D8C7F9]"
-                          }`}
+                    <div>
+                      <label className="block text-xs font-medium text-[#2E2838] mb-1.5">
+                        Estimated Budget
+                      </label>
+                      <div className="relative">
+                        <select
+                          name="budget"
+                          value={formData.budget}
+                          onChange={handleChange}
+                          className="w-full h-10 pl-3.5 pr-9 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] focus:border-[#AA076B] focus:bg-white focus:ring-2 focus:ring-[#AA076B]/20 transition-all outline-none appearance-none cursor-pointer"
                         >
-                          {b}
-                        </button>
-                      ))}
+                          {budgets.map((b) => (
+                            <option key={b} value={b}>
+                              {b}
+                            </option>
+                          ))}
+                        </select>
+                        <IconChevronDown className="size-4 text-[#6F6878] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none stroke-[1.8]" />
+                      </div>
                     </div>
                   </div>
 
