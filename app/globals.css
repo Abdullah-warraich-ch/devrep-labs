@@ -143,8 +143,7 @@
 html {
   overflow-x: hidden;
   max-width: 100vw;
-  scrollbar-width: thin;
-  scrollbar-color: #AA076B transparent;
+  scrollbar-width: none;
 }
 
 body {
@@ -158,22 +157,9 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #AA076B 0%, #61045F 100%);
-  border-radius: 9999px;
-  transition: background 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #AA076B 0%, #61045F 100%);
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 .font-poppins {

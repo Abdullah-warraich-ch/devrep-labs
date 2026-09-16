@@ -1,0 +1,130 @@
+/* ─────────────────────────────────────────────────────────────────
+   Griffin Heights Apartments — Isolated Demo Styles
+   Imported ONLY in app/demo/griffin-apartments/layout.js
+   Does NOT affect the parent devreplabs app.
+───────────────────────────────────────────────────────────────── */
+
+/* ── Register brand color tokens so Tailwind generates utilities ── */
+@theme {
+  --color-brand: #304d43;
+  --color-brand-hover: #243b33;
+  --color-brand-light: #eef3f1;
+  --color-brand-muted: rgba(48, 77, 67, 0.1);
+}
+
+/* ── Brand Color Variables (runtime CSS custom properties) ────── */
+.griffin-demo {
+  --brand-color: #304d43;
+  --brand-color-hover: #243b33;
+  --brand-color-light: #eef3f1;
+  --brand-color-muted: rgba(48, 77, 67, 0.1);
+
+  font-family: var(--font-griffin-sans), 'Jost', system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #1c1917;
+}
+
+/* ── Tailwind Theme Tokens (scoped) ────────────────────────────── */
+.griffin-demo .bg-brand        { background-color: var(--brand-color) !important; }
+.griffin-demo .bg-brand-hover  { background-color: var(--brand-color-hover) !important; }
+.griffin-demo .bg-brand-light  { background-color: var(--brand-color-light) !important; }
+.griffin-demo .bg-brand-muted  { background-color: var(--brand-color-muted) !important; }
+.griffin-demo .text-brand      { color: var(--brand-color) !important; }
+.griffin-demo .border-brand    { border-color: var(--brand-color) !important; }
+.griffin-demo .border-brand-hover { border-color: var(--brand-color-hover) !important; }
+.griffin-demo .shadow-brand\/20 { --tw-shadow-color: rgba(48,77,67,0.2); }
+.griffin-demo .hover\:bg-brand:hover  { background-color: var(--brand-color) !important; }
+.griffin-demo .hover\:bg-brand-hover:hover { background-color: var(--brand-color-hover) !important; }
+.griffin-demo .hover\:text-brand:hover { color: var(--brand-color) !important; }
+.griffin-demo .focus-within\:border-brand:focus-within { border-color: var(--brand-color) !important; }
+.griffin-demo .selection\:bg-brand ::selection { background-color: var(--brand-color); }
+
+/* ── Smooth Scroll ──────────────────────────────────────────────── */
+.griffin-demo {
+  scroll-behavior: smooth;
+}
+
+/* ── Fade-in Animation ──────────────────────────────────────────── */
+@keyframes griffin-fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.griffin-demo .animate-fade-in {
+  animation: griffin-fadeIn 0.3s ease-out forwards;
+}
+
+/* ── Glass Surfaces ─────────────────────────────────────────────── */
+.griffin-demo .glass-box {
+  background: rgba(18, 18, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── React Datepicker Overrides (scoped) ─────────────────────────── */
+.griffin-demo .react-datepicker-popper {
+  z-index: 9999 !important;
+}
+.griffin-demo .react-datepicker {
+  font-family: var(--font-sans) !important;
+  border: 1px solid #e7e5e4 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.10) !important;
+  overflow: hidden;
+}
+.griffin-demo .react-datepicker__header {
+  background: #ffffff !important;
+  border-bottom: 1px solid #f5f5f4 !important;
+  padding-top: 14px !important;
+}
+.griffin-demo .react-datepicker__current-month {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #1c1917 !important;
+  letter-spacing: 0.02em;
+}
+.griffin-demo .react-datepicker__day-name {
+  color: #a8a29e !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+}
+.griffin-demo .react-datepicker__day {
+  color: #292524 !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  border-radius: 8px !important;
+  transition: background 0.15s ease;
+}
+.griffin-demo .react-datepicker__day:hover {
+  background: #f5f5f4 !important;
+  border-radius: 8px !important;
+}
+.griffin-demo .react-datepicker__day--selected,
+.griffin-demo .react-datepicker__day--range-start,
+.griffin-demo .react-datepicker__day--range-end {
+  background: var(--brand-color) !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+}
+.griffin-demo .react-datepicker__day--in-range,
+.griffin-demo .react-datepicker__day--in-selecting-range {
+  background: var(--brand-color-light) !important;
+  color: var(--brand-color) !important;
+  border-radius: 0 !important;
+}
+.griffin-demo .react-datepicker__day--keyboard-selected {
+  background: var(--brand-color) !important;
+  color: white !important;
+}
+.griffin-demo .react-datepicker__day--disabled {
+  color: #d6d3d1 !important;
+}
+.griffin-demo .react-datepicker__navigation-icon::before {
+  border-color: #78716c !important;
+  border-width: 2px 2px 0 0 !important;
+}
+.griffin-demo .react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
+  border-color: #1c1917 !important;
+}
+.griffin-demo .react-datepicker__triangle {
+  display: none !important;
+}

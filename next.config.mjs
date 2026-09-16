@@ -2,6 +2,13 @@
 const nextConfig = {
   compress: true,
 
+  images: {
+    formats: ["image/avif", "image/webp"],
+    // Allow serving avif images from the griffin-apartments demo
+    remotePatterns: [],
+  },
+
+
   async headers() {
     return [
       {
@@ -16,7 +23,7 @@ const nextConfig = {
       },
       {
         // Long-lived cache for fonts, images, and SVGs
-        source: "/:path*(\.woff2|\.ttf|\.otf|\.webp|\.png|\.jpg|\.jpeg|\.svg|\.ico)",
+        source: "/:path*(\\.woff2|\\.ttf|\\.otf|\\.webp|\\.avif|\\.png|\\.jpg|\\.jpeg|\\.svg|\\.ico)",
         headers: [
           {
             key: "Cache-Control",
