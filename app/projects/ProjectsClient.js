@@ -100,11 +100,11 @@ export default function ProjectsClient() {
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
                   priority={index < 2}
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                  className="object-cover object-top"
                 />
 
-                {/* Gradient Overlay — visible on mobile/tablet, hover on desktop */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300" />
+                {/* Gradient Overlay — behind text/buttons only, from bottom to transparent */}
+                <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Content — visible on mobile/tablet, hover on desktop */}
                 <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 flex flex-col justify-end translate-y-0 opacity-100 lg:translate-y-3 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-300 z-10">

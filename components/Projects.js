@@ -53,7 +53,7 @@ export default function Projects() {
                 title={`${project.title} — ${project.category} | DevRep Labs`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
-                className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                className="object-cover object-top"
               />
 
               {/* Gradient Overlay — visible on mobile/tablet, hover on desktop */}
