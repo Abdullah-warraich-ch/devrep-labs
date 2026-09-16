@@ -35,7 +35,7 @@ import {
 import { apartmentsData } from "../_data/apartments";
 import ApartmentCard from "./ApartmentCard";
 
-const LeafletMap = dynamic(() => import("@/components/LeafletMap"), { ssr: false });
+const LeafletMap = dynamic(() => import("./LeafletMap"), { ssr: false });
 
 export default function ApartmentDetailContent({ apartment, onBookClick, onReserveClick }) {
   const currentApt = apartment || apartmentsData[0];
