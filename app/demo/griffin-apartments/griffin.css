@@ -19,9 +19,15 @@
   --brand-color-light: #eef3f1;
   --brand-color-muted: rgba(48, 77, 67, 0.1);
 
+  --font-sans: var(--font-griffin-sans), 'Jost', system-ui, sans-serif;
   font-family: var(--font-griffin-sans), 'Jost', system-ui, sans-serif;
   background-color: #ffffff;
   color: #1c1917;
+}
+
+.griffin-demo,
+.griffin-demo .font-sans {
+  font-family: var(--font-griffin-sans), 'Jost', system-ui, sans-serif !important;
 }
 
 /* ── Tailwind Theme Tokens (scoped) ────────────────────────────── */
