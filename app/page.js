@@ -1,5 +1,6 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+// import Header from "@/components/Header";
+// import Hero from "@/components/Hero";
+import HeroV2 from "@/components/HeroV2";
 import WhatWeDo from "@/components/WhatWeDo";
 import WhyUs from "@/components/WhyUs";
 import Projects from "@/components/Projects";
@@ -17,8 +18,9 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-background relative overflow-x-hidden">
-      <Header />
-      <Hero />
+      {/* <Header /> */}
+      {/* <Hero /> */}
+      <HeroV2 />
       <WhatWeDo />
       <WhyUs />
       <Projects />
