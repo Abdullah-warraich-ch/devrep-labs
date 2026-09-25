@@ -17,7 +17,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const navItems = [
-    { name: "Services", link: "/#services", sectionId: "services" },
+    { name: "Services", link: "/services", sectionId: "services" },
     { name: "About", link: "/#about", sectionId: "about" },
     { name: "Work", link: "/projects", sectionId: "projects" },
     { name: "FAQ", link: "/#faq", sectionId: "faq" },
@@ -25,7 +25,12 @@ export default function Header() {
   ];
 
   const isProjectsPage = Boolean(pathname && pathname.startsWith("/projects"));
-  const effectiveActiveSection = isProjectsPage ? "projects" : activeSection;
+  const isServicesPage = Boolean(pathname && pathname.startsWith("/services"));
+  const effectiveActiveSection = isServicesPage
+    ? "services"
+    : isProjectsPage
+    ? "projects"
+    : activeSection;
 
   // Scroll spy & active section detection
   useEffect(() => {
