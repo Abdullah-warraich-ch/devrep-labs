@@ -15,7 +15,7 @@ export default function HeroV2() {
   return (
     <section
       id="hero-v2"
-      className="relative w-full min-h-screen overflow-hidden"
+      className="relative w-full h-screen overflow-hidden flex flex-col"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       {/* ── Background Image — object-contain so the full photo is never clipped ── */}
@@ -26,7 +26,7 @@ export default function HeroV2() {
           fill
           priority
           quality={95}
-          className="object-cover object-bottom"
+          className="object-cover object-center"
           sizes="100vw"
         />
         {/* Left-side dark overlay so text pops over the sky */}
@@ -42,7 +42,7 @@ export default function HeroV2() {
       {/* ── NAVBAR ────────────────────────────────────────────────────────── */}
       <header className="relative z-30 w-full">
         <div
-          className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14"
+          className="w-full px-5 sm:px-8 lg:px-12 xl:px-16"
           style={{ paddingTop: "22px" }}
         >
           <div className="flex items-center justify-between">
@@ -154,7 +154,7 @@ export default function HeroV2() {
       </header>
 
       {/* ── HERO CONTENT ──────────────────────────────────────────────────── */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 flex flex-col justify-between h-screen pb-14 pt-6">
+      <div className="relative z-20 w-full px-5 sm:px-8 lg:px-12 xl:px-16 flex flex-col justify-between flex-1 pb-14 pt-4">
         {/* Spacer so content sits vertically centred-ish below nav */}
         <div />
 
@@ -165,29 +165,31 @@ export default function HeroV2() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
-            className="flex items-center gap-2 mb-6"
+            className="inline-flex items-center gap-2.5 mb-7"
             style={{
-              padding: "7px 16px",
+              padding: "7px 18px 7px 13px",
               borderRadius: "999px",
-              background: "rgba(255,255,255,0.15)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255,255,255,0.25)",
-              color: "#ffffff",
+              background: "rgba(255,255,255,0.13)",
+              backdropFilter: "blur(12px)",
+              border: "1px solid rgba(255,255,255,0.22)",
+              color: "rgba(255,255,255,0.92)",
               fontFamily: "'poppins-m', 'Poppins', sans-serif",
               fontWeight: 500,
-              fontSize: "13px",
+              fontSize: "12.5px",
+              letterSpacing: "0.03em",
             }}
           >
-            <span
-              style={{
-                width: "7px",
-                height: "7px",
-                borderRadius: "50%",
-                background: "#ffffff",
-                display: "inline-block",
-                flexShrink: 0,
-              }}
-            />
+            {/* Pulsing dot */}
+            <span className="relative flex items-center justify-center" style={{ width: "10px", height: "10px", flexShrink: 0 }}>
+              <span
+                className="absolute inline-flex rounded-full animate-ping"
+                style={{ width: "10px", height: "10px", background: "rgba(255,255,255,0.35)", animationDuration: "1.8s" }}
+              />
+              <span
+                className="relative inline-flex rounded-full"
+                style={{ width: "7px", height: "7px", background: "#ffffff" }}
+              />
+            </span>
             Web Development &amp; AI Solutions
           </motion.div>
 
@@ -198,12 +200,13 @@ export default function HeroV2() {
             transition={{ duration: 0.65, delay: 0.1, ease: "easeOut" }}
             style={{
               fontFamily: "'poppins-sb', 'Poppins', sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(46px, 7vw, 80px)",
-              lineHeight: 1.08,
+              fontWeight: 600,
+              fontSize: "clamp(44px, 6.8vw, 78px)",
+              lineHeight: 1.06,
               color: "#ffffff",
-              letterSpacing: "-0.02em",
-              marginBottom: "20px",
+              letterSpacing: "-0.025em",
+              marginBottom: "16px",
+              textShadow: "0 2px 24px rgba(0,0,0,0.18)",
             }}
           >
             Ideas to Digital
@@ -220,14 +223,14 @@ export default function HeroV2() {
               fontFamily: "'poppins-r', 'Poppins', sans-serif",
               fontWeight: 400,
               fontSize: "15px",
-              lineHeight: 1.65,
-              color: "rgba(255,255,255,0.82)",
-              maxWidth: "340px",
-              marginBottom: "32px",
+              lineHeight: 1.72,
+              color: "rgba(255,255,255,0.78)",
+              maxWidth: "360px",
+              marginBottom: "34px",
             }}
           >
-            We build modern websites, web apps and AI-powered solutions that
-            help brands grow, engage and stand out in the digital world.
+            We build modern websites, web apps and AI-powered solutions
+            that help brands grow, engage and stand out in the digital world.
           </motion.p>
 
           {/* CTA Button */}
@@ -273,18 +276,22 @@ export default function HeroV2() {
             transition={{ duration: 0.55, delay: 0.48 }}
             className="flex items-center gap-3 mt-10"
           >
-            {/* Stacked letter avatars */}
+            {/* Stacked avatars */}
             <div className="flex items-center">
-              {["A", "S", "R"].map((letter, i) => (
+              {[
+                { letter: "A", hue: 200 },
+                { letter: "S", hue: 240 },
+                { letter: "R", hue: 165 },
+              ].map(({ letter, hue }, i) => (
                 <div
                   key={i}
                   style={{
-                    width: "34px",
-                    height: "34px",
+                    width: "36px",
+                    height: "36px",
                     borderRadius: "50%",
-                    border: "2px solid rgba(255,255,255,0.8)",
-                    marginLeft: i === 0 ? 0 : "-10px",
-                    background: `hsl(${200 + i * 40}, 55%, 50%)`,
+                    border: "2.5px solid rgba(255,255,255,0.75)",
+                    marginLeft: i === 0 ? 0 : "-11px",
+                    background: `hsl(${hue}, 50%, 48%)`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -294,21 +301,24 @@ export default function HeroV2() {
                     color: "#fff",
                     fontWeight: 700,
                     fontFamily: "'poppins-sb', 'Poppins', sans-serif",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
                   }}
                 >
                   {letter}
                 </div>
               ))}
             </div>
+            {/* Vertical divider */}
+            <div style={{ width: "1px", height: "28px", background: "rgba(255,255,255,0.2)", margin: "0 2px" }} />
             <div>
               <p
                 style={{
                   fontFamily: "'poppins-sb', 'Poppins', sans-serif",
                   fontWeight: 600,
-                  fontSize: "16px",
+                  fontSize: "17px",
                   color: "#ffffff",
                   lineHeight: 1.1,
-                  marginBottom: "2px",
+                  marginBottom: "3px",
                 }}
               >
                 50+
@@ -318,8 +328,9 @@ export default function HeroV2() {
                   fontFamily: "'poppins-r', 'Poppins', sans-serif",
                   fontWeight: 400,
                   fontSize: "12px",
-                  color: "rgba(255,255,255,0.7)",
+                  color: "rgba(255,255,255,0.65)",
                   lineHeight: 1,
+                  letterSpacing: "0.02em",
                 }}
               >
                 Happy Clients
