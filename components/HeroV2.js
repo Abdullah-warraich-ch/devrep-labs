@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { IconArrowRight, IconMenu2, IconX } from "@tabler/icons-react";
+import { IconArrowRight, IconArrowUpRight, IconMenu2, IconX } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ─── Nav items (no hrefs / links — decorative only) ──────────────────────────
@@ -18,25 +18,33 @@ export default function HeroV2() {
       className="relative w-full h-screen overflow-hidden flex flex-col"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
-      {/* ── Background Image — object-contain so the full photo is never clipped ── */}
+      {/* ── Background Image — responsive: mobile background (<md) & desktop panoramic background (md+) ── */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero-v2-bg.png"
-          alt="Hero background"
-          fill
-          priority
-          quality={95}
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        {/* Left-side dark overlay so text pops over the sky */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, rgba(12,18,34,0.52) 0%, rgba(12,18,34,0.22) 50%, transparent 75%)",
-          }}
-        />
+        {/* Mobile Background */}
+        <div className="block md:hidden absolute inset-0">
+          <Image
+            src="/hero-2-bg-mobile.png"
+            alt="Hero background mobile"
+            fill
+            priority
+            quality={95}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Desktop / Tablet Background */}
+        <div className="hidden md:block absolute inset-0">
+          <Image
+            src="/hero-v2-bg.png"
+            alt="Hero background"
+            fill
+            priority
+            quality={95}
+            className="object-cover object-[78%_center] sm:object-[82%_center] lg:object-right-center"
+            sizes="100vw"
+          />
+        </div>
       </div>
 
       {/* ── NAVBAR ────────────────────────────────────────────────────────── */}
@@ -154,64 +162,34 @@ export default function HeroV2() {
       </header>
 
       {/* ── HERO CONTENT ──────────────────────────────────────────────────── */}
-      <div className="relative z-20 w-full px-5 sm:px-8 lg:px-12 xl:px-16 flex flex-col justify-between flex-1 pb-14 pt-4">
-        {/* Spacer so content sits vertically centred-ish below nav */}
-        <div />
+      <div className="relative z-20 w-full h-full px-5 sm:px-8 lg:px-12 xl:px-16 flex flex-col justify-start md:justify-center flex-1 pb-14 pt-20 sm:pt-24 md:pt-4">
 
-        {/* Main Copy — bottom-left */}
-        <div className="flex flex-col items-start max-w-[500px]">
-          {/* Badge pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-            className="inline-flex items-center gap-2.5 mb-7"
-            style={{
-              padding: "7px 18px 7px 13px",
-              borderRadius: "999px",
-              background: "rgba(255,255,255,0.13)",
-              backdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.22)",
-              color: "rgba(255,255,255,0.92)",
-              fontFamily: "'poppins-m', 'Poppins', sans-serif",
-              fontWeight: 500,
-              fontSize: "12.5px",
-              letterSpacing: "0.03em",
-            }}
-          >
-            {/* Pulsing dot */}
-            <span className="relative flex items-center justify-center" style={{ width: "10px", height: "10px", flexShrink: 0 }}>
-              <span
-                className="absolute inline-flex rounded-full animate-ping"
-                style={{ width: "10px", height: "10px", background: "rgba(255,255,255,0.35)", animationDuration: "1.8s" }}
-              />
-              <span
-                className="relative inline-flex rounded-full"
-                style={{ width: "7px", height: "7px", background: "#ffffff" }}
-              />
-            </span>
-            Web Development &amp; AI Solutions
-          </motion.div>
+        {/* Hero content container without card background */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          style={{
+            maxWidth: "560px",
+          }}
+        >
 
           {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.1, ease: "easeOut" }}
+            transition={{ duration: 0.65, delay: 0.08, ease: "easeOut" }}
             style={{
-              fontFamily: "'poppins-sb', 'Poppins', sans-serif",
-              fontWeight: 600,
-              fontSize: "clamp(44px, 6.8vw, 78px)",
-              lineHeight: 1.06,
+              fontFamily: "'poppins-m', 'Poppins', sans-serif",
+              fontWeight: 500,
+              fontSize: "clamp(24px, 4.2vw, 48px)",
+              lineHeight: 1.15,
               color: "#ffffff",
-              letterSpacing: "-0.025em",
-              marginBottom: "16px",
-              textShadow: "0 2px 24px rgba(0,0,0,0.18)",
+              letterSpacing: "-0.03em",
+              marginBottom: "12px",
             }}
           >
-            Ideas to Digital
-            <br />
-            Reality
+            Custom Websites, <br /> AI-Powered Apps
           </motion.h1>
 
           {/* Sub-copy */}
@@ -219,125 +197,147 @@ export default function HeroV2() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.22, ease: "easeOut" }}
+            className="text-[13.5px] sm:text-[15px]"
             style={{
               fontFamily: "'poppins-r', 'Poppins', sans-serif",
               fontWeight: 400,
-              fontSize: "15px",
-              lineHeight: 1.72,
+              lineHeight: 1.65,
               color: "rgba(255,255,255,0.78)",
-              maxWidth: "360px",
-              marginBottom: "34px",
+              maxWidth: "460px",
+              marginBottom: "24px",
             }}
           >
-            We build modern websites, web apps and AI-powered solutions
-            that help brands grow, engage and stand out in the digital world.
+            High-performance websites, intelligent web apps, and AI-driven solutions — engineered to convert visitors into customers.
           </motion.p>
 
-          {/* CTA Button */}
-          <motion.button
-            type="button"
+          {/* Dual CTA buttons */}
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.34, ease: "easeOut" }}
-            className="flex items-center gap-3 cursor-pointer border-none"
-            style={{
-              padding: "14px 26px",
-              borderRadius: "999px",
-              background: "#ffffff",
-              color: "#111827",
-              fontFamily: "'poppins-sb', 'Poppins', sans-serif",
-              fontWeight: 600,
-              fontSize: "15px",
-              transition: "transform 0.18s ease, box-shadow 0.18s ease",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,0,0,0.22)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.18)";
-            }}
+            transition={{ duration: 0.55, delay: 0.32, ease: "easeOut" }}
+            className="flex items-center gap-3 flex-wrap"
           >
-            Start Your Project
-            <span
-              className="flex items-center justify-center rounded-full"
-              style={{ width: "30px", height: "30px", background: "#111827" }}
+            {/* Primary CTA */}
+            <button
+              type="button"
+              className="group flex items-center gap-2.5 cursor-pointer border-none"
+              style={{
+                padding: "14px 30px",
+                borderRadius: "999px",
+                background: "var(--primary)",
+                color: "#ffffff",
+                fontFamily: "'poppins-m', 'Poppins', sans-serif",
+                fontWeight: 500,
+                fontSize: "16px",
+                letterSpacing: "-0.01em",
+                transition: "box-shadow 0.25s ease, background 0.25s ease",
+                boxShadow: "0 8px 28px rgba(37, 99, 235, 0.4)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "var(--primary-deep, #1D4ED8)";
+                e.currentTarget.style.boxShadow =
+                  "0 12px 32px rgba(37, 99, 235, 0.55)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "var(--primary)";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 28px rgba(37, 99, 235, 0.4)";
+              }}
             >
-              <IconArrowRight size={15} color="#fff" strokeWidth={2.5} />
-            </span>
-          </motion.button>
+              <span>Start Your Project</span>
+              <IconArrowUpRight size={19} strokeWidth={2.2} />
+            </button>
 
-          {/* Social proof – Happy Clients */}
+            {/* Ghost / Outline CTA — Hidden on mobile screens */}
+            <button
+              type="button"
+              className="hidden md:inline-flex items-center justify-center cursor-pointer"
+              style={{
+                padding: "14px 30px",
+                borderRadius: "999px",
+                background: "transparent",
+                color: "rgba(255,255,255,0.9)",
+                fontFamily: "'poppins-m', 'Poppins', sans-serif",
+                fontWeight: 500,
+                fontSize: "16px",
+                border: "1.5px solid rgba(255,255,255,0.25)",
+                transition: "all 0.25s ease",
+                backdropFilter: "blur(4px)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(96, 165, 250, 0.6)";
+                e.currentTarget.style.background = "rgba(37, 99, 235, 0.15)";
+                e.currentTarget.style.color = "#ffffff";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)";
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = "rgba(255,255,255,0.9)";
+              }}
+            >
+              View Our Work
+            </button>
+          </motion.div>
+
+          {/* ── Divider ── */}
+          <div
+            className="hidden md:block"
+            style={{
+              height: "1px",
+              background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.1) 70%, transparent)",
+              margin: "28px 0 22px",
+            }}
+          />
+
+          {/* Social proof stats row — Hidden on mobile screens */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.55, delay: 0.48 }}
-            className="flex items-center gap-3 mt-10"
+            transition={{ duration: 0.55, delay: 0.5 }}
+            className="hidden md:flex items-center gap-0"
           >
-            {/* Stacked avatars */}
-            <div className="flex items-center">
-              {[
-                { letter: "A", hue: 200 },
-                { letter: "S", hue: 240 },
-                { letter: "R", hue: 165 },
-              ].map(({ letter, hue }, i) => (
-                <div
-                  key={i}
+            {[
+              { value: "50+", label: "Happy Clients" },
+              { value: "120+", label: "Projects Done" },
+              { value: "99%", label: "Satisfaction" },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center flex-1"
+                style={{
+                  borderRight: i < 2 ? "1px solid rgba(255,255,255,0.08)" : "none",
+                  padding: "0 8px",
+                }}
+              >
+                <p
                   style={{
-                    width: "36px",
-                    height: "36px",
-                    borderRadius: "50%",
-                    border: "2.5px solid rgba(255,255,255,0.75)",
-                    marginLeft: i === 0 ? 0 : "-11px",
-                    background: `hsl(${hue}, 50%, 48%)`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    zIndex: 3 - i,
-                    position: "relative",
-                    fontSize: "13px",
-                    color: "#fff",
-                    fontWeight: 700,
                     fontFamily: "'poppins-sb', 'Poppins', sans-serif",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+                    fontWeight: 600,
+                    fontSize: "20px",
+                    color: "#ffffff",
+                    lineHeight: 1.1,
+                    marginBottom: "4px",
                   }}
                 >
-                  {letter}
-                </div>
-              ))}
-            </div>
-            {/* Vertical divider */}
-            <div style={{ width: "1px", height: "28px", background: "rgba(255,255,255,0.2)", margin: "0 2px" }} />
-            <div>
-              <p
-                style={{
-                  fontFamily: "'poppins-sb', 'Poppins', sans-serif",
-                  fontWeight: 600,
-                  fontSize: "17px",
-                  color: "#ffffff",
-                  lineHeight: 1.1,
-                  marginBottom: "3px",
-                }}
-              >
-                50+
-              </p>
-              <p
-                style={{
-                  fontFamily: "'poppins-r', 'Poppins', sans-serif",
-                  fontWeight: 400,
-                  fontSize: "12px",
-                  color: "rgba(255,255,255,0.65)",
-                  lineHeight: 1,
-                  letterSpacing: "0.02em",
-                }}
-              >
-                Happy Clients
-              </p>
-            </div>
+                  {stat.value}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "'poppins-r', 'Poppins', sans-serif",
+                    fontWeight: 400,
+                    fontSize: "11.5px",
+                    color: "rgba(255,255,255,0.5)",
+                    lineHeight: 1,
+                    letterSpacing: "0.03em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </motion.div>
-        </div>
+        </motion.div>
       </div>
 
       {/* ── MOBILE MENU ────────────────────────────────────────────────────── */}

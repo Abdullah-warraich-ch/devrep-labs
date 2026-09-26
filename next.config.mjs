@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  allowedDevOrigins: [
+    "costume-they-detect-output.trycloudflare.com",
+    "*.trycloudflare.com",
+  ],
 };
 
 export default nextConfig;

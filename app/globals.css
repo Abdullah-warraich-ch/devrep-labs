@@ -50,31 +50,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Purple Scheme */
-  --background: #FAF9FF;
+  /* Brand Blue Scheme */
+  --background: #F8FAFC;
   /* Main background */
   --surface: #FFFFFF;
   /* White surface */
-  --surface-soft: #F3ECFF;
-  /* Soft purple background */
+  --surface-soft: #EFF6FF;
+  /* Soft blue background */
   --foreground: #FFFFFF;
-  --border: #EAE5F0;
+  --border: #E2E8F0;
   /* Border */
 
-  --primary: #8364E8;
-  /* Solid purple */
-  --primary-deep: #6947D8;
-  /* Deep purple */
-  --primary-light: #D397FA;
+  --primary: #2563EB;
+  /* Solid blue */
+  --primary-deep: #1D4ED8;
+  /* Deep blue */
+  --primary-light: #60A5FA;
   /* Primary gradient start */
   --primary-content: #ffffff;
-  --primary-dark: #6947D8;
+  --primary-dark: #1E40AF;
 
-  --copy: #17131F;
+  --copy: #0F172A;
   /* Main text */
-  --copy-light: #6F6878;
+  --copy-light: #64748B;
   /* Secondary text */
-  --copy-lighter: #6F6878;
+  --copy-lighter: #94A3B8;
 
   --accent-cyan: #00F5D4;
   --accent-cyan-hover: #00E5FF;
@@ -110,14 +110,17 @@
   --color-copy-lighter: var(--copy-lighter);
 
   /* Named color tokens */
-  --color-main-bg: #FAF9FF;
+  --color-main-bg: #F8FAFC;
   --color-white-surface: #FFFFFF;
-  --color-solid-purple: #8364E8;
-  --color-deep-purple: #6947D8;
-  --color-main-text: #17131F;
-  --color-secondary-text: #6F6878;
-  --color-border-subtle: #EAE5F0;
-  --color-soft-purple: #F3ECFF;
+  --color-solid-blue: #2563EB;
+  --color-deep-blue: #1D4ED8;
+  --color-solid-purple: #2563EB;
+  --color-deep-purple: #1D4ED8;
+  --color-main-text: #0F172A;
+  --color-secondary-text: #64748B;
+  --color-border-subtle: #E2E8F0;
+  --color-soft-blue: #EFF6FF;
+  --color-soft-purple: #EFF6FF;
 
   --color-success: var(--success);
   --color-warning: var(--warning);
@@ -130,12 +133,12 @@
 /* Primary Gradient Utility */
 .bg-primary-gradient,
 .primary-gradient {
-  background: linear-gradient(135deg, #AA076B 0%, #61045F 100%);
+  background: linear-gradient(135deg, #1E40AF 0%, #0369A1 100%);
   background-attachment: fixed;
 }
 
 .text-primary-gradient {
-  background: linear-gradient(135deg, #AA076B 0%, #61045F 100%);
+  background: linear-gradient(135deg, #2563EB 0%, #06B6D4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -144,7 +147,7 @@ html {
   overflow-x: hidden;
   max-width: 100vw;
   scrollbar-width: thin;
-  scrollbar-color: #AA076B transparent;
+  scrollbar-color: #2563EB transparent;
 }
 
 body {
@@ -167,13 +170,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #AA076B 0%, #61045F 100%);
+  background: linear-gradient(180deg, #2563EB 0%, #1D4ED8 100%);
   border-radius: 9999px;
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #AA076B 0%, #61045F 100%);
+  background: linear-gradient(180deg, #1D4ED8 0%, #1E40AF 100%);
 }
 
 .font-poppins {
