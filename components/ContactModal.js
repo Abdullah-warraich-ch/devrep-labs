@@ -171,45 +171,45 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
             aria-hidden="true"
           />
 
-          {/* Modal Container — Light Theme (#FFFFFF with elegant shadows) */}
+          {/* Modal Container — Dark Theme to match the site design */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 15 }}
             transition={{ type: "spring", damping: 26, stiffness: 320 }}
-            className="relative w-full max-w-xl my-auto max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-white border border-[#EAE5F0] shadow-[0_25px_70px_rgba(23,19,31,0.22)] text-[#17131F] z-10 font-poppins"
+            className="dark-theme relative w-full max-w-xl my-auto max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-[#080808] border border-white/10 shadow-[0_25px_70px_rgba(0,0,0,0.8)] text-white z-10 font-poppins"
             role="dialog"
             aria-modal="true"
             aria-labelledby="contact-modal-title"
           >
             {/* Top Glowing Ambient Accent Bar */}
-            <div className="sticky top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#AA076B] to-[#61045F] z-20" />
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-36 bg-[#AA076B]/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="sticky top-0 inset-x-0 h-1 bg-primary z-20" />
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-36 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
 
             {/* Modal Header */}
             <div className="relative p-6 sm:p-8 pb-4 flex items-start justify-between">
               <div>
                 {isOfferClaimed && (
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FAF7FC] border border-[#AA076B]/30 text-[11px] font-semibold text-[#AA076B] mb-2 shadow-xs">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/30 text-[11px] font-semibold text-primary mb-2 shadow-xs">
                     <span>🏷️ Free Demo Offer Applied</span>
                   </div>
                 )}
                 <h2
                   id="contact-modal-title"
-                  className="text-xl sm:text-2xl font-bold tracking-tight text-[#17131F] leading-tight font-['poppins-sb']"
+                  className="text-xl sm:text-2xl font-bold tracking-tight text-white leading-tight font-poppins-sb"
                 >
                   {isDemo ? (
                     <>
-                      Book your <span className="text-[#AA076B]">free demo</span>.
+                      Book your <span className="text-primary">free demo</span>.
                     </>
                   ) : (
                     <>
                       Let&apos;s build something{" "}
-                      <span className="text-[#AA076B]">exceptional</span>.
+                      <span className="text-primary">exceptional</span>.
                     </>
                   )}
                 </h2>
-                <p className="text-xs sm:text-[13px] text-[#6F6878] mt-1 font-normal leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-white/70 mt-1 font-normal leading-relaxed">
                   {isDemo
                     ? "Schedule a 1-on-1 walkthrough to see our work and discover how we can help your business grow."
                     : "Tell us about your project or vision and we'll get back to you with a tailored plan within 24 hours."}
@@ -221,7 +221,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                 type="button"
                 onClick={resetAndClose}
                 aria-label="Close dialog"
-                className="p-2 rounded-full text-[#6F6878] hover:text-[#17131F] bg-[#FAF8FF] hover:bg-[#FAF7FC] border border-[#EAE5F0] transition-all duration-200 cursor-pointer group shrink-0 ml-3"
+                className="p-2 rounded-full text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-200 cursor-pointer group shrink-0 ml-3"
               >
                 <IconX className="size-4.5 transition-transform duration-200 group-hover:rotate-90" />
               </button>
@@ -236,15 +236,15 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                   animate={{ opacity: 1, scale: 1 }}
                   className="py-10 text-center flex flex-col items-center justify-center space-y-4"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#00F5D4]/15 border-2 border-[#00F5D4] flex items-center justify-center text-[#059669] shadow-[0_0_25px_rgba(0,245,212,0.3)]">
+                  <div className="w-16 h-16 rounded-full bg-primary/15 border-2 border-primary flex items-center justify-center text-primary shadow-[0_0_25px_var(--primary)]">
                     <IconCheck className="size-8 stroke-[2.5]" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#17131F] font-['poppins-sb']">
+                  <h3 className="text-xl font-bold text-white font-poppins-sb">
                     {isDemo
                       ? "Demo Request Received!"
                       : "Message Sent Successfully!"}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#6F6878] max-w-sm leading-relaxed">
+                  <p className="text-xs sm:text-sm text-white/70 max-w-sm leading-relaxed">
                     {isDemo
                       ? "Thank you for requesting a demo with DevRep Labs. Our team will contact you shortly to schedule your preferred time."
                       : "Thank you for reaching out to DevRep Labs. Our team will review your inquiry and contact you shortly."}
@@ -252,7 +252,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                   <button
                     type="button"
                     onClick={resetAndClose}
-                    className="mt-4 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-primary-gradient hover:opacity-95 shadow-md shadow-[#AA076B]/25 transition-all cursor-pointer"
+                    className="mt-4 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-primary hover:bg-primary/90 shadow-md shadow-primary/25 transition-all cursor-pointer"
                   >
                     Done
                   </button>
@@ -273,8 +273,8 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                   {/* Name & Email Row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <div>
-                      <label className="block text-xs font-medium text-[#2E2838] mb-1.5">
-                        Your Name <span className="text-[#AA076B]">*</span>
+                      <label className="block text-xs font-medium text-white/80 mb-1.5">
+                        Your Name <span className="text-primary">*</span>
                       </label>
                       <input
                         type="text"
@@ -283,13 +283,13 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="John Doe"
-                        className="w-full h-10 px-3.5 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] placeholder-[#9E97A6] focus:border-[#AA076B] focus:bg-white focus:ring-2 focus:ring-[#AA076B]/20 transition-all outline-none"
+                        className="w-full h-10 px-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs sm:text-[13px] text-white placeholder-white/40 focus:border-primary focus:bg-white/[0.07] transition-all outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-[#2E2838] mb-1.5">
-                        Email Address <span className="text-[#AA076B]">*</span>
+                      <label className="block text-xs font-medium text-white/80 mb-1.5">
+                        Email Address <span className="text-primary">*</span>
                       </label>
                       <input
                         type="email"
@@ -298,14 +298,14 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="john@example.com"
-                        className="w-full h-10 px-3.5 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] placeholder-[#9E97A6] focus:border-[#AA076B] focus:bg-white focus:ring-2 focus:ring-[#AA076B]/20 transition-all outline-none"
+                        className="w-full h-10 px-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs sm:text-[13px] text-white placeholder-white/40 focus:border-primary focus:bg-white/[0.07] transition-all outline-none"
                       />
                     </div>
                   </div>
 
                   {/* Service Selection Pills */}
                   <div>
-                    <label className="block text-xs font-medium text-[#2E2838] mb-2">
+                    <label className="block text-xs font-medium text-white/80 mb-2">
                       Project Type / Service
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -318,8 +318,8 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                           }
                           className={`px-3 py-1.5 rounded-full text-xs transition-all duration-200 cursor-pointer ${
                             formData.service === item
-                              ? "bg-gradient-to-r from-[#AA076B] to-[#61045F] text-white border border-transparent shadow-sm shadow-[#AA076B]/35 font-medium"
-                              : "bg-[#FAF9FD] text-[#6F6878] border border-[#E4DFEB] hover:text-[#17131F] hover:bg-[#F3ECFF] hover:border-[#D8C7F9]"
+                              ? "bg-primary text-white border border-transparent shadow-sm shadow-primary/35 font-medium"
+                              : "bg-white/[0.04] text-white/70 border border-white/10 hover:text-white hover:bg-white/[0.08]"
                           }`}
                         >
                           {item}
@@ -330,7 +330,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
 
                   {/* Budget Selector Pills */}
                   <div>
-                    <label className="block text-xs font-medium text-[#2E2838] mb-2">
+                    <label className="block text-xs font-medium text-white/80 mb-2">
                       Estimated Budget
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -343,8 +343,8 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                           }
                           className={`px-3 py-1.5 rounded-full text-xs transition-all duration-200 cursor-pointer ${
                             formData.budget === b
-                              ? "bg-gradient-to-r from-[#AA076B] to-[#61045F] text-white border border-transparent shadow-sm shadow-[#AA076B]/35 font-semibold"
-                              : "bg-[#FAF9FD] text-[#6F6878] border border-[#E4DFEB] hover:text-[#17131F] hover:bg-[#F3ECFF] hover:border-[#D8C7F9]"
+                              ? "bg-primary text-white border border-transparent shadow-sm shadow-primary/35 font-semibold"
+                              : "bg-white/[0.04] text-white/70 border border-white/10 hover:text-white hover:bg-white/[0.08]"
                           }`}
                         >
                           {b}
@@ -355,9 +355,9 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
 
                   {/* Message Field */}
                   <div>
-                    <label className="block text-xs font-medium text-[#2E2838] mb-1.5">
+                    <label className="block text-xs font-medium text-white/80 mb-1.5">
                       {isDemo ? "Demo goals or questions" : "Project details"}{" "}
-                      <span className="text-[#AA076B]">*</span>
+                      <span className="text-primary">*</span>
                     </label>
                     <textarea
                       name="message"
@@ -370,14 +370,14 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                           ? "Tell us about your brand, current website, or what you'd like to see in the demo walkthrough..."
                           : "Tell us about what you want to build, timelines, or any specific goals..."
                       }
-                      className="w-full p-3.5 rounded-xl bg-[#FAF9FD] border border-[#E4DFEB] text-xs sm:text-[13px] text-[#17131F] placeholder-[#9E97A6] focus:border-[#AA076B] focus:bg-white focus:ring-2 focus:ring-[#AA076B]/20 transition-all outline-none resize-none"
+                      className="w-full p-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs sm:text-[13px] text-white placeholder-white/40 focus:border-primary focus:bg-white/[0.07] transition-all outline-none resize-none"
                     />
                   </div>
 
                   {/* Error Notification */}
                   {status === "error" && (
-                    <div className="flex items-center gap-2 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs">
-                      <IconAlertCircle className="size-4 shrink-0 text-red-500" />
+                    <div className="flex items-center gap-2 p-3 rounded-xl bg-red-950/40 border border-red-800 text-red-300 text-xs">
+                      <IconAlertCircle className="size-4 shrink-0 text-red-400" />
                       <span>{errorMessage}</span>
                     </div>
                   )}
@@ -387,7 +387,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                     <button
                       type="submit"
                       disabled={status === "submitting"}
-                      className="w-full h-11 rounded-full text-xs sm:text-sm font-semibold text-white bg-primary-gradient hover:opacity-95 shadow-lg hover:shadow-[0_10px_30px_rgba(131,100,232,0.35)] transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
+                      className="w-full h-11 rounded-full text-xs sm:text-sm font-semibold text-white bg-primary hover:bg-primary/90 shadow-lg hover:shadow-[0_10px_30px_var(--primary)] transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
                     >
                       {status === "submitting" ? (
                         <>

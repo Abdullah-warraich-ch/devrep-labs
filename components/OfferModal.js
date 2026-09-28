@@ -67,24 +67,24 @@ export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-md my-auto rounded-3xl bg-white border border-[#EAE5F0] shadow-[0_25px_70px_rgba(23,19,31,0.25)] text-[#17131F] z-10 font-poppins overflow-hidden"
+            className="dark-theme relative w-full max-w-md my-auto rounded-3xl bg-[#080808] border border-white/10 shadow-[0_25px_70px_rgba(0,0,0,0.85)] text-white z-10 font-poppins overflow-hidden"
             role="dialog"
             aria-modal="true"
             aria-labelledby="offer-modal-title"
           >
-            {/* Top Accent Gradient Line */}
-            <div className="h-1.5 bg-gradient-to-r from-[#AA076B] to-[#61045F]" />
+            {/* Top Accent Line */}
+            <div className="h-1 bg-primary" />
 
             {/* Ambient Background Aura */}
-            <div className="absolute -top-16 -right-16 w-56 h-56 bg-[#AA076B]/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-[#00F5D4]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-16 -right-16 w-56 h-56 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* Close Button */}
             <button
               type="button"
               onClick={onClose}
               aria-label="Close offer modal"
-              className="absolute top-4 right-4 p-2 rounded-full text-[#6F6878] hover:text-[#17131F] bg-[#FAF8FF] hover:bg-[#FAF7FC] border border-[#EAE5F0] transition-all duration-200 cursor-pointer group z-20"
+              className="absolute top-4 right-4 p-2 rounded-full text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-200 cursor-pointer group z-20"
             >
               <IconX className="size-4.5 transition-transform duration-200 group-hover:rotate-90" />
             </button>
@@ -92,18 +92,18 @@ export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
             {/* Content Container */}
             <div className="p-6 sm:p-8 pt-6 relative z-10 text-center flex flex-col items-center">
               
-              {/* Standalone Filled Tag Icon (No Background) */}
-              <IconTagFilled className="size-11 sm:size-12 text-[#AA076B] mb-4 shrink-0 drop-shadow-sm" />
+              {/* Standalone Filled Tag Icon */}
+              <IconTagFilled className="size-11 sm:size-12 text-primary mb-4 shrink-0 drop-shadow-sm" />
 
               {/* Direct, Straightforward Title */}
               <h2
                 id="offer-modal-title"
-                className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-[#17131F] leading-snug font-['poppins-sb'] mb-7 max-w-sm"
+                className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-white leading-snug font-poppins-sb mb-7 max-w-sm"
               >
                 We Will Provide a{" "}
-                <span className="relative inline-block text-[#AA076B]">
+                <span className="relative inline-block text-primary pb-1">
                   Free Demo
-                  <HandDrawnUnderline color="#AA076B" />
+                  <HandDrawnUnderline />
                 </span>{" "}
                 for Your Business Website
               </h2>
@@ -113,7 +113,7 @@ export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
                 <button
                   type="button"
                   onClick={onClaimOffer}
-                  className="w-full h-11 sm:h-12 rounded-full text-sm font-semibold text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] shadow-lg hover:shadow-[0_8px_25px_rgba(0,245,212,0.45)] transition-colors duration-200 cursor-pointer flex items-center justify-center gap-2 group font-['poppins-sb']"
+                  className="w-full h-11 sm:h-12 rounded-full text-sm font-semibold text-white bg-primary hover:bg-primary/90 shadow-lg hover:shadow-[0_8px_25px_var(--primary)] transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 group font-poppins-sb"
                 >
                   <span>Book a Free Demo</span>
                   <IconArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -122,7 +122,7 @@ export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="text-xs text-[#6F6878] hover:text-[#17131F] py-1 cursor-pointer transition-colors"
+                  className="text-xs text-white/60 hover:text-white py-1 cursor-pointer transition-colors"
                 >
                   Maybe later, I&apos;ll explore first
                 </button>

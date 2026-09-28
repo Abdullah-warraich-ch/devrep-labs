@@ -14,18 +14,18 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative w-full py-16 sm:py-24 bg-[#FFFFFF] overflow-hidden scroll-mt-14"
+      className="relative w-full py-16 sm:py-24 bg-background overflow-hidden scroll-mt-14"
     >
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[28px] xl:text-[32px] font-semibold text-[#17131F] leading-snug tracking-tight mb-3">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[28px] xl:text-[32px] font-semibold text-foreground leading-snug tracking-tight mb-3">
             <span className="relative inline-block pb-1">
               Our Projects
-              <HandDrawnUnderline color="#AA076B" />
+              <HandDrawnUnderline color="var(--primary)" />
             </span>
           </h2>
-          <p className="text-[#6F6878] text-xs sm:text-[13px] md:text-sm leading-relaxed font-normal max-w-lg mx-auto">
+          <p className="text-foreground/70 text-xs sm:text-[13px] md:text-sm leading-relaxed font-normal max-w-lg mx-auto">
             A selection of our recent work — each project designed and built to
             deliver real results for real businesses.
           </p>
@@ -44,7 +44,7 @@ export default function Projects() {
                 delay: index * 0.1,
                 ease: "easeOut",
               }}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[16/10] bg-[#FAF8FF] border border-[#EAE5F0] shadow-sm"
+              className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[16/10] bg-background border border-foreground/10 shadow-sm"
             >
               {/* Project Screenshot Image (Edge-to-Edge) */}
               <Image
@@ -63,17 +63,17 @@ export default function Projects() {
                 <span className="text-[10px] hidden lg:block sm:text-[11px] font-semibold tracking-wider uppercase text-[#00F5D4] mb-1.5">
                   {project.category}
                 </span>
-                <h3 className="text-base sm:text-lg font-semibold text-white leading-snug mb-1">
+                <h3 className="text-base sm:text-lg font-semibold text-foreground leading-snug mb-1">
                   {project.title}
                 </h3>
-                <p className="text-xs sm:text-[13px] hidden lg:block text-white/80 mb-8 leading-relaxed font-normal lg:mb-4 max-w-sm">
+                <p className="text-xs sm:text-[13px] hidden lg:block text-foreground/80 mb-8 leading-relaxed font-normal lg:mb-4 max-w-sm">
                   {project.description}
                 </p>
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium font-['poppins-m'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] shadow-sm transition-all duration-200 w-fit"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium font-['poppins-m'] text-background bg-foreground hover:bg-foreground/90 shadow-sm transition-all duration-200 w-fit"
                 >
                   <span>View Project</span>
                   <IconArrowUpRight className="size-3.5" />
@@ -87,7 +87,7 @@ export default function Projects() {
         <div className="flex justify-center mt-10 sm:mt-14">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium font-['poppins-m'] text-[#17131F] bg-transparent border border-[#17131F]/20 hover:border-[#AA076B] hover:text-[#AA076B] transition-all duration-200 cursor-pointer group"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium font-['poppins-m'] text-foreground bg-transparent border border-foreground/20 hover:border-primary hover:text-[var(--primary)] transition-all duration-200 cursor-pointer group"
           >
             <span>View All Projects</span>
             <IconArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

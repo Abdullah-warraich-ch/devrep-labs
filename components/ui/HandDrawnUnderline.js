@@ -19,21 +19,18 @@ export default function HandDrawnUnderline({
   className = "",
 }) {
   return (
-    <svg
-      className={`absolute left-0 -bottom-1 sm:-bottom-1.5 w-full h-2.5 sm:h-3 overflow-visible pointer-events-none ${className}`}
-      viewBox="0 0 260 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <motion.path
-        d="M 2 8 C 65 2, 175 2, 258 7"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration, delay, ease: "easeOut" }}
+    <span className={`absolute left-0 bottom-0 h-[3px] bg-foreground/10 rounded-full w-full overflow-hidden ${className}`}>
+      <motion.span
+        initial={{ left: "-100%" }}
+        whileInView={{ left: "100%" }}
+        viewport={{ once: false, margin: "-40px" }}
+        transition={{
+          repeat: Infinity,
+          duration: 2.5,
+          ease: "easeInOut",
+        }}
+        className="absolute top-0 h-full w-full bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"
       />
-    </svg>
+    </span>
   );
 }

@@ -1,4 +1,4 @@
-/* Local Poppins Fonts (matching pet-vet-shop) */
+/* Local Poppins Fonts */
 @font-face {
   font-family: 'poppins-r';
   src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
@@ -23,45 +23,27 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
 @import "tailwindcss";
 
 :root {
-  /* Brand Blue Scheme */
+  /* Brand Scheme */
   --background: #F8FAFC;
   /* Main background */
   --surface: #FFFFFF;
   /* White surface */
   --surface-soft: #EFF6FF;
   /* Soft blue background */
-  --foreground: #FFFFFF;
+  --foreground: #0F172A;
   --border: #E2E8F0;
   /* Border */
 
-  --primary: #2563EB;
+  /* Pullcord positioning and color */
+  --pullcord-top: 0px;
+  --pullcord-right: clamp(1.5rem, 8vw, 5rem);
+  --pullcord-z: 9999;
+  --pullcord-ink: var(--foreground);
+
+  --primary: #FF0000;
   /* Solid blue */
   --primary-deep: #1D4ED8;
   /* Deep blue */
@@ -88,9 +70,33 @@
   --error-content: #ffffff;
 }
 
+.dark, .dark-theme {
+  --background: #030303;
+  --surface: #0a0a0a;
+  --surface-soft: #141414;
+  --foreground: #FFFFFF;
+  --border: #222222;
+  --copy: #e2e8f0;
+  --copy-light: #94A3B8;
+
+  --color-background: #030303;
+  --color-surface: #0a0a0a;
+  --color-surface-soft: #141414;
+  --color-foreground: #FFFFFF;
+  --color-border: #222222;
+  --color-copy: #e2e8f0;
+  --color-copy-light: #94A3B8;
+  
+  background-color: #030303 !important;
+  color: #FFFFFF !important;
+}
+
 @theme {
-  --font-sans: "poppins-r", "Poppins", sans-serif;
-  --font-poppins: "poppins-r", "Poppins", sans-serif;
+  --font-sans: "poppins-r", sans-serif;
+  --font-poppins: "poppins-r", sans-serif;
+  --font-poppins-r: "poppins-r", sans-serif;
+  --font-poppins-m: "poppins-m", sans-serif;
+  --font-poppins-sb: "poppins-sb", sans-serif;
 
   /* Theme color mappings */
   --color-background: var(--background);
@@ -141,6 +147,10 @@
   background: linear-gradient(135deg, #2563EB 0%, #06B6D4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+* {
+  font-weight: normal;
 }
 
 html {
@@ -230,4 +240,30 @@ textarea,
   outline: none !important;
   box-shadow: none !important;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom Primary Scrollbar */
+html {
+  scrollbar-color: var(--primary) transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--primary) 85%, black);
 }

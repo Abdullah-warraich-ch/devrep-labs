@@ -59,7 +59,7 @@ export default function SideSocialLinks() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            className="flex items-center justify-center group text-2xl text-white hover:text-[#00F5D4] transition-colors duration-200 w-full"
+            className="flex items-center justify-center group text-2xl text-white hover:text-white/70 transition-colors duration-200 w-full"
           >
             <Icon />
           </a>
@@ -101,7 +101,7 @@ export default function SideSocialLinks() {
                   rel="noopener noreferrer"
                   aria-label={label}
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-center text-xl text-white hover:text-[#00F5D4] active:scale-95 transition-all duration-150 w-full"
+                  className="flex items-center justify-center text-xl text-white hover:text-white/70 active:scale-95 transition-all duration-150 w-full"
                 >
                   <Icon />
                 </a>
@@ -114,7 +114,7 @@ export default function SideSocialLinks() {
         <button
           type="button"
           aria-label={open ? "Close Social Links" : "Open Social Links"}
-          className="pointer-events-auto py-3.5 px-3 rounded-l-2xl flex items-center justify-center text-xl text-white bg-primary hover:text-[#00F5D4] active:scale-95 shadow-xl border-l border-t border-b border-white/10 transition-all duration-200 cursor-pointer"
+          className="pointer-events-auto py-3.5 px-3 rounded-l-2xl flex items-center justify-center text-xl text-white bg-primary hover:text-white/80 active:scale-95 shadow-xl border-l border-t border-b border-white/10 transition-all duration-200 cursor-pointer"
           onClick={toggleSocial}
         >
           {open ? <FiX className="text-xl" /> : <FiShare2 className="text-xl" />}
