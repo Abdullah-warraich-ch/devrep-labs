@@ -22,18 +22,32 @@ export default function Navbar() {
   const pathname = usePathname();
   const { openContactModal } = useContactModal();
 
-  const handleNavClick = (item) => {
+  const handleNavClick = (e, item) => {
     if (item.isContactTrigger) {
+      if (e) e.preventDefault();
       openContactModal();
       setMobileOpen(false);
       return;
     }
+
+    if (item.href?.startsWith("/#") && pathname === "/") {
+      if (e) e.preventDefault();
+      const targetId = item.href.replace("/#", "");
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth" });
+      }
+    } else if (item.href === "/" && pathname === "/") {
+      if (e) e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
     setMobileOpen(false);
   };
 
   const isItemActive = (item) => {
     if (item.href === "/" && pathname === "/") return true;
-    if (item.href && item.href !== "/" && pathname && pathname.startsWith(item.href)) return true;
+    if (item.href && item.href !== "/" && !item.href.startsWith("/#") && pathname && pathname.startsWith(item.href)) return true;
     return false;
   };
 
@@ -55,7 +69,7 @@ export default function Navbar() {
                     <button
                       key={item.name}
                       type="button"
-                      onClick={() => handleNavClick(item)}
+                      onClick={(e) => handleNavClick(e, item)}
                       className={`relative cursor-pointer border-none bg-transparent text-[14px] transition-colors duration-300 group ${
                         active ? "text-foreground font-poppins-m" : "text-foreground/65"
                       }`}
@@ -80,6 +94,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     href={item.href}
+                    onClick={(e) => handleNavClick(e, item)}
                     className={`relative cursor-pointer border-none bg-transparent text-[14px] transition-colors duration-300 group ${
                       active ? "text-foreground font-poppins-m" : "text-foreground/65"
                     }`}
@@ -179,7 +194,7 @@ export default function Navbar() {
                         <button
                           key={item.name}
                           type="button"
-                          onClick={() => handleNavClick(item)}
+                          onClick={(e) => handleNavClick(e, item)}
                           className={`cursor-pointer border-none text-left rounded-xl transition-all duration-150 ease-in-out font-poppins-m text-[15px] p-3 w-full ${
                             active
                               ? "bg-white/10 text-white font-semibold"
@@ -195,7 +210,7 @@ export default function Navbar() {
                       <Link
                         key={item.name}
                         href={item.href}
-                        onClick={() => setMobileOpen(false)}
+                        onClick={(e) => handleNavClick(e, item)}
                         className={`cursor-pointer border-none text-left rounded-xl transition-all duration-150 ease-in-out font-poppins-m text-[15px] p-3 w-full block ${
                           active
                             ? "bg-white/10 text-white font-semibold"

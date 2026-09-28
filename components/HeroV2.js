@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { IconArrowRight, IconArrowUpRight } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import { useContactModal } from "@/context/ContactModalContext";
 
 export default function HeroV2() {
+  const { openContactModal } = useContactModal();
   return (
     <section
       id="hero-v2"

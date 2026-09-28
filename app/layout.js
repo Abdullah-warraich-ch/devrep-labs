@@ -3,7 +3,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import { ContactModalProvider } from "@/context/ContactModalContext";
 
 export const viewport = {
-  themeColor: "#AA076B",
+  themeColor: "#FF0000",
   width: "device-width",
   initialScale: 1,
 };
