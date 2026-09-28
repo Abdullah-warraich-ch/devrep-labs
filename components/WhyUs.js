@@ -151,8 +151,10 @@ export default function WhyUs() {
               <Image
                 src="/images/mockup2.webp"
                 alt="DevRep Labs high-performance custom website architecture and user interface design"
+                title="DevRep Labs — High-Performance Custom Website Architecture & UI Design"
                 width={2400}
                 height={1800}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 50vw"
                 className="w-full h-auto object-contain drop-shadow-2xl"
               />
             </motion.div>

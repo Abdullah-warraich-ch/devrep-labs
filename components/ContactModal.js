@@ -9,6 +9,7 @@ import {
   IconCheck,
   IconAlertCircle,
   IconLoader2,
+  IconChevronDown,
 } from "@tabler/icons-react";
 
 export default function ContactModal({ isOpen, onClose, config = {} }) {
@@ -187,7 +188,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-36 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
 
             {/* Modal Header */}
-            <div className="relative p-6 sm:p-8 pb-4 flex items-start justify-between">
+            <div className="relative px-6 sm:px-8 pt-6 sm:pt-7 pb-3 flex items-center justify-between">
               <div>
                 {isOfferClaimed && (
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/30 text-[11px] font-semibold text-primary mb-2 shadow-xs">
@@ -228,7 +229,7 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
             </div>
 
             {/* Modal Body */}
-            <div className="relative p-6 sm:p-8 pt-2">
+            <div className="relative px-6 sm:px-8 pb-6 sm:pb-8 pt-2">
               {status === "success" ? (
                 /* Success State */
                 <motion.div
@@ -322,11 +323,15 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                               : "bg-white/[0.04] text-white/70 border border-white/10 hover:text-white hover:bg-white/[0.08]"
                           }`}
                         >
-                          {item}
-                        </button>
-                      ))}
+                          {services.map((item) => (
+                            <option key={item} value={item}>
+                              {item}
+                            </option>
+                          ))}
+                        </select>
+                        <IconChevronDown className="size-4 text-[#6F6878] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none stroke-[1.8]" />
+                      </div>
                     </div>
-                  </div>
 
                   {/* Budget Selector Pills */}
                   <div>
@@ -347,9 +352,14 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                               : "bg-white/[0.04] text-white/70 border border-white/10 hover:text-white hover:bg-white/[0.08]"
                           }`}
                         >
-                          {b}
-                        </button>
-                      ))}
+                          {budgets.map((b) => (
+                            <option key={b} value={b}>
+                              {b}
+                            </option>
+                          ))}
+                        </select>
+                        <IconChevronDown className="size-4 text-[#6F6878] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none stroke-[1.8]" />
+                      </div>
                     </div>
                   </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, {
+import {
   createContext,
   useContext,
   useState,
@@ -125,7 +125,6 @@ export function ContactModalProvider({ children }) {
         closeContactModal,
         modalConfig,
         isOfferOpen,
-        openOfferModal,
         closeOfferModal,
       }}
     >

@@ -82,6 +82,7 @@ export default function Hero() {
               <Image
                 src="/images/list2.png"
                 alt=""
+                title="Fast 2–4 Week Launch"
                 aria-hidden="true"
                 width={20}
                 height={20}
@@ -93,6 +94,7 @@ export default function Hero() {
               <Image
                 src="/images/list2.png"
                 alt=""
+                title="100% Custom Code"
                 aria-hidden="true"
                 width={20}
                 height={20}
@@ -104,6 +106,7 @@ export default function Hero() {
               <Image
                 src="/images/list2.png"
                 alt=""
+                title="SEO & Speed Optimized"
                 aria-hidden="true"
                 width={20}
                 height={20}
@@ -125,6 +128,7 @@ export default function Hero() {
             <Image
               src="/svgs/hero.svg"
               alt="DevRep Labs custom web development and digital solutions illustration"
+              title="DevRep Labs — Custom Web Development & Digital Solutions"
               width={640}
               height={560}
               priority

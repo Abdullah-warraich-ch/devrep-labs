@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -98,10 +98,11 @@ export default function ProjectsClient() {
                 <Image
                   src={project.image}
                   alt={`${project.title} — ${project.category}`}
+                  title={`${project.title} — ${project.category} | DevRep Labs`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
                   priority={index < 2}
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                  className="object-cover object-top"
                 />
 
                 {/* Gradient Overlay — visible on mobile/tablet, hover on desktop */}
@@ -122,20 +123,6 @@ export default function ProjectsClient() {
                   <p className="text-xs sm:text-[13px] text-white/80 leading-relaxed font-normal mb-4 max-w-md">
                     {project.description}
                   </p>
-
-                  {/* Tech Tags */}
-                  {project.tags && project.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-white/15 text-white/90 backdrop-blur-sm"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
 
                   {/* View Live Button */}
                   <a

@@ -28,9 +28,11 @@ export default function WhatWeDo() {
             <Image
               src="/images/Mockup.webp"
               alt="DevRep Labs bespoke web application and digital product showcase mockup"
+              title="DevRep Labs — Bespoke Web Applications & Digital Products"
               width={1600}
               height={1200}
               priority
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 50vw"
               className="w-full h-auto object-contain drop-shadow-2xl"
             />
           </div>
@@ -58,6 +60,7 @@ export default function WhatWeDo() {
                 <Image
                   src="/images/list.png"
                   alt=""
+                  title={title}
                   aria-hidden="true"
                   width={20}
                   height={20}
