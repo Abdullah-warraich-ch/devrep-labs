@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { IconMenu2, IconX, IconArrowRight } from "@tabler/icons-react";
 import { useLenis } from "lenis/react";
 import { useContactModal } from "@/context/ContactModalContext";
+import BrandLogo from "@/components/ui/BrandLogo";
 
 export default function Header() {
   const lenis = useLenis();
@@ -17,7 +18,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const navItems = [
-    { name: "Services", link: "/#services", sectionId: "services" },
+    { name: "Services", link: "/services", sectionId: "services" },
     { name: "About", link: "/#about", sectionId: "about" },
     { name: "Work", link: "/projects", sectionId: "projects" },
     { name: "FAQ", link: "/#faq", sectionId: "faq" },
@@ -25,7 +26,12 @@ export default function Header() {
   ];
 
   const isProjectsPage = Boolean(pathname && pathname.startsWith("/projects"));
-  const effectiveActiveSection = isProjectsPage ? "projects" : activeSection;
+  const isServicesPage = Boolean(pathname && pathname.startsWith("/services"));
+  const effectiveActiveSection = isServicesPage
+    ? "services"
+    : isProjectsPage
+    ? "projects"
+    : activeSection;
 
   // Scroll spy & active section detection
   useEffect(() => {
@@ -154,30 +160,10 @@ export default function Header() {
   );
 
   return (
-    <header className="fixed top-0 inset-x-0 w-full h-12 sm:h-14 z-50 bg-primary-gradient">
+    <header className="fixed top-0 inset-x-0 w-full h-14 sm:h-16 z-50 bg-[#030303]/90 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto h-full px-4 sm:px-8 flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          href="/"
-          onClick={(e) => {
-            if (pathname === "/") {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-              setActiveSection("");
-            }
-          }}
-          className="flex items-center shrink-0"
-        >
-          <Image
-            src="/logo.png"
-            alt="DevRep Labs Logo"
-            title="DevRep Labs — Custom Web Development & Digital Solutions"
-            width={170}
-            height={53}
-            priority
-            className="h-8 sm:h-9 md:h-10 w-auto object-contain"
-          />
-        </Link>
+        {/* Brand Logo */}
+        <BrandLogo isDark={true} />
 
         {/* Center Nav Links with Scroll Spy Highlight */}
         <nav className="hidden md:flex items-stretch gap-7 h-full">
@@ -191,14 +177,14 @@ export default function Header() {
                 onClick={(e) => handleNavClick(e, item)}
                 data-active={isActive ? "true" : undefined}
                 className={`pago-nav-link relative h-full flex items-center py-0 cursor-pointer bg-transparent border-none ${
-                  isActive ? "active" : ""
+                  isActive ? "active text-white" : "text-white/70 hover:text-white"
                 }`}
               >
                 <span>{item.name}</span>
                 {isActive && (
                   <motion.span
                     layoutId="activeNavIndicator"
-                    className="absolute -bottom-px left-0 right-0 h-[2.5px] bg-[#00F5D4]"
+                    className="absolute -bottom-px left-0 right-0 h-[2px] bg-primary"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -210,14 +196,14 @@ export default function Header() {
                 onClick={(e) => handleNavClick(e, item)}
                 data-active={isActive ? "true" : undefined}
                 className={`pago-nav-link relative h-full flex items-center py-0 ${
-                  isActive ? "active" : ""
+                  isActive ? "active text-white" : "text-white/70 hover:text-white"
                 }`}
               >
                 <span>{item.name}</span>
                 {isActive && (
                   <motion.span
                     layoutId="activeNavIndicator"
-                    className="absolute -bottom-px left-0 right-0 h-[2.5px] bg-[#00F5D4]"
+                    className="absolute -bottom-px left-0 right-0 h-[2px] bg-primary"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -226,12 +212,12 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right CTA (Small Button) */}
+        {/* Right CTA */}
         <div className="hidden md:flex items-center">
           <button
             type="button"
             onClick={() => openContactModal({ mode: "demo" })}
-            className="px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-medium font-['poppins-m'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] transition-colors cursor-pointer"
+            className="px-4 py-2 rounded-full text-xs font-semibold text-white bg-primary hover:bg-primary/90 shadow-md shadow-primary/20 transition-all cursor-pointer"
           >
             Get in Touch
           </button>
@@ -275,31 +261,11 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
-              className="relative w-[300px] max-w-[85vw] h-full bg-[#151226] border-l border-white/10 flex flex-col justify-between p-6 z-10 font-poppins"
+              className="relative w-[300px] max-w-[85vw] h-full bg-[#080808] border-l border-white/10 flex flex-col justify-between p-6 z-10 font-poppins"
             >
               {/* Top Header of Sidebar */}
               <div className="flex items-center justify-between pb-5 border-b border-white/10">
-                <Link
-                  href="/"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    if (pathname === "/") {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                      setActiveSection("");
-                    }
-                  }}
-                  className="flex items-center"
-                >
-                  <Image
-                    src="/logo.png"
-                    alt="DevRep Labs Logo"
-                    title="DevRep Labs — Custom Web Development & Digital Solutions"
-                    width={160}
-                    height={50}
-                    priority
-                    className="h-8 sm:h-9 w-auto object-contain"
-                  />
-                </Link>
+                <BrandLogo isDark={true} />
 
                 <button
                   type="button"
@@ -324,13 +290,13 @@ export default function Header() {
                       data-active={isActive ? "true" : undefined}
                       className={`w-full text-left px-4 py-3 rounded-xl flex items-center justify-between text-sm font-medium font-['poppins-m'] transition-all cursor-pointer bg-transparent border-none ${
                         isActive
-                          ? "bg-white/10 text-[#00F5D4] font-semibold"
+                          ? "bg-white/10 text-white font-semibold"
                           : "text-white/80 hover:text-white hover:bg-white/5"
                       }`}
                     >
                       <span>{item.name}</span>
                       {isActive && (
-                        <span className="w-2 h-2 rounded-full bg-[#00F5D4]" />
+                        <span className="w-2 h-2 rounded-full bg-primary" />
                       )}
                     </button>
                   ) : (
@@ -341,13 +307,13 @@ export default function Header() {
                       data-active={isActive ? "true" : undefined}
                       className={`w-full px-4 py-3 rounded-xl flex items-center justify-between text-sm font-medium font-['poppins-m'] transition-all ${
                         isActive
-                          ? "bg-white/10 text-[#00F5D4] font-semibold"
+                          ? "bg-white/10 text-white font-semibold"
                           : "text-white/80 hover:text-white hover:bg-white/5"
                       }`}
                     >
                       <span>{item.name}</span>
                       {isActive && (
-                        <span className="w-2 h-2 rounded-full bg-[#00F5D4]" />
+                        <span className="w-2 h-2 rounded-full bg-primary" />
                       )}
                     </Link>
                   );
@@ -362,7 +328,7 @@ export default function Header() {
                     setIsMobileMenuOpen(false);
                     openContactModal({ mode: "demo" });
                   }}
-                  className="w-full py-3 px-4 rounded-full text-sm font-semibold font-['poppins-sb'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3 px-4 rounded-full text-sm font-semibold font-poppins-sb text-white bg-primary hover:bg-primary/90 shadow-md shadow-primary/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Book a Free Demo</span>
                   <IconArrowRight className="size-4" />

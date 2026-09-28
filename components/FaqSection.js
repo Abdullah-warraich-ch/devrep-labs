@@ -72,12 +72,12 @@ export default function FaqSection() {
           label=""
         />
 
-        <p className="text-center text-sm text-[#6F6878] mt-10 flex items-center justify-center gap-1.5">
+        <p className="text-center text-sm text-foreground/70 mt-10 flex items-center justify-center gap-1.5">
           <span>Still have questions?</span>
           <button
             type="button"
             onClick={openContactModal}
-            className="inline-flex items-center gap-1 text-[#AA076B] hover:text-[#AA076B] font-medium transition-colors cursor-pointer group underline underline-offset-4"
+            className="inline-flex items-center gap-1 text-[var(--primary)] hover:text-[var(--primary)] font-medium transition-colors cursor-pointer group underline underline-offset-4"
           >
             <span>Talk to us</span>
             <IconArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-1" />

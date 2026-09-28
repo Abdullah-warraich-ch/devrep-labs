@@ -1,9 +1,10 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import WhatWeDo from "@/components/WhatWeDo";
-import WhyUs from "@/components/WhyUs";
-import Projects from "@/components/Projects";
-import FaqSection from "@/components/FaqSection";
+// import Header from "@/components/Header";
+// import Hero from "@/components/Hero";
+import HeroV2 from "@/components/HeroV2";
+import WhatWeDoV2 from "@/components/WhatWeDoV2";
+import WhyUsV2 from "@/components/WhyUsV2";
+import ProjectsV2 from "@/components/ProjectsV2";
+import FaqSectionV2 from "@/components/FaqSectionV2";
 import PreFooterCta from "@/components/PreFooterCta";
 import Footer from "@/components/Footer";
 import SideSocialLinks from "@/components/ui/SideSocialLinks";
@@ -17,12 +18,11 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-background relative overflow-x-hidden">
-      <Header />
-      <Hero />
-      <WhatWeDo />
-      <WhyUs />
-      <Projects />
-      <FaqSection />
+      <HeroV2 />
+      <WhatWeDoV2 />
+      <WhyUsV2 />
+      <ProjectsV2 />
+      <FaqSectionV2 />
       <PreFooterCta />
       <Footer />
       <SideSocialLinks />

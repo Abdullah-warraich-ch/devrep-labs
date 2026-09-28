@@ -18,7 +18,7 @@ export default function WhatWeDo() {
   return (
     <section
       id="services"
-      className="relative w-full pt-0 sm:pt-0 pb-16 sm:pb-20 lg:py-24 bg-[#FFFFFF] overflow-hidden scroll-mt-14"
+      className="relative w-full pt-0 sm:pt-0 pb-16 sm:pb-20 lg:py-24 bg-background overflow-hidden scroll-mt-14"
     >
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
@@ -41,15 +41,15 @@ export default function WhatWeDo() {
         {/* Right Side: Heading, Subheading, List with list.png dots, and CTA Button */}
         <div className="flex flex-col justify-center text-left order-2">
           {/* Heading */}
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[28px] xl:text-[32px] font-semibold text-[#17131F] leading-snug tracking-tight mb-3">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[28px] xl:text-[32px] font-semibold text-foreground leading-snug tracking-tight mb-3">
             <span className="relative inline-block pb-1">
               What We Do
-              <HandDrawnUnderline color="#AA076B" />
+              <HandDrawnUnderline color="var(--primary)" />
             </span>
           </h2>
 
           {/* Subheading */}
-          <p className="text-[#6F6878] text-xs sm:text-[13px] md:text-sm leading-relaxed mb-6 font-normal max-w-xl">
+          <p className="text-foreground/70 text-xs sm:text-[13px] md:text-sm leading-relaxed mb-6 font-normal max-w-xl">
             We partner with ambitious founders and growing brands to design, build, and launch exceptional digital experiences that elevate your online presence and turn visitors into loyal customers.
           </p>
 
@@ -66,7 +66,7 @@ export default function WhatWeDo() {
                   height={20}
                   className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0 object-contain"
                 />
-                <span className="text-xs sm:text-sm font-normal text-[#2E2838] leading-normal">
+                <span className="text-xs sm:text-sm font-normal text-foreground/80 leading-normal">
                   {title}
                 </span>
               </li>
@@ -78,7 +78,7 @@ export default function WhatWeDo() {
             <button
               type="button"
               onClick={openContactModal}
-              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium font-['poppins-m'] text-[#090814] bg-[#00F5D4] hover:bg-[#00E5FF] shadow-sm hover:shadow-[0_0_16px_rgba(0,245,212,0.45)] transition-all duration-200 cursor-pointer group w-fit"
+              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium font-['poppins-m'] text-background bg-foreground hover:bg-foreground/90 shadow-sm hover:shadow-[0_4px_14px_color-mix(in_srgb,var(--foreground)_15%,transparent)] transition-all duration-200 cursor-pointer group w-fit"
             >
               <span>Get in Touch</span>
               <IconArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
