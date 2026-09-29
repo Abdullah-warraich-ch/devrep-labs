@@ -5,6 +5,7 @@ import Image from "next/image";
 import { IconArrowRight, IconCheck } from "@tabler/icons-react";
 import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
 import { useContactModal } from "@/context/ContactModalContext";
+import { ScrollRevealText } from "@/components/ui/ScrollRevealText";
 
 export default function PreFooterCta() {
   const { openContactModal } = useContactModal();
@@ -30,9 +31,13 @@ export default function PreFooterCta() {
             </h2>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-base text-foreground/70 font-normal leading-relaxed max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
-              We help businesses turn ideas into fast, high-converting digital products.
-            </p>
+            <ScrollRevealText
+              as="p"
+              text="We help businesses turn ideas into fast, high-converting digital products."
+              className="text-sm sm:text-base text-foreground/70 font-normal leading-relaxed max-w-lg mx-auto lg:mx-0 text-center lg:text-left"
+              duration={1.2}
+              delay={0.1}
+            />
 
             {/* Qualities with Red custom badge and white checkmark */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-7 pt-2 text-xs sm:text-[13px] font-medium text-foreground/80">

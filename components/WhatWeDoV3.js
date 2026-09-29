@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useContactModal } from "@/context/ContactModalContext";
+import { ScrollRevealText } from "@/components/ui/ScrollRevealText";
 
 export default function WhatWeDoV3() {
   const { openContactModal } = useContactModal();
@@ -33,15 +34,13 @@ export default function WhatWeDoV3() {
             We Build <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary text-white mx-1 sm:mx-2 align-middle shadow-lg"><span className="material-symbols-outlined" style={{ fontSize: '32px' }}>animated_images</span></span> Unmatched <br className="hidden lg:block" /> Digital Experiences
           </motion.h2>
           
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+          <ScrollRevealText 
+            as="p"
+            text="Discover what makes us the most reliable and effective partner for your brand's digital transformation."
             className="text-white/60 text-sm sm:text-base max-w-sm lg:text-left leading-relaxed"
-          >
-            Discover what makes us the most reliable and effective partner for your brand&apos;s digital transformation.
-          </motion.p>
+            duration={1.2}
+            delay={0.1}
+          />
         </div>
 
         {/* Sub Header Section */}

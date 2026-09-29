@@ -70,8 +70,8 @@ export default function HeroV2() {
             style={{ fontSize: "clamp(42px, 8vw, 100px)" }}
           >
             We build 
-            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-4 bg-primary text-white rounded-full w-[1.2em] h-[1.2em] shadow-lg">
-              <span className="material-symbols-outlined" style={{ fontSize: "0.65em" }}>captive_portal</span>
+            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 bg-primary text-white rounded-full w-[0.85em] h-[0.85em] shadow-lg">
+              <span className="material-symbols-outlined" style={{ fontSize: "0.5em" }}>captive_portal</span>
             </span>
             websites <br />
             <span className="text-foreground/40">for modern </span>

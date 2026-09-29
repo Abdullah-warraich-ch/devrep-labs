@@ -5,6 +5,7 @@ import { IconPlus, IconMinus, IconArrowRight, IconHelpCircle } from "@tabler/ico
 import { motion, AnimatePresence } from "framer-motion";
 import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
 import { useContactModal } from "@/context/ContactModalContext";
+import { ScrollRevealText } from "@/components/ui/ScrollRevealText";
 
 const faqs = [
   {
@@ -84,9 +85,13 @@ export default function FaqSectionV2() {
             </span>
           </h2>
           
-          <p className="text-foreground/70 text-sm sm:text-base mt-4 leading-relaxed font-normal">
-            Everything you need to know about our workflow, deliverables, and how we collaborate to bring your vision to life.
-          </p>
+          <ScrollRevealText
+            as="p"
+            text="Everything you need to know about our workflow, deliverables, and how we collaborate to bring your vision to life."
+            className="text-foreground/70 text-sm sm:text-base mt-4 leading-relaxed font-normal"
+            duration={1.2}
+            delay={0.1}
+          />
         </div>
 
         {/* Custom Modern Accordion List */}
