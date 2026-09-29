@@ -51,7 +51,7 @@ export default function ProjectsV2() {
                 alt={`${project.title} — ${project.category}`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
-                className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="object-cover object-top"
               />
 
               {/* Gradient Overlay */}
