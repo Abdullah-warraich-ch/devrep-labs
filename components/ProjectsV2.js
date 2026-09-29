@@ -1,97 +1,146 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { IconArrowUpRight, IconArrowRight } from "@tabler/icons-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IconChevronLeft, IconChevronRight, IconArrowRight } from "@tabler/icons-react";
 import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
 import { projects } from "@/data/projects";
 
+// Mock metrics to match the reference UI
+const MOCK_METRICS = [
+  { value: "+40%", label: "Demo Booking" },
+  { value: "+25%", label: "Closing Rate" },
+  { value: "3x", label: "Engagement" },
+];
+
 export default function ProjectsV2() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const landingProjects = projects.slice(0, 4);
+
+  const handleNext = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % landingProjects.length);
+  };
+
+  const handlePrev = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + landingProjects.length) % landingProjects.length);
+  };
+
+  const project = landingProjects[currentIndex];
+
+  const variants = {
+    enter: { opacity: 0 },
+    center: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
 
   return (
     <section
       id="projects"
-      className="dark-theme relative w-full py-20 sm:py-32 bg-[var(--background-even)] overflow-hidden scroll-mt-14"
+      className="dark-theme relative w-full py-16 sm:py-24 bg-[var(--background-even)] overflow-hidden scroll-mt-14"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-24">
+        
         {/* Section Header */}
         <div className="text-center mb-16 sm:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins-m text-foreground tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins-m text-foreground tracking-tight leading-tight">
             <span className="relative inline-block pb-2">
               Our Projects
               <HandDrawnUnderline />
             </span>
           </h2>
-          <p className="text-foreground/60 text-sm sm:text-base leading-relaxed font-normal max-w-xl mx-auto">
-            A selection of our recent work — each project designed and built to
-            deliver real results for real businesses.
-          </p>
         </div>
 
-        {/* Projects Grid — 2 per row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
-          {landingProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: "easeOut",
-              }}
-              className="group relative rounded-3xl overflow-hidden cursor-pointer aspect-[16/10] bg-foreground/5 border border-foreground/10"
-            >
-              <Image
-                src={project.image}
-                alt={`${project.title} — ${project.category}`}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
-                className="object-cover object-top"
-              />
+        {/* Carousel Wrapper */}
+        <div className="relative w-full flex justify-center items-center group/carousel">
+          
+          {/* Static Dark Card Container */}
+          <div className="bg-[#111112] border border-white/5 w-full rounded-[32px] sm:rounded-[40px] p-0 relative overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
+            
+            {/* Top Right Navigation Buttons (Absolute Overlay) */}
+            <div className="absolute top-6 right-6 sm:top-8 sm:right-10 z-30 flex gap-2 sm:gap-3">
+              <button onClick={handlePrev} className="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors shadow-sm active:scale-95">
+                <IconChevronLeft size={24} />
+              </button>
+              <button onClick={handleNext} className="w-10 h-10 sm:w-12 sm:h-12 bg-white hover:bg-gray-200 rounded-full flex items-center justify-center text-black transition-colors shadow-md active:scale-95">
+                <IconChevronRight size={24} />
+              </button>
+            </div>
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500" />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.3, ease: "linear" }}
+                style={{ willChange: "opacity" }}
+                className="flex flex-col lg:flex-row w-full items-stretch"
+              >
+                {/* Left Side: Dark Image Container with Padding */}
+                <div className="w-full lg:w-[45%] aspect-[4/3] lg:aspect-auto p-3 sm:p-5 lg:p-6 bg-transparent flex flex-col">
+                  <div className="relative w-full h-full flex-1 rounded-[20px] sm:rounded-[28px] overflow-hidden shadow-inner">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                  </div>
+                </div>
 
-              {/* Content */}
-              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 flex flex-col justify-end translate-y-0 opacity-100 lg:translate-y-4 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-500 z-10">
-                <span className="text-[11px] hidden lg:block font-poppins-sb tracking-wider uppercase text-primary mb-2">
-                  {project.category}
-                </span>
-                <h3 className="text-lg sm:text-xl font-poppins-sb text-white leading-snug mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-sm hidden lg:block text-white/80 mb-6 leading-relaxed font-normal max-w-md">
-                  {project.description}
-                </p>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-poppins-m text-white bg-primary hover:bg-primary/90 shadow-sm transition-all duration-300 w-fit"
-                >
-                  <span>View Project</span>
-                  <IconArrowUpRight size={16} />
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                {/* Right Side: Text & Metrics */}
+                <div className="w-full lg:w-[55%] flex flex-col justify-center p-6 sm:p-8 lg:p-12 relative z-10 min-h-[420px] lg:min-h-[460px]">
+                  
+                  {/* Title */}
+                  <h3 className="text-[32px] sm:text-[38px] lg:text-[42px] font-poppins-sb leading-[1.05] tracking-tight mb-5 bg-gradient-to-br from-white via-white to-white/40 bg-clip-text text-transparent">
+                    {project.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-white/60 font-poppins-r text-sm sm:text-base leading-[1.7] mb-8 pr-4">
+                    {project.description}
+                  </p>
 
-        {/* View All Button */}
-        <div className="flex justify-center mt-14 sm:mt-20">
-          <Link
-            href="/projects"
-            className="relative overflow-hidden group cursor-pointer border border-foreground/20 rounded-none bg-transparent text-foreground text-[14px] px-8 py-3.5 hover:border-primary transition-all duration-300 inline-flex items-center gap-2 font-poppins-m"
-          >
-            <span className="relative z-10 group-hover:text-white transition-colors duration-300">View All Projects</span>
-            <IconArrowRight size={16} className="relative z-10 transition-transform group-hover:translate-x-1 group-hover:text-white" />
-            <span className="absolute inset-0 h-full w-full bg-primary transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out"></span>
-          </Link>
+                  {/* Action Button */}
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="inline-flex items-center gap-3 bg-white text-black font-poppins-sb text-sm tracking-wide px-6 py-3 rounded-full hover:bg-gray-200 transition-colors w-fit mb-12 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                  >
+                    Live Preview
+                    <span className="w-6 h-6 rounded-full bg-black/10 flex items-center justify-center transition-colors">
+                      <IconArrowRight size={14} className="text-black" />
+                    </span>
+                  </a>
+
+                  {/* Tech Stack Row */}
+                  <div className="mt-auto pt-6 border-t border-white/5 w-full">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                      {project.tags.map((tag, i) => (
+                        <span 
+                          key={i} 
+                          className="inline-flex items-center px-4 py-2 rounded-full bg-white/[0.03] border border-white/10 text-[12px] sm:text-[13px] text-white/80 font-poppins-r transition-colors hover:bg-white/10"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                </div>
+              </motion.div>
+            </AnimatePresence>
+            
+          </div>
+
         </div>
       </div>
     </section>
