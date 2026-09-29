@@ -34,13 +34,15 @@ export default function WhatWeDoV3() {
             We Build <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary text-white mx-1 sm:mx-2 align-middle shadow-lg"><span className="material-symbols-outlined" style={{ fontSize: '32px' }}>animated_images</span></span> Unmatched <br className="hidden lg:block" /> Digital Experiences
           </motion.h2>
           
-          <ScrollRevealText 
-            as="p"
-            text="Discover what makes us the most reliable and effective partner for your brand's digital transformation."
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             className="text-white/60 text-sm sm:text-base max-w-sm lg:text-left leading-relaxed"
-            duration={1.2}
-            delay={0.1}
-          />
+          >
+            Discover what makes us the most reliable and effective partner for your brand's digital transformation.
+          </motion.p>
         </div>
 
         {/* Sub Header Section */}
