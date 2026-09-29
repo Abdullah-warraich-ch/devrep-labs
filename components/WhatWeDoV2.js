@@ -10,16 +10,16 @@ export default function WhatWeDoV2() {
   const { openContactModal } = useContactModal();
 
   const capabilities = [
-    { title: "Bespoke Web Design", desc: "Engaging, user-centric interfaces." },
-    { title: "Custom Web Apps", desc: "Scalable frontend & backend software." },
-    { title: "SEO & Conversion", desc: "Fast page speeds and optimized funnels." },
-    { title: "Cloud Infrastructure", desc: "Seamless API integrations." },
+    { title: "Bespoke Web Design", desc: "Engaging, user-centric interfaces.", icon: "web" },
+    { title: "Custom Web Apps", desc: "Scalable frontend & backend software.", icon: "code" },
+    { title: "SEO & Conversion", desc: "Fast page speeds and optimized funnels.", icon: "trending_up" },
+    { title: "Cloud Infrastructure", desc: "Seamless API integrations.", icon: "cloud" },
   ];
 
   return (
     <section
       id="services"
-      className="relative w-full py-20 sm:py-32 bg-background overflow-hidden scroll-mt-14"
+      className="dark-theme relative w-full py-20 sm:py-32 bg-[var(--background-even)] overflow-hidden scroll-mt-14"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -72,8 +72,8 @@ export default function WhatWeDoV2() {
                   index % 2 === 0 ? "sm:border-r" : ""
                 }`}
               >
-                <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mb-3 font-poppins-sb text-[14px]">
-                  {index + 1}
+                <div className="flex items-center mb-6">
+                  <span className="material-symbols-outlined text-primary" style={{ fontSize: '48px' }}>{cap.icon}</span>
                 </div>
                 <h3 className="text-[15px] font-poppins-sb text-foreground mb-1">
                   {cap.title}

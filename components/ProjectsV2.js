@@ -13,7 +13,7 @@ export default function ProjectsV2() {
   return (
     <section
       id="projects"
-      className="relative w-full py-20 sm:py-32 bg-background overflow-hidden scroll-mt-14"
+      className="dark-theme relative w-full py-20 sm:py-32 bg-[var(--background-even)] overflow-hidden scroll-mt-14"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
