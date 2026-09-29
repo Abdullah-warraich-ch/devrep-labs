@@ -323,15 +323,11 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                               : "bg-white/[0.04] text-white/70 border border-white/10 hover:text-white hover:bg-white/[0.08]"
                           }`}
                         >
-                          {services.map((item) => (
-                            <option key={item} value={item}>
-                              {item}
-                            </option>
-                          ))}
-                        </select>
-                        <IconChevronDown className="size-4 text-[#6F6878] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none stroke-[1.8]" />
-                      </div>
+                          {item}
+                        </button>
+                      ))}
                     </div>
+                  </div>
 
                   {/* Budget Selector Pills */}
                   <div>
@@ -352,14 +348,9 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
                               : "bg-white/[0.04] text-white/70 border border-white/10 hover:text-white hover:bg-white/[0.08]"
                           }`}
                         >
-                          {budgets.map((b) => (
-                            <option key={b} value={b}>
-                              {b}
-                            </option>
-                          ))}
-                        </select>
-                        <IconChevronDown className="size-4 text-[#6F6878] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none stroke-[1.8]" />
-                      </div>
+                          {b}
+                        </button>
+                      ))}
                     </div>
                   </div>
 
