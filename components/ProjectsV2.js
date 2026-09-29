@@ -61,6 +61,9 @@ export default function ProjectsV2() {
           {/* Static Dark Card Container */}
           <div className="bg-[#111112] border border-white/5 w-full rounded-[32px] sm:rounded-[40px] p-0 relative overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
             
+            {/* Highlighter Glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[150px] bg-primary/30 blur-[120px] rounded-full pointer-events-none mix-blend-screen z-0" />
+            
             {/* Top Right Navigation Buttons (Absolute Overlay) */}
             <div className="absolute top-6 right-6 sm:top-8 sm:right-10 z-30 flex gap-2 sm:gap-3">
               <button onClick={handlePrev} className="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors shadow-sm active:scale-95">
@@ -89,6 +92,8 @@ export default function ProjectsV2() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      quality={90}
                       className="object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />

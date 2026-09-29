@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full bg-background relative overflow-x-hidden">
+    <main className="min-h-screen w-full bg-background relative overflow-clip">
       <HeroV2 />
       <WhatWeDoV3 />
       <WhyUsV2 />

@@ -9,10 +9,19 @@ export function ScrollRevealText({ text, className = "", as: Tag = "h2", delay =
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    const handleResize = () => setIsReady(false);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isReady) return;
     if (!containerRef.current) return;
     
     const splitTextToLines = () => {
       const container = containerRef.current;
+      if (!container) return;
+
       const words = Array.from(container.querySelectorAll(".measure-word"));
       if (words.length === 0) return;
       
@@ -45,13 +54,9 @@ export function ScrollRevealText({ text, className = "", as: Tag = "h2", delay =
     };
 
     const timeout = setTimeout(splitTextToLines, 50);
-    window.addEventListener("resize", splitTextToLines);
     
-    return () => {
-      clearTimeout(timeout);
-      window.removeEventListener("resize", splitTextToLines);
-    };
-  }, [text]);
+    return () => clearTimeout(timeout);
+  }, [text, isReady]);
 
   if (!isReady) {
     return (

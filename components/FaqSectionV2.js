@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { IconPlus, IconMinus, IconArrowRight, IconHelpCircle } from "@tabler/icons-react";
+import { IconPlus, IconMinus, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
 import { useContactModal } from "@/context/ContactModalContext";
-import { ScrollRevealText } from "@/components/ui/ScrollRevealText";
 
 const faqs = [
   {
@@ -54,7 +53,7 @@ export default function FaqSectionV2() {
   return (
     <section
       id="faq"
-      className="dark-theme relative w-full py-24 sm:py-32 bg-background overflow-hidden scroll-mt-14"
+      className="dark-theme relative w-full py-24 sm:py-32 bg-background overflow-clip scroll-mt-14"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       <script
@@ -68,111 +67,95 @@ export default function FaqSectionV2() {
         <div className="absolute bottom-10 left-10 w-72 h-72 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
       </div>
 
-      <div className="w-full max-w-4xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-foreground/15 bg-foreground/5 text-foreground text-xs font-poppins-m mb-4 tracking-wide uppercase">
-            <IconHelpCircle size={14} className="text-primary" />
-            <span>Got Questions?</span>
+      <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+          
+          {/* Left Column: Title & CTA */}
+          <div className="w-full lg:w-[40%] shrink-0 relative flex flex-col">
+            <div className="lg:sticky lg:top-32">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-poppins-sb text-foreground tracking-tight leading-tight">
+                Frequently Asked{" "}
+                <span className="relative inline-block text-primary pb-2">
+                  Questions
+                  <HandDrawnUnderline />
+                </span>
+              </h2>
+            </div>
+
+            <div className="flex flex-col gap-3 mt-12 lg:mt-0 lg:absolute lg:bottom-0 lg:left-0 lg:pb-6">
+              <span className="text-sm sm:text-[15px] text-foreground/80 font-poppins-m">
+                Still have questions or special requirements?
+              </span>
+              <button
+                type="button"
+                onClick={openContactModal}
+                className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors cursor-pointer group font-poppins-sb w-fit"
+              >
+                <span className="underline underline-offset-4 decoration-foreground/30 group-hover:decoration-primary/50 transition-colors">Talk to us</span>
+                <IconArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </button>
+            </div>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins-sb text-foreground tracking-tight leading-tight">
-            Frequently Asked{" "}
-            <span className="relative inline-block text-primary pb-2">
-              Questions
-              <HandDrawnUnderline />
-            </span>
-          </h2>
-          
-          <ScrollRevealText
-            as="p"
-            text="Everything you need to know about our workflow, deliverables, and how we collaborate to bring your vision to life."
-            className="text-foreground/70 text-sm sm:text-base mt-4 leading-relaxed font-normal"
-            duration={1.2}
-            delay={0.1}
-          />
-        </div>
-
-        {/* Custom Modern Accordion List */}
-        <div className="space-y-3.5">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.35, delay: index * 0.05 }}
-                className={`rounded-2xl transition-all duration-300 border ${
-                  isOpen
-                    ? "bg-foreground/[0.06] border-foreground/20 shadow-[0_8px_30px_color-mix(in_srgb,var(--foreground)_5%,transparent)]"
-                    : "bg-foreground/[0.02] border-foreground/10 hover:border-foreground/20 hover:bg-foreground/[0.04]"
-                }`}
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full px-6 sm:px-7 py-5 flex items-center justify-between text-left gap-4 cursor-pointer focus:outline-none"
-                  aria-expanded={isOpen}
+          {/* Right Column: Relaxed FAQs */}
+          <div className="w-full lg:w-[60%] flex flex-col pt-2 lg:pt-0">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.35, delay: index * 0.05 }}
+                  className="border-b border-foreground/10 last:border-b-0"
                 >
-                  <span className={`text-[15px] sm:text-base font-poppins-m transition-colors duration-200 ${
-                    isOpen ? "text-foreground font-poppins-sb" : "text-foreground/90"
-                  }`}>
-                    {faq.question}
-                  </span>
-
-                  <span
-                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                      isOpen
-                        ? "bg-primary text-white rotate-180 shadow-[0_2px_10px_color-mix(in_srgb,var(--primary)_40%,transparent)]"
-                        : "bg-foreground/10 text-foreground/80 group-hover:bg-foreground/20"
-                    }`}
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="w-full py-6 sm:py-7 flex items-start justify-between text-left gap-6 cursor-pointer focus:outline-none group"
+                    aria-expanded={isOpen}
                   >
-                    {isOpen ? (
-                      <IconMinus size={16} strokeWidth={2.5} />
-                    ) : (
-                      <IconPlus size={16} strokeWidth={2.5} />
-                    )}
-                  </span>
-                </button>
+                    <span className={`text-[16px] sm:text-[18px] transition-colors duration-200 leading-snug ${
+                      isOpen ? "text-foreground font-poppins-sb" : "text-foreground/80 font-poppins-m group-hover:text-foreground"
+                    }`}>
+                      {faq.question}
+                    </span>
 
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
+                    <span
+                      className={`shrink-0 flex items-center justify-center mt-0.5 transition-transform duration-300 ${
+                        isOpen ? "text-primary rotate-180" : "text-foreground/40 group-hover:text-foreground/70"
+                      }`}
                     >
-                      <div className="px-6 sm:px-7 pb-6 pt-1 text-sm sm:text-[15px] text-foreground/70 leading-relaxed font-normal border-t border-foreground/5">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
-        </div>
+                      {isOpen ? (
+                        <IconMinus size={22} strokeWidth={2} />
+                      ) : (
+                        <IconPlus size={22} strokeWidth={2} />
+                      )}
+                    </span>
+                  </button>
 
-        {/* Bottom CTA prompt */}
-        <div className="text-center mt-12 pt-4">
-          <p className="inline-flex flex-wrap items-center justify-center gap-2 text-sm text-foreground/70 font-poppins-m">
-            <span>Still have questions or special requirements?</span>
-            <button
-              type="button"
-              onClick={openContactModal}
-              className="inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors cursor-pointer group underline underline-offset-4 font-poppins-sb"
-            >
-              <span>Talk to us</span>
-              <IconArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-            </button>
-          </p>
-        </div>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-8 pr-12 text-sm sm:text-[15px] text-foreground/60 leading-relaxed font-normal">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </div>
 
+        </div>
       </div>
     </section>
   );

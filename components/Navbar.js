@@ -121,13 +121,13 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => openContactModal({ mode: "demo" })}
-                className="relative overflow-hidden group cursor-pointer border-none rounded-none bg-foreground text-background text-[14px] px-8 py-3 shadow-[0_4px_14px_color-mix(in_srgb,var(--foreground)_10%,transparent)] hover:shadow-[0_6px_20px_color-mix(in_srgb,var(--foreground)_20%,transparent)] transition-all duration-300"
+                className="relative overflow-hidden group cursor-pointer border-none rounded-full bg-foreground text-background text-[14px] px-8 py-3 shadow-[0_4px_14px_color-mix(in_srgb,var(--foreground)_10%,transparent)] hover:shadow-[0_6px_20px_color-mix(in_srgb,var(--foreground)_20%,transparent)] transition-all duration-300"
                 style={{ fontFamily: "'poppins-m', 'Poppins', sans-serif" }}
               >
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300">
                   Let&apos;s Build Together
                 </span>
-                <span className="absolute inset-0 h-full w-full bg-primary transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out"></span>
+                <span className="absolute inset-0 h-full w-full bg-primary transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out rounded-full"></span>
               </button>
             </div>
 

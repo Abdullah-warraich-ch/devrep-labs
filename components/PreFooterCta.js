@@ -1,11 +1,18 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { IconArrowRight, IconCheck } from "@tabler/icons-react";
-import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
 import { useContactModal } from "@/context/ContactModalContext";
 import { ScrollRevealText } from "@/components/ui/ScrollRevealText";
+const Cursor = ({ color, name, className }) => (
+  <div className={`absolute pointer-events-none flex flex-col items-start z-20 ${className}`}>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-md" style={{ transform: 'rotate(-15deg)' }}>
+      <path d="M5.5 3L18.5 12L12 13.5L9.5 20.5L5.5 3Z" fill={color} stroke="white" strokeWidth="2" strokeLinejoin="round"/>
+    </svg>
+    <div className="px-2.5 py-0.5 rounded-full text-[11px] font-bold text-white shadow-sm mt-[-2px] ml-4" style={{ backgroundColor: color }}>
+      {name}
+    </div>
+  </div>
+);
 
 export default function PreFooterCta() {
   const { openContactModal } = useContactModal();
@@ -13,69 +20,49 @@ export default function PreFooterCta() {
   return (
     <section
       id="contact"
-      className="dark-theme relative w-full py-16 sm:py-20 bg-[var(--background-even)] overflow-hidden scroll-mt-14"
+      className="dark-theme w-full py-8 sm:py-12 bg-[var(--background-even)] relative overflow-hidden scroll-mt-14"
+      style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
-        <div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left gap-8 lg:gap-12">
 
-          {/* Left Content */}
-          <div className="space-y-4 max-w-2xl flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Main Heading with Signature HandDrawnUnderline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-foreground leading-[1.2] text-center lg:text-left">
-              Have a{" "}
-              <span className="relative inline-block text-[var(--primary)] pb-1">
-                website or app
-                <HandDrawnUnderline color="var(--primary)" />
-              </span>{" "}
-              in mind?
-            </h2>
+      <div className="max-w-6xl mx-auto rounded-[20px] px-4 sm:px-8">
+        <div className="bg-background rounded-[40px] px-6 py-8 sm:px-10 sm:py-10 lg:py-12 relative overflow-hidden flex flex-col items-center text-center shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-black/5">
+          
+          {/* Top-Center Highlighter Glow */}
+          <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[70%] h-[50%] bg-white/20 blur-[100px] rounded-full pointer-events-none"></div>
 
-            {/* Subtitle */}
+          <div className="relative z-10 max-w-4xl flex flex-col items-center">
+            
+            <div className="relative mb-8 sm:mb-10">
+              {/* Floating Cursors */}
+              <Cursor color="#F97316" name="Leonardo" className="top-[-35px] sm:top-[-45px] left-[30%] sm:left-[35%]" />
+              <Cursor color="#3B82F6" name="Albert" className="bottom-[-40px] sm:bottom-[-45px] right-[10%] sm:right-[15%]" />
+              
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins-m tracking-tight text-foreground leading-[1.15]">
+                Have a website or app in<br/> mind? Let&apos;s build 
+                <span className="inline-flex items-center justify-center align-middle mx-2 bg-primary text-white rounded-full w-[0.85em] h-[0.85em] shadow-lg">
+                  <span className="material-symbols-outlined" style={{ fontSize: "0.5em" }}>rocket_launch</span>
+                </span>
+                it!
+              </h2>
+            </div>
+
             <ScrollRevealText
               as="p"
-              text="We help businesses turn ideas into fast, high-converting digital products."
-              className="text-sm sm:text-base text-foreground/70 font-normal leading-relaxed max-w-lg mx-auto lg:mx-0 text-center lg:text-left"
+              text="We help businesses turn ideas into fast, high-converting digital products. Enjoy the most powerful architecture and unmatched performance."
+              className="text-base sm:text-lg text-foreground/70 font-normal leading-relaxed max-w-2xl mx-auto mb-6"
               duration={1.2}
               delay={0.1}
             />
 
-            {/* Qualities with Red custom badge and white checkmark */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-7 pt-2 text-xs sm:text-[13px] font-medium text-foreground/80">
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-primary flex items-center justify-center shrink-0">
-                  <IconCheck className="w-2.5 h-2.5 text-white stroke-[3]" />
-                </span>
-                <span>Fast 2–4 Week Turnaround</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-primary flex items-center justify-center shrink-0">
-                  <IconCheck className="w-2.5 h-2.5 text-white stroke-[3]" />
-                </span>
-                <span>Modern UI/UX Design</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-primary flex items-center justify-center shrink-0">
-                  <IconCheck className="w-2.5 h-2.5 text-white stroke-[3]" />
-                </span>
-                <span>Speed & SEO Optimized</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Action Button */}
-          <div className="shrink-0 flex justify-center lg:justify-start w-full lg:w-auto">
             <button
               type="button"
               onClick={openContactModal}
-              className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-sm font-semibold text-background bg-foreground hover:opacity-95 shadow-lg hover:shadow-[0_10px_35px_color-mix(in_srgb,var(--foreground)_40%,transparent)] transition-all duration-200 cursor-pointer group"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[15px] font-poppins-sb text-background bg-foreground hover:bg-foreground/90 transition-colors duration-300 cursor-pointer"
             >
-              <span>Start Your Project</span>
-              <span className="size-6 rounded-full bg-background/20 flex items-center justify-center transition-transform duration-200 group-hover:translate-x-1">
-                <IconArrowRight className="size-3.5 text-background" />
-              </span>
+              <span>Get Started Now</span>
             </button>
-          </div>
 
+          </div>
         </div>
       </div>
     </section>

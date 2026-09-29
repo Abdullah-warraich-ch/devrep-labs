@@ -129,13 +129,7 @@ export default function RootLayout({ children }) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        {/* Preload hero SVG — reduces LCP resource load delay */}
-        <link
-          rel="preload"
-          href="/svgs/hero.svg"
-          as="image"
-          type="image/svg+xml"
-        />
+
         {/* Google Material Symbols */}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       </head>

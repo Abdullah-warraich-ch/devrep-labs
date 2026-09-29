@@ -15,7 +15,10 @@ export default function WhyUsV2() {
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-foreground/5 rounded-[32px] sm:rounded-[40px] p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 border border-foreground/10 shadow-2xl">
+        <div className="bg-foreground/5 rounded-[32px] sm:rounded-[40px] p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 shadow-2xl relative overflow-hidden">
+          
+          {/* Subtle Red Highlighter Glow (Top Left) */}
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-red-500/20 blur-[80px] rounded-full pointer-events-none mix-blend-screen"></div>
           
           {/* Left Side: Content */}
           <div className="flex-1 text-left relative z-10 flex flex-col items-start">
@@ -83,9 +86,11 @@ export default function WhyUsV2() {
           >
             <div className="relative w-full max-w-[400px] lg:max-w-[420px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-foreground/10">
               <Image
-                src="/images/Why-us-section.png"
+                src="/images/Why-us-section.webp"
                 alt="Why choose DevRep Labs"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={90}
                 className="object-cover object-center"
                 priority
               />
