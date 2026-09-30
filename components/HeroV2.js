@@ -65,21 +65,18 @@ export default function HeroV2() {
 
 
           {/* Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0, ease: "easeOut" }}
+          <h1
             className="text-foreground font-poppins-m tracking-tight leading-[1.05] mb-6"
             style={{ fontSize: "clamp(42px, 8vw, 100px)" }}
           >
-            We build 
-            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 bg-primary text-white rounded-full w-[0.85em] h-[0.85em] shadow-lg">
+            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <motion.span initial={{y:100,}} animate={{y:0}} transition={{duration:0.6, delay: 2.8}}>We build </motion.span></span>
+            <motion.span initial={{scale:0}} animate={{scale:1}} transition={{duration:0.6, delay: 2.9}} className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 bg-primary text-white rounded-full w-[0.85em] h-[0.85em] shadow-lg">
               <span className="material-symbols-outlined" style={{ fontSize: "0.5em" }}>captive_portal</span>
-            </span>
-            websites <br />
-            <span className="text-foreground/40">for modern </span>
+            </motion.span>
+                        <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <motion.span initial={{y:100,}} animate={{y:0}} transition={{duration:0.6, delay: 2.9}}>websites </motion.span></span> <br />
+            <span className="text-foreground/40 inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <motion.span initial={{y:100,}} animate={{y:0}} transition={{duration:0.6, delay: 3.0}}>for modern </motion.span></span> 
             <span className="relative inline-block text-foreground/40">
-              brands.
+            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <motion.span initial={{y:100,}} animate={{y:0}} transition={{duration:0.6, delay: 3.0}}>brands.</motion.span></span>
               <span className="absolute left-0 -bottom-1 h-1.5 bg-foreground/10 rounded-full w-full overflow-hidden">
                 <motion.span
                   initial={{ left: "-100%" }}
@@ -93,13 +90,13 @@ export default function HeroV2() {
                 />
               </span>
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Sub-copy */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 3.2, ease: "easeOut" }}
             className="text-foreground/60 font-poppins-r leading-relaxed max-w-2xl mx-auto mb-12"
             style={{ fontSize: "clamp(16px, 1.5vw, 20px)" }}
           >
@@ -110,7 +107,7 @@ export default function HeroV2() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 3.4, ease: "easeOut" }}
             className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center"
           >
             <button
