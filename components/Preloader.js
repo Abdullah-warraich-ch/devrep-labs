@@ -21,8 +21,8 @@ export default function Preloader() {
       {loading && (
         <motion.div
           key="preloader"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ y: 0 }}
+          exit={{ y: -1000 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background pointer-events-auto"
         >
