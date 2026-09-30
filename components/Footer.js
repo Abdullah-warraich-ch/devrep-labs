@@ -35,7 +35,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="dark-theme relative w-full bg-background text-foreground overflow-hidden" style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}>
+    <footer className="relative w-full bg-background text-foreground overflow-hidden" style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}>
       
       {/* Premium Top Border Glow */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-foreground/20 to-transparent opacity-50"></div>
@@ -53,7 +53,7 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="md:col-span-2 lg:col-span-4 flex flex-col items-start space-y-6">
-            <BrandLogo isDark={true} />
+            <BrandLogo isDark={false} />
             <p className="text-sm text-foreground/60 leading-relaxed font-normal max-w-sm">
               DevRep Labs is a premier digital studio engineering bespoke websites, web applications, and immersive digital experiences that convert.
             </p>

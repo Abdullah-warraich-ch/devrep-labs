@@ -4,13 +4,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useContactModal } from "@/context/ContactModalContext";
-import { ScrollRevealText } from "@/components/ui/ScrollRevealText";
 
 export default function WhatWeDoV3() {
   const { openContactModal } = useContactModal();
 
   const capabilities = [
-    { title: "Custom Websites", desc: "Beautiful, fast, and responsive websites designed to engage your visitors.", icon: "browser_updated", iconStyle: "bg-black text-white shadow-md" },
+    { title: "Custom Websites", desc: "Beautiful, fast, and responsive websites designed to engage your visitors.", icon: "browser_updated", iconStyle: "bg-white text-black shadow-md" },
     { title: "Web Applications", desc: "Powerful custom software tailored specifically to solve your business needs.", icon: "deployed_code", iconStyle: "bg-purple-400 text-black" },
     { title: "SEO & Growth", desc: "Optimized designs that rank higher on Google and turn clicks into customers.", icon: "stacked_bar_chart", iconStyle: "bg-teal-300 text-black" },
   ];
@@ -18,7 +17,7 @@ export default function WhatWeDoV3() {
   return (
     <section
       id="services"
-      className="dark-theme relative w-full py-20 sm:py-32 bg-[var(--background-even)] overflow-hidden scroll-mt-14"
+      className="relative w-full py-20 sm:py-32 bg-white overflow-hidden scroll-mt-14"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
@@ -29,7 +28,7 @@ export default function WhatWeDoV3() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-5xl lg:text-[64px] font-poppins-m text-white leading-[1.1] max-w-3xl tracking-tight"
+            className="text-4xl sm:text-5xl lg:text-[64px] font-poppins-m text-foreground leading-[1.1] max-w-3xl tracking-tight"
           >
             We Build <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary text-white mx-1 sm:mx-2 align-middle shadow-lg"><span className="material-symbols-outlined" style={{ fontSize: '32px' }}>animated_images</span></span> Unmatched <br className="hidden lg:block" /> Digital Experiences
           </motion.h2>
@@ -39,7 +38,7 @@ export default function WhatWeDoV3() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-white/60 text-sm sm:text-base max-w-sm lg:text-left leading-relaxed"
+            className="text-foreground/60 text-sm sm:text-base max-w-sm lg:text-left leading-relaxed"
           >
             Discover what makes us the most reliable and effective partner for your brand's digital transformation.
           </motion.p>
@@ -53,7 +52,7 @@ export default function WhatWeDoV3() {
             viewport={{ once: true }}
             className="flex items-center gap-2"
           >
-            <span className="text-white font-poppins-m text-sm sm:text-base">Our Core Services ✨</span>
+            <span className="text-foreground font-poppins-m text-sm sm:text-base">Our Core Services ✨</span>
           </motion.div>
           
           <motion.button 
@@ -61,7 +60,7 @@ export default function WhatWeDoV3() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             onClick={openContactModal} 
-            className="flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-white text-black font-poppins-m text-xs sm:text-sm hover:bg-white/90 transition-colors shadow-sm"
+            className="flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-foreground text-background font-poppins-m text-xs sm:text-sm hover:bg-foreground/90 transition-colors shadow-sm"
           >
             <span>Discuss Your Project</span>
             <IconArrowRight size={16} />
@@ -75,10 +74,10 @@ export default function WhatWeDoV3() {
             
             // Define static gradients matching the design aesthetic
             let bgClass = "";
-            if (index === 0) bgClass = "bg-gradient-to-br from-white via-[#f8f9fa] to-[#e9ecef] text-black";
-            else if (index === 1) bgClass = "bg-gradient-to-br from-[#1e1f26] via-[#1e1f26] to-[rgba(147,51,234,0.15)] border border-white/5 text-white";
-            else if (index === 2) bgClass = "bg-gradient-to-br from-[#1e1f26] via-[#1e1f26] to-[rgba(20,184,166,0.15)] border border-white/5 text-white";
-            else if (index === 3) bgClass = "bg-gradient-to-br from-[#1e1f26] via-[#1e1f26] to-[rgba(59,130,246,0.15)] border border-white/5 text-white";
+            if (index === 0) bgClass = "bg-gradient-to-br from-[#1e1f26] via-[#111112] to-[#0a0a0a] text-white shadow-xl";
+            else if (index === 1) bgClass = "bg-gradient-to-br from-[#ffffff] via-[#ffffff] to-[rgba(147,51,234,0.05)] border border-foreground/5 text-foreground";
+            else if (index === 2) bgClass = "bg-gradient-to-br from-[#ffffff] via-[#ffffff] to-[rgba(20,184,166,0.05)] border border-foreground/5 text-foreground";
+            else if (index === 3) bgClass = "bg-gradient-to-br from-[#ffffff] via-[#ffffff] to-[rgba(59,130,246,0.05)] border border-foreground/5 text-foreground";
 
             return (
               <motion.div
@@ -94,13 +93,13 @@ export default function WhatWeDoV3() {
                 </div>
                 
                 <h3 className={`text-2xl sm:text-[28px] font-poppins-m mb-6 mt-16 leading-[1.2] relative z-10 ${
-                  isFirst ? "text-black" : "text-white"
+                  isFirst ? "text-white" : "text-foreground"
                 }`}>
                   {cap.title}
                 </h3>
                 
                 <p className={`text-sm sm:text-[15px] leading-relaxed relative z-10 ${
-                  isFirst ? "text-black/70" : "text-white/60"
+                  isFirst ? "text-white/70" : "text-foreground/70"
                 }`}>
                   {cap.desc}
                 </p>

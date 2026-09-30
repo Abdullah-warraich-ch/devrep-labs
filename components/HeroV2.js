@@ -12,7 +12,7 @@ export default function HeroV2() {
   return (
     <section
       id="hero-v2"
-      className="dark-theme relative w-full min-h-[60vh] lg:min-h-[70vh]  overflow-hidden flex flex-col"
+      className="relative w-full min-h-[60vh] lg:min-h-[70vh]  overflow-hidden flex flex-col"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       {/* ── Premium CSS Background ── */}

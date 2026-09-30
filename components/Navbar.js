@@ -53,11 +53,11 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="dark-theme relative z-30 w-full bg-transparent">
+      <header className="relative z-30 w-full bg-transparent">
         <div className="w-full px-6 sm:px-10 lg:px-16 pt-6">
           <div className="flex items-center justify-between border-b border-foreground/10 pb-6">
             {/* Logo */}
-            <BrandLogo isDark={true} />
+            <BrandLogo isDark={false} />
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-8">
@@ -147,7 +147,7 @@ export default function Navbar() {
       {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {mobileOpen && (
-          <div className="dark-theme fixed inset-0 z-50 md:hidden flex justify-end">
+          <div className="fixed inset-0 z-50 md:hidden flex justify-end">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -164,7 +164,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
-              className="relative flex flex-col justify-between p-6 h-full bg-[#080808] border-l border-white/10 z-10"
+              className="relative flex flex-col justify-between p-6 h-full bg-background border-l border-foreground/10 z-10"
               style={{
                 width: "300px",
                 maxWidth: "85vw",
@@ -172,12 +172,12 @@ export default function Navbar() {
             >
               {/* Header */}
               <div>
-                <div className="flex items-center justify-between pb-5 border-b border-white/10">
-                  <BrandLogo isDark={true} imageSize={32} imageClasses="w-7 h-7" textClasses="text-[17px]" />
+                <div className="flex items-center justify-between pb-5 border-b border-foreground/10">
+                  <BrandLogo isDark={false} imageSize={32} imageClasses="w-7 h-7" textClasses="text-[17px]" />
                   <button
                     type="button"
                     onClick={() => setMobileOpen(false)}
-                    className="p-1.5 rounded-lg text-white/70 hover:text-white bg-white/5 border border-white/10 cursor-pointer"
+                    className="p-1.5 rounded-lg text-foreground/70 hover:text-foreground bg-foreground/5 border border-foreground/10 cursor-pointer"
                     aria-label="Close menu"
                   >
                     <IconX size={18} />
@@ -197,8 +197,8 @@ export default function Navbar() {
                           onClick={(e) => handleNavClick(e, item)}
                           className={`cursor-pointer border-none text-left rounded-xl transition-all duration-150 ease-in-out font-poppins-m text-[15px] p-3 w-full ${
                             active
-                              ? "bg-white/10 text-white font-semibold"
-                              : "bg-transparent text-white/75 hover:bg-white/5 hover:text-white"
+                              ? "bg-foreground/10 text-foreground font-semibold"
+                              : "bg-transparent text-foreground/75 hover:bg-foreground/5 hover:text-foreground"
                           }`}
                         >
                           {item.name}
@@ -213,8 +213,8 @@ export default function Navbar() {
                         onClick={(e) => handleNavClick(e, item)}
                         className={`cursor-pointer border-none text-left rounded-xl transition-all duration-150 ease-in-out font-poppins-m text-[15px] p-3 w-full block ${
                           active
-                            ? "bg-white/10 text-white font-semibold"
-                            : "bg-transparent text-white/75 hover:bg-white/5 hover:text-white"
+                            ? "bg-foreground/10 text-foreground font-semibold"
+                            : "bg-transparent text-foreground/75 hover:bg-foreground/5 hover:text-foreground"
                         }`}
                       >
                         {item.name}
@@ -225,14 +225,14 @@ export default function Navbar() {
               </div>
 
               {/* CTA */}
-              <div className="pt-5 border-t border-white/10">
+              <div className="pt-5 border-t border-foreground/10">
                 <button
                   type="button"
                   onClick={() => {
                     setMobileOpen(false);
                     openContactModal({ mode: "demo" });
                   }}
-                  className="w-full flex items-center justify-center gap-2.5 cursor-pointer border-none rounded-full bg-white text-black py-3 px-5 font-poppins-sb text-[14px] hover:bg-white/90 transition-colors"
+                  className="w-full flex items-center justify-center gap-2.5 cursor-pointer border-none rounded-full bg-foreground text-background py-3 px-5 font-poppins-sb text-[14px] hover:bg-foreground/90 transition-colors"
                 >
                   <span>Start Your Project</span>
                   <IconArrowRight size={15} strokeWidth={2.5} />

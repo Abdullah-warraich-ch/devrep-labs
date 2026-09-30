@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useContactModal } from "@/context/ContactModalContext";
-import { ScrollRevealText } from "@/components/ui/ScrollRevealText";
 const Cursor = ({ color, name, className }) => (
   <div className={`absolute pointer-events-none flex flex-col items-start z-20 ${className}`}>
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-md" style={{ transform: 'rotate(-15deg)' }}>
@@ -20,7 +19,7 @@ export default function PreFooterCta() {
   return (
     <section
       id="contact"
-      className="dark-theme w-full py-8 sm:py-12 bg-[var(--background-even)] relative overflow-hidden scroll-mt-14"
+      className="dark-theme w-full py-8 sm:pb-12 bg-[var(--background-light)] relative overflow-hidden scroll-mt-14"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
 
@@ -46,13 +45,9 @@ export default function PreFooterCta() {
               </h2>
             </div>
 
-            <ScrollRevealText
-              as="p"
-              text="We help businesses turn ideas into fast, high-converting digital products. Enjoy the most powerful architecture and unmatched performance."
-              className="text-base sm:text-lg text-foreground/70 font-normal leading-relaxed max-w-2xl mx-auto mb-6"
-              duration={1.2}
-              delay={0.1}
-            />
+            <p className="text-base sm:text-lg text-foreground/70 font-normal leading-relaxed max-w-2xl mx-auto mb-6">
+              We help businesses turn ideas into fast, high-converting digital products. Enjoy the most powerful architecture and unmatched performance.
+            </p>
 
             <button
               type="button"

@@ -140,12 +140,12 @@ export default function ServicesClient() {
 
   return (
     <main className="min-h-screen w-full bg-background relative overflow-x-hidden">
-      <div className="dark-theme bg-[#030303]">
+      <div className="bg-background">
         <Navbar />
       </div>
 
       {/* Hero Banner Section */}
-      <section className="dark-theme relative w-full pt-10 sm:pt-14 pb-16 sm:pb-20 bg-[#030303] border-b border-white/10 overflow-hidden">
+      <section className="relative w-full pt-10 sm:pt-14 pb-16 sm:pb-20 bg-background border-b border-foreground/10 overflow-hidden">
         {/* Subtle Ambient Glow */}
         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-primary/10 blur-3xl pointer-events-none" />
 
@@ -153,7 +153,7 @@ export default function ServicesClient() {
           {/* Breadcrumb Back Link */}
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-white/60 hover:text-white transition-colors mb-4 group"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/60 hover:text-foreground transition-colors mb-4 group"
           >
             <IconArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-0.5" />
             <span>Back to Home</span>
@@ -161,7 +161,7 @@ export default function ServicesClient() {
 
           {/* Headline */}
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.15] mb-5 font-poppins-sb">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold tracking-tight text-foreground leading-[1.15] mb-5 font-poppins-sb">
               Digital Solutions{" "}
               <span className="relative inline-block text-primary pb-1">
                 Made Simple
@@ -169,7 +169,7 @@ export default function ServicesClient() {
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base md:text-lg text-white/70 font-normal leading-relaxed mb-8 max-w-2xl">
+            <p className="text-sm sm:text-base md:text-lg text-foreground/70 font-normal leading-relaxed mb-8 max-w-2xl">
               From custom online software and smart time-saving tools to fast, modern websites—we build digital experiences that help your business attract more customers and grow with confidence.
             </p>
 
@@ -189,7 +189,7 @@ export default function ServicesClient() {
       </section>
 
       {/* Services Grid Section */}
-      <section className="relative w-full py-16 sm:py-24 bg-background">
+      <section className="relative w-full py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
             <div>
@@ -221,16 +221,16 @@ export default function ServicesClient() {
       </section>
 
       {/* How We Work: 4-Step Process */}
-      <section className="dark-theme relative w-full py-16 sm:py-24 bg-[#050505] border-y border-white/10">
+      <section className="relative w-full py-16 sm:py-24 bg-background border-y border-foreground/10">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
           <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
             <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary mb-2 block font-poppins-sb">
               Simple 4-Step Process
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-4 font-poppins-sb">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4 font-poppins-sb">
               From First Idea to Successful Launch
             </h2>
-            <p className="text-xs sm:text-sm text-white/70 font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm text-foreground/70 font-normal leading-relaxed">
               We guide you through every step with clear, straightforward updates, so you always know what we're working on and when it will be ready.
             </p>
           </div>
@@ -239,23 +239,23 @@ export default function ServicesClient() {
             {processSteps.map((step) => (
               <div
                 key={step.step}
-                className="relative bg-white/[0.03] p-6 sm:p-7 rounded-3xl border border-white/10 flex flex-col justify-between"
+                className="relative bg-foreground/[0.03] p-6 sm:p-7 rounded-3xl border border-foreground/10 flex flex-col justify-between"
               >
                 <div>
                   <div className="text-3xl sm:text-4xl font-black text-primary/40 tracking-tighter mb-4 font-mono">
                     {step.step}
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-2 leading-snug font-poppins-sb">
+                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 leading-snug font-poppins-sb">
                     {step.title}
                   </h3>
-                  <p className="text-xs text-white/70 leading-relaxed mb-4 font-normal">
+                  <p className="text-xs text-foreground/70 leading-relaxed mb-4 font-normal">
                     {step.description}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-white/10 space-y-1.5">
+                <div className="pt-3 border-t border-foreground/10 space-y-1.5">
                   {step.details.map((detail, dIdx) => (
-                    <div key={dIdx} className="flex items-center gap-1.5 text-[11px] text-white/80">
+                    <div key={dIdx} className="flex items-center gap-1.5 text-[11px] text-foreground/80">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                       <span>{detail}</span>
                     </div>
@@ -268,7 +268,7 @@ export default function ServicesClient() {
       </section>
 
       {/* Why Choose DevRep Labs: Value Props */}
-      <section className="relative w-full py-16 sm:py-24 bg-background">
+      <section className="relative w-full py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary mb-2 block font-poppins-sb">
@@ -304,15 +304,15 @@ export default function ServicesClient() {
       </section>
 
       {/* Quality Standards Grid */}
-      <section className="dark-theme relative w-full py-14 sm:py-20 bg-[#030303] border-t border-white/10">
+      <section className="relative w-full py-14 sm:py-20 bg-background border-t border-foreground/10">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 text-center">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary mb-2 block font-poppins-sb">
             Quality You Can Count On
           </span>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mb-3 font-poppins-sb">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-3 font-poppins-sb">
             Built To The Highest Quality Standards
           </h2>
-          <p className="text-xs sm:text-sm text-white/70 max-w-xl mx-auto mb-10 font-normal">
+          <p className="text-xs sm:text-sm text-foreground/70 max-w-xl mx-auto mb-10 font-normal">
             We take care of all the complex technical work behind the scenes, so you get an effortless, reliable experience.
           </p>
 
@@ -320,11 +320,11 @@ export default function ServicesClient() {
             {qualityStandards.map((item) => (
               <div
                 key={item.name}
-                className="px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center gap-2 hover:border-primary/40 transition-colors"
+                className="px-4 py-2 rounded-2xl bg-foreground/[0.04] border border-foreground/10 flex items-center gap-2 hover:border-primary/40 transition-colors"
               >
                 <div className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-xs font-semibold text-white">{item.name}</span>
-                <span className="text-[10px] text-white/60">({item.role})</span>
+                <span className="text-xs font-semibold text-foreground">{item.name}</span>
+                <span className="text-[10px] text-foreground/60">({item.role})</span>
               </div>
             ))}
           </div>

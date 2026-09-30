@@ -53,7 +53,7 @@ export default function FaqSectionV2() {
   return (
     <section
       id="faq"
-      className="dark-theme relative w-full py-24 sm:py-32 bg-background overflow-clip scroll-mt-14"
+      className="relative w-full py-24 sm:py-32 bg-background overflow-clip scroll-mt-14"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       <script

@@ -29,25 +29,25 @@ export default function ProjectsClient() {
 
   return (
     <main className="min-h-screen w-full bg-background relative overflow-x-hidden">
-      <div className="dark-theme bg-[#030303]">
+      <div className="bg-background">
         <Navbar />
       </div>
 
       {/* Projects Page Hero Banner */}
-      <section className="dark-theme relative w-full pt-10 sm:pt-14 pb-14 sm:pb-16 bg-[#030303] border-b border-white/10">
+      <section className="relative w-full pt-10 sm:pt-14 pb-14 sm:pb-16 bg-background border-b border-foreground/10">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
           
           {/* Back to Home Link */}
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-white/60 hover:text-white transition-colors mb-4 group"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/60 hover:text-foreground transition-colors mb-4 group"
           >
             <IconArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-0.5" />
             <span>Back to Home</span>
           </Link>
 
           <div className="max-w-2xl space-y-3">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight font-poppins-sb">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight font-poppins-sb">
               Our Complete{" "}
               <span className="relative inline-block text-primary pb-1">
                 Portfolio
@@ -55,7 +55,7 @@ export default function ProjectsClient() {
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base text-white/70 font-normal leading-relaxed">
+            <p className="text-sm sm:text-base text-foreground/70 font-normal leading-relaxed">
               Explore our full collection of live web applications, AI platforms, and bespoke digital solutions designed to drive measurable growth.
             </p>
           </div>
@@ -70,7 +70,7 @@ export default function ProjectsClient() {
                 className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                   activeCategory === cat
                     ? "bg-primary text-white shadow-sm shadow-primary/30"
-                    : "bg-white/[0.04] text-white/70 hover:text-white hover:bg-white/[0.08] border border-white/10"
+                    : "bg-foreground/[0.04] text-foreground/70 hover:text-foreground hover:bg-foreground/[0.08] border border-foreground/10"
                 }`}
               >
                 {cat}
@@ -82,7 +82,7 @@ export default function ProjectsClient() {
       </section>
 
       {/* All Projects Grid Section */}
-      <section className="relative w-full py-16 sm:py-20 bg-background">
+      <section className="relative w-full py-16 sm:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
           <h2 className="sr-only">Our Featured Client Projects</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">

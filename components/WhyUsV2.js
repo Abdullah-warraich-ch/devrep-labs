@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useContactModal } from "@/context/ContactModalContext";
 import { motion } from "framer-motion";
-import { ScrollRevealText } from "@/components/ui/ScrollRevealText";
 
 export default function WhyUsV2() {
   const { openContactModal } = useContactModal();
@@ -11,7 +10,7 @@ export default function WhyUsV2() {
   return (
     <section
       id="about"
-      className="dark-theme relative w-full py-20 sm:py-32 bg-background overflow-hidden scroll-mt-14"
+      className="relative w-full py-20 sm:py-32 bg-background overflow-hidden scroll-mt-14"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,20 +31,13 @@ export default function WhyUsV2() {
                 Why DevRep Labs
               </p>
               
-              <ScrollRevealText
-                as="h2"
-                text="Build Software That Drives Results"
-                className="text-3xl sm:text-4xl font-poppins-sb text-foreground tracking-tight leading-[1.15] mb-5"
-                duration={1.2}
-              />
+              <h2 className="text-3xl sm:text-4xl font-poppins-sb text-foreground tracking-tight leading-[1.15] mb-5">
+                Build Software That Drives Results
+              </h2>
 
-              <ScrollRevealText
-                as="p"
-                text="We build fast, secure, and easy-to-use web and mobile apps that help your business grow."
-                className="text-foreground/70 text-base sm:text-lg leading-relaxed mb-8 max-w-md"
-                duration={1.2}
-                delay={0.2}
-              />
+              <p className="text-foreground/70 text-base sm:text-lg leading-relaxed mb-8 max-w-md">
+                We build fast, secure, and easy-to-use web and mobile apps that help your business grow.
+              </p>
 
               <button
                 type="button"
