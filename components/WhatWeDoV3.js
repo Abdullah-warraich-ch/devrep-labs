@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useContactModal } from "@/context/ContactModalContext";
@@ -88,9 +89,15 @@ export default function WhatWeDoV3() {
                 transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                 className={`relative flex flex-col p-8 sm:p-10 rounded-[32px] min-h-[380px] lg:min-h-[440px] overflow-hidden ${bgClass}`}
               >
-                <div className={`w-[72px] h-[72px] rounded-full flex items-center justify-center mb-auto ${cap.iconStyle}`}>
+                <div className={`w-[72px] h-[72px] rounded-full flex items-center justify-center mb-auto relative z-10 ${cap.iconStyle}`}>
                   <span className="material-symbols-outlined" style={{ fontSize: '36px' }}>{cap.icon}</span>
                 </div>
+                
+                {isFirst && (
+                  <div className="absolute top-0 -right-12 w-[280px] h-[280px] sm:top-[-40px] sm:-right-24 sm:w-[340px] sm:h-[340px] z-0 pointer-events-none">
+                    <Image src="/Laptop-whatwedo-firstcard.png" alt="Laptop illustration" fill className="object-contain" />
+                  </div>
+                )}
                 
                 <h3 className={`text-2xl sm:text-[28px] font-poppins-m mb-6 mt-16 leading-[1.2] relative z-10 ${
                   isFirst ? "text-white" : "text-foreground"

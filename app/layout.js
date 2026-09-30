@@ -1,6 +1,7 @@
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { ContactModalProvider } from "@/context/ContactModalContext";
+import Preloader from "@/components/Preloader";
 
 export const viewport = {
   themeColor: "#FF0000",
@@ -195,6 +196,7 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
+        <Preloader />
         <SmoothScroll>
           <ContactModalProvider>{children}</ContactModalProvider>
         </SmoothScroll>

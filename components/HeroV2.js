@@ -21,6 +21,12 @@ export default function HeroV2() {
         <div className="absolute top-[-20%] left-[10%] w-[50%] h-[50%] rounded-full bg-primary/20 blur-[130px] opacity-40 pointer-events-none mix-blend-screen"></div>
         <div className="absolute bottom-[-10%] right-[10%] w-[40%] h-[50%] rounded-full bg-indigo-600/10 blur-[120px] opacity-30 pointer-events-none mix-blend-screen"></div>
         
+        {/* Red Circle Bottom Right */}
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full bg-red-500 opacity-10 pointer-events-none translate-x-1/2 translate-y-1/2"></div>
+        
+        {/* Teal Highlighter Bottom Left */}
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] rounded-full bg-teal-400 opacity-20 blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/2"></div>
+        
         {/* Geometric strict grid overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] pointer-events-none"></div>
       </div>
