@@ -53,10 +53,7 @@ export default function HeroV2() {
       {/* ── HERO CONTENT ──────────────────────────────────────────────────── */}
       <div className="relative z-20 w-full h-full px-5 sm:px-8 lg:px-12 flex flex-col justify-center items-center flex-1 pt-12 pb-24 text-center">
         
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        <div
           className="flex flex-col items-center max-w-5xl w-full"
         >
 
@@ -65,7 +62,7 @@ export default function HeroV2() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0, ease: "easeOut" }}
             className="text-foreground font-poppins-m tracking-tight leading-[1.05] mb-6"
             style={{ fontSize: "clamp(42px, 8vw, 100px)" }}
           >
@@ -96,7 +93,7 @@ export default function HeroV2() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             className="text-foreground/60 font-poppins-r leading-relaxed max-w-2xl mx-auto mb-12"
             style={{ fontSize: "clamp(16px, 1.5vw, 20px)" }}
           >
@@ -107,7 +104,7 @@ export default function HeroV2() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center"
           >
             <button
@@ -126,7 +123,7 @@ export default function HeroV2() {
               <IconArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
