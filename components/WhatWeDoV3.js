@@ -10,9 +10,30 @@ export default function WhatWeDoV3() {
   const { openContactModal } = useContactModal();
 
   const capabilities = [
-    { title: "Custom Websites", desc: "Beautiful, fast, and responsive websites designed to engage your visitors.", icon: "browser_updated", iconStyle: "bg-white text-black shadow-md" },
-    { title: "Web Applications", desc: "Powerful custom software tailored specifically to solve your business needs.", icon: "deployed_code", iconStyle: "bg-purple-400 text-black" },
-    { title: "SEO & Growth", desc: "Optimized designs that rank higher on Google and turn clicks into customers.", icon: "stacked_bar_chart", iconStyle: "bg-teal-300 text-black" },
+    { 
+      title: "Custom Websites", 
+      desc: "Beautiful, fast, and responsive websites designed to engage your visitors.", 
+      icon: "browser_updated", 
+      iconStyle: "bg-white text-black shadow-md",
+      illustration: "/images/first_card.webp",
+      imgClassName: "top-2 -right-10 w-[220px] h-[220px] sm:top-[-20px] sm:-right-16 sm:w-[280px] sm:h-[280px]"
+    },
+    { 
+      title: "Web Applications", 
+      desc: "Powerful custom software tailored specifically to solve your business needs.", 
+      icon: "deployed_code", 
+      iconStyle: "bg-purple-400 text-black",
+      illustration: "/images/Web-app.webp",
+      imgClassName: "top-4 -right-16 w-[240px] h-[240px] sm:top-0 sm:-right-20 sm:w-[300px] sm:h-[300px]"
+    },
+    { 
+      title: "SEO & Growth", 
+      desc: "Optimized designs that rank higher on Google and turn clicks into customers.", 
+      icon: "stacked_bar_chart", 
+      iconStyle: "bg-teal-300 text-black",
+      illustration: "/images/SEO.webp",
+      imgClassName: "top-4 -right-16 w-[240px] h-[240px] sm:top-0 sm:-right-20 sm:w-[300px] sm:h-[300px]"
+    },
   ];
 
   return (
@@ -93,9 +114,9 @@ export default function WhatWeDoV3() {
                   <span className="material-symbols-outlined" style={{ fontSize: '36px' }}>{cap.icon}</span>
                 </div>
                 
-                {isFirst && (
-                  <div className="absolute top-0 -right-12 w-[280px] h-[280px] sm:top-[-40px] sm:-right-24 sm:w-[340px] sm:h-[340px] z-0 pointer-events-none">
-                    <Image src="/Laptop-whatwedo-firstcard.png" alt="Laptop illustration" fill className="object-contain" />
+                {cap.illustration && (
+                  <div className={`absolute z-0 pointer-events-none ${cap.imgClassName}`}>
+                    <Image src={cap.illustration} alt={`${cap.title} illustration`} fill className="object-contain" />
                   </div>
                 )}
                 
