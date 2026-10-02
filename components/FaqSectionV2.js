@@ -34,7 +34,7 @@ const faqs = [
 ];
 
 export default function FaqSectionV2() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(null);
   const { openContactModal } = useContactModal();
 
   const faqSchema = {

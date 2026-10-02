@@ -24,7 +24,7 @@ export default function PreFooterCta() {
     >
 
       <div className="max-w-6xl mx-auto rounded-[20px] px-4 sm:px-8">
-        <div className="bg-background rounded-[40px] px-6 py-8 sm:px-10 sm:py-10 lg:py-12 relative overflow-hidden flex flex-col items-center text-center shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-black/5">
+        <div className="bg-background rounded-[24px] px-6 py-8 sm:px-10 sm:py-10 lg:py-12 relative overflow-hidden flex flex-col items-center text-center shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-black/5">
           
           {/* Top-Center Highlighter Glow */}
           <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[70%] h-[50%] bg-white/20 blur-[100px] rounded-full pointer-events-none"></div>
@@ -33,7 +33,6 @@ export default function PreFooterCta() {
             
             <div className="relative mb-8 sm:mb-10">
               {/* Floating Cursors */}
-              <Cursor color="#F97316" name="Leonardo" className="top-[-35px] sm:top-[-45px] left-[30%] sm:left-[35%]" />
               <Cursor color="#3B82F6" name="Albert" className="bottom-[-40px] sm:bottom-[-45px] right-[10%] sm:right-[15%]" />
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins-m tracking-tight text-foreground leading-[1.15]">
