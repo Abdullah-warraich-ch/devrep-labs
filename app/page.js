@@ -2,7 +2,7 @@
 // import Hero from "@/components/Hero";
 import HeroV2 from "@/components/HeroV2";
 import WhatWeDoV3 from "@/components/WhatWeDoV3";
-import WhyUsV2 from "@/components/WhyUsV2";
+import WhyUsV3 from "@/components/WhyUsV3";
 import ProjectsV2 from "@/components/ProjectsV2";
 import FaqSectionV2 from "@/components/FaqSectionV2";
 import PreFooterCta from "@/components/PreFooterCta";
@@ -20,7 +20,7 @@ export default function Home() {
     <main className="min-h-screen w-full bg-background relative overflow-clip">
       <HeroV2 />
       <WhatWeDoV3 />
-      <WhyUsV2 />
+      <WhyUsV3 />
       <ProjectsV2 />
       <FaqSectionV2 />
       <PreFooterCta />
