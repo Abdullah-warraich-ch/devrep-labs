@@ -23,8 +23,8 @@ export default function WhatWeDoV3() {
       desc: "Powerful custom software tailored specifically to solve your business needs.", 
       icon: "deployed_code", 
       iconStyle: "bg-purple-400 text-black",
-      illustration: "/images/Web-app.webp",
-      imgClassName: "top-4 -right-16 w-[240px] h-[240px] sm:top-0 sm:-right-20 sm:w-[300px] sm:h-[300px]"
+      illustration: "/images/loop.png",
+      imgClassName: "top-4 -right-16 w-[240px] h-[240px] sm:-top-20 sm:-right-30 sm:w-[300px] sm:h-[300px]"
     },
     { 
       title: "SEO & Growth", 

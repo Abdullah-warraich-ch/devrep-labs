@@ -80,6 +80,7 @@ export const metadata = {
     google: "-SDjT-zGjk71fNfV2ccZVM8ig-GH0ZMjoVNXw0cLvkM",
     other: {
       "p:domain_verify": "b73439efb290651502d067b8f3dd5819",
+      "trustpilot-one-time-domain-verification-id": "c5d6214a-2da1-403d-9f87-902d1fc40d86",
     },
   },
 
