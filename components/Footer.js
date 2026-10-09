@@ -102,7 +102,7 @@ export default function Footer() {
                 <span className="w-8 h-8 rounded-full bg-foreground/5 flex items-center justify-center shrink-0 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                   <Mail className="size-4" />
                 </span>
-                <span className="truncate">abdullahnasar333@gmail.com</span>
+                <span className="truncate">contact@devrep.site</span>
               </button>
               
               <a

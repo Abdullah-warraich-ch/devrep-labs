@@ -156,14 +156,14 @@ export default function RootLayout({ children }) {
                   image: "https://www.devrep.site/og-image.png",
                   description:
                     "DevRep Labs is a web development agency building high-performance websites, custom web applications, e-commerce platforms, and AI-powered digital solutions for ambitious businesses.",
-                  email: "abdullahnasar333@gmail.com",
+                  email: "contact@devrep.site",
                   telephone: "+923391719123",
                   contactPoint: [
                     {
                       "@type": "ContactPoint",
                       telephone: "+923391719123",
                       contactType: "customer service",
-                      email: "abdullahnasar333@gmail.com",
+                      email: "contact@devrep.site",
                       availableLanguage: ["English", "Urdu"],
                     },
                   ],
