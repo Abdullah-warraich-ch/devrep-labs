@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@next/third-parties": "^16.4.6",
     "@tabler/icons-react": "^3.46.0",
     "date-fns": "^4.4.0",
     "framer-motion": "^13.1.0",

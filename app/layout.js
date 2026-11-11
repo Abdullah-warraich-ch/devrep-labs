@@ -2,6 +2,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { ContactModalProvider } from "@/context/ContactModalContext";
 import Preloader from "@/components/Preloader";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const viewport = {
   themeColor: "#FF0000",
@@ -202,6 +203,9 @@ export default function RootLayout({ children }) {
           <ContactModalProvider>{children}</ContactModalProvider>
         </SmoothScroll>
       </body>
+      {process.env.NEXT_PUBLIC_GA_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      )}
     </html>
   );
 }
