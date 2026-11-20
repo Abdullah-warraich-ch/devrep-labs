@@ -87,16 +87,34 @@ const optionIcons = {
 export function InquiryChoices({ name, options, value, onChange }) {
   const reduced = useReducedMotion();
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
       {options.map((option, index) => {
         const Icon = optionIcons[option] || IconWallet;
+        const selected = value === option;
         return (
-        <motion.label key={option} initial={reduced ? false : { opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: reduced ? 0 : index * 0.035 }} className="flex min-h-16 cursor-pointer items-center gap-4 rounded-xl border border-foreground/15 px-5 py-3 font-poppins-m transition-colors hover:bg-foreground/5 has-checked:border-primary has-checked:bg-primary/5 has-focus-visible:outline-2">
-          <input type="radio" name={name} value={option} checked={value === option}
-            onChange={onChange} required className="size-5 shrink-0 accent-primary" />
-          <Icon size={20} aria-hidden="true" />
-          {option}
-        </motion.label>
+          <motion.label
+            key={option}
+            initial={reduced ? false : { opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: reduced ? 0 : index * 0.035 }}
+            className="relative flex min-h-32 cursor-pointer flex-col items-start justify-between gap-4 rounded-2xl border border-foreground/15 p-4 transition-colors hover:bg-foreground/5 has-checked:border-primary has-checked:bg-primary/5 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-primary sm:min-h-36 sm:p-5"
+          >
+            <input type="radio" name={name} value={option} checked={selected}
+              onChange={onChange} required className="sr-only" />
+            <Icon size={32} stroke={1.8} aria-hidden="true" className={selected ? "text-primary" : "text-foreground"} />
+            <span className="font-poppins-m text-sm leading-snug sm:text-base">{option}</span>
+            {selected && (
+              <motion.span
+                aria-hidden="true"
+                initial={reduced ? false : { opacity: 0, y: -3 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.15 }}
+                className="absolute right-3 top-3 grid size-6 place-items-center rounded-full bg-primary text-white"
+              >
+                <IconCheck size={15} stroke={3} />
+              </motion.span>
+            )}
+          </motion.label>
         );
       })}
     </div>

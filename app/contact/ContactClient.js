@@ -105,7 +105,7 @@ export default function ContactClient() {
 
       <main className="w-full flex-1 px-5 pb-16 sm:px-10 lg:px-[6vw]">
         <div>
-          <section className="flex min-h-[calc(100svh-5rem)] flex-col py-8 sm:py-12">
+          <section className="mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-3xl flex-col py-8 sm:py-12">
             <nav aria-label="Breadcrumb" className="mb-5 text-sm font-poppins-m">
               <ol className="flex items-center gap-2">
                 <li><Link href="/" className="text-foreground/65 hover:underline">Home</Link></li>
