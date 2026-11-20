@@ -7,11 +7,8 @@ import ApartmentDetailContent from "../../_components/ApartmentDetailContent";
 import Footer from "../../_components/Footer";
 import BookingModal from "../../_components/BookingModal";
 import UnderDevelopmentModal from "../../_components/UnderDevelopmentModal";
-import { apartmentsData } from "../../_data/apartments";
 
-export default function ApartmentDetailClient({ params }) {
-  const apartmentId = params?.id;
-  const apartment = apartmentsData.find((a) => a.id === apartmentId) || apartmentsData[0];
+export default function ApartmentDetailClient({ apartment }) {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
 
@@ -27,7 +24,7 @@ export default function ApartmentDetailClient({ params }) {
 
       {/* Top Hero Section */}
       <ApartmentHero
-        apartmentId={apartmentId}
+        apartmentId={apartment.id}
         apartment={apartment}
         isBookingModalOpen={isBookingModalOpen}
         setIsBookingModalOpen={setIsBookingModalOpen}

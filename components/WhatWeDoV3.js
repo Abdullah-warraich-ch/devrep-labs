@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { IconArrowRight } from "@tabler/icons-react";
+import { IconArrowRight, IconBrowser, IconBox, IconChartBar, IconPhoto } from "@tabler/icons-react";
 import { useContactModal } from "@/context/ContactModalContext";
 
 export default function WhatWeDoV3() {
@@ -13,7 +13,7 @@ export default function WhatWeDoV3() {
     { 
       title: "Custom Websites", 
       desc: "Beautiful, fast, and responsive websites designed to engage your visitors.", 
-      icon: "browser_updated", 
+      icon: IconBrowser,
       iconStyle: "bg-white text-black shadow-md",
       illustration: "/images/first_card.webp",
       imgClassName: "top-2 -right-10 w-[220px] h-[220px] sm:top-[-20px] sm:-right-16 sm:w-[280px] sm:h-[280px]"
@@ -21,7 +21,7 @@ export default function WhatWeDoV3() {
     { 
       title: "Web Applications", 
       desc: "Powerful custom software tailored specifically to solve your business needs.", 
-      icon: "deployed_code", 
+      icon: IconBox,
       iconStyle: "bg-purple-400 text-black",
       illustration: "/images/loop.png",
       imgClassName: "top-4 -right-16 w-[240px] h-[240px] sm:-top-20 sm:-right-30 sm:w-[300px] sm:h-[300px]"
@@ -29,7 +29,7 @@ export default function WhatWeDoV3() {
     { 
       title: "SEO & Growth", 
       desc: "Optimized designs that rank higher on Google and turn clicks into customers.", 
-      icon: "stacked_bar_chart", 
+      icon: IconChartBar,
       iconStyle: "bg-teal-300 text-black",
       illustration: "/images/SEO.webp",
       imgClassName: "top-4 -right-16 w-[240px] h-[240px] sm:top-0 sm:-right-20 sm:w-[300px] sm:h-[300px]"
@@ -52,7 +52,7 @@ export default function WhatWeDoV3() {
             viewport={{ once: true }}
             className="text-4xl sm:text-5xl lg:text-[64px] font-poppins-m text-foreground leading-[1.1] max-w-3xl tracking-tight"
           >
-            We Build <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary text-white mx-1 sm:mx-2 align-middle shadow-lg"><span className="material-symbols-outlined" style={{ fontSize: '32px' }}>animated_images</span></span> Unmatched <br className="hidden lg:block" /> Digital Experiences
+            We Build <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary text-white mx-1 sm:mx-2 align-middle shadow-lg"><IconPhoto aria-hidden="true" size={32} /></span> Unmatched <br className="hidden lg:block" /> Digital Experiences
           </motion.h2>
           
           <motion.p 
@@ -62,7 +62,7 @@ export default function WhatWeDoV3() {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="text-foreground/60 text-sm sm:text-base max-w-sm lg:text-left leading-relaxed"
           >
-            Discover what makes us the most reliable and effective partner for your brand's digital transformation.
+            Discover what makes us the most reliable and effective partner for your brand&apos;s digital transformation.
           </motion.p>
         </div>
 
@@ -111,7 +111,7 @@ export default function WhatWeDoV3() {
                 className={`relative flex flex-col p-8 sm:p-10 rounded-[32px] min-h-[380px] lg:min-h-[440px] overflow-hidden ${bgClass}`}
               >
                 <div className={`w-[72px] h-[72px] rounded-full flex items-center justify-center mb-auto relative z-10 ${cap.iconStyle}`}>
-                  <span className="material-symbols-outlined" style={{ fontSize: '36px' }}>{cap.icon}</span>
+                  <cap.icon aria-hidden="true" size={36} />
                 </div>
                 
                 {cap.illustration && (

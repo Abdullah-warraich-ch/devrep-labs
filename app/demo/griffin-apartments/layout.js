@@ -9,6 +9,7 @@ const jost = Jost({
 });
 
 export const metadata = {
+  robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
   title: "Griffin Heights Apartments | Luxury Urban Residences & Suites",
   description:
     "Experience refined minimalist living at Griffin Heights Apartments in Lahore & Islamabad.",

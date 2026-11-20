@@ -1,7 +1,6 @@
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { ContactModalProvider } from "@/context/ContactModalContext";
-import Preloader from "@/components/Preloader";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const viewport = {
@@ -57,7 +56,7 @@ export const metadata = {
     siteName: "DevRep Labs",
     images: [
       {
-        url: "/og-image.png",
+        url: "/share-card.png",
         width: 1200,
         height: 630,
         alt: "DevRep Labs — Web Development Agency & AI Solutions",
@@ -72,7 +71,7 @@ export const metadata = {
     title: "DevRep Labs | Web Development & AI Solutions",
     description:
       "High-performance websites, web applications, and AI-powered digital solutions for ambitious businesses.",
-    images: ["/og-image.png"],
+    images: ["/share-card.png"],
     creator: "@devrep_labs",
     site: "@devrep_labs",
   },
@@ -103,7 +102,6 @@ export const metadata = {
       { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
-  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }) {
@@ -133,8 +131,6 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
 
-        {/* Google Material Symbols */}
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       </head>
       <body className="flex flex-col font-sans relative">
         <script
@@ -154,7 +150,7 @@ export default function RootLayout({ children }) {
                     width: 96,
                     height: 96,
                   },
-                  image: "https://www.devrep.site/og-image.png",
+                  image: "https://www.devrep.site/share-card.png",
                   description:
                     "DevRep Labs is a web development agency building high-performance websites, custom web applications, e-commerce platforms, and AI-powered digital solutions for ambitious businesses.",
                   email: "contact@devrep.site",
@@ -198,14 +194,13 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
-        <Preloader />
         <SmoothScroll>
           <ContactModalProvider>{children}</ContactModalProvider>
         </SmoothScroll>
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
-      {process.env.NEXT_PUBLIC_GA_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-      )}
     </html>
   );
 }

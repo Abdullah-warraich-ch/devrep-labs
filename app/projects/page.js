@@ -17,7 +17,7 @@ export const metadata = {
     siteName: "DevRep Labs",
     images: [
       {
-        url: "/og-image.png",
+        url: "/share-card.png",
         width: 1200,
         height: 630,
         alt: "DevRep Labs Web Development Portfolio",
@@ -32,7 +32,7 @@ export const metadata = {
     title: "Web Development Portfolio | DevRep Labs",
     description:
       "Explore websites, web applications, e-commerce platforms, and digital products built by DevRep Labs.",
-    images: ["/og-image.png"],
+    images: ["/share-card.png"],
   },
 };
 

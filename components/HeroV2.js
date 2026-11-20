@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import styles from "./HeroV2.module.css";
 import Link from "next/link";
-import { IconArrowRight, IconArrowUpRight } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import { useContactModal } from "@/context/ContactModalContext";
@@ -69,14 +69,19 @@ export default function HeroV2() {
             className="text-foreground font-poppins-m tracking-tight leading-[1.05] mb-6"
             style={{ fontSize: "clamp(42px, 8vw, 100px)" }}
           >
-            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <motion.span initial={{y:100,}} animate={{y:0}} transition={{duration:0.6, delay: 2.8}}>We build </motion.span></span>
-            <motion.span initial={{scale:0}} animate={{scale:1}} transition={{duration:0.6, delay: 2.9}} className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 bg-primary text-white rounded-full w-[0.85em] h-[0.85em] shadow-lg">
-              <span className="material-symbols-outlined" style={{ fontSize: "0.5em" }}>captive_portal</span>
-            </motion.span>
-                        <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <motion.span initial={{y:100,}} animate={{y:0}} transition={{duration:0.6, delay: 2.9}}>websites </motion.span></span> <br />
-            <span className="text-foreground/40 inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <motion.span initial={{y:100,}} animate={{y:0}} transition={{duration:0.6, delay: 3.0}}>for modern </motion.span></span> 
+            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <span className={styles.word}>We build </span></span>
+            <span className={`${styles.icon} inline-flex items-center justify-center align-middle mx-2 sm:mx-3 bg-primary text-white rounded-full w-[0.85em] h-[0.85em] shadow-lg`}>
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="size-[0.5em]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8.5" />
+                <ellipse cx="11" cy="11" rx="3.8" ry="8.5" />
+                <path d="M3 8h16M3 14h11" />
+                <path d="m13 12 3.5 10 1.6-4 4-1.6z" fill="currentColor" stroke="var(--primary)" strokeWidth="1" />
+              </svg>
+            </span>
+            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <span className={styles.word}>websites </span></span> <br />
+            <span className="text-foreground/40 inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <span className={styles.word}>for modern </span></span>
             <span className="relative inline-block text-foreground/40">
-            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <motion.span initial={{y:100,}} animate={{y:0}} transition={{duration:0.6, delay: 3.0}}>brands.</motion.span></span>
+              <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <span className={styles.word}>brands.</span></span>
               <span className="absolute left-0 -bottom-1 h-1.5 bg-foreground/10 rounded-full w-full overflow-hidden">
                 <motion.span
                   initial={{ left: "-100%" }}
@@ -93,22 +98,17 @@ export default function HeroV2() {
           </h1>
 
           {/* Sub-copy */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.2, ease: "easeOut" }}
-            className="text-foreground/60 font-poppins-r leading-relaxed max-w-2xl mx-auto mb-12"
-            style={{ fontSize: "clamp(16px, 1.5vw, 20px)" }}
+          <p
+            className={`${styles.detail} text-foreground/60 font-poppins-r leading-relaxed max-w-2xl mx-auto mb-12`}
+            style={{ "--delay": "440ms", fontSize: "clamp(16px, 1.5vw, 20px)" }}
           >
             We design and build elite web platforms and intelligent AI solutions that elevate your brand and convert visitors into loyal customers.
-          </motion.p>
+          </p>
 
           {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.4, ease: "easeOut" }}
-            className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center"
+          <div
+            className={`${styles.detail} flex items-center gap-4 sm:gap-6 flex-wrap justify-center`}
+            style={{ "--delay": "600ms" }}
           >
             <button
               type="button"
@@ -125,7 +125,7 @@ export default function HeroV2() {
               <span>Explore our work</span>
               <IconArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

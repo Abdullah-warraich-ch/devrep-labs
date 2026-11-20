@@ -162,9 +162,9 @@ export default function ServicesClient() {
           {/* Headline */}
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold tracking-tight text-foreground leading-[1.15] mb-5 font-poppins-sb">
-              Digital Solutions{" "}
+              Web development{" "}
               <span className="relative inline-block text-primary pb-1">
-                Made Simple
+                and AI services
                 <HandDrawnUnderline />
               </span>
             </h1>
@@ -205,6 +205,7 @@ export default function ServicesClient() {
             </p>
           </div>
 
+          <Link href="/services/custom-web-development" className="inline-block py-3 font-poppins-m underline">Explore custom web development</Link>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 pt-4 items-stretch">
             {services.map((service, index) => (
               <ServiceCard
@@ -231,7 +232,7 @@ export default function ServicesClient() {
               From First Idea to Successful Launch
             </h2>
             <p className="text-xs sm:text-sm text-foreground/70 font-normal leading-relaxed">
-              We guide you through every step with clear, straightforward updates, so you always know what we're working on and when it will be ready.
+              We guide you through every step with clear, straightforward updates, so you always know what we&apos;re working on and when it will be ready.
             </p>
           </div>
 

@@ -7,13 +7,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Code, Zap, Search, Blocks, Target, ArrowRight, Calendar, ExternalLink, Plus, Minus, Laptop } from "lucide-react";
 
 export default function WhyUsV3() {
-  const { openContactModal } = useContactModal();
+  const { openOfferModal } = useContactModal();
   const [openAccordion, setOpenAccordion] = useState(0);
 
   const faqs = [
     { 
       title: "Web Development", 
-      content: "Next.js, React aur Node.js se fast, scalable websites." 
+      content: "Fast, scalable websites built with Next.js, React and Node.js."
     },
     { 
       title: "Web Scraping & Automation", 
@@ -55,13 +55,13 @@ export default function WhyUsV3() {
               className="flex flex-wrap gap-3 mb-12"
             >
               <span className="px-4 py-2 rounded-full bg-white text-[14px] font-medium flex items-center gap-2 text-gray-800">
-                <span className="material-symbols-outlined text-black" style={{ fontSize: '20px' }}>speed</span> Fast Delivery
+                <Zap aria-hidden="true" size={20} /> Fast Delivery
               </span>
               <span className="px-4 py-2 rounded-full bg-white text-[14px] font-medium flex items-center gap-2 text-gray-800">
-                <span className="material-symbols-outlined text-black" style={{ fontSize: '20px' }}>manage_search</span> SEO Ready
+                <Search aria-hidden="true" size={20} /> SEO Ready
               </span>
               <span className="px-4 py-2 rounded-full bg-white text-[14px] font-medium flex items-center gap-2 text-gray-800">
-                <span className="material-symbols-outlined text-black" style={{ fontSize: '20px' }}>layers</span> Next.js Stack
+                <Blocks aria-hidden="true" size={20} /> Next.js Stack
               </span>
             </motion.div>
 
@@ -132,10 +132,10 @@ export default function WhyUsV3() {
                   Design.<br/>Build.<br/>Launch.
                 </h3>
                 <button 
-                  onClick={openContactModal} 
+                  onClick={openOfferModal}
                   className="bg-[#0A0A0A] text-white px-7 py-4 rounded-full font-medium flex items-center gap-2 transition-colors group shadow-lg shadow-black/10"
                 >
-                  <span className="text-[15px] font-poppins-m">Book a Free Call</span>
+                  <span className="text-[15px] font-poppins-m">Book a Free Demo</span>
                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center transition-transform group-hover:translate-x-1">
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { sendGAEvent } from "@next/third-parties/google";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLenis } from "lenis/react";
@@ -123,7 +124,10 @@ export default function ContactModal({ isOpen, onClose, config = {} }) {
 
       const result = await response.json();
 
-      if (result.success) {
+      if (response.ok && result.success) {
+        if (process.env.NEXT_PUBLIC_GA_ID) {
+          sendGAEvent("event", "generate_lead", { lead_type: isDemo ? "demo_request" : "project_inquiry" });
+        }
         setStatus("success");
         setFormData({
           name: "",

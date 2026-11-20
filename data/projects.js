@@ -14,7 +14,8 @@ export const projects = [
     category: "Luxury Living • Booking Web App",
     description: "Modern serviced apartments discovery and reservation platform with city filters, date picker, and room availability.",
     image: "/projects/griifin-mockup.webp",
-    link: "https://griffin-apartments.vercel.app/",
+    link: "/demo/griffin-apartments",
+    caseStudy: "/projects/griffin-apartments",
     tags: ["Next.js", "React", "Tailwind CSS"],
   },
   {

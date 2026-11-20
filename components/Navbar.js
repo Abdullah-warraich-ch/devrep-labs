@@ -13,8 +13,9 @@ const NAV_ITEMS = [
   { name: "About", href: "/#about" },
   { name: "Services", href: "/services" },
   { name: "Projects", href: "/projects" },
+  { name: "Book Demo", href: "/book-a-demo" },
   { name: "FAQ", href: "/#faq" },
-  { name: "Contact", isContactTrigger: true },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {

@@ -117,7 +117,7 @@ export default function ProjectsClient() {
                   </div>
 
                   <h3 className="text-lg sm:text-xl font-semibold text-white leading-snug mb-1.5 font-poppins-sb">
-                    {project.title}
+                    {project.caseStudy ? <Link href={project.caseStudy} className="underline">{project.title} case study</Link> : project.title}
                   </h3>
 
                   <p className="text-xs sm:text-[13px] text-white/80 leading-relaxed font-normal mb-4 max-w-md">

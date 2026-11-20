@@ -1,5 +1,6 @@
 "use client";
 
+import { IconRocket } from "@tabler/icons-react";
 import React from "react";
 import { useContactModal } from "@/context/ContactModalContext";
 const Cursor = ({ color, name, className }) => (
@@ -38,9 +39,9 @@ export default function PreFooterCta() {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins-m tracking-tight text-foreground leading-[1.15]">
                 Have a website or app in<br/> mind? Let&apos;s build 
                 <span className="inline-flex items-center justify-center align-middle mx-2 bg-primary text-white rounded-full w-[0.85em] h-[0.85em] shadow-lg">
-                  <span className="material-symbols-outlined" style={{ fontSize: "0.5em" }}>rocket_launch</span>
+                  <IconRocket aria-hidden="true" size="0.5em" />
                 </span>
-                it!
+                {" it!"}
               </h2>
             </div>
 

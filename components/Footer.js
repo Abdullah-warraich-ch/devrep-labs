@@ -28,10 +28,11 @@ export default function Footer() {
 
   const navLinks = [
     { name: "Services", href: "/services" },
-    { name: "Why Us", href: "/#about" },
     { name: "Projects", href: "/projects" },
+    { name: "Book a Demo", href: "/book-a-demo" },
+    { name: "Why Us", href: "/#about" },
     { name: "FAQ", href: "/#faq" },
-    { name: "Contact", isContactTrigger: true },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -169,12 +170,8 @@ export default function Footer() {
 
           <div className="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-foreground transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-foreground transition-colors">
-                Terms of Service
-              </a>
+              <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
             </div>
             <button
               type="button"
