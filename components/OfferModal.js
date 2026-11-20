@@ -3,8 +3,8 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLenis } from "lenis/react";
-import { IconX, IconTagFilled, IconArrowRight } from "@tabler/icons-react";
-import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
+import { IconX, IconArrowRight } from "@tabler/icons-react";
+import Image from "next/image";
 
 export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
   const lenis = useLenis();
@@ -67,67 +67,66 @@ export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="dark-theme relative w-full max-w-md my-auto rounded-3xl bg-[#080808] border border-white/10 shadow-[0_25px_70px_rgba(0,0,0,0.85)] text-white z-10 font-poppins overflow-hidden"
+            className="relative w-full max-w-[31rem] my-auto rounded-3xl bg-white shadow-2xl text-neutral-950 z-10 font-poppins overflow-hidden"
             role="dialog"
             aria-modal="true"
             aria-labelledby="offer-modal-title"
           >
-            {/* Top Accent Line */}
-            <div className="h-1 bg-primary" />
+            <div className="relative h-28 sm:h-36">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 overflow-hidden bg-[radial-gradient(ellipse_at_bottom,var(--primary),#1a0808_90%)]"
+              >
+                <svg
+                  viewBox="-100 -100 200 200"
+                  className="absolute bottom-0 left-1/2 w-[60%] -translate-x-1/2 translate-y-1/2 text-primary opacity-25"
+                  fill="none"
+                  focusable="false"
+                >
+                  <g transform="rotate(5)" stroke="currentColor" strokeWidth="38">
+                    <path d="M0 -98V98 M-98 0H98 M-69 -69L69 69 M-69 69L69 -69" />
+                  </g>
+                </svg>
+              </div>
+              <Image
+                src="/3d-percentage.png"
+                alt=""
+                width={1448}
+                height={1086}
+                sizes="(min-width: 640px) 240px, 200px"
+                className="absolute bottom-0 left-1/2 w-[200px] -translate-x-1/2 translate-y-1/4 sm:w-[240px]"
+              />
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close offer modal"
+                className="absolute top-2 right-2 grid size-11 cursor-pointer place-items-center rounded-md text-white/70 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-white"
+              >
+                <IconX aria-hidden="true" stroke={1.5} className="size-[18px]" />
+              </button>
+            </div>
 
-            {/* Ambient Background Aura */}
-            <div className="absolute -top-16 -right-16 w-56 h-56 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-
-            {/* Close Button */}
-            <button
-              type="button"
-              onClick={onClose}
-              aria-label="Close offer modal"
-              className="absolute top-4 right-4 p-2 rounded-full text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-200 cursor-pointer group z-20"
-            >
-              <IconX className="size-4.5 transition-transform duration-200 group-hover:rotate-90" />
-            </button>
-
-            {/* Content Container */}
-            <div className="p-6 sm:p-8 pt-6 relative z-10 text-center flex flex-col items-center">
-              
-              {/* Standalone Filled Tag Icon */}
-              <IconTagFilled className="size-11 sm:size-12 text-primary mb-4 shrink-0 drop-shadow-sm" />
-
-              {/* Direct, Straightforward Title */}
+            <div className="px-6 pt-14 pb-7 text-center sm:px-10 sm:pt-16 sm:pb-9">
+              <span className="inline-block rounded-lg bg-neutral-950 px-3 py-1 text-xs font-medium text-white">
+                Free website demo
+              </span>
               <h2
                 id="offer-modal-title"
-                className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-white leading-snug font-poppins-sb mb-7 max-w-sm"
+                className="mx-auto mt-4 max-w-sm text-balance text-3xl leading-tight tracking-tight sm:text-[40px]"
               >
-                We Will Provide a{" "}
-                <span className="relative inline-block text-primary pb-1">
-                  Free Demo
-                  <HandDrawnUnderline />
-                </span>{" "}
-                for Your Business Website
+                See your business website in action
               </h2>
-
-              {/* Action Buttons */}
-              <div className="w-full space-y-3">
-                <button
-                  type="button"
-                  onClick={onClaimOffer}
-                  className="w-full h-11 sm:h-12 rounded-full text-sm font-semibold text-white bg-primary hover:bg-primary/90 shadow-lg hover:shadow-[0_8px_25px_var(--primary)] transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 group font-poppins-sb"
-                >
-                  <span>Book a Free Demo</span>
-                  <IconArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="text-xs text-white/60 hover:text-white py-1 cursor-pointer transition-colors"
-                >
-                  Maybe later, I&apos;ll explore first
-                </button>
-              </div>
-
+              <p className="mx-auto mt-4 max-w-sm text-pretty text-sm leading-relaxed text-neutral-600 sm:text-base">
+                Tell us about your business and see what your website could look like.
+              </p>
+              <button
+                type="button"
+                onClick={onClaimOffer}
+                className="mt-7 flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary px-4 font-poppins-sb text-sm text-white transition-colors hover:bg-primary/90"
+              >
+                Book a Free Demo
+                <IconArrowRight aria-hidden="true" className="size-4" />
+              </button>
             </div>
           </motion.div>
         </div>
