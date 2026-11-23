@@ -1,64 +1,25 @@
-"use client";
-
-import { IconRocket } from "@tabler/icons-react";
-import React from "react";
-import { useContactModal } from "@/context/ContactModalContext";
-const Cursor = ({ color, name, className }) => (
-  <div className={`absolute pointer-events-none flex flex-col items-start z-20 ${className}`}>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-md" style={{ transform: 'rotate(-15deg)' }}>
-      <path d="M5.5 3L18.5 12L12 13.5L9.5 20.5L5.5 3Z" fill={color} stroke="white" strokeWidth="2" strokeLinejoin="round"/>
-    </svg>
-    <div className="px-2.5 py-0.5 rounded-full text-[11px] font-bold text-white shadow-sm mt-[-2px] ml-4" style={{ backgroundColor: color }}>
-      {name}
-    </div>
-  </div>
-);
+import Link from "next/link";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 export default function PreFooterCta() {
-  const { openContactModal } = useContactModal();
-
   return (
-    <section
-      id="contact"
-      className="dark-theme w-full py-8 sm:pb-12 bg-[var(--background-light)] relative overflow-hidden scroll-mt-14"
-      style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
-    >
-
-      <div className="max-w-6xl mx-auto rounded-[20px] px-4 sm:px-8">
-        <div className="bg-background rounded-[24px] px-6 py-8 sm:px-10 sm:py-10 lg:py-12 relative overflow-hidden flex flex-col items-center text-center shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-black/5">
-          
-          {/* Top-Center Highlighter Glow */}
-          <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[70%] h-[50%] bg-white/20 blur-[100px] rounded-full pointer-events-none"></div>
-
-          <div className="relative z-10 max-w-4xl flex flex-col items-center">
-            
-            <div className="relative mb-8 sm:mb-10">
-              {/* Floating Cursors */}
-              <Cursor color="#3B82F6" name="Albert" className="bottom-[-40px] sm:bottom-[-45px] right-[10%] sm:right-[15%]" />
-              
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins-m tracking-tight text-foreground leading-[1.15]">
-                Have a website or app in<br/> mind? Let&apos;s build 
-                <span className="inline-flex items-center justify-center align-middle mx-2 bg-primary text-white rounded-full w-[0.85em] h-[0.85em] shadow-lg">
-                  <IconRocket aria-hidden="true" size="0.5em" />
-                </span>
-                {" it!"}
-              </h2>
-            </div>
-
-            <p className="text-base sm:text-lg text-foreground/70 font-normal leading-relaxed max-w-2xl mx-auto mb-6">
-              We help businesses turn ideas into fast, high-converting digital products. Enjoy the most powerful architecture and unmatched performance.
-            </p>
-
-            <button
-              type="button"
-              onClick={openContactModal}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[15px] font-poppins-sb text-background bg-foreground hover:bg-foreground/90 transition-colors duration-300 cursor-pointer"
-            >
-              <span>Get Started Now</span>
-            </button>
-
-          </div>
-        </div>
+    <section id="contact" aria-labelledby="project-invitation" className="scroll-mt-14 bg-background px-5 text-foreground sm:px-10">
+      <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto] items-center gap-x-2 gap-y-6 lg:grid-cols-[1fr_1fr_auto] border-t border-foreground/15 py-12 sm:py-20">
+        <h2 id="project-invitation" className="font-poppins-m text-[clamp(2.5rem,6vw,5rem)] leading-[1.04] tracking-[-0.055em]">
+          Have a project<br />in mind<span className="text-primary">?</span>
+        </h2>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 256 180" className="w-[clamp(4.5rem,22vw,16rem)] justify-self-center text-foreground">
+          <g transform="rotate(-22 128 90)" fill="none" stroke="currentColor" strokeWidth="1.4">
+            {Array.from({ length: 15 }, (_, i) => (
+              <ellipse key={i} cx={79 + i * 7} cy="90" rx={26 + 7 * Math.cos(i * Math.PI / 7)} ry={52 - 15 * Math.sin(i * Math.PI / 14)}
+                transform={`rotate(${i * 4 - 28} ${79 + i * 7} 90)`} />
+            ))}
+          </g>
+          <path d="M211 15q0 13 13 13-13 0-13 13 0-13-13-13 13 0 13-13Z" className="fill-primary" />
+        </svg>
+        <Link href="/contact" className="col-span-2 inline-flex justify-self-start items-center gap-4 lg:col-span-1 rounded-full bg-foreground px-6 py-3.5 font-poppins-m text-sm text-background transition-opacity hover:opacity-85">
+          Start a project <IconArrowUpRight size={18} aria-hidden="true" />
+        </Link>
       </div>
     </section>
   );

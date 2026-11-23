@@ -1,11 +1,11 @@
 "use client";
 
+import Link from "next/link";
+
 import Image from "next/image";
-import { useContactModal } from "@/context/ContactModalContext";
 import { motion } from "framer-motion";
 
 export default function WhyUsV2() {
-  const { openContactModal } = useContactModal();
 
   return (
     <section
@@ -39,13 +39,11 @@ export default function WhyUsV2() {
                 We build fast, secure, and easy-to-use web and mobile apps that help your business grow.
               </p>
 
-              <button
-                type="button"
-                onClick={openContactModal}
-                className="bg-foreground text-background rounded-full px-8 py-4 font-poppins-m text-[15px] hover:bg-foreground/90 transition-colors duration-300 shadow-lg"
-              >
+              <Link
+                href="/contact"
+                className="bg-foreground text-background rounded-full px-8 py-4 font-poppins-m text-[15px] hover:bg-foreground/90 transition-colors duration-300 shadow-lg">
                 Get a Free Consultation
-              </button>
+              </Link>
 
               <div className="mt-10 flex flex-col gap-4">
                 <div className="flex items-center gap-3">

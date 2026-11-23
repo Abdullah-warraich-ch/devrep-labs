@@ -1,12 +1,38 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLenis } from "lenis/react";
 import { IconX, IconArrowRight } from "@tabler/icons-react";
 import Image from "next/image";
 
-export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
+const storageKey = "devreplabs_offer_popup_shown";
+const cooldown = 24 * 60 * 60 * 1000;
+
+export default function OfferModal() {
+  const pathname = usePathname();
+  const [openPath, setOpenPath] = useState(null);
+  const shown = useRef(false);
+  const isOpen = openPath !== null && openPath === pathname;
+  const onClose = useCallback(() => setOpenPath(null), []);
+
+  useEffect(() => {
+    if (shown.current || !(pathname === "/" || /^\/(services|projects)(\/|$)/.test(pathname))) return;
+    const timer = window.setTimeout(() => {
+      try {
+        if (Date.now() - Number(localStorage.getItem(storageKey)) < cooldown) return;
+        localStorage.setItem(storageKey, String(Date.now()));
+      } catch {
+        // The in-memory flag handles browsers with storage disabled.
+      }
+      shown.current = true;
+      setOpenPath(pathname);
+    }, 4500);
+    return () => window.clearTimeout(timer);
+  }, [pathname]);
+
   const lenis = useLenis();
 
   // Scroll locking (HTML, Body, & Lenis) + Escape key listener
@@ -119,14 +145,14 @@ export default function OfferModal({ isOpen, onClose, onClaimOffer }) {
               <p className="mx-auto mt-4 max-w-sm text-pretty text-sm leading-relaxed text-neutral-600 sm:text-base">
                 Tell us about your business and see what your website could look like.
               </p>
-              <button
-                type="button"
-                onClick={onClaimOffer}
+              <Link
+                href="/book-a-demo"
+                onClick={onClose}
                 className="mt-7 flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary px-4 font-poppins-sb text-sm text-white transition-colors hover:bg-primary/90"
               >
                 Book a Free Demo
                 <IconArrowRight aria-hidden="true" className="size-4" />
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>

@@ -14,10 +14,8 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
-import { useContactModal } from "@/context/ContactModalContext";
 
 export default function NotFoundClient() {
-  const { openContactModal } = useContactModal();
 
   const quickLinks = [
     {
@@ -35,8 +33,7 @@ export default function NotFoundClient() {
     {
       title: "Get in Touch",
       description: "Discuss your project with our team",
-      isAction: true,
-      onClick: openContactModal,
+      href: "/contact",
       icon: IconMessageCircle,
     },
   ];
@@ -128,30 +125,6 @@ export default function NotFoundClient() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-left">
               {quickLinks.map((item, idx) => {
                 const IconComponent = item.icon;
-                if (item.isAction) {
-                  return (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={item.onClick}
-                      className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-primary/50 hover:bg-white/[0.06] shadow-xs hover:shadow-sm transition-all duration-200 text-left group cursor-pointer"
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="size-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-                          <IconComponent className="size-4" />
-                        </div>
-                        <IconArrowRight className="size-3.5 text-white/50 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
-                      </div>
-                      <div className="font-semibold text-xs sm:text-sm text-white mb-0.5 font-poppins-sb">
-                        {item.title}
-                      </div>
-                      <div className="text-[11px] text-white/60 leading-snug line-clamp-1">
-                        {item.description}
-                      </div>
-                    </button>
-                  );
-                }
-
                 return (
                   <Link
                     key={idx}

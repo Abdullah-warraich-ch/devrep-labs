@@ -7,16 +7,16 @@ export default function ServiceCard({
   title,
   description,
   icon: Icon,
-  onClick,
+  href,
   index = 0,
 }) {
   return (
-    <motion.div
+    <motion.a
       initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.4, delay: index * 0.07 }}
-      onClick={onClick}
+      href={href}
       className="group relative bg-surface rounded-3xl p-7 pt-12 border border-foreground/10 shadow-xl hover:border-primary/50 transition-all duration-300 flex flex-col items-center text-center justify-between cursor-pointer mt-6 h-full text-foreground"
     >
       {/* Top Floating Icon Container */}
@@ -47,6 +47,6 @@ export default function ServiceCard({
           <IconArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }

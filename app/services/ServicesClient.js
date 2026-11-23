@@ -23,10 +23,8 @@ import PreFooterCta from "@/components/PreFooterCta";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
 import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
-import { useContactModal } from "@/context/ContactModalContext";
 
 export default function ServicesClient() {
-  const { openContactModal } = useContactModal();
 
   const services = [
     {
@@ -175,14 +173,12 @@ export default function ServicesClient() {
 
             {/* CTA Button */}
             <div className="flex items-center">
-              <button
-                type="button"
-                onClick={openContactModal}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold font-poppins-m text-white bg-primary hover:bg-primary/90 shadow-md shadow-primary/20 transition-all duration-200 cursor-pointer group"
-              >
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold font-poppins-m text-white bg-primary hover:bg-primary/90 shadow-md shadow-primary/20 transition-all duration-200 cursor-pointer group">
                 <span>Tell Us About Your Project</span>
                 <IconArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -214,7 +210,7 @@ export default function ServicesClient() {
                 title={service.title}
                 description={service.description}
                 icon={service.icon}
-                onClick={() => openContactModal({ service: service.title })}
+                href="/contact"
               />
             ))}
           </div>

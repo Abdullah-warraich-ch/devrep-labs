@@ -109,20 +109,13 @@ export default function BookDemoClient() {
     >
       <Navbar />
 
-      <main className="w-full flex-1 px-5 pb-16 sm:px-10 lg:px-[6vw]">
+      <main id="demo-booking" className="w-full flex-1 px-5 pb-16 sm:px-10 lg:px-[6vw]">
         <div>
           <section className="mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-3xl flex-col py-8 sm:py-12">
-            <nav aria-label="Breadcrumb" className="mb-5 text-sm font-poppins-m">
-              <ol className="flex items-center gap-2">
-                <li><Link href="/" className="text-foreground/65 hover:underline">Home</Link></li>
-                <li aria-current="page" className="flex items-center gap-2">
-                  <span aria-hidden="true" className="text-foreground/40">/</span>
-                  <h1>Book a Free Demo</h1>
-                </li>
-              </ol>
-            </nav>
+            <h1 className="mb-6 text-2xl font-poppins-sb tracking-tight sm:text-3xl">Book a free demo</h1>
             {status === "success" ? (
               <InquirySuccess
+                compactProgress
                 labels={stepLabels}
                 title="Demo request received!"
                 description="We’ll review your request and email you a calendar invite with your Google Meet link."
@@ -131,6 +124,8 @@ export default function BookDemoClient() {
               />
             ) : (
               <InquirySteps
+                stickyMobileActions
+                compactProgress
                 labels={stepLabels}
                 titles={["What would you like to see?", "When would you prefer to meet?", "Where can we send your invite?"]}
                 onSubmit={handleSubmit}
@@ -145,9 +140,9 @@ export default function BookDemoClient() {
                     <div>
                       <label
                         htmlFor="demo-name"
-                        className="block text-xs uppercase tracking-wider font-poppins-m text-foreground/80 mb-2"
+                        className="block text-xs tracking-wider font-poppins-m text-foreground/80 mb-2"
                       >
-                        Your Name *
+                        Your name *
                       </label>
                       <input
                         id="demo-name"
@@ -163,9 +158,9 @@ export default function BookDemoClient() {
                     <div>
                       <label
                         htmlFor="demo-email"
-                        className="block text-xs uppercase tracking-wider font-poppins-m text-foreground/80 mb-2"
+                        className="block text-xs tracking-wider font-poppins-m text-foreground/80 mb-2"
                       >
-                        Work Email *
+                        Your email *
                       </label>
                       <input
                         id="demo-email"

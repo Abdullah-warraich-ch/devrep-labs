@@ -1,6 +1,6 @@
+import OfferModal from "@/components/OfferModal";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import { ContactModalProvider } from "@/context/ContactModalContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const viewport = {
@@ -189,7 +189,8 @@ export default function RootLayout({ children }) {
           }}
         />
         <SmoothScroll>
-          <ContactModalProvider>{children}</ContactModalProvider>
+          {children}
+          <OfferModal />
         </SmoothScroll>
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />

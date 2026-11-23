@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
+
 import { useState } from "react";
 import { IconPlus, IconMinus, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
-import { useContactModal } from "@/context/ContactModalContext";
 
 const faqs = [
   {
@@ -35,7 +36,6 @@ const faqs = [
 
 export default function FaqSectionV2() {
   const [openIndex, setOpenIndex] = useState(null);
-  const { openContactModal } = useContactModal();
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -86,14 +86,12 @@ export default function FaqSectionV2() {
               <span className="text-sm sm:text-[15px] text-foreground/80 font-poppins-m">
                 Still have questions or special requirements?
               </span>
-              <button
-                type="button"
-                onClick={openContactModal}
-                className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors cursor-pointer group font-poppins-sb w-fit"
-              >
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors cursor-pointer group font-poppins-sb w-fit">
                 <span className="underline underline-offset-4 decoration-foreground/30 group-hover:decoration-primary/50 transition-colors">Talk to us</span>
                 <IconArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </button>
+              </Link>
             </div>
           </div>
 

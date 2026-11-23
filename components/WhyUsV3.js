@@ -1,13 +1,13 @@
 "use client";
 
+import Link from "next/link";
+
 import { useState } from "react";
 import Image from "next/image";
-import { useContactModal } from "@/context/ContactModalContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code, Zap, Search, Blocks, Target, ArrowRight, Calendar, ExternalLink, Plus, Minus, Laptop } from "lucide-react";
 
 export default function WhyUsV3() {
-  const { openOfferModal } = useContactModal();
   const [openAccordion, setOpenAccordion] = useState(0);
 
   const faqs = [
@@ -114,7 +114,7 @@ export default function WhyUsV3() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white rounded-[2.5rem] p-6 sm:p-10 shadow-xl border border-gray-100 flex flex-col sm:flex-row gap-8 xl:gap-6 relative h-full min-h-[600px] sm:min-h-[500px]"
+            className="bg-white rounded-[2.5rem] p-6 sm:p-10 shadow-xl border border-gray-100 flex flex-col sm:flex-row gap-8 xl:gap-6 relative sm:h-full sm:min-h-[500px]"
           >
             {/* Left Content of Card */}
             <div className="flex-1 flex flex-col justify-between relative z-10">
@@ -131,20 +131,19 @@ export default function WhyUsV3() {
                 <h3 className="text-3xl sm:text-4xl font-medium text-gray-900 mb-8 leading-[1.05] tracking-tight font-poppins-m">
                   Design.<br/>Build.<br/>Launch.
                 </h3>
-                <button 
-                  onClick={openOfferModal}
-                  className="bg-[#0A0A0A] text-white px-7 py-4 rounded-full font-medium flex items-center gap-2 transition-colors group shadow-lg shadow-black/10"
-                >
+                <Link
+                  href="/book-a-demo"
+                  className="bg-[#0A0A0A] text-white px-7 py-4 rounded-full font-medium flex items-center gap-2 transition-colors group shadow-lg shadow-black/10">
                   <span className="text-[15px] font-poppins-m">Book a Free Demo</span>
                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center transition-transform group-hover:translate-x-1">
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>
-                </button>
+                </Link>
               </div>
             </div>
 
             {/* Right Image/Phone of Card */}
-            <div className="flex-1 relative w-full flex justify-center sm:justify-end items-end sm:items-center mt-6 sm:mt-0 z-0">
+            <div className="hidden flex-1 relative w-full sm:flex justify-end items-center z-0">
                <div className="relative w-full max-w-[260px] sm:max-w-[280px] aspect-[2/3] rounded-2xl sm:rounded-3xl bg-gray-100 overflow-hidden">
                   <Image 
                     src="/images/whyUsV3.avif" 

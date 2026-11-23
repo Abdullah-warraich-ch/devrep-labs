@@ -175,6 +175,13 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+@media (width < 40rem) {
+  /* Keep the viewport as the booking action bar's scroll container. */
+  body:has(#demo-booking) {
+    overflow-x: clip;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

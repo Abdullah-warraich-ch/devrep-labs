@@ -3,11 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { IconArrowRight, IconBrowser, IconBox, IconChartBar, IconPhoto } from "@tabler/icons-react";
-import { useContactModal } from "@/context/ContactModalContext";
+import { IconArrowRight, IconBrowser, IconBox, IconChartBar } from "@tabler/icons-react";
 
 export default function WhatWeDoV3() {
-  const { openContactModal } = useContactModal();
 
   const capabilities = [
     { 
@@ -39,54 +37,28 @@ export default function WhatWeDoV3() {
   return (
     <section
       id="services"
-      className="relative w-full py-20 sm:py-32 bg-white overflow-hidden scroll-mt-14"
+      className="relative isolate overflow-hidden bg-[#191a20] pb-14 pt-16 text-white scroll-mt-14 sm:pb-20 sm:pt-24"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 360 32" preserveAspectRatio="none"
+        className="pointer-events-none absolute inset-x-0 top-0 h-5 w-full sm:h-9">
+        <path d="M0 0H360V2H146C137 2 132 4 126 10L111 24C105 30 100 32 91 32H0Z" fill="white" />
+      </svg>
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 440 190" fill="none"
+        className="pointer-events-none absolute -right-12 top-2 -z-10 w-52 text-white/10 sm:-right-6 sm:w-96">
+        {Array.from({ length: 12 }, (_, i) => (
+          <path key={i} d={`M-20 ${22 + i * 7} C120 ${-72 + i * 5} 185 ${226 + i * 3} 460 ${40 + i * 7}`} stroke="currentColor" />
+        ))}
+      </svg>
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         
-        {/* Top Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16 lg:mb-24">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl lg:text-[64px] font-poppins-m text-foreground leading-[1.1] max-w-3xl tracking-tight"
-          >
-            We Build <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary text-white mx-1 sm:mx-2 align-middle shadow-lg"><IconPhoto aria-hidden="true" size={32} /></span> Unmatched <br className="hidden lg:block" /> Digital Experiences
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-foreground/60 text-sm sm:text-base max-w-sm lg:text-left leading-relaxed"
-          >
-            Discover what makes us the most reliable and effective partner for your brand&apos;s digital transformation.
-          </motion.p>
-        </div>
-
-        {/* Sub Header Section */}
-        <div className="flex justify-between items-center mb-8">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-2"
-          >
-            <span className="text-foreground font-poppins-m text-sm sm:text-base">Our Core Services ✨</span>
-          </motion.div>
-          
-          <motion.button 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            onClick={openContactModal} 
-            className="flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-foreground text-background font-poppins-m text-xs sm:text-sm hover:bg-foreground/90 transition-colors shadow-sm"
-          >
-            <span>Discuss Your Project</span>
-            <IconArrowRight size={16} />
-          </motion.button>
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-6 sm:mb-12">
+          <h2 className="font-poppins-m text-[clamp(2.75rem,6vw,5.5rem)] leading-none tracking-[-0.055em]">
+            What we do<span className="text-primary">.</span>
+          </h2>
+          <a href="/contact" className="inline-flex items-center gap-3 rounded-full border border-white/30 px-5 py-3 font-poppins-m text-sm text-white transition-colors hover:bg-white/10">
+            Discuss your project <IconArrowRight size={16} aria-hidden="true" />
+          </a>
         </div>
 
         {/* Capabilities Grid */}
@@ -94,12 +66,9 @@ export default function WhatWeDoV3() {
           {capabilities.map((cap, index) => {
             const isFirst = index === 0;
             
-            // Define static gradients matching the design aesthetic
-            let bgClass = "";
-            if (index === 0) bgClass = "bg-gradient-to-br from-[#1e1f26] via-[#111112] to-[#0a0a0a] text-white shadow-xl";
-            else if (index === 1) bgClass = "bg-gradient-to-br from-[#ffffff] via-[#ffffff] to-[rgba(147,51,234,0.05)] border border-foreground/5 text-foreground";
-            else if (index === 2) bgClass = "bg-gradient-to-br from-[#ffffff] via-[#ffffff] to-[rgba(20,184,166,0.05)] border border-foreground/5 text-foreground";
-            else if (index === 3) bgClass = "bg-gradient-to-br from-[#ffffff] via-[#ffffff] to-[rgba(59,130,246,0.05)] border border-foreground/5 text-foreground";
+            const bgClass = isFirst
+              ? "bg-gradient-to-br from-[#1e1f26] via-[#111112] to-[#0a0a0a] text-white border border-white/15"
+              : "bg-white border border-foreground/5 text-foreground";
 
             return (
               <motion.div

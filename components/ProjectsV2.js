@@ -1,151 +1,82 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { IconChevronLeft, IconChevronRight, IconArrowRight } from "@tabler/icons-react";
-import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
+import { IconArrowLeft, IconArrowRight, IconArrowUpRight } from "@tabler/icons-react";
 import { projects } from "@/data/projects";
 
-// Mock metrics to match the reference UI
-const MOCK_METRICS = [
-  { value: "+40%", label: "Demo Booking" },
-  { value: "+25%", label: "Closing Rate" },
-  { value: "3x", label: "Engagement" },
-];
+const featured = projects.slice(0, 4);
+const controlClass = "grid size-11 cursor-pointer place-items-center rounded-full border border-foreground/20 transition-colors hover:bg-foreground/5";
 
 export default function ProjectsV2() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const landingProjects = projects.slice(0, 4);
+  const [index, setIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
+  const project = featured[index];
 
-  const handleNext = () => {
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % landingProjects.length);
-  };
-
-  const handlePrev = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + landingProjects.length) % landingProjects.length);
-  };
-
-  const project = landingProjects[currentIndex];
-
-  const variants = {
-    enter: { opacity: 0 },
-    center: { opacity: 1 },
-    exit: { opacity: 0 },
-  };
+  function move(offset) {
+    setIndex((current) => (current + offset + featured.length) % featured.length);
+  }
 
   return (
-    <section
-      id="projects"
-      className="relative w-full py-16 sm:py-24 bg-white overflow-hidden scroll-mt-14"
-      style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
-    >
-      <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-24">
-        
-        {/* Section Header */}
-        <div className="text-center mb-16 sm:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-poppins-m text-foreground tracking-tight leading-tight">
-            <span className="relative inline-block pb-2">
-              Our Projects
-              <HandDrawnUnderline />
-            </span>
+    <section id="projects" aria-labelledby="projects-heading" className="scroll-mt-14 bg-white px-5 py-16 font-poppins-r text-foreground sm:px-10 sm:py-24">
+      <div className="mx-auto max-w-6xl">
+        <header className="mb-7 flex flex-wrap items-end justify-between gap-4 sm:mb-10">
+          <h2 id="projects-heading" className="font-poppins-m text-[clamp(2.25rem,5vw,4rem)] leading-none tracking-[-0.055em]">
+            Selected work<span className="text-primary">.</span>
           </h2>
+          <Link href="/projects" className="inline-flex items-center gap-1.5 py-2 text-sm underline decoration-foreground/30 underline-offset-4 hover:decoration-current">
+            All projects <IconArrowUpRight size={16} aria-hidden="true" />
+          </Link>
+        </header>
+
+        <div className="isolate grid overflow-hidden rounded-3xl bg-[#f4f5f6]">
+          {featured.map((project, i) => (
+            <motion.article
+              key={project.id}
+              initial={false}
+              animate={{ opacity: i === index ? 1 : 0 }}
+              inert={i !== index}
+              aria-hidden={i !== index}
+              style={{ zIndex: i === index ? 1 : 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.4, ease: "easeInOut" }}
+              className="col-start-1 row-start-1 grid min-w-0 grid-rows-[auto_1fr] bg-[#f4f5f6] lg:grid-cols-[1.45fr_1fr] lg:grid-rows-1"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:min-h-96">
+                <Image src={project.image} alt={project.title + " website preview"} fill
+                  sizes="(min-width: 1280px) 680px, (min-width: 1024px) 56vw, 100vw"
+                  className="object-cover" />
+              </div>
+              <div className="flex flex-col items-start p-6 sm:p-9 lg:p-10">
+                <p className="text-xs font-poppins-m text-foreground/65">{project.category}</p>
+                <h3 className="mt-4 text-balance font-poppins-m text-3xl leading-tight tracking-tight lg:text-4xl">{project.title}</h3>
+                <p className="mt-3 max-w-lg text-sm leading-relaxed text-foreground/75">{project.description}</p>
+                <ul aria-label="Technologies" className="mt-5 flex flex-wrap gap-x-4 gap-y-1 text-xs text-foreground/65">
+                  {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                </ul>
+                <div className="mt-auto flex flex-wrap items-center gap-4 pt-8">
+                  <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-poppins-m text-background hover:opacity-85">
+                    Live preview <IconArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                  {project.caseStudy && <Link href={project.caseStudy} className="text-sm underline underline-offset-4">Case study</Link>}
+                </div>
+              </div>
+            </motion.article>
+          ))}
         </div>
 
-        {/* Carousel Wrapper */}
-        <div className="relative w-full flex justify-center items-center group/carousel">
-          
-          {/* Static Dark Card Container */}
-          <div className="bg-surface border border-foreground/5 w-full rounded-[32px] sm:rounded-[40px] p-0 relative overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.1)]">
-            
-            {/* Highlighter Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[150px] bg-primary/30 blur-[120px] rounded-full pointer-events-none mix-blend-screen z-0" />
-            
-            {/* Top Right Navigation Buttons (Absolute Overlay) */}
-            <div className="absolute top-6 right-6 sm:top-8 sm:right-10 z-30 flex gap-2 sm:gap-3">
-              <button onClick={handlePrev} className="w-10 h-10 sm:w-12 sm:h-12 bg-foreground/10 backdrop-blur hover:bg-foreground/20 rounded-full flex items-center justify-center text-foreground transition-colors shadow-sm active:scale-95">
-                <IconChevronLeft size={24} />
-              </button>
-              <button onClick={handleNext} className="w-10 h-10 sm:w-12 sm:h-12 bg-foreground hover:bg-foreground/90 rounded-full flex items-center justify-center text-background transition-colors shadow-md active:scale-95">
-                <IconChevronRight size={24} />
-              </button>
-            </div>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.3, ease: "linear" }}
-                style={{ willChange: "opacity" }}
-                className="flex flex-col lg:flex-row w-full items-stretch"
-              >
-                {/* Left Side: Dark Image Container with Padding */}
-                <div className="w-full lg:w-[45%] aspect-[4/3] lg:aspect-auto p-3 sm:p-5 lg:p-6 bg-transparent flex flex-col">
-                  <div className="relative w-full h-full flex-1 rounded-[20px] sm:rounded-[28px] overflow-hidden shadow-inner">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      quality={90}
-                      className="object-cover object-center"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
-                  </div>
-                </div>
-
-                {/* Right Side: Text & Metrics */}
-                <div className="w-full lg:w-[55%] flex flex-col justify-center p-6 sm:p-8 lg:p-12 relative z-10 min-h-[420px] lg:min-h-[460px]">
-                  
-                  {/* Title */}
-                  <h3 className="text-[32px] sm:text-[38px] lg:text-[42px] font-poppins-sb leading-[1.05] tracking-tight mb-5 text-foreground">
-                    {project.title}
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className="text-foreground/60 font-poppins-r text-sm sm:text-base leading-[1.7] mb-8 pr-4">
-                    {project.description}
-                  </p>
-
-                  {/* Action Button */}
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="inline-flex items-center gap-3 bg-foreground text-background font-poppins-sb text-sm tracking-wide px-6 py-3 rounded-full hover:bg-foreground/90 transition-colors w-fit mb-12 shadow-md"
-                  >
-                    Live Preview
-                    <span className="w-6 h-6 rounded-full bg-background/20 flex items-center justify-center transition-colors">
-                      <IconArrowRight size={14} className="text-background" />
-                    </span>
-                  </a>
-
-                  {/* Tech Stack Row */}
-                  <div className="mt-auto pt-6 border-t border-foreground/5 w-full">
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                      {project.tags.map((tag, i) => (
-                        <span 
-                          key={i} 
-                          className="inline-flex items-center px-4 py-2 rounded-full bg-foreground/[0.03] border border-foreground/10 text-[12px] sm:text-[13px] text-foreground/80 font-poppins-r transition-colors hover:bg-foreground/10"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                </div>
-              </motion.div>
-            </AnimatePresence>
-            
+        <div className="mt-4 flex items-center justify-between">
+          <div aria-hidden="true" className="flex gap-1.5">
+            {featured.map((item, i) => (
+              <span key={item.id} className={`h-1 rounded-full ${i === index ? "w-8 bg-primary" : "w-3 bg-foreground/20"}`} />
+            ))}
           </div>
-
+          <p className="sr-only" aria-live="polite">Project {index + 1} of {featured.length}, {project.title}</p>
+          <div className="flex gap-2">
+            <button type="button" onClick={() => move(-1)} aria-label="Previous project" className={controlClass}><IconArrowLeft size={18} /></button>
+            <button type="button" onClick={() => move(1)} aria-label="Next project" className={controlClass}><IconArrowRight size={18} /></button>
+          </div>
         </div>
       </div>
     </section>

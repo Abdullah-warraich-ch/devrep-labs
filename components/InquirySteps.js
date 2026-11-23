@@ -10,8 +10,22 @@ const stepIcons = {
   "Meeting time": IconClock, "Your details": IconUser,
 };
 
-function InquiryProgress({ labels, current }) {
+function InquiryProgress({ labels, current, compact }) {
   const reduced = useReducedMotion();
+  if (compact) {
+    const complete = current === labels.length;
+    return (
+      <div className="mb-8 sm:mb-10">
+        <div className="mb-2 flex items-baseline justify-between gap-4 text-sm">
+          <span className="font-poppins-m">{complete ? "Booking request complete" : labels[current]}</span>
+          <span className="tabular-nums text-foreground/65">{complete ? "Complete" : `Step ${current + 1} of ${labels.length}`}</span>
+        </div>
+        <div aria-hidden="true" className="flex gap-1">
+          {labels.map((label, index) => <span key={label} className={`h-1 flex-1 rounded-full ${index <= current ? "bg-primary" : "bg-foreground/10"}`} />)}
+        </div>
+      </div>
+    );
+  }
   return (
     <ol aria-label="Form progress" className="mb-10 flex w-full items-center sm:mb-14">
       {labels.map((label, index) => {
@@ -39,12 +53,12 @@ function InquiryProgress({ labels, current }) {
   );
 }
 
-export function InquirySuccess({ labels, title, description, action, href, onRestart }) {
+export function InquirySuccess({ labels, title, description, action, href, onRestart, compactProgress }) {
   const actionClass = "mt-7 cursor-pointer rounded-full border border-foreground/20 px-5 py-3 text-sm hover:bg-foreground/5";
   const reduced = useReducedMotion();
   return (
     <>
-      <InquiryProgress labels={labels} current={labels.length} />
+      <InquiryProgress labels={labels} current={labels.length} compact={compactProgress} />
       <div className="my-auto flex flex-col items-center px-2 pb-12 text-center">
         <div aria-hidden="true" className="mb-6 grid size-16 place-items-center rounded-full bg-primary/10 text-primary">
           <svg viewBox="0 0 32 32" className="size-9" fill="none">
@@ -121,7 +135,7 @@ export function InquiryChoices({ name, options, value, onChange }) {
   );
 }
 
-export default function InquirySteps({ labels, titles, children, onSubmit, busy, error, submitLabel }) {
+export default function InquirySteps({ labels, titles, children, onSubmit, busy, error, submitLabel, compactProgress, stickyMobileActions }) {
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(0);
   const focusHeading = useCallback((node) => {
@@ -144,7 +158,7 @@ export default function InquirySteps({ labels, titles, children, onSubmit, busy,
 
   return (
     <form className="flex flex-1 flex-col" onSubmit={advance} aria-busy={busy}>
-      <InquiryProgress labels={labels} current={step} />
+      <InquiryProgress labels={labels} current={step} compact={compactProgress} />
       <motion.section key={step} initial={{ opacity: 0, x: reduceMotion ? 0 : direction * 18 }}
         animate={{ opacity: 1, x: 0 }} transition={{ duration: reduceMotion ? 0 : 0.22 }}>
         <h2 id="inquiry-question" tabIndex={-1} ref={focusHeading}
@@ -154,7 +168,7 @@ export default function InquirySteps({ labels, titles, children, onSubmit, busy,
         <fieldset aria-labelledby="inquiry-question" disabled={busy} className="space-y-5">{Children.toArray(children)[step]}</fieldset>
       </motion.section>
       {last && error && <p role="alert" className="mt-4 text-sm text-red-600">{error}</p>}
-      <div className="mt-auto flex items-center justify-between gap-4 pt-8">
+      <div className={`mt-auto flex items-center justify-between gap-4 pt-8 ${stickyMobileActions ? "max-sm:sticky max-sm:bottom-0 max-sm:z-10 max-sm:-mx-5 max-sm:bg-background max-sm:px-5 max-sm:pt-3 max-sm:pb-[max(0.75rem,env(safe-area-inset-bottom))]" : ""}`}>
         <button type="button" disabled={step === 0 || busy} onClick={() => move(-1)}
           className="flex min-h-12 cursor-pointer items-center gap-2 rounded-full border border-foreground/25 px-5 text-sm font-poppins-m transition-colors enabled:hover:bg-foreground/5 disabled:cursor-default disabled:opacity-40">
           <IconArrowLeft size={18} aria-hidden="true" /> Back

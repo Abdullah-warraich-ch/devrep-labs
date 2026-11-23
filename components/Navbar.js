@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { IconMenu2, IconX, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import BrandLogo from "@/components/ui/BrandLogo";
-import { useContactModal } from "@/context/ContactModalContext";
 
 const NAV_ITEMS = [
   { name: "Home", href: "/" },
@@ -21,16 +20,8 @@ const NAV_ITEMS = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
-  const { openContactModal } = useContactModal();
 
   const handleNavClick = (e, item) => {
-    if (item.isContactTrigger) {
-      if (e) e.preventDefault();
-      openContactModal();
-      setMobileOpen(false);
-      return;
-    }
-
     if (item.href?.startsWith("/#") && pathname === "/") {
       if (e) e.preventDefault();
       const targetId = item.href.replace("/#", "");
@@ -54,7 +45,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="relative z-30 w-full bg-transparent">
+      <header className="relative z-30 w-full bg-white">
         <div className="w-full px-6 sm:px-10 lg:px-16 pt-6">
           <div className="flex items-center justify-between border-b border-foreground/10 pb-6">
             {/* Logo */}
@@ -64,32 +55,6 @@ export default function Navbar() {
             <nav className="hidden md:flex items-center gap-8">
               {NAV_ITEMS.map((item) => {
                 const active = isItemActive(item);
-
-                if (item.isContactTrigger) {
-                  return (
-                    <button
-                      key={item.name}
-                      type="button"
-                      onClick={(e) => handleNavClick(e, item)}
-                      className={`relative cursor-pointer border-none bg-transparent text-[14px] transition-colors duration-300 group ${
-                        active ? "text-foreground font-poppins-m" : "text-foreground/65"
-                      }`}
-                      style={{
-                        fontFamily: "'poppins-r', 'Poppins', sans-serif",
-                        lineHeight: "1",
-                      }}
-                    >
-                      <span className="group-hover:text-foreground transition-colors duration-300">
-                        {item.name}
-                      </span>
-                      <span
-                        className={`absolute -bottom-2 left-1/2 -translate-x-1/2 h-[2px] bg-foreground transition-all duration-300 ${
-                          active ? "w-full" : "w-0 group-hover:w-[60%]"
-                        }`}
-                      />
-                    </button>
-                  );
-                }
 
                 return (
                   <Link
@@ -119,17 +84,15 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <div className="hidden md:flex items-center">
-              <button
-                type="button"
-                onClick={() => openContactModal({ mode: "demo" })}
+              <Link
+                href="/contact"
                 className="relative overflow-hidden group cursor-pointer border-none rounded-full bg-foreground text-background text-[14px] px-8 py-3 shadow-[0_4px_14px_color-mix(in_srgb,var(--foreground)_10%,transparent)] hover:shadow-[0_6px_20px_color-mix(in_srgb,var(--foreground)_20%,transparent)] transition-all duration-300"
-                style={{ fontFamily: "'poppins-m', 'Poppins', sans-serif" }}
-              >
+                style={{ fontFamily: "'poppins-m', 'Poppins', sans-serif" }}>
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300">
                   Let&apos;s Build Together
                 </span>
                 <span className="absolute inset-0 h-full w-full bg-primary transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out rounded-full"></span>
-              </button>
+              </Link>
             </div>
 
             {/* Mobile Hamburger */}
@@ -165,7 +128,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
-              className="relative flex flex-col justify-between p-6 h-full bg-background border-l border-foreground/10 z-10"
+              className="relative flex flex-col justify-between p-6 h-full bg-white border-l border-foreground/10 z-10"
               style={{
                 width: "300px",
                 maxWidth: "85vw",
@@ -190,23 +153,6 @@ export default function Navbar() {
                   {NAV_ITEMS.map((item) => {
                     const active = isItemActive(item);
 
-                    if (item.isContactTrigger) {
-                      return (
-                        <button
-                          key={item.name}
-                          type="button"
-                          onClick={(e) => handleNavClick(e, item)}
-                          className={`cursor-pointer border-none text-left rounded-xl transition-all duration-150 ease-in-out font-poppins-m text-[15px] p-3 w-full ${
-                            active
-                              ? "bg-foreground/10 text-foreground font-semibold"
-                              : "bg-transparent text-foreground/75 hover:bg-foreground/5 hover:text-foreground"
-                          }`}
-                        >
-                          {item.name}
-                        </button>
-                      );
-                    }
-
                     return (
                       <Link
                         key={item.name}
@@ -227,17 +173,14 @@ export default function Navbar() {
 
               {/* CTA */}
               <div className="pt-5 border-t border-foreground/10">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setMobileOpen(false);
-                    openContactModal({ mode: "demo" });
-                  }}
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
                   className="w-full flex items-center justify-center gap-2.5 cursor-pointer border-none rounded-full bg-foreground text-background py-3 px-5 font-poppins-sb text-[14px] hover:bg-foreground/90 transition-colors"
                 >
                   <span>Start Your Project</span>
                   <IconArrowRight size={15} strokeWidth={2.5} />
-                </button>
+                </Link>
               </div>
             </motion.aside>
           </div>

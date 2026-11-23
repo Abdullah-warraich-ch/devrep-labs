@@ -5,44 +5,14 @@ import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import { useContactModal } from "@/context/ContactModalContext";
 
 export default function HeroV2() {
-  const { openContactModal } = useContactModal();
   return (
     <section
       id="hero-v2"
-      className="relative w-full min-h-[60vh] lg:min-h-[70vh]  overflow-hidden flex flex-col"
+      className="relative w-full min-h-[60vh] lg:min-h-[70vh] bg-white overflow-hidden flex flex-col"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
-      {/* ── Premium CSS Background ── */}
-      <div className="absolute inset-0 z-0 bg-background overflow-hidden">
-        {/* Subtle glow mesh */}
-        <div className="absolute top-[-20%] left-[10%] w-[50%] h-[50%] rounded-full bg-primary/20 blur-[130px] opacity-40 pointer-events-none mix-blend-screen"></div>
-        <div className="absolute bottom-[-10%] right-[10%] w-[40%] h-[50%] rounded-full bg-indigo-600/10 blur-[120px] opacity-30 pointer-events-none mix-blend-screen"></div>
-        
-        {/* Red Circle Bottom Right */}
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full bg-red-500 opacity-10 pointer-events-none translate-x-1/2 translate-y-1/2"></div>
-        
-        {/* Teal Highlighter Bottom Left */}
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] rounded-full bg-teal-400 opacity-20 blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/2"></div>
-        
-        {/* Geometric strict grid overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] pointer-events-none"></div>
-      </div>
-
-      {/* ── Tilted blue panel — sits behind content, above bg image ── */}
-      {/* <div
-        className="absolute left-[-8%] z-10 pointer-events-none transform rotate-[20deg]"
-        style={{
-          top: "-30%",
-          height: "160%",
-          width: "50%",
-          backgroundColor: "var(--primary, #2563EB)",
-          opacity: 1,
-        }}
-      /> */}
-
       {/* ── Clean & Minimalist Framing Corner (Top-Right Sky) ── */}
       <div className="hidden lg:block absolute top-28 right-16 sm:right-24 z-10 pointer-events-none select-none opacity-40 hover:opacity-60 transition-opacity duration-300">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,11 +36,11 @@ export default function HeroV2() {
 
           {/* Heading */}
           <h1
-            className="text-foreground font-poppins-m tracking-tight leading-[1.05] mb-6"
-            style={{ fontSize: "clamp(42px, 8vw, 100px)" }}
+            className="text-foreground font-poppins-m tracking-tight whitespace-nowrap leading-[1.05] mb-6"
+            style={{ fontSize: "min(8vw, 100px)" }}
           >
-            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <span className={styles.word}>We build </span></span>
-            <span className={`${styles.icon} inline-flex items-center justify-center align-middle mx-2 sm:mx-3 bg-primary text-white rounded-full w-[0.85em] h-[0.85em] shadow-lg`}>
+            <span className="inline-flex items-center justify-center align-middle mx-[0.09em] overflow-hidden"> <span className={styles.word}>We build </span></span>
+            <span className={`${styles.icon} inline-flex items-center justify-center align-middle mx-[0.09em] bg-primary text-white rounded-full w-[0.85em] h-[0.85em] shadow-lg`}>
               <svg aria-hidden="true" viewBox="0 0 24 24" className="size-[0.5em]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="8.5" />
                 <ellipse cx="11" cy="11" rx="3.8" ry="8.5" />
@@ -78,10 +48,10 @@ export default function HeroV2() {
                 <path d="m13 12 3.5 10 1.6-4 4-1.6z" fill="currentColor" stroke="var(--primary)" strokeWidth="1" />
               </svg>
             </span>
-            <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <span className={styles.word}>websites </span></span> <br />
-            <span className="text-foreground/40 inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <span className={styles.word}>for modern </span></span>
+            <span className="inline-flex items-center justify-center align-middle mx-[0.09em] overflow-hidden"> <span className={styles.word}>websites </span></span> <br />
+            <span className="text-foreground/40 inline-flex items-center justify-center align-middle mx-[0.09em] overflow-hidden"> <span className={styles.word}>for modern </span></span>
             <span className="relative inline-block text-foreground/40">
-              <span className="inline-flex items-center justify-center align-middle mx-2 sm:mx-3 overflow-hidden"> <span className={styles.word}>brands.</span></span>
+              <span className="inline-flex items-center justify-center align-middle mx-[0.09em] overflow-hidden"> <span className={styles.word}>brands.</span></span>
               <span className="absolute left-0 -bottom-1 h-1.5 bg-foreground/10 rounded-full w-full overflow-hidden">
                 <motion.span
                   initial={{ left: "-100%" }}
@@ -100,27 +70,25 @@ export default function HeroV2() {
           {/* Sub-copy */}
           <p
             className={`${styles.detail} text-foreground/60 font-poppins-r leading-relaxed max-w-2xl mx-auto mb-12`}
-            style={{ "--delay": "440ms", fontSize: "clamp(16px, 1.5vw, 20px)" }}
+            style={{ "--delay": "440ms", fontSize: "clamp(15px, 1.4vw, 18px)" }}
           >
             We design and build elite web platforms and intelligent AI solutions that elevate your brand and convert visitors into loyal customers.
           </p>
 
           {/* CTAs */}
           <div
-            className={`${styles.detail} flex items-center gap-4 sm:gap-6 flex-wrap justify-center`}
+            className={`${styles.detail} flex items-center gap-3 sm:gap-6 whitespace-nowrap justify-center`}
             style={{ "--delay": "600ms" }}
           >
-            <button
-              type="button"
-              onClick={openContactModal}
-              className="flex items-center justify-center px-8 py-4 bg-foreground text-background text-[15px] font-poppins-m rounded-full transition-colors duration-200 hover:bg-foreground/90 border-none cursor-pointer"
-            >
+            <Link
+              href="/contact"
+              className="flex items-center justify-center px-3.5 py-3 sm:px-8 sm:py-4 bg-foreground text-background text-[13px] sm:text-[15px] font-poppins-m rounded-full transition-colors duration-200 hover:bg-foreground/90 border-none cursor-pointer">
               Start a Project
-            </button>
+            </Link>
 
             <Link
               href="/projects"
-              className="group flex items-center gap-2 bg-transparent text-foreground/80 text-[15px] font-poppins-m transition-colors duration-300 hover:text-foreground border-none cursor-pointer px-4"
+              className="group flex items-center gap-2 bg-transparent text-foreground/80 text-[13px] sm:text-[15px] font-poppins-m transition-colors duration-300 hover:text-foreground border-none cursor-pointer sm:px-4"
             >
               <span>Explore our work</span>
               <IconArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
