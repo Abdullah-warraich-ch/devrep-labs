@@ -10,6 +10,7 @@ export const viewport = {
 };
 
 export const metadata = {
+  applicationName: "DevRep Labs",
   metadataBase: new URL("https://www.devrep.site"),
 
   title: {
@@ -91,6 +92,7 @@ export const metadata = {
   },
 
   icons: {
+    icon: [{ url: "/favicon.ico", sizes: "96x96", type: "image/x-icon" }],
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
       { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },

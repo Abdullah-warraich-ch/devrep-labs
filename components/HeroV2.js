@@ -52,7 +52,7 @@ export default function HeroV2() {
           </span>
         </h1>
         <div className={styles.actions}>
-          <Link href="/contact">Start a project</Link>
+          <Link href="/book-a-demo">Book a Free Demo</Link>
           <Link href="/projects">Explore our work</Link>
         </div>
       </div>

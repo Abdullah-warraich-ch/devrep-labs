@@ -7,6 +7,7 @@ import { IconArrowUpRight, IconMenu2, IconX } from "@tabler/icons-react";
 import BrandLogo from "@/components/ui/BrandLogo";
 
 const primary = [
+  { name: "Book a Free Demo", href: "/book-a-demo" },
   { name: "Services", href: "/services" },
   { name: "Projects", href: "/projects" },
   { name: "About", href: "/about" },
@@ -14,7 +15,6 @@ const primary = [
 ];
 const secondary = [
   { name: "Home", href: "/" },
-  { name: "Book a demo", href: "/book-a-demo" },
   { name: "FAQ", href: "/#faq" },
 ];
 
