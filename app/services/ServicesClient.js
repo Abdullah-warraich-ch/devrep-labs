@@ -22,6 +22,7 @@ export default function ServicesClient() {
     {
       id: "web-apps",
       title: "Custom Web Software",
+      href: "/services/web-application-development",
       icon: IconCode,
       description:
         "Custom online portals, client dashboards, and tools built specifically around how your company operates.",
@@ -29,6 +30,7 @@ export default function ServicesClient() {
     {
       id: "modern-websites",
       title: "Modern Business Websites",
+      href: "/services/custom-web-development",
       icon: IconDeviceDesktop,
       description:
         "Fast, beautiful, and easy-to-use websites designed to build instant trust and turn visitors into paying clients.",
@@ -36,6 +38,7 @@ export default function ServicesClient() {
     {
       id: "ai-solutions",
       title: "Smart AI & Time-Saving Tools",
+      href: "/services/ai-automation",
       icon: IconBrain,
       description:
         "Helpful AI assistants, automated chat support, and smart tools that handle repetitive daily tasks for you.",
@@ -43,6 +46,7 @@ export default function ServicesClient() {
     {
       id: "ecommerce",
       title: "Online Stores & Payments",
+      href: "/services/ecommerce-development",
       icon: IconShoppingCart,
       description:
         "Smooth online shops with easy checkout and card payments so your customers can buy without hassle.",
@@ -50,6 +54,7 @@ export default function ServicesClient() {
     {
       id: "ui-ux",
       title: "Website & App Design",
+      href: "/services/ui-ux-design",
       icon: IconPalette,
       description:
         "Clean, easy-to-navigate designs and visual previews so you can see and test everything before we build it.",
@@ -149,7 +154,7 @@ export default function ServicesClient() {
               <Link href="/services/custom-web-development" className="py-2 text-sm underline underline-offset-4">Explore custom web development</Link>
             </div>
             <div className="grid gap-x-12 md:grid-cols-2">
-              {services.map((service) => <ServiceCard key={service.id} {...service} href="/contact" />)}
+              {services.map((service) => <ServiceCard key={service.id} {...service} href={service.href || "/contact"} />)}
             </div>
           </section>
         </div>

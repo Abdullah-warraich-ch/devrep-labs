@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { IconArrowRight, IconBrowser, IconBox, IconChartBar } from "@tabler/icons-react";
@@ -9,7 +10,8 @@ export default function WhatWeDoV3() {
 
   const capabilities = [
     { 
-      title: "Custom Websites", 
+      title: "Custom Website Development",
+      href: "/services/custom-web-development",
       desc: "Beautiful, fast, and responsive websites designed to engage your visitors.", 
       icon: IconBrowser,
       iconStyle: "bg-white text-black shadow-md",
@@ -17,7 +19,8 @@ export default function WhatWeDoV3() {
       imgClassName: "top-2 -right-10 w-[220px] h-[220px] sm:top-[-20px] sm:-right-16 sm:w-[280px] sm:h-[280px]"
     },
     { 
-      title: "Web Applications", 
+      title: "Web Application Development",
+      href: "/services/web-application-development",
       desc: "Powerful custom software tailored specifically to solve your business needs.", 
       icon: IconBox,
       iconStyle: "bg-purple-400 text-black",
@@ -92,7 +95,7 @@ export default function WhatWeDoV3() {
                 <h3 className={`text-2xl sm:text-[28px] font-poppins-m mb-6 mt-16 leading-[1.2] relative z-10 ${
                   isFirst ? "text-white" : "text-foreground"
                 }`}>
-                  {cap.title}
+                  {cap.href ? <Link href={cap.href} className="hover:underline">{cap.title}</Link> : cap.title}
                 </h3>
                 
                 <p className={`text-sm sm:text-[15px] leading-relaxed relative z-10 ${
@@ -105,6 +108,11 @@ export default function WhatWeDoV3() {
           })}
         </div>
 
+        <nav aria-label="More development services" className="mt-8 flex flex-wrap gap-5">
+          <Link className="underline underline-offset-4" href="/services/ecommerce-development">Ecommerce Website Development</Link>
+          <Link className="underline underline-offset-4" href="/services/ai-automation">AI Automation for Businesses</Link>
+          <Link className="underline underline-offset-4" href="/services/ui-ux-design">UI UX Design for Websites and Apps</Link>
+        </nav>
       </div>
     </section>
   );

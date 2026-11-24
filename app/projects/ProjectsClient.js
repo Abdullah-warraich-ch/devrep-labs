@@ -31,10 +31,10 @@ export default function ProjectsClient() {
       <main className="mx-auto max-w-7xl px-5 pb-16 sm:px-10 lg:px-16">
         <header className="grid items-end gap-5 py-12 sm:py-16 md:grid-cols-[1.3fr_1fr]">
           <h1 className="font-poppins-m text-[clamp(3rem,8vw,7rem)] leading-none tracking-[-0.065em]">
-            Our projects<span className="text-primary">.</span>
+            Websites and web applications we have built
           </h1>
           <p className="max-w-sm text-sm leading-relaxed text-foreground/70 sm:text-base md:justify-self-end">
-            Explore the websites, stores and tools we’ve built. Open a live project to see how it works.
+            Explore selected work across business websites, ecommerce, booking flows, internal tools and AI-led products. Each project shows the problem, the decisions behind the build, and the result delivered to the client or concept.
           </p>
         </header>
         <div role="group" aria-label="Filter projects" className="mb-7 flex flex-wrap items-center gap-x-5 gap-y-1 border-y border-foreground/15 sm:mb-10 sm:gap-x-8">
@@ -45,6 +45,10 @@ export default function ProjectsClient() {
             </button>
           ))}
         </div>
+        <section className="mb-8 max-w-2xl">
+          <h2 className="mb-2 font-poppins-m text-2xl">Work designed around real customer journeys</h2>
+          <p>A good website or product is not only a polished screen. It gives visitors a clear next step, helps teams manage everyday work, and makes the service easier to understand. Open a case study to see the product decisions, features and technology used.</p>
+        </section>
         <p aria-live="polite" className="sr-only">{filteredProjects.length} projects shown</p>
         <section aria-label="Project gallery" className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:gap-y-14">
           {filteredProjects.map((project, index) => {
@@ -71,7 +75,7 @@ export default function ProjectsClient() {
                     <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-1.5 font-poppins-m text-sm hover:underline">
                       Live preview <IconArrowUpRight aria-hidden="true" size={16} className="text-primary" />
                     </a>
-                    {project.caseStudy && <Link href={project.caseStudy} className="inline-flex min-h-11 items-center text-sm underline underline-offset-4">Read case study</Link>}
+                    {project.caseStudy && <Link href={project.caseStudy} className="inline-flex min-h-11 items-center text-sm underline underline-offset-4">{project.title} {project.id <= 2 ? "concept case study" : "case study"}</Link>}
                   </div>
                 </div>
               </article>

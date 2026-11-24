@@ -2,6 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "AutoVault Car Dealer",
+    caseStudy: "/projects/autovault",
     category: "Automotive • E-Commerce Platform",
     description: "Premium automotive dealership platform featuring interactive vehicle inventory, smart search filters, and showcase details.",
     image: "/projects/mockup-car-vault.webp",
@@ -21,6 +22,7 @@ export const projects = [
   {
     id: 3,
     title: "Ustaad",
+    caseStudy: "/projects/ustaad",
     category: "AI Platform • Education",
     description: "AI Tutor Finder platform intelligently connecting students with experienced educators.",
     image: "/projects/ustaad-mockup.webp",
@@ -30,6 +32,7 @@ export const projects = [
   {
     id: 4,
     title: "Rehloo, Find A Hostel",
+    caseStudy: "/projects/rehloo",
     category: "Full-Stack Web App • Booking",
     description: "Comprehensive hostel discovery and booking platform built with modern web architecture.",
     image: "/projects/rehloo mockup.webp",
@@ -39,6 +42,7 @@ export const projects = [
   {
     id: 5,
     title: "Quiz App",
+    caseStudy: "/projects/quiz-app",
     category: "Interactive Web App • EdTech",
     description: "Real-time dynamic quiz platform with instant scoring and engaging user interfaces.",
     image: "/projects/quiz-mockup.webp",
@@ -48,6 +52,7 @@ export const projects = [
   {
     id: 6,
     title: "Ramadan Time",
+    caseStudy: "/projects/ramadan-time",
     category: "GPS Web Application",
     description: "GPS-powered Ramadan companion app delivering accurate local prayer and fasting schedules.",
     image: "/projects/ramadan-mockup.webp",
@@ -57,6 +62,7 @@ export const projects = [
   {
     id: 7,
     title: "Simple E-Commerce Page",
+    caseStudy: "/projects/ecommerce-product-page",
     category: "E-Commerce",
     description: "High-performance product showcase with interactive cart flow and responsive design.",
     link: "https://e-commerce-product-page-beta-sand.vercel.app/",

@@ -13,9 +13,16 @@ export function articleMetadata(title, description, path) {
   };
 }
 
-export default function ArticlePage({ title, parent, introduction, children }) {
+export default function ArticlePage({ title, parent, introduction, children, path }) {
   return (
     <>
+      {path && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [{ name: "Home", href: "/" }, parent, { name: title, href: path }].map(({ name, href }, index) => ({
+          "@type": "ListItem", position: index + 1, name, item: new URL(href, "https://www.devrep.site").href,
+        })),
+      }).replace(/</g, "\\u003c") }} />}
       <Navbar />
       <main className="mx-auto w-full max-w-4xl px-6 py-10 sm:py-16">
         <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm">
