@@ -1,18 +1,18 @@
 import ProjectsClient from "./ProjectsClient";
 
 export const metadata = {
-  title: "Web Design and Web App Projects",
+  title: "Web Development Portfolio",
   description:
-    "Explore websites, ecommerce stores, booking platforms and web applications built by DevRep Labs. See the problems solved, the approach, and the finished work.",
+    "Browse business website examples and custom web apps for finding a room, choosing a tutor and shopping on a phone. Open a case study to see how each project works.",
 
   alternates: {
     canonical: "/projects",
   },
 
   openGraph: {
-    title: "Web Design and Web App Projects | DevRep Labs",
+    title: "Web Development Portfolio | DevRep Labs",
     description:
-      "Explore websites, ecommerce stores, booking platforms and web applications built by DevRep Labs. See the problems solved, the approach, and the finished work.",
+      "Browse business website examples and custom web apps for finding a room, choosing a tutor and shopping on a phone. Open a case study to see how each project works.",
     url: "https://www.devrep.site/projects",
     siteName: "DevRep Labs",
     images: [
@@ -20,7 +20,7 @@ export const metadata = {
         url: "/share-card.png",
         width: 1200,
         height: 630,
-        alt: "DevRep Labs Web Design and Web App Projects",
+        alt: "DevRep Labs Web Development Portfolio",
       },
     ],
     type: "website",
@@ -29,9 +29,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Web Design and Web App Projects | DevRep Labs",
+    title: "Web Development Portfolio | DevRep Labs",
     description:
-      "Explore websites, ecommerce stores, booking platforms and web applications built by DevRep Labs. See the problems solved, the approach, and the finished work.",
+      "Browse business website examples and custom web apps for finding a room, choosing a tutor and shopping on a phone. Open a case study to see how each project works.",
     images: ["/share-card.png"],
   },
 };

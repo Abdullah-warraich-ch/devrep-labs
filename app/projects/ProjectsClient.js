@@ -31,10 +31,10 @@ export default function ProjectsClient() {
       <main className="mx-auto max-w-7xl px-5 pb-16 sm:px-10 lg:px-16">
         <header className="grid items-end gap-5 py-12 sm:py-16 md:grid-cols-[1.3fr_1fr]">
           <h1 className="font-poppins-m text-[clamp(3rem,8vw,7rem)] leading-none tracking-[-0.065em]">
-            Websites and web applications we have built
+            Websites and web apps we have built
           </h1>
           <p className="max-w-sm text-sm leading-relaxed text-foreground/70 sm:text-base md:justify-self-end">
-            Explore selected work across business websites, ecommerce, booking flows, internal tools and AI-led products. Each project shows the problem, the decisions behind the build, and the result delivered to the client or concept.
+            Browse business website examples and custom web apps for finding a room, choosing a tutor and shopping on a phone. Open a case study to see how each project works.
           </p>
         </header>
         <div role="group" aria-label="Filter projects" className="mb-7 flex flex-wrap items-center gap-x-5 gap-y-1 border-y border-foreground/15 sm:mb-10 sm:gap-x-8">

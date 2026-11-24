@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 import Link from "next/link";
 import {
@@ -21,50 +20,50 @@ export default function ServicesClient() {
   const services = [
     {
       id: "web-apps",
-      title: "Custom Web Software",
+      title: "Web application development",
       href: "/services/web-application-development",
       icon: IconCode,
       description:
-        "Custom online portals, client dashboards, and tools built specifically around how your company operates.",
+        "Give your staff and customers a shared place to manage requests and bookings.",
     },
     {
       id: "modern-websites",
-      title: "Modern Business Websites",
+      title: "Custom website development",
       href: "/services/custom-web-development",
       icon: IconDeviceDesktop,
       description:
-        "Fast, beautiful, and easy-to-use websites designed to build instant trust and turn visitors into paying clients.",
+        "Explain your services, show your work and give visitors a clear way to enquire.",
     },
     {
       id: "ai-solutions",
-      title: "Smart AI & Time-Saving Tools",
+      title: "AI workflow automation",
       href: "/services/ai-automation",
       icon: IconBrain,
       description:
-        "Helpful AI assistants, automated chat support, and smart tools that handle repetitive daily tasks for you.",
+        "Sort incoming enquiries and prepare replies for someone on your team to review.",
     },
     {
       id: "ecommerce",
-      title: "Online Stores & Payments",
+      title: "Ecommerce website development",
       href: "/services/ecommerce-development",
       icon: IconShoppingCart,
       description:
-        "Smooth online shops with easy checkout and card payments so your customers can buy without hassle.",
+        "Help shoppers choose a product, check delivery costs and pay.",
     },
     {
       id: "ui-ux",
-      title: "Website & App Design",
+      title: "UI/UX design services",
       href: "/services/ui-ux-design",
       icon: IconPalette,
       description:
-        "Clean, easy-to-navigate designs and visual previews so you can see and test everything before we build it.",
+        "Try your main screens on a phone before development starts.",
     },
     {
       id: "optimization",
       title: "Speed, Security & Care",
       icon: IconShieldCheck,
       description:
-        "We keep your website super fast, protected from cyber threats, and running smoothly 24/7 without crashes.",
+        "We check page performance, review site security and plan ongoing maintenance with your team.",
     },
   ];
 
@@ -99,17 +98,6 @@ export default function ServicesClient() {
     },
   ];
 
-  const qualityStandards = [
-    { name: "Super Fast Loading", role: "Opens in under a second" },
-    { name: "Mobile Friendly", role: "Looks great on all phones & tablets" },
-    { name: "Bank-Grade Security", role: "Safe & protected customer data" },
-    { name: "Simple Online Payments", role: "Accept cards & Apple Pay easily" },
-    { name: "Google Search Ready", role: "Helps local clients discover you" },
-    { name: "Smart AI Capabilities", role: "Automate everyday work" },
-    { name: "24/7 High Reliability", role: "No unexpected crashes or downtime" },
-    { name: "Easy To Update", role: "Simple to make changes anytime" },
-  ];
-
   const valueProps = [
     {
       title: "Direct Communication",
@@ -136,12 +124,10 @@ export default function ServicesClient() {
         <div className="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16">
           <header className="grid items-end gap-8 py-14 sm:py-20 lg:grid-cols-[1.6fr_0.8fr] lg:gap-12">
             <h1 className="font-poppins-sb text-[clamp(2.6rem,7.3vw,6.6rem)] leading-[1.08] tracking-[-0.055em]">
-              <span className="block">Websites. <Image src="/images/hero/shape-cube.png" alt="" width={220} height={220} sizes="80px" className="inline-block size-[0.75em] rotate-[-8deg] object-contain align-baseline" /></span>
-              <span className="block">Web apps.</span>
-              <span className="block">AI tools<span className="text-primary">.</span></span>
+              What do you need your website to do?
             </h1>
             <div className="max-w-sm border-l-2 border-primary pl-5 lg:mb-2">
-              <p className="text-base leading-relaxed text-foreground/75">Give customers a place to find you, a way to book or buy, and tools that keep your team’s work moving.</p>
+              <p className="text-base leading-relaxed text-foreground/75">A company website helps people decide whether to call. An online store takes orders. A customer portal gives people a place to check a booking or send a document. Choose the service closest to the job you have in mind.</p>
               <Link href="/contact" className="mt-4 inline-flex min-h-11 items-center gap-3 font-poppins-m text-sm underline underline-offset-4 hover:opacity-75">
                 Discuss your project <IconArrowRight aria-hidden="true" size={16} />
               </Link>
@@ -185,9 +171,7 @@ export default function ServicesClient() {
               </WorkingWithUsItem>
             ))}
             <WorkingWithUsItem title="Quality standards" index={valueProps.length}>
-              <ul className="grid gap-3 pb-5 text-sm sm:grid-cols-2">
-                {qualityStandards.map(({ name, role }) => <li key={name}><strong>{name}</strong><br /><span className="text-foreground/65">{role}</span></li>)}
-              </ul>
+              <p className="pb-4 text-sm leading-relaxed text-foreground/70">Before launch, we check the mobile layout, test forms and follow the main customer journey from start to finish.</p>
             </WorkingWithUsItem>
           </div>
         </section>

@@ -14,12 +14,12 @@ export const metadata = {
   metadataBase: new URL("https://www.devrep.site"),
 
   title: {
-    default: "Web Development Agency & AI Solutions | DevRep Labs",
+    default: "Web Development Agency for Websites and Apps | DevRep Labs",
     template: "%s | DevRep Labs",
   },
 
   description:
-    "DevRep Labs is a web development agency building high-performance websites, custom web applications, e-commerce platforms, and AI-powered digital solutions for ambitious businesses.",
+    "Explore business websites, online stores and booking systems built by DevRep Labs. Browse our work and discuss the website your business needs.",
 
   keywords: [
     "Web Development Agency",
@@ -50,9 +50,9 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "DevRep Labs | Web Development & AI Solutions",
+    title: "Web Development Agency for Websites and Apps | DevRep Labs",
     description:
-      "High-performance websites, web applications, and AI-powered digital solutions for ambitious businesses.",
+      "Explore business websites, online stores and booking systems built by DevRep Labs. Browse our work and discuss the website your business needs.",
     url: "https://www.devrep.site",
     siteName: "DevRep Labs",
     images: [
@@ -69,9 +69,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "DevRep Labs | Web Development & AI Solutions",
+    title: "Web Development Agency for Websites and Apps | DevRep Labs",
     description:
-      "High-performance websites, web applications, and AI-powered digital solutions for ambitious businesses.",
+      "Explore business websites, online stores and booking systems built by DevRep Labs. Browse our work and discuss the website your business needs.",
     images: ["/share-card.png"],
     creator: "@devrep_labs",
     site: "@devrep_labs",
@@ -147,7 +147,7 @@ export default function RootLayout({ children }) {
                   },
                   image: "https://www.devrep.site/share-card.png",
                   description:
-                    "DevRep Labs is a web development agency building high-performance websites, custom web applications, e-commerce platforms, and AI-powered digital solutions for ambitious businesses.",
+                    "Explore business websites, online stores and booking systems built by DevRep Labs. Browse our work and discuss the website your business needs.",
                   email: "contact@devrep.site",
                   telephone: "+923391719123",
                   contactPoint: [

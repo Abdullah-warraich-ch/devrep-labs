@@ -40,7 +40,7 @@
   justify-items: center;
   row-gap: 0.09em;
   text-align: center;
-  font: 500 clamp(2rem, 7.9vw, 7rem)/1.04 "poppins-m", sans-serif;
+  font: 500 clamp(2rem, 6.8vw, 7rem)/1.04 "poppins-m", sans-serif;
   letter-spacing: -0.048em;
 }
 
@@ -117,7 +117,7 @@
 
 @media (max-width: 600px) {
   .stage { min-height: 390px; padding: 2.5rem 0.75rem; }
-  .title { font-size: 9.1vw; }
+  .title { font-size: 7.1vw; }
 }
 
 @media (prefers-reduced-motion: no-preference) {

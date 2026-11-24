@@ -1,7 +1,7 @@
 import ServicesClient from "./ServicesClient";
 
 export const metadata = {
-  title: "Services & What We Build",
+  title: "Custom Web Development Services",
   description:
     "Explore DevRep Labs' services in custom web software, modern business websites, smart AI automation tools, online stores, and product design.",
 
@@ -10,7 +10,7 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "Web Software, Websites & Smart AI Services | DevRep Labs",
+    title: "Custom Web Development Services | DevRep Labs",
     description:
       "Explore DevRep Labs' services in custom web software, modern business websites, smart AI automation tools, online stores, and product design.",
     url: "https://www.devrep.site/services",
@@ -29,7 +29,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Web Software, Websites & Smart AI Services | DevRep Labs",
+    title: "Custom Web Development Services | DevRep Labs",
     description:
       "Explore DevRep Labs' services in custom web software, modern business websites, smart AI automation tools, online stores, and product design.",
     images: ["/share-card.png"],
@@ -62,8 +62,8 @@ const servicesSchema = {
     {
       "@type": "Service",
       position: 1,
-      name: "Custom Web Software",
-      description: "Custom online portals, client dashboards, and tools built specifically around how your company operates.",
+      name: "Web application development",
+      description: "Give your staff and customers a shared place to manage requests and bookings.",
       provider: {
         "@type": "Organization",
         name: "DevRep Labs",
@@ -73,8 +73,8 @@ const servicesSchema = {
     {
       "@type": "Service",
       position: 2,
-      name: "Modern Business Websites",
-      description: "Fast, beautiful, and easy-to-use websites designed to build instant trust and turn visitors into paying clients.",
+      name: "Custom website development",
+      description: "Explain your services, show your work and give visitors a clear way to enquire.",
       provider: {
         "@type": "Organization",
         name: "DevRep Labs",
@@ -84,8 +84,8 @@ const servicesSchema = {
     {
       "@type": "Service",
       position: 3,
-      name: "Smart AI & Time-Saving Tools",
-      description: "Helpful AI assistants, automated chat support, and smart tools that handle repetitive daily tasks for you.",
+      name: "AI workflow automation",
+      description: "Sort incoming enquiries and prepare replies for someone on your team to review.",
       provider: {
         "@type": "Organization",
         name: "DevRep Labs",
@@ -95,8 +95,8 @@ const servicesSchema = {
     {
       "@type": "Service",
       position: 4,
-      name: "Online Stores & Payments",
-      description: "Smooth online shops with easy checkout and card payments so your customers can buy without hassle.",
+      name: "Ecommerce website development",
+      description: "Help shoppers choose a product, check delivery costs and pay.",
       provider: {
         "@type": "Organization",
         name: "DevRep Labs",
@@ -106,8 +106,8 @@ const servicesSchema = {
     {
       "@type": "Service",
       position: 5,
-      name: "Website & App Design",
-      description: "Clean, easy-to-navigate designs and visual previews so you can see and test everything before we build it.",
+      name: "UI/UX design services",
+      description: "Try your main screens on a phone before development starts.",
       provider: {
         "@type": "Organization",
         name: "DevRep Labs",
@@ -118,7 +118,7 @@ const servicesSchema = {
       "@type": "Service",
       position: 6,
       name: "Speed, Security & Care",
-      description: "We keep your website super fast, protected from cyber threats, and running smoothly 24/7 without crashes.",
+      description: "We check page performance, review site security and plan ongoing maintenance with your team.",
       provider: {
         "@type": "Organization",
         name: "DevRep Labs",

@@ -39,21 +39,22 @@ export default function HeroV2() {
         </div>
         <h1 className={styles.title}>
           <span className={styles.row}>
-            <RevealText><span className={styles.support}>We build</span> websites</RevealText>{" "}
+            <RevealText>Websites <span className={styles.support}>for businesses</span></RevealText>{" "}
             <ServicePhoto name="web-studio" />
           </span>{" "}
           <span className={styles.row}>
-            <RevealText><span className={styles.support}>and</span></RevealText>{" "}
-            <ServicePhoto name="app" />{" "}<RevealText>web apps</RevealText>
+            <RevealText><span className={styles.support}>that take</span></RevealText>{" "}
+            <ServicePhoto name="app" />{" "}<RevealText>bookings,</RevealText>
           </span>{" "}
           <span className={styles.row}>
             <ServicePhoto name="ai" />{" "}
-            <RevealText><span className={styles.support}>for your business<span className={styles.period}>.</span></span></RevealText>
+            <RevealText><span className={styles.support}>orders and enquiries</span></RevealText>
           </span>
         </h1>
+        <p className="max-w-2xl text-center text-base leading-relaxed sm:text-lg">We build business websites, online stores and custom web apps. Tell us what happens after someone visits your site. Do they book a room, ask for a quote or place an order?</p>
         <div className={styles.actions}>
-          <Link href="/book-a-demo">Book a Free Demo</Link>
-          <Link href="/projects">Explore our work</Link>
+          <Link href="/contact">Discuss your website</Link>
+          <Link href="/projects">Browse our projects</Link>
         </div>
       </div>
     </section>

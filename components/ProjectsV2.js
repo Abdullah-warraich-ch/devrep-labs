@@ -27,9 +27,10 @@ export default function ProjectsV2() {
             Selected work<span className="text-primary">.</span>
           </h2>
           <Link href="/projects" className="inline-flex min-h-11 items-center gap-1 text-sm underline-offset-4 hover:underline">
-            All projects <IconArrowUpRight size={16} aria-hidden="true" />
+            Browse our projects <IconArrowUpRight size={16} aria-hidden="true" />
           </Link>
         </header>
+        <p className="mb-6 max-w-2xl"><Link className="underline underline-offset-4" href="/projects">Browse our web development portfolio.</Link> Try the vehicle filters on AutoVault or follow a guest choosing dates at Griffin Heights.</p>
 
         <div className="isolate grid overflow-hidden rounded-3xl border border-foreground/10 bg-white">
           {featured.map((item, i) => (
