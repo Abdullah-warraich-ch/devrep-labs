@@ -3,12 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { IconArrowUpRight, IconArrowLeft } from "@tabler/icons-react";
+import { IconArrowUpRight, IconShoppingBag } from "@tabler/icons-react";
 import Navbar from "@/components/Navbar";
 import PreFooterCta from "@/components/PreFooterCta";
 import Footer from "@/components/Footer";
-import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
 import { projects } from "@/data/projects";
 
 export default function ProjectsClient() {
@@ -28,125 +26,61 @@ export default function ProjectsClient() {
   });
 
   return (
-    <main className="min-h-screen w-full bg-background relative overflow-x-hidden">
-      <div className="bg-background">
-        <Navbar />
-      </div>
-
-      {/* Projects Page Hero Banner */}
-      <section className="relative w-full pt-10 sm:pt-14 pb-14 sm:pb-16 bg-background border-b border-foreground/10">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
-          
-          {/* Back to Home Link */}
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/60 hover:text-foreground transition-colors mb-4 group"
-          >
-            <IconArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-0.5" />
-            <span>Back to Home</span>
-          </Link>
-
-          <div className="max-w-2xl space-y-3">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight font-poppins-sb">
-              Our Complete{" "}
-              <span className="relative inline-block text-primary pb-1">
-                Portfolio
-                <HandDrawnUnderline />
-              </span>
-            </h1>
-
-            <p className="text-sm sm:text-base text-foreground/70 font-normal leading-relaxed">
-              Explore our full collection of live web applications, AI platforms, and bespoke digital solutions designed to drive measurable growth.
-            </p>
-          </div>
-
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2.5 pt-8">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
-                  activeCategory === cat
-                    ? "bg-primary text-white shadow-sm shadow-primary/30"
-                    : "bg-foreground/[0.04] text-foreground/70 hover:text-foreground hover:bg-foreground/[0.08] border border-foreground/10"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
+    <div className="bg-white font-poppins-r text-foreground">
+      <Navbar />
+      <main className="mx-auto max-w-7xl px-5 pb-16 sm:px-10 lg:px-16">
+        <header className="grid items-end gap-5 py-12 sm:py-16 md:grid-cols-[1.3fr_1fr]">
+          <h1 className="font-poppins-m text-[clamp(3rem,8vw,7rem)] leading-none tracking-[-0.065em]">
+            Our projects<span className="text-primary">.</span>
+          </h1>
+          <p className="max-w-sm text-sm leading-relaxed text-foreground/70 sm:text-base md:justify-self-end">
+            Explore the websites, stores and tools we’ve built. Open a live project to see how it works.
+          </p>
+        </header>
+        <div role="group" aria-label="Filter projects" className="mb-7 flex flex-wrap items-center gap-x-5 gap-y-1 border-y border-foreground/15 sm:mb-10 sm:gap-x-8">
+          {categories.map((cat) => (
+            <button key={cat} type="button" aria-pressed={activeCategory === cat} onClick={() => setActiveCategory(cat)}
+              className="min-h-12 cursor-pointer border-b-2 border-transparent text-sm text-foreground/70 hover:text-foreground aria-pressed:border-primary aria-pressed:font-poppins-m aria-pressed:text-foreground">
+              {cat}
+            </button>
+          ))}
         </div>
-      </section>
-
-      {/* All Projects Grid Section */}
-      <section className="relative w-full py-16 sm:py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
-          <h2 className="sr-only">Our Featured Client Projects</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-[16/10] border border-foreground/10 bg-surface shadow-sm hover:shadow-xl transition-all duration-300"
-              >
-                {/* Project Screenshot (Edge-to-Edge) */}
-                <Image
-                  src={project.image}
-                  alt={`${project.title} — ${project.category}`}
-                  title={`${project.title} — ${project.category} | DevRep Labs`}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
-                  priority={index < 2}
-                  className="object-cover object-top"
-                />
-
-                {/* Gradient Overlay — visible on mobile/tablet, hover on desktop */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300" />
-
-                {/* Content — visible on mobile/tablet, hover on desktop */}
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 flex flex-col justify-end translate-y-0 opacity-100 lg:translate-y-3 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-300 z-10">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase text-primary">
-                      {project.category}
+        <p aria-live="polite" className="sr-only">{filteredProjects.length} projects shown</p>
+        <section aria-label="Project gallery" className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:gap-y-14">
+          {filteredProjects.map((project, index) => {
+            const featured = index === 0;
+            return (
+              <article key={project.id} className={featured ? "grid overflow-hidden rounded-2xl bg-neutral-100 sm:col-span-2 md:grid-cols-[1.45fr_1fr]" : "min-w-0"}>
+                <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} live preview`}
+                  className={`relative block overflow-hidden bg-neutral-100 transition-opacity hover:opacity-95 ${featured ? "aspect-[3/2] md:aspect-auto md:min-h-80" : "aspect-[16/10] rounded-xl"}`}>
+                  {project.image ? (
+                    <Image src={project.image} alt={`${project.title} website preview`} fill priority={featured}
+                      sizes={featured ? "(min-width: 1280px) 680px, (min-width: 768px) 57vw, 100vw" : "(min-width: 1280px) 560px, (min-width: 640px) 48vw, 100vw"}
+                      className="object-cover object-center" />
+                  ) : (
+                    <span className="absolute inset-0 grid place-items-center bg-[#191a20] text-white">
+                      <IconShoppingBag aria-hidden="true" size={84} stroke={1} />
                     </span>
+                  )}
+                </a>
+                <div className={featured ? "flex flex-col justify-center p-6 lg:p-10" : "pt-5"}>
+                  <p className="text-xs font-poppins-m text-foreground/65">{project.category}</p>
+                  <h2 className={`mt-2 font-poppins-m leading-tight tracking-tight ${featured ? "text-3xl lg:text-5xl" : "text-2xl sm:text-3xl"}`}>{project.title}</h2>
+                  <p className="mt-3 max-w-lg text-sm leading-relaxed text-foreground/70">{project.description}</p>
+                  <div className="mt-3 flex flex-wrap items-center gap-x-6">
+                    <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-1.5 font-poppins-m text-sm hover:underline">
+                      Live preview <IconArrowUpRight aria-hidden="true" size={16} className="text-primary" />
+                    </a>
+                    {project.caseStudy && <Link href={project.caseStudy} className="inline-flex min-h-11 items-center text-sm underline underline-offset-4">Read case study</Link>}
                   </div>
-
-                  <h3 className="text-lg sm:text-xl font-semibold text-white leading-snug mb-1.5 font-poppins-sb">
-                    {project.caseStudy ? <Link href={project.caseStudy} className="underline">{project.title} case study</Link> : project.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-[13px] text-white/80 leading-relaxed font-normal mb-4 max-w-md">
-                    {project.description}
-                  </p>
-
-                  {/* View Live Button */}
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold font-poppins-m text-white bg-primary hover:bg-primary/90 shadow-sm transition-all duration-200 w-fit"
-                  >
-                    <span>View Live Project</span>
-                    <IconArrowUpRight className="size-3.5" />
-                  </a>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* Pre-Footer Call to Action */}
+              </article>
+            );
+          })}
+        </section>
+      </main>
       <PreFooterCta />
-
-      {/* Footer */}
       <Footer />
-    </main>
+    </div>
   );
 }

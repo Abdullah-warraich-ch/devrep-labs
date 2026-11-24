@@ -59,7 +59,6 @@ export const projects = [
     title: "Simple E-Commerce Page",
     category: "E-Commerce",
     description: "High-performance product showcase with interactive cart flow and responsive design.",
-    image: "/projects/project1.webp",
     link: "https://e-commerce-product-page-beta-sand.vercel.app/",
     tags: ["React", "Tailwind CSS", "JavaScript"],
   },

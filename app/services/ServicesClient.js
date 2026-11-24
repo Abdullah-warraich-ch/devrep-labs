@@ -1,8 +1,7 @@
-"use client";
+import Image from "next/image";
 
 import Link from "next/link";
 import {
-  IconArrowLeft,
   IconArrowRight,
   IconCode,
   IconDeviceDesktop,
@@ -10,19 +9,11 @@ import {
   IconShoppingCart,
   IconPalette,
   IconShieldCheck,
-  IconBolt,
-  IconHeartHandshake,
-  IconSparkles,
-  IconLock,
-  IconDevices,
-  IconSearch,
-  IconCreditCard,
 } from "@tabler/icons-react";
 import Navbar from "@/components/Navbar";
 import PreFooterCta from "@/components/PreFooterCta";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
-import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
 
 export default function ServicesClient() {
 
@@ -115,224 +106,94 @@ export default function ServicesClient() {
 
   const valueProps = [
     {
-      icon: IconHeartHandshake,
       title: "Direct Communication",
       desc: "You speak directly with the creators building your project. No confusing middlemen or frustrating delays.",
     },
     {
-      icon: IconSparkles,
       title: "Made Just For You",
       desc: "Everything is crafted specifically for your business goals. We don't force you into rigid, cookie-cutter templates.",
     },
     {
-      icon: IconShieldCheck,
       title: "Honest, Fixed Pricing",
       desc: "Clear upfront quotes with zero hidden surprises. You get what we promised, on time, and you own everything 100%.",
     },
     {
-      icon: IconBolt,
       title: "Built For Growth",
       desc: "We build reliable digital tools that keep running smoothly and scale effortlessly as your business gets more customers.",
     },
   ];
 
   return (
-    <main className="min-h-screen w-full bg-background relative overflow-x-hidden">
-      <div className="bg-background">
-        <Navbar />
-      </div>
-
-      {/* Hero Banner Section */}
-      <section className="relative w-full pt-10 sm:pt-14 pb-16 sm:pb-20 bg-background border-b border-foreground/10 overflow-hidden">
-        {/* Subtle Ambient Glow */}
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-primary/10 blur-3xl pointer-events-none" />
-
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
-          {/* Breadcrumb Back Link */}
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/60 hover:text-foreground transition-colors mb-4 group"
-          >
-            <IconArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-0.5" />
-            <span>Back to Home</span>
-          </Link>
-
-          {/* Headline */}
-          <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold tracking-tight text-foreground leading-[1.15] mb-5 font-poppins-sb">
-              Web development{" "}
-              <span className="relative inline-block text-primary pb-1">
-                and AI services
-                <HandDrawnUnderline />
-              </span>
-            </h1>
-
-            <p className="text-sm sm:text-base md:text-lg text-foreground/70 font-normal leading-relaxed mb-8 max-w-2xl">
-              From custom online software and smart time-saving tools to fast, modern websites—we build digital experiences that help your business attract more customers and grow with confidence.
-            </p>
-
-            {/* CTA Button */}
-            <div className="flex items-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold font-poppins-m text-white bg-primary hover:bg-primary/90 shadow-md shadow-primary/20 transition-all duration-200 cursor-pointer group">
-                <span>Tell Us About Your Project</span>
-                <IconArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+    <div className="bg-white font-poppins-r text-foreground">
+      <Navbar />
+      <main>
+        <div className="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16">
+          <header className="grid items-center gap-8 py-14 sm:grid-cols-[1.5fr_1fr] sm:py-20">
+            <div>
+              <h1 className="font-poppins-m text-[clamp(2.6rem,6.8vw,6rem)] leading-[1.02] tracking-[-0.065em]">
+                Web development<br />and AI services<span className="text-primary">.</span>
+              </h1>
+              <p className="mt-5 max-w-md text-base leading-relaxed text-foreground/70">From your first business website to custom software that takes everyday work off your hands.</p>
+              <Link href="/contact" className="mt-6 inline-flex items-center gap-4 rounded-full bg-foreground px-5 py-3 font-poppins-m text-sm text-white hover:opacity-85">
+                Discuss your project <IconArrowRight aria-hidden="true" size={16} />
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid Section */}
-      <section className="relative w-full py-16 sm:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
-            <div>
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary mb-2 block font-poppins-sb">
-                How We Can Help You
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground font-poppins-sb">
-                Our Core Services
-              </h2>
+            <div className="relative isolate hidden aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl bg-neutral-100 sm:flex">
+              <div aria-hidden="true" className="absolute -bottom-1/3 left-[12%] -z-10 aspect-square w-3/4 rounded-full bg-primary" />
+              <Image src="/images/first_card.webp" alt="" width={360} height={360} sizes="(min-width: 1024px) 320px, 30vw" className="h-auto w-3/4 object-contain" />
             </div>
-            <p className="text-xs sm:text-sm text-foreground/70 max-w-md font-normal leading-relaxed">
-              Every project is designed to be simple for you to manage, dependable for your business, and enjoyable for your customers to use.
-            </p>
-          </div>
+          </header>
 
-          <Link href="/services/custom-web-development" className="inline-block py-3 font-poppins-m underline">Explore custom web development</Link>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 pt-4 items-stretch">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={service.id}
-                index={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                href="/contact"
-              />
+          <section aria-labelledby="service-heading" className="pb-14 sm:pb-20">
+            <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
+              <h2 id="service-heading" className="font-poppins-m text-3xl tracking-tight sm:text-4xl">What we do</h2>
+              <Link href="/services/custom-web-development" className="py-2 text-sm underline underline-offset-4">Explore custom web development</Link>
+            </div>
+            <div className="grid gap-x-12 md:grid-cols-2">
+              {services.map((service) => <ServiceCard key={service.id} {...service} href="/contact" />)}
+            </div>
+          </section>
+        </div>
+
+        <section className="bg-[#191a20] px-5 py-14 text-white sm:px-10 sm:py-20">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="font-poppins-m text-4xl tracking-tight sm:text-5xl">From idea to launch<span className="text-primary">.</span></h2>
+            <ol className="mt-9 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+              {processSteps.map((step) => (
+                <li key={step.step} className="border-t border-white/25 pt-4">
+                  <span className="font-mono text-sm text-white/65">{step.step}</span>
+                  <h3 className="mt-4 font-poppins-m text-xl tracking-tight">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/75">{step.description}</p>
+                  <ul className="mt-4 list-disc space-y-1 pl-4 text-xs text-white/75 marker:text-primary">
+                    {step.details.map((detail) => <li key={detail}>{detail}</li>)}
+                  </ul>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+        <section className="mx-auto grid max-w-7xl gap-7 px-5 py-14 sm:px-10 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-16">
+          <h2 className="font-poppins-m text-3xl tracking-tight sm:text-4xl">Working with us</h2>
+          <div className="divide-y divide-foreground/15 border-y border-foreground/15">
+            {valueProps.map(({ title, desc }) => (
+              <details key={title} className="group">
+                <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-poppins-m [&::-webkit-details-marker]:hidden">
+                  {title}<IconArrowRight aria-hidden="true" size={16} className="group-open:rotate-90" />
+                </summary>
+                <p className="pb-4 text-sm leading-relaxed text-foreground/70">{desc}</p>
+              </details>
             ))}
+            <details>
+              <summary className="cursor-pointer py-4 font-poppins-m">Quality standards</summary>
+              <ul className="grid gap-3 pb-5 text-sm sm:grid-cols-2">
+                {qualityStandards.map(({ name, role }) => <li key={name}><strong>{name}</strong><br /><span className="text-foreground/65">{role}</span></li>)}
+              </ul>
+            </details>
           </div>
-        </div>
-      </section>
-
-      {/* How We Work: 4-Step Process */}
-      <section className="relative w-full py-16 sm:py-24 bg-background border-y border-foreground/10">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
-          <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary mb-2 block font-poppins-sb">
-              Simple 4-Step Process
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4 font-poppins-sb">
-              From First Idea to Successful Launch
-            </h2>
-            <p className="text-xs sm:text-sm text-foreground/70 font-normal leading-relaxed">
-              We guide you through every step with clear, straightforward updates, so you always know what we&apos;re working on and when it will be ready.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {processSteps.map((step) => (
-              <div
-                key={step.step}
-                className="relative bg-foreground/[0.03] p-6 sm:p-7 rounded-3xl border border-foreground/10 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="text-3xl sm:text-4xl font-black text-primary/40 tracking-tighter mb-4 font-mono">
-                    {step.step}
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 leading-snug font-poppins-sb">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs text-foreground/70 leading-relaxed mb-4 font-normal">
-                    {step.description}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-foreground/10 space-y-1.5">
-                  {step.details.map((detail, dIdx) => (
-                    <div key={dIdx} className="flex items-center gap-1.5 text-[11px] text-foreground/80">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      <span>{detail}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose DevRep Labs: Value Props */}
-      <section className="relative w-full py-16 sm:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary mb-2 block font-poppins-sb">
-              The DevRep Difference
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground font-poppins-sb">
-              Why Businesses Love Working With Us
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {valueProps.map((item, index) => {
-              const IconItem = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-surface rounded-2xl p-6 border border-foreground/10 shadow-sm hover:border-primary/40 transition-all"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
-                    <IconItem className="size-5" />
-                  </div>
-                  <h3 className="text-sm sm:text-base font-bold text-foreground mb-1.5 font-poppins-sb">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-foreground/70 leading-relaxed font-normal">
-                    {item.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Quality Standards Grid */}
-      <section className="relative w-full py-14 sm:py-20 bg-background border-t border-foreground/10">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 text-center">
-          <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary mb-2 block font-poppins-sb">
-            Quality You Can Count On
-          </span>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-3 font-poppins-sb">
-            Built To The Highest Quality Standards
-          </h2>
-          <p className="text-xs sm:text-sm text-foreground/70 max-w-xl mx-auto mb-10 font-normal">
-            We take care of all the complex technical work behind the scenes, so you get an effortless, reliable experience.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto">
-            {qualityStandards.map((item) => (
-              <div
-                key={item.name}
-                className="px-4 py-2 rounded-2xl bg-foreground/[0.04] border border-foreground/10 flex items-center gap-2 hover:border-primary/40 transition-colors"
-              >
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-xs font-semibold text-foreground">{item.name}</span>
-                <span className="text-[10px] text-foreground/60">({item.role})</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pre-Footer Call to Action */}
+        </section>
+      </main>
       <PreFooterCta />
-
-      {/* Footer */}
       <Footer />
-    </main>
+    </div>
   );
 }

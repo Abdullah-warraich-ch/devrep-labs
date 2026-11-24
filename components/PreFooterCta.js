@@ -3,7 +3,7 @@ import { IconArrowUpRight } from "@tabler/icons-react";
 
 export default function PreFooterCta() {
   return (
-    <section id="contact" aria-labelledby="project-invitation" className="scroll-mt-14 bg-background px-5 text-foreground sm:px-10">
+    <section id="contact" aria-labelledby="project-invitation" className="scroll-mt-14 bg-white px-5 text-foreground sm:px-10">
       <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto] items-center gap-x-2 gap-y-6 lg:grid-cols-[1fr_1fr_auto] border-t border-foreground/15 py-12 sm:py-20">
         <h2 id="project-invitation" className="font-poppins-m text-[clamp(2.5rem,6vw,5rem)] leading-[1.04] tracking-[-0.055em]">
           Have a project<br />in mind<span className="text-primary">?</span>

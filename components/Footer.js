@@ -32,7 +32,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-background px-5 font-poppins-r text-foreground sm:px-10">
+    <footer className="bg-white px-5 font-poppins-r text-foreground sm:px-10">
       <div className="mx-auto max-w-6xl border-t border-foreground/15">
         <div className="grid gap-9 py-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-16 lg:py-14">
           <div>

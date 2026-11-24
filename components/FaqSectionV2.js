@@ -1,158 +1,58 @@
-"use client";
-
 import Link from "next/link";
-
-import { useState } from "react";
-import { IconPlus, IconMinus, IconArrowRight } from "@tabler/icons-react";
-import { motion, AnimatePresence } from "framer-motion";
-import HandDrawnUnderline from "@/components/ui/HandDrawnUnderline";
+import { IconArrowUpRight, IconPlus } from "@tabler/icons-react";
 
 const faqs = [
   {
-    question: "What is included in a website project?",
-    answer: "Every project includes custom website design, mobile optimization, fast page loading, domain & hosting setup, and step-by-step guidance from start to launch.",
+    question: "What’s included in a website project?",
+    answer: "We design and build your site for phones, tablets and desktops. We also optimize loading speed, set up your domain and hosting, and guide you through launch.",
   },
   {
-    question: "How do I get started with my new website?",
-    answer: "Simply click 'Get in Touch' or open our contact form. We'll discuss your goals and provide a clear proposal, scope, and timeline within 24 hours.",
+    question: "How long does a website take?",
+    answer: "Most sites take two to four weeks. The timeline depends on the number of pages and the features you need.",
   },
   {
-    question: "Will my website work on all mobile phones and computers?",
-    answer: "Yes! All of our websites are custom-built and rigorously tested to look stunning and function seamlessly across smartphones, tablets, laptops, and 4K desktop screens.",
+    question: "Can I add bookings or payments?",
+    answer: "Yes. We can build booking systems, integrate Stripe or PayPal, and connect your site to a customer portal or content management system.",
   },
   {
-    question: "How do you handle website support and updates after launch?",
-    answer: "We offer ongoing maintenance and dedicated support to ensure your website stays fast, secure, and up to date as your business scales.",
-  },
-  {
-    question: "Can you add custom features or online payment tools?",
-    answer: "Absolutely. We specialize in custom web applications: booking systems, payment gateways (Stripe/PayPal), portals, CMS integrations, and tailored APIs.",
-  },
-  {
-    question: "How long does it take to build and launch a website?",
-    answer: "Most custom websites are completed and launched within 2 to 4 weeks, depending on the scale and custom feature requirements of your project.",
+    question: "Can you help after launch?",
+    answer: "Yes. We offer ongoing maintenance, security updates and support as your site grows.",
   },
 ];
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+};
+
 export default function FaqSectionV2() {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-
   return (
-    <section
-      id="faq"
-      className="relative w-full py-24 sm:py-32 bg-background overflow-clip scroll-mt-14"
-      style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
-    >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
-      {/* Ambient background glows */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-primary/10 blur-[140px] rounded-full pointer-events-none mix-blend-screen" />
-        <div className="absolute bottom-10 left-10 w-72 h-72 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-      </div>
-
-      <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-          
-          {/* Left Column: Title & CTA */}
-          <div className="w-full lg:w-[40%] shrink-0 relative flex flex-col">
-            <div className="lg:sticky lg:top-32">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-poppins-sb text-foreground tracking-tight leading-tight">
-                Frequently Asked{" "}
-                <span className="relative inline-block text-primary pb-2">
-                  Questions
-                  <HandDrawnUnderline />
-                </span>
-              </h2>
-            </div>
-
-            <div className="flex flex-col gap-3 mt-12 lg:mt-0 lg:absolute lg:bottom-0 lg:left-0 lg:pb-6">
-              <span className="text-sm sm:text-[15px] text-foreground/80 font-poppins-m">
-                Still have questions or special requirements?
-              </span>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors cursor-pointer group font-poppins-sb w-fit">
-                <span className="underline underline-offset-4 decoration-foreground/30 group-hover:decoration-primary/50 transition-colors">Talk to us</span>
-                <IconArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
-            </div>
+    <section id="faq" aria-labelledby="faq-heading" className="scroll-mt-14 bg-neutral-50 px-5 py-14 font-poppins-r text-foreground sm:px-10 sm:py-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <div className="mx-auto max-w-3xl">
+        <h2 id="faq-heading" className="mb-7 font-poppins-m sm:mb-10 text-[clamp(2.5rem,5vw,4rem)] leading-none tracking-[-0.055em]">
+          FAQs<span className="text-primary">.</span>
+        </h2>
+        <div>
+          <div className="divide-y divide-foreground/15 border-y border-foreground/15">
+            {faqs.map(({ question, answer }) => (
+              <details key={question} name="homepage-faq" className="group">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left font-poppins-m focus-visible:outline-2 focus-visible:outline-offset-2 sm:text-lg [&::-webkit-details-marker]:hidden">
+                  {question}
+                  <IconPlus aria-hidden="true" size={18} className="shrink-0 text-foreground/65 motion-safe:transition-transform group-open:rotate-45 group-open:text-primary" />
+                </summary>
+                <p className="max-w-xl pb-5 pr-7 text-sm leading-relaxed text-foreground/70">{answer}</p>
+              </details>
+            ))}
           </div>
-
-          {/* Right Column: Relaxed FAQs */}
-          <div className="w-full lg:w-[60%] flex flex-col pt-2 lg:pt-0">
-            {faqs.map((faq, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-30px" }}
-                  transition={{ duration: 0.35, delay: index * 0.05 }}
-                  className="border-b border-foreground/10 last:border-b-0"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="w-full py-6 sm:py-7 flex items-start justify-between text-left gap-6 cursor-pointer focus:outline-none group"
-                    aria-expanded={isOpen}
-                  >
-                    <span className={`text-[16px] sm:text-[18px] transition-colors duration-200 leading-snug ${
-                      isOpen ? "text-foreground font-poppins-sb" : "text-foreground/80 font-poppins-m group-hover:text-foreground"
-                    }`}>
-                      {faq.question}
-                    </span>
-
-                    <span
-                      className={`shrink-0 flex items-center justify-center mt-0.5 transition-transform duration-300 ${
-                        isOpen ? "text-primary rotate-180" : "text-foreground/40 group-hover:text-foreground/70"
-                      }`}
-                    >
-                      {isOpen ? (
-                        <IconMinus size={22} strokeWidth={2} />
-                      ) : (
-                        <IconPlus size={22} strokeWidth={2} />
-                      )}
-                    </span>
-                  </button>
-
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pb-8 pr-12 text-sm sm:text-[15px] text-foreground/60 leading-relaxed font-normal">
-                          {faq.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
-          </div>
-
+          <Link href="/contact" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm underline decoration-foreground/30 underline-offset-4 hover:decoration-current">
+            Ask another question <IconArrowUpRight aria-hidden="true" size={16} />
+          </Link>
         </div>
       </div>
     </section>
