@@ -3,16 +3,10 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import styles from "./HeroV2.module.css";
 
-function ServiceImage({ name }) {
+function ServicePhoto({ name }) {
   return (
-    <Image
-      src={`/images/hero/${name}.webp`}
-      alt=""
-      width={420}
-      height={280}
-      sizes="(max-width: 600px) 12vw, 140px"
-      className={styles.photo}
-    />
+    <Image src={`/images/hero/${name}.webp`} alt="" width={420} height={280}
+      sizes="(max-width: 600px) 12vw, 140px" className={styles.photo} />
   );
 }
 
@@ -33,10 +27,16 @@ export default function HeroV2() {
       </svg>
       <Navbar />
       <div className={styles.stage}>
+        <div className={styles.accents} aria-hidden="true">
+          {["ring", "cube", "sphere"].map((shape) => (
+            <Image key={shape} src={`/images/hero/shape-${shape}.png`} alt="" width={220} height={220}
+              sizes="(max-width: 600px) 32px, 72px" className={styles[shape]} />
+          ))}
+        </div>
         <h1 className={styles.title}>
-          <span className={styles.row}>Creative websites <ServiceImage name="web-studio" /></span>{" "}
-          <span className={styles.row}>that make <ServiceImage name="app" /> brands</span>{" "}
-          <span className={styles.row}><ServiceImage name="ai" /> stand out.</span>
+          <span className={styles.row}><span><span className={styles.support}>We build</span> websites</span> <ServicePhoto name="web-studio" /></span>{" "}
+          <span className={styles.row}><span className={styles.support}>and</span> <ServicePhoto name="app" /> web apps</span>{" "}
+          <span className={styles.row}><ServicePhoto name="ai" /> <span className={styles.support}>for your business<span className={styles.period}>.</span></span></span>
         </h1>
         <div className={styles.actions}>
           <Link href="/contact">Start a project</Link>

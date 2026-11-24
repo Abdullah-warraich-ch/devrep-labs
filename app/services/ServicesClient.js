@@ -128,19 +128,17 @@ export default function ServicesClient() {
       <Navbar />
       <main>
         <div className="mx-auto max-w-7xl px-5 sm:px-10 lg:px-16">
-          <header className="grid items-center gap-8 py-14 sm:grid-cols-[1.5fr_1fr] sm:py-20">
-            <div>
-              <h1 className="font-poppins-m text-[clamp(2.6rem,6.8vw,6rem)] leading-[1.02] tracking-[-0.065em]">
-                Web development<br />and AI services<span className="text-primary">.</span>
-              </h1>
-              <p className="mt-5 max-w-md text-base leading-relaxed text-foreground/70">From your first business website to custom software that takes everyday work off your hands.</p>
-              <Link href="/contact" className="mt-6 inline-flex items-center gap-4 rounded-full bg-foreground px-5 py-3 font-poppins-m text-sm text-white hover:opacity-85">
+          <header className="grid items-end gap-8 py-14 sm:py-20 lg:grid-cols-[1.6fr_0.8fr] lg:gap-12">
+            <h1 className="font-poppins-sb text-[clamp(2.6rem,7.3vw,6.6rem)] leading-[1.08] tracking-[-0.055em]">
+              <span className="block">Websites. <Image src="/images/hero/shape-cube.png" alt="" width={220} height={220} sizes="80px" className="inline-block size-[0.75em] rotate-[-8deg] object-contain align-baseline" /></span>
+              <span className="block">Web apps.</span>
+              <span className="block">AI tools<span className="text-primary">.</span></span>
+            </h1>
+            <div className="max-w-sm border-l-2 border-primary pl-5 lg:mb-2">
+              <p className="text-base leading-relaxed text-foreground/75">Give customers a place to find you, a way to book or buy, and tools that keep your team’s work moving.</p>
+              <Link href="/contact" className="mt-4 inline-flex min-h-11 items-center gap-3 font-poppins-m text-sm underline underline-offset-4 hover:opacity-75">
                 Discuss your project <IconArrowRight aria-hidden="true" size={16} />
               </Link>
-            </div>
-            <div className="relative isolate hidden aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl bg-neutral-100 sm:flex">
-              <div aria-hidden="true" className="absolute -bottom-1/3 left-[12%] -z-10 aspect-square w-3/4 rounded-full bg-primary" />
-              <Image src="/images/first_card.webp" alt="" width={360} height={360} sizes="(min-width: 1024px) 320px, 30vw" className="h-auto w-3/4 object-contain" />
             </div>
           </header>
 

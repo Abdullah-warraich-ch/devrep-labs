@@ -9,7 +9,7 @@ import BrandLogo from "@/components/ui/BrandLogo";
 const primary = [
   { name: "Services", href: "/services" },
   { name: "Projects", href: "/projects" },
-  { name: "About", href: "/#about" },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 const secondary = [
