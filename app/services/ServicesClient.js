@@ -13,6 +13,7 @@ import {
 import Navbar from "@/components/Navbar";
 import PreFooterCta from "@/components/PreFooterCta";
 import Footer from "@/components/Footer";
+import WorkingWithUsItem from "./WorkingWithUsItem";
 import ServiceCard from "@/components/ServiceCard";
 
 export default function ServicesClient() {
@@ -173,20 +174,16 @@ export default function ServicesClient() {
         <section className="mx-auto grid max-w-7xl gap-7 px-5 py-14 sm:px-10 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-16">
           <h2 className="font-poppins-m text-3xl tracking-tight sm:text-4xl">Working with us</h2>
           <div className="divide-y divide-foreground/15 border-y border-foreground/15">
-            {valueProps.map(({ title, desc }) => (
-              <details key={title} className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-poppins-m [&::-webkit-details-marker]:hidden">
-                  {title}<IconArrowRight aria-hidden="true" size={16} className="group-open:rotate-90" />
-                </summary>
+            {valueProps.map(({ title, desc }, index) => (
+              <WorkingWithUsItem key={title} title={title} index={index}>
                 <p className="pb-4 text-sm leading-relaxed text-foreground/70">{desc}</p>
-              </details>
+              </WorkingWithUsItem>
             ))}
-            <details>
-              <summary className="cursor-pointer py-4 font-poppins-m">Quality standards</summary>
+            <WorkingWithUsItem title="Quality standards" index={valueProps.length}>
               <ul className="grid gap-3 pb-5 text-sm sm:grid-cols-2">
                 {qualityStandards.map(({ name, role }) => <li key={name}><strong>{name}</strong><br /><span className="text-foreground/65">{role}</span></li>)}
               </ul>
-            </details>
+            </WorkingWithUsItem>
           </div>
         </section>
       </main>

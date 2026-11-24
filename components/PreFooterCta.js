@@ -9,13 +9,13 @@ export default function PreFooterCta() {
           Have a project<br />in mind<span className="text-primary">?</span>
         </h2>
         <svg aria-hidden="true" focusable="false" viewBox="0 0 256 180" className="w-[clamp(4.5rem,22vw,16rem)] justify-self-center text-foreground">
-          <g transform="rotate(-22 128 90)" fill="none" stroke="currentColor" strokeWidth="1.4">
-            {Array.from({ length: 15 }, (_, i) => (
-              <ellipse key={i} cx={79 + i * 7} cy="90" rx={26 + 7 * Math.cos(i * Math.PI / 7)} ry={52 - 15 * Math.sin(i * Math.PI / 14)}
-                transform={`rotate(${i * 4 - 28} ${79 + i * 7} 90)`} />
+          <g stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
+            {[24, 16, 8, 0].map((offset) => (
+              <path key={offset} transform={`translate(${-offset} ${offset})`}
+                d="M74 96 145 55l-37-9 10-23 88 21-25 85-23-7 12-38-76 44Z"
+                className={offset === 0 ? "fill-primary" : "fill-white"} />
             ))}
           </g>
-          <path d="M211 15q0 13 13 13-13 0-13 13 0-13-13-13 13 0 13-13Z" className="fill-primary" />
         </svg>
         <Link href="/contact" className="col-span-2 inline-flex justify-self-start items-center gap-4 lg:col-span-1 rounded-full bg-foreground px-6 py-3.5 font-poppins-m text-sm text-background transition-opacity hover:opacity-85">
           Start a project <IconArrowUpRight size={18} aria-hidden="true" />

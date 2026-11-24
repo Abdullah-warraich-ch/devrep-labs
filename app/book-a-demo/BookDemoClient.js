@@ -104,7 +104,7 @@ export default function BookDemoClient() {
 
   return (
     <div
-      className="min-h-screen bg-background text-foreground flex flex-col"
+      className="min-h-screen bg-white text-foreground flex flex-col"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       <Navbar />

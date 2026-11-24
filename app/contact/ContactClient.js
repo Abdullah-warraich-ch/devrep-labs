@@ -98,7 +98,7 @@ export default function ContactClient() {
 
   return (
     <div
-      className="min-h-screen bg-background text-foreground flex flex-col"
+      className="min-h-screen bg-white text-foreground flex flex-col"
       style={{ fontFamily: "'poppins-r', 'Poppins', sans-serif" }}
     >
       <Navbar />
@@ -117,6 +117,7 @@ export default function ContactClient() {
             </nav>
             {status === "success" ? (
               <InquirySuccess
+                compactProgress
                 labels={stepLabels}
                 title="We’ve received your inquiry!"
                 description="We’ll review your project and reply to your email within 24 hours."
@@ -125,6 +126,7 @@ export default function ContactClient() {
               />
             ) : (
               <InquirySteps
+                compactProgress
                 labels={stepLabels}
                 titles={["What can we help you with?", "What budget do you have in mind?", "Where can we reach you?"]}
                 onSubmit={handleSubmit}

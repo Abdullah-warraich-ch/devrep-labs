@@ -40,7 +40,7 @@
   justify-items: center;
   row-gap: 0.09em;
   text-align: center;
-  font: 600 clamp(2rem, 7.9vw, 7rem)/1.04 "poppins-sb", sans-serif;
+  font: 500 clamp(2rem, 7.9vw, 7rem)/1.04 "poppins-m", sans-serif;
   letter-spacing: -0.048em;
 }
 
@@ -118,4 +118,57 @@
 @media (max-width: 600px) {
   .stage { min-height: 390px; padding: 2.5rem 0.75rem; }
   .title { font-size: 9.1vw; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .row {
+    --line-delay: 0ms;
+  }
+
+  .row:nth-child(2) { --line-delay: 120ms; }
+  .row:nth-child(3) { --line-delay: 240ms; }
+
+  .mask {
+    overflow: clip;
+    padding-block: 0.12em;
+    margin-block: -0.12em;
+  }
+
+  .words {
+    display: block;
+    animation: headline-in 1000ms cubic-bezier(.22,1,.36,1) var(--line-delay) backwards;
+  }
+
+  .photo {
+    animation: photo-in 1050ms cubic-bezier(.22,1,.36,1) calc(var(--line-delay) + 130ms) backwards;
+  }
+
+  .orbits ellipse {
+    stroke-dasharray: 1;
+    animation: draw-orbit 1650ms cubic-bezier(.25,.75,.3,1) backwards;
+  }
+
+  .accents img { animation: accent-in 1100ms ease-out 260ms backwards; }
+  .accents .cube { animation-delay: 360ms; }
+  .accents .sphere { animation-delay: 460ms; }
+}
+
+@keyframes headline-in {
+  from { transform: translateY(120%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes photo-in {
+  from { opacity: 0; translate: 0 .26em; rotate: -6deg; }
+  to { opacity: 1; translate: 0 0; rotate: 0deg; }
+}
+
+@keyframes draw-orbit {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes accent-in {
+  from { opacity: 0; translate: 0 10px; rotate: -8deg; }
+  to { opacity: 1; translate: 0 0; rotate: 0deg; }
 }

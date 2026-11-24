@@ -4,11 +4,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PreFooterCta from "@/components/PreFooterCta";
 
-export const metadata = {
-  title: "About the Studio",
-  description: "Meet the web design and development studio behind DevRep Labs’ websites, booking tools, and custom web apps.",
-  alternates: { canonical: "/about" },
-};
+import { articleMetadata } from "@/components/ArticlePage";
+
+export const metadata = articleMetadata(
+  "About the Studio",
+  "Meet the web design and development studio behind DevRep Labs’ websites, booking tools, and custom web apps.",
+  "/about",
+);
 
 export default function AboutPage() {
   return (

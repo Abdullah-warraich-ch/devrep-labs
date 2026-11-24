@@ -1,5 +1,6 @@
+import FaqAccordion from "./FaqAccordion";
 import Link from "next/link";
-import { IconArrowUpRight, IconPlus } from "@tabler/icons-react";
+import { IconArrowUpRight } from "@tabler/icons-react";
 
 const faqs = [
   {
@@ -39,17 +40,7 @@ export default function FaqSectionV2() {
           FAQs<span className="text-primary">.</span>
         </h2>
         <div>
-          <div className="divide-y divide-foreground/15 border-y border-foreground/15">
-            {faqs.map(({ question, answer }) => (
-              <details key={question} name="homepage-faq" className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left font-poppins-m focus-visible:outline-2 focus-visible:outline-offset-2 sm:text-lg [&::-webkit-details-marker]:hidden">
-                  {question}
-                  <IconPlus aria-hidden="true" size={18} className="shrink-0 text-foreground/65 motion-safe:transition-transform group-open:rotate-45 group-open:text-primary" />
-                </summary>
-                <p className="max-w-xl pb-5 pr-7 text-sm leading-relaxed text-foreground/70">{answer}</p>
-              </details>
-            ))}
-          </div>
+          <FaqAccordion faqs={faqs} />
           <Link href="/contact" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm underline decoration-foreground/30 underline-offset-4 hover:decoration-current">
             Ask another question <IconArrowUpRight aria-hidden="true" size={16} />
           </Link>
